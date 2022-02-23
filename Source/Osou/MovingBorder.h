@@ -6,6 +6,8 @@
 #include "GameFramework/Actor.h"
 #include <vector>
 #include <math.h>
+#include "NiagaraFunctionLibrary.h"
+#include "NiagaraComponent.h"
 #include "MovingBorder.generated.h"
 struct BorderInstruction {
 	float x;
@@ -36,6 +38,7 @@ public:
 	FVector delta;
 	FVector scale;
 	std::vector<BorderInstruction> instructions;
+	UNiagaraComponent* particleEffect;
 	virtual void Tick(float DeltaTime) override;
 	void InitializeFromOutside();
 	void UpdateMovement(float DeltaTime);

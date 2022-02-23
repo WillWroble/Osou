@@ -2,8 +2,10 @@
 
 #pragma once
 #include <vector>
+#include <algorithm>
 #include "SpawnPoint.h"
 #include "MovingBorder.h"
+#include "TimeFrame.h"
 #include "CoreMinimal.h"
 
 /**
@@ -16,25 +18,31 @@ public:
 	~BulletSpawner();
 
 	//spawn transform data
-	std::vector<std::vector<SpawnPoint>> spawnTable;
+	std::vector<TimeFrame> spawnTable;
 	std::vector<BorderInstruction> borderInstructions;
 
 	//spawn time data
-	std::vector<float> spawnTimes;
+	//std::vector<float> spawnTimes;
 	std::vector<float> spawnTimesBorders;
 
 	//building functions
 	void AddRythm(std::vector<float> beat, int quanity, float offset);
-	void AddSpawnPoint(float x, float y, std::vector<float> angles, int index);
+	void SortSpawnTimes();
+	void AddSpawnPoint(float x, float y, std::vector<float> angles, int index, BulletType bType = BulletType::BasicBullet, std::vector<float> bCoeff = {700, 1});
 	void AddInstruction(int type, float x, float y, float duration);
-	void AddSpawnPoints(float x, float y, std::vector<float> angles, int timeSignature, int offset);
-	void AddTargetingSpawnPoint(float x, float y, std::vector<float> angles, int index);
-	void AddTargetingSpawnPoints(float x, float y, std::vector<float> angles, int timeSignature, int offset);
-	void AddCorners(std::vector<float> angles, int timeSignature, int offset);
-	void AddMultipleSpawnPoints(std::vector<float> xs, std::vector<float> ys, std::vector<float> angles, int index);
-	void AddMultipleLayersOfSpawnPoints(std::vector<float> xs, std::vector<float> ys, std::vector<float> angles, int timeSignature, int offset);
-	void AddHorizontalWallOfSpawnPoints(int width, int x, int y, std::vector<float> angles, int spacing, int index);
-	void AddLayersOfHorizontalSpawnPoints(int width, int x, int y, std::vector<float> angles, int spacing, int timeSignature, int offset);
+	void AddSpawnPoints(float x, float y, std::vector<float> angles, int timeSignature, int offset, BulletType bType = BulletType::BasicBullet, std::vector<float> bCoeff = {700, 1});
+	void AddTargetingSpawnPoint(float x, float y, std::vector<float> angles, int index, BulletType bType = BulletType::BasicBullet, std::vector<float> bCoeff = {700, 1});
+	void AddTargetingSpawnPoints(float x, float y, std::vector<float> angles, int timeSignature, int offset, BulletType bType = BulletType::BasicBullet, std::vector<float> bCoeff = {700, 1});
+	void AddDynamicSpawnPoint(float x, float y, std::vector<float> angles, int index, int timeSignature, BulletType bType = BulletType::BasicBullet, std::vector<float> bCoeff = {700, 1});
+	void AddDynamicSpawnPoints(float x, float y, std::vector<float> angles, int timeSignature, int offset, BulletType bType = BulletType::BasicBullet, std::vector<float> bCoeff = {700, 1});
+	void AddCorners(std::vector<float> angles, int timeSignature, int offset, BulletType Btype = BulletType::BasicBullet, std::vector<float> bCoeff = {700, 1});
+	void AddMultipleSpawnPoints(std::vector<float> xs, std::vector<float> ys, std::vector<float> angles, int index, BulletType bType = BulletType::BasicBullet, std::vector<float> bCoeff = {700, 1});
+	void AddMultipleLayersOfSpawnPoints(std::vector<float> xs, std::vector<float> ys, std::vector<float> angles, int timeSignature, int offset, BulletType bType = BulletType::BasicBullet, std::vector<float> bCoeff = {700, 1});
+	void AddHorizontalWallOfSpawnPoints(int width, int x, int y, std::vector<float> angles, int spacing, int index, BulletType Btype = BulletType::BasicBullet, std::vector<float> bCoeff = {700, 1});
+	void AddLayersOfHorizontalSpawnPoints(int width, int x, int y, std::vector<float> angles, int spacing, int timeSignature, int offset, BulletType bType = BulletType::BasicBullet, std::vector<float> bCoeff = { 700, 1 });
+	void AddProjectionFromPoint(FVector2D p, FVector2D l1, FVector2D l2, int spacing, int index, BulletType bType = BulletType::BasicBullet, std::vector<float> bCoeff = {700, 1});
+	void AddMovingSpawnPointByEquation(int spacing, int index, int timeSignature, float (*xfunc)(float), float (*yfunc)(float), float (*afunc)(float), BulletType bType = BulletType::BasicBullet, std::vector<float> bCoeff = {700, 1});
+	void AddSpawnPointByEquation(int spacing, int index, float (*xfunc)(float), float (*yfunc)(float), float (*afunc)(float), BulletType bType = BulletType::BasicBullet, std::vector<float> bCoeff = {700, 1});
 	
 
 };

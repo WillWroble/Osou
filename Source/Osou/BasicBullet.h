@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include <Vector>
 #include "BasicBullet.generated.h"
 
 UCLASS()
@@ -22,7 +23,13 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-	void UpdateMovement(float DeltaTime);
+	virtual void UpdateMovement(float DeltaTime);
+	virtual void Start(std::vector<float> coeff);
 	bool flaggedForRemoval;
+	float speed;
+	float coeffecient;
+	float time;
+	FVector scale;
+	std::vector<float> coeffeceints;
 
 };

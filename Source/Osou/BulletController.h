@@ -9,8 +9,11 @@
 #include "BasicBullet.h"
 #include "MovingBorder.h"
 #include "CoreMinimal.h"
+#include "EquationLibrary.h"
+#include "LevelLibrary.h"
 #include "GameFramework/Actor.h"
 #include "BulletController.generated.h"
+
 
 UCLASS()
 class OSOU_API ABulletController : public AActor
@@ -41,5 +44,9 @@ public:
 	std::list<ABasicBullet*> activeBullets;
 	UPROPERTY(EditDefaultsOnly, Category = "Parameters")
 		TSubclassOf<AActor> BulletClass;
+	UPROPERTY(EditDefaultsOnly, Category = "ExplodingBullet")
+		TSubclassOf<AActor> ExplodingBullet;
+	UPROPERTY(EditDefaultsOnly, Category = "CurvedBullet")
+		TSubclassOf<AActor> CurvedBullet;
 
 };

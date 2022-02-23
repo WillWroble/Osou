@@ -9,6 +9,7 @@ ABasicBullet::ABasicBullet()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
 	flaggedForRemoval = false;
+	speed = 0;
 
 }
 
@@ -30,7 +31,16 @@ void ABasicBullet::UpdateMovement(float DeltaTime)
 {
 	//float angle = GetActorRotation().Pitch * (PI) * (1/180);
 	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::SanitizeFloat(angle));
-	AddActorLocalOffset(FVector(1,0,0) * 700 * DeltaTime); //500
+	time += DeltaTime;
+	AddActorLocalOffset(FVector(1,0,0) * coeffeceints[0] * DeltaTime); //500
+	
+}
+
+void ABasicBullet::Start(std::vector<float> coeff)
+{
+	coeffeceints = coeff;
+	scale = GetActorScale() * coeffeceints[1];
+	SetActorScale3D(scale);
 	
 }
 

@@ -15,6 +15,9 @@ AMovingBorder::AMovingBorder()
 void AMovingBorder::BeginPlay()
 {
 	Super::BeginPlay();
+	
+	particleEffect = (UNiagaraComponent*)(this->GetComponentsByTag(UNiagaraComponent::StaticClass(), "tag1"))[0];
+
 }
 
 // Called every frame
@@ -38,15 +41,19 @@ void AMovingBorder::UpdateMovement(float DeltaTime)
 		if (instructions[instructionIndex].type == 2) {
 			//spawn in
 			isActive = true;
-			delta = FVector(instructions[0].x, 1, instructions[0].y);
+			particleEffect->SetVisibility(true);
+			delta = FVector(instructions[instructionIndex].x, 1, instructions[instructionIndex].y);
 			SetActorLocation(delta);
 		}
 		else if (instructions[instructionIndex].type == 3) {
 			//spawn out
 			isActive = false;
-			AddActorLocalOffset(FVector(0, -2, 0));
+			particleEffect->SetVisibility(false);
+			//AddActorLocalOffset(FVector(0, -2, 0));
 		}
+
 		instructionIndex++;
+
 		if (instructions[instructionIndex].type == 0) {
 			delta = FVector(instructions[instructionIndex].x - GetActorLocation().X, 0, instructions[instructionIndex].y - GetActorLocation().Z);
 		} else if (instructions[instructionIndex].type == 1) {
@@ -69,6 +76,7 @@ void AMovingBorder::ResetBorder()
 	timer = 0;
 	SetActorLocation(FVector(0, -1, 0));
 	SetActorScale3D(FVector(5, 5, 5));
+	particleEffect->SetVisibility(false);
 	isActive = false;
 }
 

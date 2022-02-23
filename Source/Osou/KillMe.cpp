@@ -10,7 +10,7 @@
 #include "EngineUtils.h"
 
 
-
+UWidget* childWidget;
 UPaperSpriteComponent* sprite;
 UPaperSpriteComponent* circleSprite;
 UAudioComponent* sound;
@@ -26,6 +26,7 @@ FVector baseScale;
 FVector scale;
 FVector baseLocation;
 
+bool isLevelFinsihedd;
 bool wasClicked;
 bool isMoving;
 int screenW;
@@ -33,6 +34,7 @@ int screenH;
 float travelTime;
 float timeout;
 bool hasStarted;
+bool clicked;
 
 
 // Sets default values
@@ -41,7 +43,9 @@ AKillMe::AKillMe()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	baseScale = FVector(0.3); //0.1675
 	PrimaryActorTick.bCanEverTick = true;
+	isLevelFinsihedd = false;
 	wasClicked = false;
+	clicked = false;
 	isMoving = false;
 	travelTime = 0;
 	timeout = 0;
@@ -106,8 +110,16 @@ void AKillMe::BeginPlay()
 	}
 	//emitter->SetHaltSpawning(true);
 	scale = baseScale;
+	hScore = 0;
+	rScore = 1;
+	perfects = 0;
+	total = 0;
+	invunerableTime = 0;
+	iCounter = 0;
+	isInvunerable = false;
 	//speed = baseSpeed / (*currentBeat)[0];
 	//currentBeat.clear();
+	//textBox->SetText(FText::FromString("I fucking hate unreal engine"));
 }
 
 // Called every frame
@@ -115,20 +127,45 @@ void AKillMe::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	clockTime += DeltaTime;
-	
-	bool clicked = pController->IsInputKeyDown(leftClick) || pController->IsInputKeyDown(space);
-	if(trail != nullptr && trail->EmitterInstances.Num() > 0)
-		trail->SetBeamSourcePoint(0, this->GetActorLocation(), 0);
-	if (clicked && !wasClicked) {
+	if (isInvunerable == true) {
+		invunerableTime += DeltaTime;
+		if (invunerableTime > iCounter * 0.1) {
+			if (iCounter % 2 == 0) {
+				sprite->SetVisibility(false);
+
+			} else {
+				sprite->SetVisibility(true);
+			}
+			iCounter++;
+		}
+		if (invunerableTime > 1.5) {
+			isInvunerable = false;
+			invunerableTime = 0;
+			iCounter = 0;
+		}
+	}
+	clicked = pController->IsInputKeyDown(leftClick) || pController->IsInputKeyDown(space);
+	if (trail != nullptr && trail->EmitterInstances.Num() > 0 && trail->EmitterInstances[0] != nullptr) {
+		FVector tPoint;
+		trail->EmitterInstances[0]->GetBeamTargetPoint(0, tPoint);
+		if (tPoint != GetActorLocation()) {
+			trail->SetBeamSourcePoint(0, GetActorLocation(), 0);
+		}
+	}
+	if (clicked && !wasClicked && !isLevelFinsihedd) {
 		drumBeat->Play();
 		if (transitionTimes[transitionIndex + 1] < clockTime) {
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, "BEAT CHANGE");
 			transitionIndex++;
-			currentBeat = &(beats[transitionIndex]);
 			if (beats[transitionIndex + 1].size() == 0) {
 				//just reset for now
 				transitionIndex = 0;
+				rScore = ((float)perfects/(float)total)*((float)100);
+				//hScore = 3;
+				isLevelFinsihedd = true;
+				OnFinishLevel();
 			}
+			currentBeat = &(beats[transitionIndex]);
 			index = 0;
 			clockTime = 0;
 		}
@@ -136,7 +173,7 @@ void AKillMe::Tick(float DeltaTime)
 		trail = UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), templateEmitter, FVector(0,2,0), FRotator(0));
 		trail->SetBeamTargetPoint(0, this->GetActorLocation(), 0);
 		trail->SetBeamSourcePoint(0, this->GetActorLocation(), 0);
-
+		total++;
 		if (timeout < (*currentBeat)[index] && hasStarted) {
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "EARLY");
 			Health -= ((*currentBeat)[index] + 0.08 - timeout) * 5;
@@ -166,12 +203,13 @@ void AKillMe::Tick(float DeltaTime)
 			} else {
 				Health = 1;
 			}
+			perfects++;
 			PopupType = 4;
 			OnSlightlyEarly();
 		}
 		if (Health <= 0) {
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "BAD RYTHM");
-			ResetEverything();
+			//ResetEverything();
 		}
 		hasStarted = true;
 		scale = baseScale;//FVector(0.06 + ((*currentBeat)[index] * 0.38));
@@ -225,6 +263,7 @@ void AKillMe::SetTransitions(std::vector<float> ts)
 }
 void AKillMe::ResetEverything()
 {
+	//return;
 	bulletController->ResetBullets();
 	transitionIndex = 0;
 	index = 0;
@@ -241,16 +280,34 @@ void AKillMe::ResetEverything()
 	hasStarted = false;
 	bulletController->border->ResetBorder();
 	Health = 1;
+	hScore = 0;
+	CloseWidget();
+	isLevelFinsihedd = false;
 	//RESET SOUND
 	sound->Stop();
 	sound->Play();
+}
+void AKillMe::FinishedLevel()
+{
+	OnFinishLevel();
 }
 void AKillMe::OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
 	if (OtherActor && (OtherActor != this) && OtherComp)
 	{
-		//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Overlap Begin"));
-		ResetEverything();
+		if (isLevelFinsihedd || isInvunerable) {
+			return;
+		}
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Overlap Begin"));
+		UpdateHealthBar();
+		hScore++;
+		if (hScore > 7) {
+			ResetEverything();
+		}
+		else {
+			isInvunerable = true;
+		}
+		//ResetEverything();
 	}
 }
 

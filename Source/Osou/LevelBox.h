@@ -24,6 +24,8 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	float timer;
+	float timer2;
+	bool isSelected_;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		bool isCursorHovering;
