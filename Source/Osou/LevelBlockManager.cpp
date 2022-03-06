@@ -11,14 +11,14 @@ ALevelBlockManager::ALevelBlockManager()
 	PrimaryActorTick.bCanEverTick = true;
 	timer = 0;
 	timer2 = 0;
-	levelDatas.push_back({ 1,0, LOCTEXT("levelName1", "UN Owen Was Her") });
-	levelDatas.push_back({ 2,0, LOCTEXT("levelName2", "WIP") });
-	levelDatas.push_back({ 3,0, LOCTEXT("levelName3", "WIP") });
-	levelDatas.push_back({ 4,0, LOCTEXT("levelName4", "WIP") });
-	levelDatas.push_back({ 5,0, LOCTEXT("levelName5", "WIP") });
-	levelDatas.push_back({ 6,0, LOCTEXT("levelName6", "WIP") });
-	levelDatas.push_back({ 7,0, LOCTEXT("levelName7", "WIP") });
-	levelDatas.push_back({ 8,0, LOCTEXT("levelName8", "WIP") });
+	levelDatas.push_back({ 1,0, LOCTEXT("levelName1", "Flowering Night (Tutorial) (WIP)") });
+	levelDatas.push_back({ 2,0, LOCTEXT("levelName2", "UN Owen Was Her") });
+	levelDatas.push_back({ 3,0, LOCTEXT("levelName3", "Beloved Tomboyish Girl (WIP)") });
+	levelDatas.push_back({ 4,0, LOCTEXT("levelName4", "Lullaby of a Deserted Hell (WIP)") });
+	levelDatas.push_back({ 5,0, LOCTEXT("levelName5", "Radiant Radiant Symphany (WIP)") });
+	levelDatas.push_back({ 6,0, LOCTEXT("levelName6", "Reach for the Moon (WIP)") });
+	levelDatas.push_back({ 7,0, LOCTEXT("levelName7", "Necrofantasia (WIP)") });
+	levelDatas.push_back({ 8,0, LOCTEXT("levelName8", "Flight of the Bamboo Cutter (WIP)") });
 	positionDeltas = std::vector<float>(8, 0);
 
 }
@@ -73,7 +73,8 @@ void ALevelBlockManager::Tick(float DeltaTime)
 		if (boxInstances[i]->isCursorHovering) {
 			if (pController->WasInputKeyJustPressed(leftClick)) {
 				if (boxInstances[i]->isSelected_) {
-					if (i == 0) {
+					if (i == 1) {
+						ABulletController::levelIndex = i;
 						UGameplayStatics::OpenLevel(this, FName("Minimal_Default"));
 					}
 					else {
@@ -104,7 +105,7 @@ void ALevelBlockManager::Tick(float DeltaTime)
 				boxInstances[i]->SetActorRelativeScale3D(FVector(boxInstances[i]->timer * 0.1 + 0.7));
 			}
 			else if (boxInstances[i]->timer2 < 0.5 && boxInstances[i]->isSelected_) {
-				if (DeltaTime > 1 - boxInstances[i]->timer2) {
+				if (DeltaTime > 0.5 - boxInstances[i]->timer2) {
 					UpdateDeltas(i, 100 * (0.5 - boxInstances[i]->timer2));
 					boxInstances[i]->AddActorLocalOffset(FVector(-350 * (0.5 - boxInstances[i]->timer2), 0, 0));
 					boxInstances[i]->timer2 = 0.5;

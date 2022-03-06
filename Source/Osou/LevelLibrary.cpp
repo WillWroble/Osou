@@ -7,10 +7,10 @@ std::vector<std::vector<BulletSpawner>> LevelLibrary::allLevels = std::vector<st
 
 void LevelLibrary::BuildLevels()
 {
+	//LEVEL ZERO
+	std::vector<BulletSpawner> levelZero = std::vector<BulletSpawner>();
+	allLevels.push_back(levelZero);
 	//LEVEL ONE
-	//std::vector<std::vector<BulletSpawner>> allLevels = std::vector<std::vector<BulletSpawner>>();
-
-
 	std::vector<BulletSpawner> levelOne;
 	levelOne.clear();
 	levelOne.push_back(BulletSpawner());
@@ -143,7 +143,8 @@ void LevelLibrary::BuildLevels()
 	levelOne[5].AddProjectionFromPoint(FVector2D(0, 0), FVector2D(-1909, -2630), FVector2D(0, 3250), 5, 38, BulletType::BasicBullet, { 300, 1 });
 
 	allLevels.push_back(levelOne);
-
+	//allLevels[1] = levelZero;
+	//allLevels[0] = levelOne;
 	//LEVEL TWO
 }
 

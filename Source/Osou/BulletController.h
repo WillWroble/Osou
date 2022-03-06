@@ -32,7 +32,7 @@ public:
 	//references
 	AMovingBorder* border;
 	//level selector
-	int levelIndex;
+	static int levelIndex;
 	int transitionIndex;
 	int index;    
 	// Called every frame

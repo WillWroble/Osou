@@ -7,6 +7,7 @@
 #include "GameFramework/Actor.h"
 #include "GameFramework/PlayerController.h"
 #include "LevelBox.h"
+#include "BulletController.h"
 #include "Engine/StaticMeshActor.h"
 #include "Components/AudioComponent.h"
 #include "Sound/SoundWave.h"

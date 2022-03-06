@@ -8,6 +8,7 @@ ABasicBullet* myBullet;
 AKillMe* player;
 BulletSpawner testSpawner;
 //std::vector<BulletSpawner> LevelLibrary::allLevels[levelIndex];
+int ABulletController::levelIndex = 0;
 
 // Sets default values
 ABulletController::ABulletController()
@@ -15,7 +16,6 @@ ABulletController::ABulletController()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 	clockTime = 0;
-	levelIndex = 0;
 	index = 0;
 	transitionIndex = 0;
 
@@ -192,6 +192,10 @@ void ABulletController::BeginPlay()
 	player->speed = player->baseSpeed / player->beats[0][0];
 	border->instructions = spawner->borderInstructions;
 	border->InitializeFromOutside();
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, *(FString::FromInt(LevelLibrary::allLevels.size())));
+	if (levelIndex == 0) {
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "WHAT THE FUCK");
+	}
 }
 
 // Called every frame
