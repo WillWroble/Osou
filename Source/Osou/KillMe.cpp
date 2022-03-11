@@ -19,12 +19,15 @@ UParticleSystemComponent* trail;
 FParticleEmitterInstance* emitter;
 APlayerController* pController;
 ABulletController* bulletController;
+AAkAmbientSound* musicEvent;
+AAkAmbientSound* endMusicEvent;
 FKey leftClick;
 FKey space;
 FVector direction;
 FVector baseScale;
 FVector scale;
 FVector baseLocation;
+//FAkAudioDevice* audioDevice;
 
 bool wasClicked;
 bool isMoving;
@@ -53,6 +56,7 @@ AKillMe::AKillMe()
 	baseLocation = FVector(0, 2, 0);
 	clockTime = 0;
 	beats = std::vector<std::vector<float>>(99);
+	tones = std::vector<std::vector<float>>(99);
 	beatTime = 0;
 	hasStarted = false;
 	Health = 1;
@@ -92,22 +96,27 @@ void AKillMe::BeginPlay()
 	pController->bEnableMouseOverEvents = true;
 	sprite->OnComponentBeginOverlap.AddDynamic(this, &AKillMe::OnOverlapBegin);
 	currentBeat = &(beats[0]);
+	currentTones = &(tones[0]);
 	if (templateEmitter == nullptr) {
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("DIDNT FIND CIRCLE COMPONENT"));
 	}
 	if (bulletController == nullptr) {
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("DIDNT FIND BULLET CONTROLLER"));
 	}
-	if (sound == nullptr) {
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("DIDNT FIND SOUND"));
-	}
 	if (drumBeat == nullptr) {
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("DIDNT FIND DRUMBEAT"));
 	}
+	//audioDevice = FAkAudioDevice::Get();
+	//musicEvent = FAkAudioDevice::Get()->PostEvent("Music", this);
 	//emitter->SetHaltSpawning(true);
 	scale = baseScale;
 	//speed = baseSpeed / (*currentBeat)[0];
 	//currentBeat.clear();
+	TActorIterator<AAkAmbientSound> Itr(GetWorld());
+	musicEvent = *Itr;
+	//++Itr;
+	//endMusicEvent = *Itr;
+
 }
 
 // Called every frame
@@ -120,11 +129,14 @@ void AKillMe::Tick(float DeltaTime)
 	if(trail != nullptr && trail->EmitterInstances.Num() > 0)
 		trail->SetBeamSourcePoint(0, this->GetActorLocation(), 0);
 	if (clicked && !wasClicked) {
-		drumBeat->Play();
+		//drumBeat->Play();
+		//musicEvent->StartPlaying();
+		currentTone = (*currentTones)[index];
 		if (transitionTimes[transitionIndex + 1] < clockTime) {
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, "BEAT CHANGE");
 			transitionIndex++;
 			currentBeat = &(beats[transitionIndex]);
+			currentTones = &(tones[transitionIndex]);
 			if (beats[transitionIndex + 1].size() == 0) {
 				//just reset for now
 				transitionIndex = 0;
@@ -140,23 +152,35 @@ void AKillMe::Tick(float DeltaTime)
 		if (timeout < (*currentBeat)[index] && hasStarted) {
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "EARLY");
 			Health -= ((*currentBeat)[index] + 0.08 - timeout) * 5;
+			error = ((*currentBeat)[index] + 0.08 - timeout) * 5;
+			error = FMath::Clamp(error, 0.0f, 0.25f);
+			error += 0.5;
 			PopupType = 0;
 			OnSlightlyEarly();
 			//ResetEverything();
 		} else if (timeout < (*currentBeat)[index] + 0.05) {
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Orange, "A LITTLE EARLY");
 			Health -= ((*currentBeat)[index] + 0.08 - timeout) * 5;
+			error = ((*currentBeat)[index] + 0.08 - timeout) * 5;
+			error = FMath::Clamp(error, 0.0f, 0.25f);
+			error += 0.5;
 			PopupType = 1;
 			OnSlightlyEarly();
 		} else if (timeout > 0.16 + (*currentBeat)[index]) {
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "LATE");
 			Health -= (timeout - (*currentBeat)[index] - 0.08) * 5;
+			error = (timeout - (*currentBeat)[index] - 0.08) * 5;
+			error = FMath::Clamp(error, 0.0f, 0.25f);
+			error = 0.5 - error;
 			PopupType = 2;
 			OnSlightlyEarly();
 			//ResetEverything();
 		} else if (timeout > (*currentBeat)[index] + 0.11) {
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Orange, "A LITTLE LATE");
 			Health -= (timeout - (*currentBeat)[index] - 0.08) * 5;
+			error = (timeout - (*currentBeat)[index] - 0.08) * 5;
+			error = FMath::Clamp(error, 0.0f, 0.25f);
+			error = 0.5 - error;
 			PopupType = 3;
 			OnSlightlyEarly();
 		} else {
@@ -166,6 +190,7 @@ void AKillMe::Tick(float DeltaTime)
 			} else {
 				Health = 1;
 			}
+			error = 0;
 			PopupType = 4;
 			OnSlightlyEarly();
 		}
@@ -215,9 +240,10 @@ void AKillMe::Tick(float DeltaTime)
 	}
 	wasClicked = clicked;
 }
-void AKillMe::AddRythm(std::vector<float> beat, int in)
+void AKillMe::AddRythm(std::vector<float> beat, std::vector<float> tone, int in)
 {
 	beats[in] = beat;
+	tones[in] = tone;
 }
 void AKillMe::SetTransitions(std::vector<float> ts)
 {
@@ -229,6 +255,7 @@ void AKillMe::ResetEverything()
 	transitionIndex = 0;
 	index = 0;
 	currentBeat = &(beats[0]);
+	currentTones = &(tones[0]);
 	scale = baseScale;
 	speed = baseSpeed / (*currentBeat)[0];
 	timeout = 0;
@@ -244,13 +271,15 @@ void AKillMe::ResetEverything()
 	//RESET SOUND
 	sound->Stop();
 	sound->Play();
+	
+
 }
 void AKillMe::OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
 	if (OtherActor && (OtherActor != this) && OtherComp)
 	{
 		//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Overlap Begin"));
-		ResetEverything();
+		//ResetEverything();
 	}
 }
 

@@ -1,0 +1,14 @@
+Event	ID	Name			Wwise Object Path	Notes
+	1190179409	Beat			\Default Work Unit\Beat	
+	1917263390	StopMusic			\Default Work Unit\StopMusic	
+	3827058668	StartMusic			\Default Work Unit\StartMusic	
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	1880695829	Error			\Default Work Unit\Error	
+	3209013337	Tone			\Default Work Unit\Tone	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	311577029	249205-Game_Error_4	C:\Users\wroblw\Documents\GitHub\Osou\Osou_WwiseProject\.cache\Mac\SFX\249205-Game_Error_4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\249205-Game_Error_4		176464
+	781519596	high_kick_2_wav	C:\Users\wroblw\Documents\GitHub\Osou\Osou_WwiseProject\.cache\Mac\SFX\high_kick_2_wav_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\high_kick_2_wav		176620
+	994464953	EoSD - U_N_ Owen was Her (1)	C:\Users\wroblw\Documents\GitHub\Osou\Osou_WwiseProject\.cache\Mac\SFX\EoSD - U.N. Owen was Her (1)_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\EoSD - U_N_ Owen was Her (1)		22277688
+

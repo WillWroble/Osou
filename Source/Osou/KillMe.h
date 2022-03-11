@@ -7,6 +7,7 @@
 #include <vector>
 #include "Particles/ParticleSystemComponent.h"
 #include "ParticleEmitterInstances.h"
+#include "../Plugins/WWise/Source/AkAudio/Classes/AkAmbientSound.h"
 #include "KillMe.generated.h"
 
 UCLASS()
@@ -25,11 +26,13 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-	void AddRythm(std::vector<float> beat, int in);
+	void AddRythm(std::vector<float> beat, std::vector<float> tone, int in);
 	void SetTransitions(std::vector<float> ts);
 	void ResetEverything();
 	std::vector<std::vector<float>> beats;
+	std::vector<std::vector<float>> tones;
 	std::vector<float>* currentBeat;
+	std::vector<float>* currentTones;
 	std::vector<float> transitionTimes;
 	int index;
 	int transitionIndex;
@@ -48,6 +51,10 @@ public:
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		int PopupType;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		float currentTone;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		float error;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		float metronomeSpeed;
 

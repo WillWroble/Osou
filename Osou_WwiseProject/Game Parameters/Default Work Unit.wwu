@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{75E5F19A-6EEF-4C6E-BC14-378CD4CCC120}" SchemaVersion="103">
+	<GameParameters>
+		<WorkUnit Name="Default Work Unit" ID="{75E5F19A-6EEF-4C6E-BC14-378CD4CCC120}" PersistMode="Standalone">
+			<ChildrenList>
+				<GameParameter Name="Tone" ID="{A900BE28-258B-4566-9800-8D53F875B7B5}"/>
+				<GameParameter Name="Error" ID="{BE83E5BB-07B2-487C-B761-612C05A6B602}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="0"/>
+						<Property Name="Max" Type="Real64" Value="1"/>
+					</PropertyList>
+				</GameParameter>
+			</ChildrenList>
+		</WorkUnit>
+	</GameParameters>
+</WwiseDocument>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{71F65D95-8BFB-4DD4-973D-BFE211D01190}" SchemaVersion="103">
+	<Events>
+		<WorkUnit Name="Default Work Unit" ID="{71F65D95-8BFB-4DD4-973D-BFE211D01190}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="StartMusic" ID="{BF4425E4-FCFB-4F6D-BBE1-D43F576FA800}">
+					<ChildrenList>
+						<Action Name="" ID="{2B6016FC-BEA8-497F-92EE-7CF9B5BACE0E}" ShortID="205758790">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="EoSD - U_N_ Owen was Her (1)" ID="{232896BF-152A-4AA6-84ED-254A796C5D3C}" WorkUnitID="{C1C63C67-3D59-4277-BDA6-3354FC583ABE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="StopMusic" ID="{E8060075-0238-4108-AF9E-47EE02767A86}">
+					<ChildrenList>
+						<Action Name="" ID="{3615EF9A-BCBF-4F9D-9D20-245CFAEBB80B}" ShortID="973799332">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="EoSD - U_N_ Owen was Her (1)" ID="{232896BF-152A-4AA6-84ED-254A796C5D3C}" WorkUnitID="{C1C63C67-3D59-4277-BDA6-3354FC583ABE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Beat" ID="{87CFD82C-7552-467B-B7F0-B132469D8109}">
+					<ChildrenList>
+						<Action Name="" ID="{C838F92E-FF8B-4BAE-8DC0-B29CD0223680}" ShortID="1069476697">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="high_kick_2_wav" ID="{04AE1A20-52CA-41A8-BED4-7423FBCEA619}" WorkUnitID="{C1C63C67-3D59-4277-BDA6-3354FC583ABE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{51307397-CB23-4905-8533-9AE793C63EB3}" ShortID="585006907">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="249205-Game_Error_4" ID="{9E03BCAB-9E0E-439A-B9E5-6810702E5F3F}" WorkUnitID="{C1C63C67-3D59-4277-BDA6-3354FC583ABE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

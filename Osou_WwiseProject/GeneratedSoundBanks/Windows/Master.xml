@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="140">
+	<RootPaths>
+		<ProjectRoot>C:\Users\wroblw\Documents\GitHub\Osou\Osou_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\wroblw\Documents\GitHub\Osou\Osou_WwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\wroblw\Documents\GitHub\Osou\Osou_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>C:\Users\wroblw\Documents\GitHub\Osou\Osou_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<SoundBanks>
+		<SoundBank Id="4056684167" GUID="{07E192E5-A4F4-4037-913F-DE3295D29A7A}" Language="SFX" Hash="3103558360">
+			<ObjectPath>\SoundBanks\Default Work Unit\Master</ObjectPath>
+			<ShortName>Master</ShortName>
+			<Path>Master.bnk</Path>
+			<IncludedEvents>
+				<Event Id="3991942870" Name="Music" ObjectPath="\Events\Default Work Unit\Music" GUID="{BF4425E4-FCFB-4F6D-BBE1-D43F576FA800}" DurationType="OneShot" DurationMin="126.290382" DurationMax="126.290382">
+					<IncludedMemoryFiles>
+						<File Id="994464953" Language="SFX">
+							<ShortName>EoSD - U.N. Owen was Her (1).wav</ShortName>
+							<Path>SFX\EoSD - U.N. Owen was Her (1)_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>

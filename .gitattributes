@@ -1,0 +1,3 @@
+Plugins/Wwise/ThirdParty/mac/Debug/lib/libAkSoundEngine.a filter=lfs diff=lfs merge=lfs -text
+Plugins/Wwise/ThirdParty/mac/Profile/lib/libAkSoundEngine.a filter=lfs diff=lfs merge=lfs -text
+Plugins/Wwise/ThirdParty/mac/Release/lib/libAkSoundEngine.a filter=lfs diff=lfs merge=lfs -text

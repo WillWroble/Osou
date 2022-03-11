@@ -61,8 +61,8 @@ void ABulletController::BeginPlay()
 	}
 	//add player beats
 	player->SetTransitions({ 0, 15.5 }); //15.5
-	player->AddRythm({0.2}, 0); //0.2
-	player->AddRythm({0.3}, 1);
+	player->AddRythm({ 0.2, 0.2, 0.2, 0.2, 0.2, 0.2 }, {50, 50, 50, 50, 50, 50}, 0); //0.2
+	player->AddRythm({ 0.3, 0.3 }, {50, 50}, 1);
 	spawner = &(testSpawners[0]);
 	player->speed = player->baseSpeed / player->beats[0][0];
 	border->instructions = spawner->borderInstructions;

@@ -1,0 +1,26 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "12",
+  "SoundbankVersion": "140",
+  "RootPaths": {
+   "ProjectRoot": "C:\\Users\\wroblw\\Documents\\GitHub\\Osou\\Osou_WwiseProject\\",
+   "SourceFilesRoot": "C:\\Users\\wroblw\\Documents\\GitHub\\Osou\\Osou_WwiseProject\\.cache\\Windows\\",
+   "SoundBanksRoot": "C:\\Users\\wroblw\\Documents\\GitHub\\Osou\\Osou_WwiseProject\\GeneratedSoundBanks\\Windows\\",
+   "ExternalSourcesInputFile": "",
+   "ExternalSourcesOutputRoot": "C:\\Users\\wroblw\\Documents\\GitHub\\Osou\\Osou_WwiseProject\\GeneratedSoundBanks\\Windows"
+  },
+  "SoundBanks": [
+   {
+    "Id": "1355168291",
+    "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
+    "Language": "SFX",
+    "Hash": "3157115005",
+    "ObjectPath": "Init",
+    "ShortName": "Init",
+    "Path": "Init.bnk"
+   }
+  ]
+ }
+}
