@@ -18,6 +18,10 @@ ABulletController::ABulletController()
 	clockTime = 0;
 	index = 0;
 	transitionIndex = 0;
+	isDisplayMessage = false;
+	messageCounter = 0;
+	messageTime = 0;
+	messageIndex = 0;
 
 }
 
@@ -184,10 +188,23 @@ void ABulletController::BeginPlay()
 		//do more things
 	}
 	//add player beats
-	player->SetTransitions({ 0, 15.5, 105 }); //105
-	player->AddRythm({0.2}, 0); //0.2
-	player->AddRythm({0.3}, 1);
-	player->AddRythm({ 0.69 }, 2);
+	//IMPORTANT 0.08 DELAY CONSTANT
+	if (levelIndex == 0) {
+		player->SetTransitions({ 0, 30, 90 }); //105
+		player->setSpeedMultis({ 1.4, 1, 1 });
+		player->AddRythm({ 0.42 }, 0); //0.2
+		player->AddRythm({ 0.42 }, 1);
+		player->AddRythm({ 0.42 }, 2);
+		player->AddTextInstruction(0, 5, 3, FString("welcome to osou :D"));
+		player->AddTextInstruction(1, 10, 0.5, FString("X2 Tempo in"), 1, 3);
+	}
+	else {
+		player->SetTransitions({ 0, 15.5, 105 }); //105
+		player->setSpeedMultis({ 1, 1, 1 });
+		player->AddRythm({ 0.2 }, 0); //0.2
+		player->AddRythm({ 0.3 }, 1);
+		player->AddRythm({ 0.69 }, 2);
+	}
 	spawner = &(LevelLibrary::allLevels[levelIndex][0]);
 	player->speed = player->baseSpeed / player->beats[0][0];
 	border->instructions = spawner->borderInstructions;
@@ -238,15 +255,91 @@ void ABulletController::Tick(float DeltaTime)
 		}
 		index++;
 		if (index == spawner->spawnTable.size()) {
-			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, "TRANSITIONING");
-			transitionIndex++;
-			if (transitionIndex == LevelLibrary::allLevels[levelIndex].size()) {
-				//just reset for now
-				transitionIndex = 0;
+			if (levelIndex == 0) {
+				if (transitionIndex == 0) {
+					//first transition
+					if (true) {
+						GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, "TRANSITIONING");
+						transitionIndex++;
+					}
+				}
+				else {
+					//second transition
+					if (true) {
+						GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, "TRANSITIONING");
+						transitionIndex++;
+					}
+				}
+				if (transitionIndex == LevelLibrary::allLevels[levelIndex].size()) {
+					//just reset for now
+					transitionIndex = 0;
+				}
+				spawner = &(LevelLibrary::allLevels[levelIndex][transitionIndex]);
+				index = 0;
+				clockTime = 0;
 			}
-			spawner = &(LevelLibrary::allLevels[levelIndex][transitionIndex]);
-			index = 0;
-			clockTime = 0;
+			else {
+				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, "TRANSITIONING");
+				transitionIndex++;
+				if (transitionIndex == LevelLibrary::allLevels[levelIndex].size()) {
+					//just reset for now
+					transitionIndex = 0;
+				}
+				spawner = &(LevelLibrary::allLevels[levelIndex][transitionIndex]);
+				index = 0;
+				clockTime = 0;
+			}
+		}
+	}
+	if (player->messages.size() > messageIndex && clockTime > player->messages[messageIndex].startTime) {
+		currentMessage = player->messages[messageIndex];
+		isDisplayMessage = true;
+		messageIndex++;
+	}
+	if (isDisplayMessage) {
+		if (currentMessage.type == 0) {
+			if (messageTime == 0) {
+				player->content = currentMessage.message;
+				player->FadeInText();
+			}
+			messageTime += DeltaTime;
+			if (messageTime > currentMessage.duration) {
+				player->FadeOutText();
+				messageTime = 0;
+				isDisplayMessage = false;
+			}
+		}
+		else {
+			if (messageTime == 0) {
+				player->content = currentMessage.message;
+				player->FadeInText();
+				messageCounter = 1;
+			}
+			else if (messageTime > currentMessage.duration) {
+				if (messageCounter % 2 == 0) {
+					//start next number
+					if (messageCounter == currentMessage.count * 2 + 2) {
+						player->content = FString("now!");
+					}
+					else {
+						player->content = FString::FromInt(currentMessage.count + 1 - (messageCounter / 2));
+					}
+					player->FadeInText();
+				}
+				else {
+					//start fading out
+					player->FadeOutText();
+				}
+				messageCounter++;
+				messageTime = 0.001;
+				
+			}
+			messageTime += DeltaTime;
+			if (messageCounter == currentMessage.count * 2 + 4) {
+				isDisplayMessage = false;
+				messageTime = 0;
+				messageCounter = 0;
+			}
 		}
 	}
 	std::list<ABasicBullet*>::iterator itr = activeBullets.begin();

@@ -35,8 +35,13 @@ public:
 	static int levelIndex;
 	int transitionIndex;
 	int index;    
+	int messageIndex;
+	bool isDisplayMessage;
+	on_screen_message currentMessage;
 	// Called every frame
 	float clockTime;
+	float messageTime;
+	int messageCounter;
 	virtual void Tick(float DeltaTime) override;
 	void ResetBullets();
 	int spawnerCount;

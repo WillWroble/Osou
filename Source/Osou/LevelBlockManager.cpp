@@ -73,7 +73,7 @@ void ALevelBlockManager::Tick(float DeltaTime)
 		if (boxInstances[i]->isCursorHovering) {
 			if (pController->WasInputKeyJustPressed(leftClick)) {
 				if (boxInstances[i]->isSelected_) {
-					if (i == 1) {
+					if (i == 1 || i == 0) {
 						ABulletController::levelIndex = i;
 						UGameplayStatics::OpenLevel(this, FName("Minimal_Default"));
 					}

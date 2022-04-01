@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include <vector>
+#include <utility>
 #include "Particles/ParticleSystemComponent.h"
 #include "ParticleEmitterInstances.h"
 #include "Blueprint/UserWidget.h"
@@ -12,6 +13,15 @@
 #include "Components/EditableTextBox.h"
 #include "Components/EditableText.h"
 #include "KillMe.generated.h"
+struct on_screen_message
+{
+	FString message;
+	float startTime;
+	float duration;
+	float interval;
+	int type;
+	int count;
+};
 
 UCLASS()
 class OSOU_API AKillMe : public AActor
@@ -31,11 +41,18 @@ public:
 	virtual void Tick(float DeltaTime) override;
 	void AddRythm(std::vector<float> beat, int in);
 	void SetTransitions(std::vector<float> ts);
+	void setSpeedMultis(std::vector<float> s);
+
+	void AddTextInstruction(int type, float start, float duration, FString textContent, float interval = 1, int count = 0);
 	//void ResetEverything();
 	void FinishedLevel();
 	std::vector<std::vector<float>> beats;
 	std::vector<float>* currentBeat;
 	std::vector<float> transitionTimes;
+	std::vector<float> speedMultis;
+	std::vector<on_screen_message> messages;
+	
+	float currentMulti;
 	int index;
 	int transitionIndex;
 	float baseSpeed;
@@ -43,9 +60,11 @@ public:
 	float clockTime;
 	float beatTime;
 	float invunerableTime;
+	float absoluteTimer;
 	int iCounter;
 	int beatIndex;
 	int perfects;
+	int messageIndex;
 	int total;
 	UFUNCTION(BlueprintImplementableEvent)
 	void OnSlightlyEarly();
@@ -57,6 +76,10 @@ public:
 	void CloseWidget();
 	UFUNCTION(BlueprintImplementableEvent)
 	void UpdateHealthBar();
+	UFUNCTION(BlueprintImplementableEvent)
+	void FadeInText();
+	UFUNCTION(BlueprintImplementableEvent)
+	void FadeOutText();
 	UFUNCTION(BlueprintCallable)
 	void ResetEverything();
 
@@ -75,11 +98,31 @@ public:
 		int hScore;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		bool isInvunerable;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		FString content;
 
 	UFUNCTION()
 		void OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 	UPROPERTY(EditDefaultsOnly, Category = "Parameters")
 		UParticleSystem* templateEmitter;
+	UPROPERTY(EditDefaultsOnly, Category = "song1")
+		USoundWave* song1;
+	UPROPERTY(EditDefaultsOnly, Category = "song2")
+		USoundWave* song2;
+	UPROPERTY(EditDefaultsOnly, Category = "song3")
+		USoundWave* song3;
+	UPROPERTY(EditDefaultsOnly, Category = "song4")
+		USoundWave* song4;
+	UPROPERTY(EditDefaultsOnly, Category = "song5")
+		USoundWave* song5;
+	UPROPERTY(EditDefaultsOnly, Category = "song6")
+		USoundWave* song6;
+	UPROPERTY(EditDefaultsOnly, Category = "song7")
+		USoundWave* song7;
+	UPROPERTY(EditDefaultsOnly, Category = "song8")
+		USoundWave* song8;
+
+
 	//UPROPERTY(EditDefaultsOnly, Category = "WidgetParam")
 	//	UUserWidget* widget;
 };

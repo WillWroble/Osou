@@ -4,12 +4,33 @@
 #include "LevelLibrary.h"
 
 std::vector<std::vector<BulletSpawner>> LevelLibrary::allLevels = std::vector<std::vector<BulletSpawner>>();
-
 void LevelLibrary::BuildLevels()
 {
 	//LEVEL ZERO
 	std::vector<BulletSpawner> levelZero = std::vector<BulletSpawner>();
+	levelZero.push_back(BulletSpawner());
+	levelZero[0].AddRythm({ 0.62, 0.1, 0.1 }, 20, 0);
+	levelZero[0].AddLayersOfHorizontalSpawnPoints(4500, -2250, 1200, { -90 }, 500, 6, 0);
+
+	levelZero[0].AddLayersOfHorizontalSpawnPoints(4500, -2250, 1200, { -90 }, 500, 6, 1);
+	levelZero[0].AddLayersOfHorizontalSpawnPoints(4500, -2300, 1200, { -90 }, 500, 6, 1);
+	levelZero[0].AddLayersOfHorizontalSpawnPoints(4500, -2200, 1200, { -90 }, 500, 6, 1);
+
+	levelZero[0].AddLayersOfHorizontalSpawnPoints(4500, -2250, 1200, { -90 }, 500, 6, 2);
+
+
+	levelZero[0].AddLayersOfHorizontalSpawnPoints(4250, -2000, 1200, { -90 }, 500, 6, 3);
+
+	levelZero[0].AddLayersOfHorizontalSpawnPoints(4250, -2000, 1200, { -90 }, 500, 6, 4);
+	levelZero[0].AddLayersOfHorizontalSpawnPoints(4250, -2050, 1200, { -90 }, 500, 6, 4);
+	levelZero[0].AddLayersOfHorizontalSpawnPoints(4250, -1950, 1200, { -90 }, 500, 6, 4);
+
+	levelZero[0].AddLayersOfHorizontalSpawnPoints(4250, -2000, 1200, { -90 }, 500, 6, 5);
+	
+	levelZero[0].AddInstruction(4, 0, 0, 9999);
+
 	allLevels.push_back(levelZero);
+	
 	//LEVEL ONE
 	std::vector<BulletSpawner> levelOne;
 	levelOne.clear();

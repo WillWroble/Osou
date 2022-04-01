@@ -96,6 +96,7 @@ void AKillMe::BeginPlay()
 	pController->bEnableMouseOverEvents = true;
 	sprite->OnComponentBeginOverlap.AddDynamic(this, &AKillMe::OnOverlapBegin);
 	currentBeat = &(beats[0]);
+	currentMulti = speedMultis[0];
 	if (templateEmitter == nullptr) {
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("DIDNT FIND CIRCLE COMPONENT"));
 	}
@@ -120,6 +121,36 @@ void AKillMe::BeginPlay()
 	//speed = baseSpeed / (*currentBeat)[0];
 	//currentBeat.clear();
 	//textBox->SetText(FText::FromString("I fucking hate unreal engine"));
+	int li = ABulletController::levelIndex;
+	if (li == 0) 
+	{
+		sound->SetWaveParameter(FName("wave"), song1);
+	} 
+	else if (li == 1) {
+		sound->SetWaveParameter(FName("wave"), song2);
+	}
+	else if (li == 2) {
+		sound->SetWaveParameter(FName("wave"), song3);
+	}
+	else if (li == 3) {
+		sound->SetWaveParameter(FName("wave"), song4);
+	}
+	else if (li == 4) {
+		sound->SetWaveParameter(FName("wave"), song5);
+	}
+	else if (li == 5) {
+		sound->SetWaveParameter(FName("wave"), song6);
+	}
+	else if (li == 6) {
+		sound->SetWaveParameter(FName("wave"), song7);
+	}
+	else if (li == 7) {
+		sound->SetWaveParameter(FName("wave"), song8);
+	}
+	else {
+		sound->SetWaveParameter(FName("wave"), song1);
+	}
+	
 }
 
 // Called every frame
@@ -166,6 +197,7 @@ void AKillMe::Tick(float DeltaTime)
 				OnFinishLevel();
 			}
 			currentBeat = &(beats[transitionIndex]);
+			currentMulti = speedMultis[transitionIndex];
 			index = 0;
 			clockTime = 0;
 		}
@@ -238,7 +270,7 @@ void AKillMe::Tick(float DeltaTime)
 		scale -= FVector(DeltaTime * 0.24 / ((*currentBeat)[index] + 0.08)); //0.38
 		circleSprite->SetRelativeScale3D(scale);
 		if (timeout < (*currentBeat)[index]) {
-			AddActorLocalOffset(direction * DeltaTime * speed);
+			AddActorLocalOffset(direction * DeltaTime * speed * currentMulti);
 		}
 	}
 	beatTime += DeltaTime;
@@ -251,6 +283,7 @@ void AKillMe::Tick(float DeltaTime)
 		}
 		OnBeatChange();
 	}
+
 	wasClicked = clicked;
 }
 void AKillMe::AddRythm(std::vector<float> beat, int in)
@@ -260,6 +293,21 @@ void AKillMe::AddRythm(std::vector<float> beat, int in)
 void AKillMe::SetTransitions(std::vector<float> ts)
 {
 	transitionTimes = ts;
+}
+void AKillMe::setSpeedMultis(std::vector<float> s)
+{
+	speedMultis = s;
+}
+void AKillMe::AddTextInstruction(int type, float start, float duration, FString textContent, float interval, int count)
+{
+	on_screen_message temp;
+	temp.duration = duration;
+	temp.startTime = start;
+	temp.type = type;
+	temp.message = textContent;
+	temp.interval = interval;
+	temp.count = count;
+	messages.push_back(temp);
 }
 void AKillMe::ResetEverything()
 {
