@@ -13,7 +13,7 @@
 UWidget* childWidget;
 UPaperSpriteComponent* sprite;
 UPaperSpriteComponent* circleSprite;
-UAudioComponent* sound;
+//UAudioComponent* sound;
 UAudioComponent* drumBeat;
 UParticleSystemComponent* trail;
 FParticleEmitterInstance* emitter;
@@ -124,7 +124,7 @@ void AKillMe::BeginPlay()
 	int li = ABulletController::levelIndex;
 	if (li == 0) 
 	{
-		sound->SetWaveParameter(FName("wave"), song1);
+		//sound->SetWaveParameter(FName("wave"), song0);
 	} 
 	else if (li == 1) {
 		sound->SetWaveParameter(FName("wave"), song2);
@@ -148,7 +148,7 @@ void AKillMe::BeginPlay()
 		sound->SetWaveParameter(FName("wave"), song8);
 	}
 	else {
-		sound->SetWaveParameter(FName("wave"), song1);
+		sound->SetWaveParameter(FName("wave"), song2);
 	}
 	
 }
@@ -187,17 +187,19 @@ void AKillMe::Tick(float DeltaTime)
 		drumBeat->Play();
 		if (transitionTimes[transitionIndex + 1] < clockTime) {
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, "BEAT CHANGE");
-			transitionIndex++;
-			if (beats[transitionIndex + 1].size() == 0) {
-				//just reset for now
-				transitionIndex = 0;
-				rScore = ((float)perfects/(float)total)*((float)100);
-				//hScore = 3;
-				isLevelFinsihedd = true;
-				OnFinishLevel();
+			if (ABulletController::levelIndex != 0) {
+				transitionIndex++;
+				if (beats[transitionIndex + 1].size() == 0) {
+					//just reset for now
+					transitionIndex = 0;
+					rScore = ((float)perfects / (float)total) * ((float)100);
+					//hScore = 3;
+					isLevelFinsihedd = true;
+					OnFinishLevel();
+				}
+				currentBeat = &(beats[transitionIndex]);
+				currentMulti = speedMultis[transitionIndex];
 			}
-			currentBeat = &(beats[transitionIndex]);
-			currentMulti = speedMultis[transitionIndex];
 			index = 0;
 			clockTime = 0;
 		}
@@ -343,7 +345,7 @@ void AKillMe::OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AA
 {
 	if (OtherActor && (OtherActor != this) && OtherComp)
 	{
-		if (isLevelFinsihedd || isInvunerable) {
+		if (isLevelFinsihedd || isInvunerable || ABulletController::levelIndex == 0) {
 			return;
 		}
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Overlap Begin"));

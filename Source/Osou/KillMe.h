@@ -51,6 +51,7 @@ public:
 	std::vector<float> transitionTimes;
 	std::vector<float> speedMultis;
 	std::vector<on_screen_message> messages;
+	UAudioComponent* sound;
 	
 	float currentMulti;
 	int index;
@@ -105,8 +106,14 @@ public:
 		void OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 	UPROPERTY(EditDefaultsOnly, Category = "Parameters")
 		UParticleSystem* templateEmitter;
-	UPROPERTY(EditDefaultsOnly, Category = "song1")
-		USoundWave* song1;
+	UPROPERTY(EditDefaultsOnly, Category = "song0")
+		USoundWave* song0;
+	UPROPERTY(EditDefaultsOnly, Category = "song1.1")
+		USoundWave* song1_1;
+	UPROPERTY(EditDefaultsOnly, Category = "song1.2")
+		USoundWave* song1_2;
+	UPROPERTY(EditDefaultsOnly, Category = "song1.3")
+		USoundWave* song1_3;
 	UPROPERTY(EditDefaultsOnly, Category = "song2")
 		USoundWave* song2;
 	UPROPERTY(EditDefaultsOnly, Category = "song3")

@@ -6,28 +6,87 @@
 std::vector<std::vector<BulletSpawner>> LevelLibrary::allLevels = std::vector<std::vector<BulletSpawner>>();
 void LevelLibrary::BuildLevels()
 {
+	//ANGEL SETS
+	std::vector<float> A1 = { 0, 22.5, 45, 67.5, 90, 112.5, 135, 157.5, 180, 202.5, 225, 247.5, 270, 292.5, 315, 337.5 };
+	std::vector<float> B1 = { 0, 10, 20, 30, 40, 50, 60, 70, 80, 90 };
+	std::vector<float> B2 = std::vector<float>(10);
+	std::vector<float> B3 = std::vector<float>(10);
+	std::vector<float> B4 = std::vector<float>(10);
+	for (int i = 0; i < 10; i++) {
+		B2[i] = B1[i] + 90;
+		B3[i] = B1[i] + 180;
+		B4[i] = B1[i] + 270;
+		//B2[i] = B1[i] + 90;
+
+	}
 	//LEVEL ZERO
 	std::vector<BulletSpawner> levelZero = std::vector<BulletSpawner>();
 	levelZero.push_back(BulletSpawner());
-	levelZero[0].AddRythm({ 0.62, 0.1, 0.1 }, 20, 0);
-	levelZero[0].AddLayersOfHorizontalSpawnPoints(4500, -2250, 1200, { -90 }, 500, 6, 0);
-
-	levelZero[0].AddLayersOfHorizontalSpawnPoints(4500, -2250, 1200, { -90 }, 500, 6, 1);
-	levelZero[0].AddLayersOfHorizontalSpawnPoints(4500, -2300, 1200, { -90 }, 500, 6, 1);
-	levelZero[0].AddLayersOfHorizontalSpawnPoints(4500, -2200, 1200, { -90 }, 500, 6, 1);
-
-	levelZero[0].AddLayersOfHorizontalSpawnPoints(4500, -2250, 1200, { -90 }, 500, 6, 2);
-
-
-	levelZero[0].AddLayersOfHorizontalSpawnPoints(4250, -2000, 1200, { -90 }, 500, 6, 3);
-
-	levelZero[0].AddLayersOfHorizontalSpawnPoints(4250, -2000, 1200, { -90 }, 500, 6, 4);
-	levelZero[0].AddLayersOfHorizontalSpawnPoints(4250, -2050, 1200, { -90 }, 500, 6, 4);
-	levelZero[0].AddLayersOfHorizontalSpawnPoints(4250, -1950, 1200, { -90 }, 500, 6, 4);
-
-	levelZero[0].AddLayersOfHorizontalSpawnPoints(4250, -2000, 1200, { -90 }, 500, 6, 5);
-	
+	levelZero[0].AddRythm({ 0.46, 0.1, 0.1 }, 80, 0);
 	levelZero[0].AddInstruction(4, 0, 0, 9999);
+
+	levelZero.push_back(BulletSpawner());
+	levelZero[1].AddRythm({ 0.46, 0.1, 0.1 }, 20, 0);
+	levelZero[1].AddLayersOfHorizontalSpawnPoints(4500, -2250, 1200, { -90 }, 500, 6, 0);
+
+	levelZero[1].AddLayersOfHorizontalSpawnPoints(4500, -2250, 1200, { -90 }, 500, 6, 1);
+	levelZero[1].AddLayersOfHorizontalSpawnPoints(4500, -2300, 1200, { -90 }, 500, 6, 1);
+	levelZero[1].AddLayersOfHorizontalSpawnPoints(4500, -2200, 1200, { -90 }, 500, 6, 1);
+
+	levelZero[1].AddLayersOfHorizontalSpawnPoints(4500, -2250, 1200, { -90 }, 500, 6, 2);
+
+
+	levelZero[1].AddLayersOfHorizontalSpawnPoints(4250, -2000, 1200, { -90 }, 500, 6, 3);
+
+	levelZero[1].AddLayersOfHorizontalSpawnPoints(4250, -2000, 1200, { -90 }, 500, 6, 4);
+	levelZero[1].AddLayersOfHorizontalSpawnPoints(4250, -2050, 1200, { -90 }, 500, 6, 4);
+	levelZero[1].AddLayersOfHorizontalSpawnPoints(4250, -1950, 1200, { -90 }, 500, 6, 4);
+
+	levelZero[1].AddLayersOfHorizontalSpawnPoints(4250, -2000, 1200, { -90 }, 500, 6, 5);
+
+	levelZero.push_back(BulletSpawner());
+	levelZero[2].AddRythm({ 0.46, 0.1, 0.1 }, 20, 0);
+	levelZero[2].AddLayersOfHorizontalSpawnPoints(4500, -2250, 1200, { -90 }, 500, 6, 0);
+
+	levelZero[2].AddLayersOfHorizontalSpawnPoints(4500, -2250, 1200, { -90 }, 500, 6, 1);
+	levelZero[2].AddLayersOfHorizontalSpawnPoints(4500, -2300, 1200, { -90 }, 500, 6, 1);
+	levelZero[2].AddLayersOfHorizontalSpawnPoints(4500, -2200, 1200, { -90 }, 500, 6, 1);
+
+	levelZero[2].AddLayersOfHorizontalSpawnPoints(4500, -2250, 1200, { -90 }, 500, 6, 2);
+
+
+	levelZero[2].AddLayersOfHorizontalSpawnPoints(4250, -2000, 1200, { -90 }, 500, 6, 3);
+
+	levelZero[2].AddLayersOfHorizontalSpawnPoints(4250, -2000, 1200, { -90 }, 500, 6, 4);
+	levelZero[2].AddLayersOfHorizontalSpawnPoints(4250, -2050, 1200, { -90 }, 500, 6, 4);
+	levelZero[2].AddLayersOfHorizontalSpawnPoints(4250, -1950, 1200, { -90 }, 500, 6, 4);
+
+	levelZero[2].AddLayersOfHorizontalSpawnPoints(4250, -2000, 1200, { -90 }, 500, 6, 5);
+	levelZero[2].AddSpawnPoint(-2250, -1200, B1, 9, BulletType::BasicBullet, { 400, 1 });
+	levelZero[2].AddSpawnPoint(-2250, 1200, B4, 18, BulletType::BasicBullet, { 400, 1 });
+	levelZero[2].AddSpawnPoint(2250, -1200, B2, 27, BulletType::BasicBullet, { 400, 1 });
+	levelZero[2].AddSpawnPoint(2250, 1200, B3, 36, BulletType::BasicBullet, { 400, 1 });
+	//levelZero[1].AddSpawnPoint(800, 0, A1, 45, BulletType::BasicBullet, { 400, 1 });
+	//levelZero[1].AddSpawnPoint(-800, 0, A1, 54, BulletType::BasicBullet, { 400, 1 });
+
+	levelZero.push_back(BulletSpawner());
+	levelZero[3].AddRythm({ 0.23, 0.05, 0.05 }, 20, 0);
+	levelZero[3].AddLayersOfHorizontalSpawnPoints(4500, -2250, 1200, { -90 }, 500, 6, 0, BulletType::BasicBullet, { 1400, 1 });
+
+	levelZero[3].AddLayersOfHorizontalSpawnPoints(4500, -2250, 1200, { -90 }, 500, 6, 1, BulletType::BasicBullet, { 1400, 1 });
+	levelZero[3].AddLayersOfHorizontalSpawnPoints(4500, -2300, 1200, { -90 }, 500, 6, 1, BulletType::BasicBullet, { 1400, 1 });
+	levelZero[3].AddLayersOfHorizontalSpawnPoints(4500, -2200, 1200, { -90 }, 500, 6, 1, BulletType::BasicBullet, { 1400, 1 });
+
+	levelZero[3].AddLayersOfHorizontalSpawnPoints(4500, -2250, 1200, { -90 }, 500, 6, 2, BulletType::BasicBullet, { 1400, 1 });
+
+
+	levelZero[3].AddLayersOfHorizontalSpawnPoints(4250, -2000, 1200, { -90 }, 500, 6, 3, BulletType::BasicBullet, { 1400, 1 });
+
+	levelZero[3].AddLayersOfHorizontalSpawnPoints(4250, -2000, 1200, { -90 }, 500, 6, 4, BulletType::BasicBullet, { 1400, 1 });
+	levelZero[3].AddLayersOfHorizontalSpawnPoints(4250, -2050, 1200, { -90 }, 500, 6, 4, BulletType::BasicBullet, { 1400, 1 });
+	levelZero[3].AddLayersOfHorizontalSpawnPoints(4250, -1950, 1200, { -90 }, 500, 6, 4, BulletType::BasicBullet, { 1400, 1 });
+
+	levelZero[3].AddLayersOfHorizontalSpawnPoints(4250, -2000, 1200, { -90 }, 500, 6, 5, BulletType::BasicBullet, { 1400, 1 });
 
 	allLevels.push_back(levelZero);
 	
@@ -92,7 +151,6 @@ void LevelLibrary::BuildLevels()
 	levelOne.push_back(BulletSpawner());
 	//levelOne[3] = &(levelOne[3]);
 	levelOne[3].AddRythm({ 0.3 }, 64, 0);
-	std::vector<float> A1 = { 0, 22.5, 45, 67.5, 90, 112.5, 135, 157.5, 180, 202.5, 225, 247.5, 270, 292.5, 315, 337.5 };
 	std::vector<float> A2 = std::vector<float>(16);
 	std::vector<float> A3 = std::vector<float>(16);
 	std::vector<float> A4 = std::vector<float>(16);

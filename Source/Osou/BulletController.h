@@ -8,6 +8,7 @@
 #include "KillMe.h"
 #include "BasicBullet.h"
 #include "MovingBorder.h"
+#include "Components/AudioComponent.h"
 #include "CoreMinimal.h"
 #include "EquationLibrary.h"
 #include "LevelLibrary.h"
@@ -41,7 +42,9 @@ public:
 	// Called every frame
 	float clockTime;
 	float messageTime;
+	int tutorialTime;
 	int messageCounter;
+	bool tutFirstTime;
 	virtual void Tick(float DeltaTime) override;
 	void ResetBullets();
 	int spawnerCount;

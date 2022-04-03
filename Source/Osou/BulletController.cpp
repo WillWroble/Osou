@@ -22,6 +22,8 @@ ABulletController::ABulletController()
 	messageCounter = 0;
 	messageTime = 0;
 	messageIndex = 0;
+	tutorialTime = 0;
+	tutFirstTime = true;
 
 }
 
@@ -40,150 +42,8 @@ void ABulletController::BeginPlay()
 	if (LevelLibrary::allLevels.empty()) {
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, "BUILDING LEVELS");
 		LevelLibrary::BuildLevels();
-		//BulletSpawner* tempSpawner;
-		//build test level
-		/*
-		LevelLibrary::allLevels[levelIndex].clear();
-		LevelLibrary::allLevels[levelIndex].push_back(BulletSpawner());
 		
-		testSpawners[0].AddRythm({ 1.33,0.3,0.3 }, 7, 0);
-		testSpawners[0].AddTargetingSpawnPoints(0, 0, { 0, 30, -30 }, 2, 0);
-		testSpawners[0].AddTargetingSpawnPoints(0, 0, { 0, 45, -45 }, 2, 1);
-		testSpawners[0].AddCorners({ 60, 30 }, 1, 0, BulletType::BasicBullet);
-		//testSpawners[0].AddCorners({ 0 }, 1, 0, BulletType::CurvedBullet, { 700, 2, 0, 1, 1, 1 });
-		//testSpawners[0].AddCorners({ 70 }, 1, 0, BulletType::CurvedBullet, { 700, 2, 0, -1, 1, 1 });
-		
-		
-		testSpawners[0].AddInstruction(2, 0 , -1000, 1); //5
-		testSpawners[0].AddInstruction(1, 1, 0, 4);
-		testSpawners[0].AddInstruction(0, 1000, -1000, 2);
-		testSpawners[0].AddInstruction(3, 0, 0, 2);
-
-		testSpawners[0].AddInstruction(4, 0, 0, 15);
-
-		testSpawners[0].AddInstruction(1, 5, 0, 1);
-		testSpawners[0].AddInstruction(2, 0, 1000, 1);
-		testSpawners[0].AddInstruction(1, 1.5, 0, 4);
-		testSpawners[0].AddInstruction(0, 1000, 1000, 2);
-		testSpawners[0].AddInstruction(0, 1000, -1000, 4);
-		testSpawners[0].AddInstruction(0, 0, -1000, 2);
-		testSpawners[0].AddInstruction(3, 0, 0, 2);
-
-		testSpawners[0].AddInstruction(4, 0, 0, 71.5);
-
-		testSpawners[0].AddInstruction(1, 5, 0, 1);
-		testSpawners[0].AddInstruction(2, 0, 0, 1);
-		testSpawners[0].AddInstruction(1, 0.75, 0, 8.5);
-
-		testSpawners[0].AddInstruction(4, 0, 0, 9999);
-
-		
-
-		//testSpawner.AddSpawnPoints(0, 0, { 0, 45, 90, 135, 180, 225, 270, 315 }, 4, 0);
-		testSpawners.push_back(BulletSpawner());
-		testSpawners[1].AddRythm({ 0.5 }, 27, 0); //27
-		testSpawners[1].AddLayersOfHorizontalSpawnPoints(2250, -2250, 1200, { -90 }, 100, 2, 0);
-		testSpawners[1].AddLayersOfHorizontalSpawnPoints(2250, 0, 1200, { -90 }, 100, 2, 1);
-		//testSpawners[1].AddRythm({ 1.33,0.3,0.3 }, 21, 0);
-		//testSpawners[1].AddTargetingSpawnPoints(0, 0, { 0, 30, -30 }, 2, 0);
-		//testSpawners[1].AddTargetingSpawnPoints(0, 0, { 0, 45, -45 }, 2, 1);
-		testSpawners.push_back(BulletSpawner());
-		testSpawners[2].AddRythm({ 1.33,0.3,0.3 }, 12, 0);
-		testSpawners[2].AddTargetingSpawnPoints(0, 0, { 0, 30, -30 }, 2, 0);
-		testSpawners[2].AddTargetingSpawnPoints(0, 0, { 0, 45, -45 }, 2, 1);
-		testSpawners[2].AddCorners({ 60, 30 }, 1, 0);
-
-		testSpawners[2].AddProjectionFromPoint(FVector2D(0, 0), FVector2D(0, 3250), FVector2D(1909, -2630), 10, 17, BulletType::BasicBullet, { 300, 1 });
-		testSpawners[2].AddProjectionFromPoint(FVector2D(0, 0), FVector2D(1909, -2630), FVector2D(-3091, 1000), 10, 17, BulletType::BasicBullet, { 300, 1 });
-		testSpawners[2].AddProjectionFromPoint(FVector2D(0, 0), FVector2D(-3091, 1000), FVector2D(3091, 1000), 10, 17, BulletType::BasicBullet, { 300, 1 });
-		testSpawners[2].AddProjectionFromPoint(FVector2D(0, 0), FVector2D(3091, 1000), FVector2D(-1909, -2630), 10, 17, BulletType::BasicBullet, { 300, 1 });
-		testSpawners[2].AddProjectionFromPoint(FVector2D(0, 0), FVector2D(-1909, -2630), FVector2D(0, 3250), 10, 17, BulletType::BasicBullet, { 300, 1 });
-
-		testSpawners.push_back(BulletSpawner());
-		tempSpawner = &(testSpawners[3]);
-		tempSpawner->AddRythm({ 0.3 }, 64, 0);
-		std::vector<float> A1 = { 0, 22.5, 45, 67.5, 90, 112.5, 135, 157.5, 180, 202.5, 225, 247.5, 270, 292.5, 315, 337.5 };
-		std::vector<float> A2 = std::vector<float>(16);
-		std::vector<float> A3 = std::vector<float>(16);
-		std::vector<float> A4 = std::vector<float>(16);
-		
-		for (int i = 0; i < 16; i++) {
-			A2[i] = A1[i] + 90;
-			A3[i] = A1[i] + 180;
-			A4[i] = A1[i] + 270;
-		}
-		tempSpawner->AddDynamicSpawnPoints(0, 0, { 0, 22.5, 45, 67.5, 90, 112.5, 135, 157.5, 180, 202.5, 225, 247.5, 270, 292.5, 315, 337.5 }, 1, 0);
-		tempSpawner->AddDynamicSpawnPoints(0, 0, A2, 1, 0);
-		tempSpawner->AddDynamicSpawnPoints(0, 0, A3, 1, 0);
-		tempSpawner->AddDynamicSpawnPoints(0, 0, A4, 1, 0);
-
-		tempSpawner->AddTargetingSpawnPoints(0, 0, { 0 }, 4, 0, BulletType::ExplodingBullet);
-
-		tempSpawner->AddRythm({ 0.61 }, 5, 14.3);
-		tempSpawner->AddSpawnPoints(0, 0, A1, 1, 64);
-
-		
-		tempSpawner->SortSpawnTimes();
-
-		testSpawners.push_back(BulletSpawner());
-		testSpawners[4].AddRythm({ 0.5 }, 54, 0); //27
-		testSpawners[4].AddLayersOfHorizontalSpawnPoints(2250, -2250, 1200, { -90 }, 100, 2, 0);
-		testSpawners[4].AddLayersOfHorizontalSpawnPoints(2250, 0, 1200, { -90 }, 100, 2, 1);
-		
-		testSpawners[4].AddRythm({ 2 }, 6, 13.5);	
-		testSpawners[4].AddSpawnPoint(800, 400, A1, 54, BulletType::BasicBullet, {400, 1});
-		testSpawners[4].AddSpawnPoint(-800, -400, A1, 55, BulletType::BasicBullet, { 400, 1 });
-		testSpawners[4].AddSpawnPoint(-800, 400, A1, 56, BulletType::BasicBullet, { 400, 1 });
-		testSpawners[4].AddSpawnPoint(800, -400, A1, 57, BulletType::BasicBullet, { 400, 1 });
-		testSpawners[4].AddSpawnPoint(800, 0, A1, 58, BulletType::BasicBullet, { 400, 1 });
-		testSpawners[4].AddSpawnPoint(-800, 0, A1, 59, BulletType::BasicBullet, { 400, 1 });
-		
-		testSpawners[4].SortSpawnTimes();
-
-		testSpawners.push_back(BulletSpawner());
-
-		testSpawners[5].AddRythm({ 1.33,0.3,0.3 }, 11, 0);
-		testSpawners[5].AddTargetingSpawnPoints(0, 0, { 0, 30, -30 }, 2, 0);
-		testSpawners[5].AddTargetingSpawnPoints(0, 0, { 0, 45, -45 }, 2, 1);
-		testSpawners[5].AddCorners({ 60, 30 }, 1, 21, BulletType::BasicBullet);
-		
-		testSpawners[5].AddProjectionFromPoint(FVector2D(0, 0), FVector2D(0, 3250), FVector2D(1909, -2630), 10, 0, BulletType::BasicBullet, { 300, 1 });
-		testSpawners[5].AddProjectionFromPoint(FVector2D(0, 0), FVector2D(1909, -2630), FVector2D(-3091, 1000), 10, 0, BulletType::BasicBullet, { 300, 1 });
-		testSpawners[5].AddProjectionFromPoint(FVector2D(0, 0), FVector2D(-3091, 1000), FVector2D(3091, 1000), 10, 0, BulletType::BasicBullet, { 300, 1 });
-		testSpawners[5].AddProjectionFromPoint(FVector2D(0, 0), FVector2D(3091, 1000), FVector2D(-1909, -2630), 10, 0, BulletType::BasicBullet, { 300, 1 });
-		testSpawners[5].AddProjectionFromPoint(FVector2D(0, 0), FVector2D(-1909, -2630), FVector2D(0, 3250), 10, 0, BulletType::BasicBullet, { 300, 1 });
-		
-		testSpawners[5].AddSpawnPointByEquation(12, 10, &(EquationLibrary::xcircle), &(EquationLibrary::ycircle), &(EquationLibrary::acircle), BulletType::ExplodingBullet, {450, 2, 0});
-		testSpawners[5].AddRythm({ 2 }, 6, 4);
-		testSpawners[5].AddCorners({ 0 }, 1, 33, BulletType::CurvedBullet, { 700, 2, 0, 1, 1, 1 });
-		testSpawners[5].AddCorners({ 70 }, 1, 33, BulletType::CurvedBullet, { 700, 2, 0, -1, 1, 1 });
-		testSpawners[5].AddCorners({18, 36, 54, 72}, 2, 33);
-
-		testSpawners[5].SortSpawnTimes();
-
-		testSpawners[5].AddProjectionFromPoint(FVector2D(0, 0), FVector2D(0, 3250), FVector2D(1909, -2630), 10, 29, BulletType::BasicBullet, { 300, 1 });
-		testSpawners[5].AddProjectionFromPoint(FVector2D(0, 0), FVector2D(1909, -2630), FVector2D(-3091, 1000), 10, 29, BulletType::BasicBullet, { 300, 1 });
-		testSpawners[5].AddProjectionFromPoint(FVector2D(0, 0), FVector2D(-3091, 1000), FVector2D(3091, 1000), 10, 29, BulletType::BasicBullet, { 300, 1 });
-		testSpawners[5].AddProjectionFromPoint(FVector2D(0, 0), FVector2D(3091, 1000), FVector2D(-1909, -2630), 10, 29, BulletType::BasicBullet, { 300, 1 });
-		testSpawners[5].AddProjectionFromPoint(FVector2D(0, 0), FVector2D(-1909, -2630), FVector2D(0, 3250), 10, 29, BulletType::BasicBullet, { 300, 1 });
-
-		testSpawners[5].AddProjectionFromPoint(FVector2D(0, 0), FVector2D(0, 3250), FVector2D(1909, -2630), 5, 38, BulletType::BasicBullet, { 300, 1 });
-		testSpawners[5].AddProjectionFromPoint(FVector2D(0, 0), FVector2D(1909, -2630), FVector2D(-3091, 1000), 5, 38, BulletType::BasicBullet, { 300, 1 });
-		testSpawners[5].AddProjectionFromPoint(FVector2D(0, 0), FVector2D(-3091, 1000), FVector2D(3091, 1000), 5, 38, BulletType::BasicBullet, { 300, 1 });
-		testSpawners[5].AddProjectionFromPoint(FVector2D(0, 0), FVector2D(3091, 1000), FVector2D(-1909, -2630), 5, 38, BulletType::BasicBullet, { 300, 1 });
-		testSpawners[5].AddProjectionFromPoint(FVector2D(0, 0), FVector2D(-1909, -2630), FVector2D(0, 3250), 5, 38, BulletType::BasicBullet, { 300, 1 });
-		*/
-		
-
-
-		
-		
-
-
-		
-
-
-		
+	
 	} else {
 		//do more things
 	}
@@ -191,12 +51,12 @@ void ABulletController::BeginPlay()
 	//IMPORTANT 0.08 DELAY CONSTANT
 	if (levelIndex == 0) {
 		player->SetTransitions({ 0, 30, 90 }); //105
-		player->setSpeedMultis({ 1.4, 1, 1 });
-		player->AddRythm({ 0.42 }, 0); //0.2
-		player->AddRythm({ 0.42 }, 1);
-		player->AddRythm({ 0.42 }, 2);
-		player->AddTextInstruction(0, 5, 3, FString("welcome to osou :D"));
-		player->AddTextInstruction(1, 10, 0.5, FString("X2 Tempo in"), 1, 3);
+		player->setSpeedMultis({ 1, 1, 1 });
+		player->AddRythm({ 0.38 }, 0); //0.2
+		player->AddRythm({ 0.19 }, 1);
+		player->AddRythm({ 0.38 }, 2);
+		player->AddTextInstruction(0, 1, 3, FString("welcome to osou :D"));
+		//player->AddTextInstruction(1, 10, 0.5, FString("X2 Tempo in"), 1, 3);
 	}
 	else {
 		player->SetTransitions({ 0, 15.5, 105 }); //105
@@ -254,41 +114,178 @@ void ABulletController::Tick(float DeltaTime)
 			}
 		}
 		index++;
+		//0.66 3 count intervals
 		if (index == spawner->spawnTable.size()) {
-			if (levelIndex == 0) {
-				if (transitionIndex == 0) {
-					//first transition
-					if (true) {
-						GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, "TRANSITIONING");
-						transitionIndex++;
-					}
-				}
-				else {
-					//second transition
-					if (true) {
-						GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, "TRANSITIONING");
-						transitionIndex++;
-					}
-				}
-				if (transitionIndex == LevelLibrary::allLevels[levelIndex].size()) {
-					//just reset for now
-					transitionIndex = 0;
-				}
-				spawner = &(LevelLibrary::allLevels[levelIndex][transitionIndex]);
-				index = 0;
-				clockTime = 0;
-			}
-			else {
-				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, "TRANSITIONING");
+			
+			
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, "TRANSITIONING");
+			if (levelIndex != 0) {
 				transitionIndex++;
 				if (transitionIndex == LevelLibrary::allLevels[levelIndex].size()) {
 					//just reset for now
 					transitionIndex = 0;
 				}
 				spawner = &(LevelLibrary::allLevels[levelIndex][transitionIndex]);
+			}
+			index = 0;
+			clockTime = 0;
+			
+		}
+		if (levelIndex == 0) {
+			if (tutorialTime < 18) {
+				//wait
+			}
+			else if (tutorialTime < 19) {
+				player->sound->SetWaveParameter(FName("wave"), player->song0);
+				player->sound->Play();
+			}
+			else if (tutorialTime < 66) {
+				if (player->Health < 0.5) {
+					tutorialTime = 0;
+					player->sound->Stop();
+					//player->sound->Play();
+					index = 0;
+					clockTime = 0;
+					player->Health = 1;
+				}
+			}
+			else if (tutorialTime < 67) {
+				
+				on_screen_message temp;
+				temp.type = 0;
+				temp.duration = 2;
+				temp.startTime = 0;
+				temp.message = FString("good job! lets add some music and obstacles, stay at the same tempo");
+				currentMessage = temp;
+				isDisplayMessage = true;
+				player->sound->Stop();
+				player->sound->SetWaveParameter(FName("wave"), player->song1_1);
+				
+			}
+			else if (tutorialTime <87) {
+				//wait
+			}
+			else if (tutorialTime < 88) {
+				spawner = &(LevelLibrary::allLevels[levelIndex][1]);
+				index = 0;
+				clockTime = 0;
+				player->sound->Play();
+
+			}
+			else if (tutorialTime < 133) {
+				if (player->Health < 0.5) {
+					tutorialTime = 77;
+					player->sound->Stop();
+					//player->sound->Play();
+					spawner = &(LevelLibrary::allLevels[levelIndex][0]);
+					index = 0;
+					clockTime = 0;
+					player->Health = 1;
+				}
+			}
+			else if (tutorialTime < 134) {
+				on_screen_message temp;
+				temp.type = 0;
+				temp.duration = 2;
+				temp.startTime = 0;
+				temp.message = FString("well done, now let's make this a little harder");
+				currentMessage = temp;
+				isDisplayMessage = true;
+			}
+			else if (tutorialTime < 144) {
+				//wait
+			}
+			else if (tutorialTime < 149 && index % 6 == 0) {
+				spawner = &(LevelLibrary::allLevels[levelIndex][2]);
+				index = 0;
+				clockTime = 0;
+				if (!tutFirstTime) {
+					player->sound->Play();
+				}
+			}
+			else if (tutorialTime < 197) {
+				if (player->Health < 0.5) {
+					tutorialTime = 134;
+					player->sound->Stop();
+					player->sound->SetWaveParameter(FName("wave"), player->song1_2);
+					//player->sound->Play();
+					spawner = &(LevelLibrary::allLevels[levelIndex][0]);
+					index = 0;
+					clockTime = 0;
+					player->Health = 1;
+					tutFirstTime = false;
+				}
+			}
+			else if (tutorialTime < 198) {
+
+				on_screen_message temp;
+				temp.type = 0;
+				temp.duration = 1;
+				temp.startTime = 0;
+				temp.message = FString("great job, now let's double the tempo");
+				currentMessage = temp;
+				isDisplayMessage = true;
+				tutFirstTime = true;
+		
+				spawner = &(LevelLibrary::allLevels[levelIndex][0]);
 				index = 0;
 				clockTime = 0;
 			}
+			else if (tutorialTime < 202) { //215
+				//wait
+			}
+			else if (tutorialTime < 203) {
+				on_screen_message temp;
+				temp.type = 1;
+				temp.duration = 0.33;
+				temp.startTime = 0;
+				temp.count = 3;
+				temp.message = FString("X2 in");
+				currentMessage = temp;
+				isDisplayMessage = true;
+			}
+			else if (tutorialTime < 215) {
+				//wait
+			}
+			else if (tutorialTime < 216) {
+				spawner = &(LevelLibrary::allLevels[levelIndex][3]);
+				index = 0;
+				clockTime = 0;
+
+				player->currentBeat = &(player->beats[1]);
+				player->currentMulti = player->speedMultis[1];
+				player->index = 0;
+				player->clockTime = 0;
+
+				if (!tutFirstTime) {
+					player->sound->Play();
+				}
+
+			}
+			else if (tutorialTime < 264) {
+				if (player->Health < 0.5) {
+					tutorialTime = 203;
+					player->sound->Stop();
+					player->sound->SetWaveParameter(FName("wave"), player->song1_3);
+					//player->sound->Play();
+					spawner = &(LevelLibrary::allLevels[levelIndex][0]);
+					index = 0;
+					clockTime = 0;
+					player->Health = 1;
+					tutFirstTime = false;
+				}
+			}
+			else {
+				
+				on_screen_message temp;
+				temp.type = 0;
+				temp.duration = 2;
+				temp.startTime = 0;
+				temp.message = FString("Fantastic job!");
+				currentMessage = temp;
+				isDisplayMessage = true;
+			}
+			tutorialTime++;
 		}
 	}
 	if (player->messages.size() > messageIndex && clockTime > player->messages[messageIndex].startTime) {
