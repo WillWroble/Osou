@@ -12,6 +12,7 @@ ALevelBox::ALevelBox()
 	isSelected_ = false;
 	timer = 0;
 	timer2 = 0;
+	timer3 = 0;
 
 }
 

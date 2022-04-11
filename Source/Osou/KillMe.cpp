@@ -345,10 +345,10 @@ void AKillMe::OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AA
 {
 	if (OtherActor && (OtherActor != this) && OtherComp)
 	{
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Overlap Begin"));
 		if (isLevelFinsihedd || isInvunerable || ABulletController::levelIndex == 0) {
 			return;
 		}
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Overlap Begin"));
 		UpdateHealthBar();
 		hScore++;
 		if (hScore > 7) {

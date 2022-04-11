@@ -23,6 +23,7 @@ struct LevelData {
 	int levelNumber;
 	int levelDifficulty;
 	FText levelName;
+	std::vector<int> subLevels;
 };
 UCLASS()
 class OSOU_API ALevelBlockManager : public AActor
@@ -62,6 +63,7 @@ public:
 	int audioPtr1;
 	int audioPtr2;
 	bool forwardPolarity;
+	bool isFadeToTwo;
 
 	float timer;
 	float timer2;

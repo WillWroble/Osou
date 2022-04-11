@@ -192,20 +192,22 @@ void ABulletController::Tick(float DeltaTime)
 				currentMessage = temp;
 				isDisplayMessage = true;
 			}
-			else if (tutorialTime < 144) {
+			else if (tutorialTime < 149) {
 				//wait
 			}
-			else if (tutorialTime < 149 && index % 6 == 0) {
-				spawner = &(LevelLibrary::allLevels[levelIndex][2]);
-				index = 0;
-				clockTime = 0;
-				if (!tutFirstTime) {
-					player->sound->Play();
+			else if (tutorialTime < 155) {
+				if (index % 6 == 0) {
+					spawner = &(LevelLibrary::allLevels[levelIndex][2]);
+					index = 0;
+					clockTime = 0;
+					if (!tutFirstTime) {
+						player->sound->Play();
+					}
 				}
 			}
 			else if (tutorialTime < 197) {
 				if (player->Health < 0.5) {
-					tutorialTime = 134;
+					tutorialTime = 140; //134
 					player->sound->Stop();
 					player->sound->SetWaveParameter(FName("wave"), player->song1_2);
 					//player->sound->Play();
@@ -256,6 +258,7 @@ void ABulletController::Tick(float DeltaTime)
 				player->currentMulti = player->speedMultis[1];
 				player->index = 0;
 				player->clockTime = 0;
+				player->Health += 1;
 
 				if (!tutFirstTime) {
 					player->sound->Play();

@@ -62,10 +62,10 @@ void LevelLibrary::BuildLevels()
 	levelZero[2].AddLayersOfHorizontalSpawnPoints(4250, -1950, 1200, { -90 }, 500, 6, 4);
 
 	levelZero[2].AddLayersOfHorizontalSpawnPoints(4250, -2000, 1200, { -90 }, 500, 6, 5);
-	levelZero[2].AddSpawnPoint(-2250, -1200, B1, 9, BulletType::BasicBullet, { 400, 1 });
-	levelZero[2].AddSpawnPoint(-2250, 1200, B4, 18, BulletType::BasicBullet, { 400, 1 });
-	levelZero[2].AddSpawnPoint(2250, -1200, B2, 27, BulletType::BasicBullet, { 400, 1 });
-	levelZero[2].AddSpawnPoint(2250, 1200, B3, 36, BulletType::BasicBullet, { 400, 1 });
+	levelZero[2].AddSpawnPoint(-2250, -1200, B1, 0, BulletType::BasicBullet, { 400, 1 });
+	levelZero[2].AddSpawnPoint(-2250, 1200, B4, 9, BulletType::BasicBullet, { 400, 1 });
+	levelZero[2].AddSpawnPoint(2250, -1200, B2, 18, BulletType::BasicBullet, { 400, 1 });
+	levelZero[2].AddSpawnPoint(2250, 1200, B3, 27, BulletType::BasicBullet, { 400, 1 });
 	//levelZero[1].AddSpawnPoint(800, 0, A1, 45, BulletType::BasicBullet, { 400, 1 });
 	//levelZero[1].AddSpawnPoint(-800, 0, A1, 54, BulletType::BasicBullet, { 400, 1 });
 

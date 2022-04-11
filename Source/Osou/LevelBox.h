@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include <vector>
 #include "GameFramework/Actor.h"
 #include "LevelBox.generated.h"
 
@@ -23,9 +24,14 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	std::vector<int> mappedLevels;
+	int level;
 	float timer;
 	float timer2;
+	float timer3;
 	bool isSelected_;
+	bool isActive;
+	bool isCategory;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		bool isCursorHovering;
