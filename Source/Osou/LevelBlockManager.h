@@ -44,7 +44,7 @@ public:
 	void UpdateDeltas(int index, float delta);
 	void UnselectAllBoxes();
 	UTexture* getBackround(int i);
-	UAudioComponent* getSound(int i);
+	USoundWave* getSound(int i);
 	UAudioComponent* audio1;
 	UAudioComponent* audio2;
 	UAudioComponent* audio3;
@@ -89,10 +89,24 @@ public:
 		UTexture* tex7;
 	UPROPERTY(EditDefaultsOnly, Category = "tex8")
 		UTexture* tex8;
+	UPROPERTY(EditDefaultsOnly, Category = "tex9")
+		UTexture* tex9;
 	UPROPERTY(EditDefaultsOnly, Category = "sound1")
 		USoundWave* sound1;
 	UPROPERTY(EditDefaultsOnly, Category = "sound2")
 		USoundWave* sound2;
 	UPROPERTY(EditDefaultsOnly, Category = "sound3")
 		USoundWave* sound3;
+	UPROPERTY(EditDefaultsOnly, Category = "sound4")
+		USoundWave* sound4;
+	UPROPERTY(EditDefaultsOnly, Category = "sound5")
+		USoundWave* sound5;
+	UPROPERTY(EditDefaultsOnly, Category = "sound6")
+		USoundWave* sound6;
+	UPROPERTY(EditDefaultsOnly, Category = "sound7")
+		USoundWave* sound7;
+	UPROPERTY(EditDefaultsOnly, Category = "sound8")
+		USoundWave* sound8;
+	UPROPERTY(EditDefaultsOnly, Category = "sound9")
+		USoundWave* sound9;
 };

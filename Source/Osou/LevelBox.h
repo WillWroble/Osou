@@ -26,12 +26,14 @@ public:
 
 	std::vector<int> mappedLevels;
 	int level;
+	int order_;
 	float timer;
 	float timer2;
 	float timer3;
 	bool isSelected_;
 	bool isActive;
 	bool isCategory;
+	int adjustedOrder();
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		bool isCursorHovering;

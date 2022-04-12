@@ -13,6 +13,7 @@ ALevelBox::ALevelBox()
 	timer = 0;
 	timer2 = 0;
 	timer3 = 0;
+	order_ = 0;
 
 }
 
@@ -28,6 +29,11 @@ void ALevelBox::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+}
+
+int ALevelBox::adjustedOrder()
+{
+	return order_ + mappedLevels.size();
 }
 
 

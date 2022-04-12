@@ -46,6 +46,7 @@ void ALevelBlockManager::BeginPlay()
 	audio6 = (UAudioComponent*)(this->GetComponentsByTag(UAudioComponent::StaticClass(), "tag6"))[0];
 	audio7 = (UAudioComponent*)(this->GetComponentsByTag(UAudioComponent::StaticClass(), "tag7"))[0];
 	audio8 = (UAudioComponent*)(this->GetComponentsByTag(UAudioComponent::StaticClass(), "tag8"))[0];
+	audio1->SetWaveParameter(FName("wavefile"), sound1);
 
 	pController->bShowMouseCursor = true;
 	pController->bEnableMouseOverEvents = true;
@@ -79,6 +80,17 @@ void ALevelBlockManager::BeginPlay()
 			tempBox->isCategory = false;
 		}
 	}
+	
+	int orderCount = 0;
+	for (int i = 0; i < 8; i++) {
+		boxInstances[i]->order_ = orderCount;
+		orderCount++;
+		for (int j = 0; j < boxInstances[i]->mappedLevels.size(); j++) {
+			boxInstances[boxInstances[i]->mappedLevels[j]]->order_ = orderCount;
+			orderCount++;
+		}
+	}
+	
 }
 // Called every frame
 void ALevelBlockManager::Tick(float DeltaTime)
@@ -127,15 +139,14 @@ void ALevelBlockManager::Tick(float DeltaTime)
 							int boxIndex = boxInstances[i]->mappedLevels[j];
 							if (boxInstances[boxIndex]->isSelected_) {
 								//quickly deselects sublevels
-								UpdateDeltas(boxIndex, -100 * boxInstances[boxIndex]->timer2);
-								boxInstances[boxIndex]->AddActorLocalOffset(FVector(350 * (boxInstances[i]->timer2), 0, 0));
-								boxInstances[boxIndex]->timer2 = 0;
+								//UpdateDeltas(boxIndex, -100 * boxInstances[boxIndex]->timer2);
+								//boxInstances[boxIndex]->AddActorLocalOffset(FVector(350 * (boxInstances[i]->timer2), 0, 0));
+								//boxInstances[boxIndex]->timer2 = 0;
 							}
-							boxInstances[boxIndex]->isActive = false;
-							//boxInstances[boxIndex]->timer = 1;
+							//boxInstances[boxIndex]->isActive = false;
 						}
 						for (int j = 0; j < boxInstances.size(); j++) {
-							if (boxInstances[j]->isActive && boxInstances[j]->GetActorLocation().Z < boxInstances[i]->GetActorLocation().Z) {
+							if (boxInstances[j]->isActive && boxInstances[j]->order_ > boxInstances[i]->adjustedOrder()) {
 								boxInstances[j]->AddActorLocalOffset(FVector(0, 0, boxInstances[i]->mappedLevels.size() * 200.0 * ((boxInstances[i]->timer3) / 0.2)));
 								//positionDeltas[j] += boxInstances[i]->mappedLevels.size() * -200.0;
 							}
@@ -147,7 +158,7 @@ void ALevelBlockManager::Tick(float DeltaTime)
 						
 					}
 				}
-				else {
+				else if(boxInstances[i]->GetActorLocation().X <= 1510){
 					UnselectAllBoxes();
 					//selecting now (clicking for the first time)
 					boxInstances[i]->isSelected_ = true;
@@ -156,19 +167,26 @@ void ALevelBlockManager::Tick(float DeltaTime)
 					//dMat->SetTextureParameterValue(FName("tex_1"), getBackround(lastTex));
 					if (isFadeToTwo) {
 						dMat->SetTextureParameterValue(FName("tex_2"), getBackround(i));
+						audio2->SetWaveParameter(FName("wavefile"), getSound(i));
+						audio1->FadeOut(1, 0);
+						audio2->FadeIn(1);
 					}
 					else {
 						dMat->SetTextureParameterValue(FName("tex_1"), getBackround(i));
+						audio1->SetWaveParameter(FName("wavefile"), getSound(i));
+						audio2->FadeOut(1, 0);
+						audio1->FadeIn(1);
 					}
 
-					getSound(lastTex)->FadeOut(1, 0);
-					getSound(i)->FadeIn(1);
+					//getSound(lastTex)->FadeOut(1, 0);
+					//getSound(i)->FadeIn(1);
+					
 					lastTex = i;
 					
 					if(boxInstances[i]->isCategory) {
 						//expand levels
 						for (int j = 0; j < boxInstances.size(); j++) {
-							if (boxInstances[j]->isActive && boxInstances[j]->GetActorLocation().Z < boxInstances[i]->GetActorLocation().Z) {
+							if (boxInstances[j]->isActive && boxInstances[j]->order_ > boxInstances[i]->adjustedOrder()) {
 								boxInstances[j]->AddActorLocalOffset(FVector(0, 0, boxInstances[i]->mappedLevels.size() * -200.0 * ((0.2 + boxInstances[i]->timer3)/0.2)));
 								//positionDeltas[j] += boxInstances[i]->mappedLevels.size() * -200.0;
 							}
@@ -185,7 +203,7 @@ void ALevelBlockManager::Tick(float DeltaTime)
 					}
 				}
 			}
-			if (boxInstances[i]->timer != 0.2) {
+			if (boxInstances[i]->timer != 0.2 && boxInstances[i]->GetActorLocation().X <= 1510) {
 				if (DeltaTime > 0.2 - boxInstances[i]->timer) {
 					UpdateDeltas(i, 100 * (0.2 - boxInstances[i]->timer));
 					boxInstances[i]->timer = 0.2;
@@ -247,9 +265,18 @@ void ALevelBlockManager::Tick(float DeltaTime)
 					//going back
 					for (int j = 0; j < boxInstances[i]->mappedLevels.size(); j++) {
 						int boxIndex = boxInstances[i]->mappedLevels[j];
-						boxInstances[boxIndex]->AddActorLocalOffset(FVector(-7500 * (boxInstances[i]->timer3), 0, 0));
+						//boxInstances[boxIndex]->AddActorLocalOffset(FVector(-7500 * (boxInstances[i]->timer3), 0, 0));
 						//boxInstances[boxIndex]->isActive = false;
-						
+						//boxInstances[boxIndex]->isSelected_ = false;
+						if (boxInstances[boxIndex]->timer2 != 0) {
+							UpdateDeltas(boxIndex, -100 * (boxInstances[boxIndex]->timer2));
+							boxInstances[boxIndex]->AddActorLocalOffset(FVector(350 * (boxInstances[boxIndex]->timer2), 0, 0));
+							boxInstances[boxIndex]->timer2 = 0;
+							boxInstances[boxIndex]->isSelected_ = false;
+						}
+						boxInstances[boxIndex]->AddActorLocalOffset(FVector(-7500 * (boxInstances[i]->timer3), 0, 0));
+						boxInstances[boxIndex]->isActive = false;
+						//boxInstances[boxIndex]->timer2 = 0;
 					}
 					/*
 					for (int j = 0; j < boxInstances.size(); j++) {
@@ -261,7 +288,7 @@ void ALevelBlockManager::Tick(float DeltaTime)
 					*/
 					for (int j = 0; j < boxInstances.size(); j++) {
 						//snaps bottom back
-						if (boxInstances[j]->isActive && boxInstances[j]->GetActorLocation().Z < boxInstances[i]->GetActorLocation().Z) {
+						if (boxInstances[j]->isActive && boxInstances[j]->order_ > boxInstances[i]->adjustedOrder()) {
 							boxInstances[j]->AddActorLocalOffset(FVector(0, 0, (boxInstances[i]->mappedLevels.size() * -200.0 * (boxInstances[i]->timer3)/0.2)));
 						}
 					}
@@ -286,7 +313,7 @@ void ALevelBlockManager::Tick(float DeltaTime)
 					}
 					for (int j = 0; j < boxInstances.size(); j++) {
 						//moves bottom back
-						if (boxInstances[j]->isActive && boxInstances[j]->GetActorLocation().Z < boxInstances[i]->GetActorLocation().Z) {
+						if (boxInstances[j]->isActive && boxInstances[j]->order_ > boxInstances[i]->adjustedOrder()) {
 							boxInstances[j]->AddActorLocalOffset(FVector(0, 0, (boxInstances[i]->mappedLevels.size() * 200.0 * (DeltaTime / 0.2))));
 						}
 					}
@@ -316,11 +343,11 @@ void ALevelBlockManager::Tick(float DeltaTime)
 void ALevelBlockManager::UpdateDeltas(int index, float delta)
 {
 	for (int i = 0; i < positionDeltas.size(); i++) {
-		if (boxInstances[index]->isActive) {
-			if (boxInstances[i]->GetActorLocation().Z > boxInstances[index]->GetActorLocation().Z) {
+		if (boxInstances[i]->isActive) {
+			if (boxInstances[i]->order_ < boxInstances[index]->order_) {
 				positionDeltas[i] += delta;
 			}
-			else if (boxInstances[i]->GetActorLocation().Z < boxInstances[index]->GetActorLocation().Z){
+			else if (boxInstances[i]->order_ > boxInstances[index]->order_){
 				positionDeltas[i] -= delta;
 			}
 		}
@@ -368,47 +395,47 @@ UTexture* ALevelBlockManager::getBackround(int i)
 	else if (i == 18) {
 		return tex8;
 	}
-	else if (i == 19) {
-
+	else if (i == 1) {
+		return tex9;
 	}
 	else {
 
 	}
 	return tex1;
 }
-UAudioComponent* ALevelBlockManager::getSound(int i)
+USoundWave* ALevelBlockManager::getSound(int i)
 {
 	if (i == 11) {
-		return audio1;
+		return sound1;
 	}
 	else if (i == 12) {
-		return audio2;
+		return sound2;
 	}
 	else if (i == 13) {
-		return audio3;
+		return sound3;
 	}
 	else if (i == 14) {
-		return audio4;
+		return sound4;
 	}
 	else if (i == 15) {
-		return audio5;
+		return sound5;
 	}
 	else if (i == 16) {
-		return audio6;
+		return sound6;
 	}
 	else if (i == 17) {
-		return audio7;
+		return sound7;
 	}
 	else if (i == 18) {
-		return audio8;
+		return sound8;
 	}
-	else if (i == 19) {
-
+	else if (i == 1) {
+		return sound9;
 	}
 	else {
 
 	}
-	return audio1;
+	return sound1;
 }
 #undef LOCTEXT_NAMESPACE
 
