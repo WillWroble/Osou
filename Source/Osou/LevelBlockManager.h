@@ -42,7 +42,12 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 	void UpdateDeltas(int index, float delta);
+	void AddDeltaToAll(float delta);
 	void UnselectAllBoxes();
+	void BindToInput();
+	void ScrollDown();
+	void ScrollUp();
+	int Shifted(int n);
 	UTexture* getBackround(int i);
 	USoundWave* getSound(int i);
 	UAudioComponent* audio1;
@@ -54,19 +59,27 @@ public:
 	UAudioComponent* audio7;
 	UAudioComponent* audio8;
 	APlayerController* pController;
+	UWorld* world;
 	FKey rightClick;
 	FKey leftClick;
 	std::vector<LevelData> levelDatas;
 	std::vector<ALevelBox*> boxInstances;
 	std::vector<float> positionDeltas;
+	std::vector<int> levelMap;
 	int lastTex;
 	int audioPtr1;
 	int audioPtr2;
+	int activeBoxes;
+	int orderShift;
 	bool forwardPolarity;
 	bool isFadeToTwo;
 
 	float timer;
 	float timer2;
+	float wormhole;
+
+
+	float scrollForce;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		UMaterialInstanceDynamic* dMat;
 
@@ -91,6 +104,14 @@ public:
 		UTexture* tex8;
 	UPROPERTY(EditDefaultsOnly, Category = "tex9")
 		UTexture* tex9;
+	UPROPERTY(EditDefaultsOnly, Category = "tex10")
+		UTexture* tex10;
+	UPROPERTY(EditDefaultsOnly, Category = "tex11")
+		UTexture* tex11;
+	UPROPERTY(EditDefaultsOnly, Category = "tex12")
+		UTexture* tex12;
+	UPROPERTY(EditDefaultsOnly, Category = "tex13")
+		UTexture* tex13;
 	UPROPERTY(EditDefaultsOnly, Category = "sound1")
 		USoundWave* sound1;
 	UPROPERTY(EditDefaultsOnly, Category = "sound2")
@@ -109,4 +130,12 @@ public:
 		USoundWave* sound8;
 	UPROPERTY(EditDefaultsOnly, Category = "sound9")
 		USoundWave* sound9;
+	UPROPERTY(EditDefaultsOnly, Category = "sound10")
+		USoundWave* sound10;
+	UPROPERTY(EditDefaultsOnly, Category = "sound11")
+		USoundWave* sound11;
+	UPROPERTY(EditDefaultsOnly, Category = "sound12")
+		USoundWave* sound12;
+	UPROPERTY(EditDefaultsOnly, Category = "sound13")
+		USoundWave* sound13;
 };

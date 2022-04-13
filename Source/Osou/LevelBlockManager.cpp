@@ -18,6 +18,7 @@ ALevelBlockManager::ALevelBlockManager()
 	}
 	levelDatas[0] = { 0,0, LOCTEXT("levelName0.1", "EnV Pack"), {8, 9, 10} };
 	levelDatas[1] = { 0,0, LOCTEXT("levelName0.2", "Touhou Pack"), {11, 12, 13, 14, 15, 16, 17, 18} };
+	levelDatas[7] = { 0,0, LOCTEXT("levelName0.8", "Avicii Pack"), {19, 20, 21, 22} };
 	levelDatas[8] =	 { 1,0, LOCTEXT("levelName1.1", "Vee (Tutorial) (WIP)"), {} };
 	levelDatas[11] = { 1,0, LOCTEXT("levelName2.1", "Flowering Night (WIP)"), {} };
 	levelDatas[12] = { 4,0, LOCTEXT("levelName2.2", "UN Owen Was Her"), {} };
@@ -38,14 +39,9 @@ void ALevelBlockManager::BeginPlay()
 	rightClick = FKey("RightMouseButton");
 	leftClick = FKey("LeftMouseButton");
 	pController = GetWorld()->GetFirstPlayerController();
+	world = GetWorld();
 	audio1 = (UAudioComponent*)(this->GetComponentsByTag(UAudioComponent::StaticClass(), "tag1"))[0];
 	audio2 = (UAudioComponent*)(this->GetComponentsByTag(UAudioComponent::StaticClass(), "tag2"))[0];
-	audio3 = (UAudioComponent*)(this->GetComponentsByTag(UAudioComponent::StaticClass(), "tag3"))[0];
-	audio4 = (UAudioComponent*)(this->GetComponentsByTag(UAudioComponent::StaticClass(), "tag4"))[0];
-	audio5 = (UAudioComponent*)(this->GetComponentsByTag(UAudioComponent::StaticClass(), "tag5"))[0];
-	audio6 = (UAudioComponent*)(this->GetComponentsByTag(UAudioComponent::StaticClass(), "tag6"))[0];
-	audio7 = (UAudioComponent*)(this->GetComponentsByTag(UAudioComponent::StaticClass(), "tag7"))[0];
-	audio8 = (UAudioComponent*)(this->GetComponentsByTag(UAudioComponent::StaticClass(), "tag8"))[0];
 	audio1->SetWaveParameter(FName("wavefile"), sound1);
 
 	pController->bShowMouseCursor = true;
@@ -53,6 +49,12 @@ void ALevelBlockManager::BeginPlay()
 	forwardPolarity = false;
 	isFadeToTwo = true;
 	lastTex = 0;
+	scrollForce = 0;
+	orderShift = 0;
+	activeBoxes = 8;
+	wormhole = -1270;
+
+	BindToInput();
 
 	float posX = 1500;
 	float posY = 800;
@@ -91,11 +93,39 @@ void ALevelBlockManager::BeginPlay()
 		}
 	}
 	
+	levelMap = { -1, -1, -1, -1, -1, -1, -1, -1,
+	0, -1, -1, 2, 1, 3, 4, 5, 6, 7, 8};
+	for (int i = 0; i < 70; i++) {
+		levelMap.push_back(-1);
+	}
+	
 }
 // Called every frame
 void ALevelBlockManager::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	
+	if (scrollForce != 0) {
+		if (scrollForce < -100) {
+			scrollForce = -100;//-0.8334/(DeltaTime);
+		}
+		else if (scrollForce > 100){
+			scrollForce = 100;//0.8334/(DeltaTime);
+		}
+		AddDeltaToAll(30 * (scrollForce) * DeltaTime);
+		if (scrollForce < 0) {
+			scrollForce += 200 * DeltaTime; //1.667
+			if (scrollForce > 0) {
+				scrollForce = 0;
+			}
+		}
+		else {
+			scrollForce -= 200 * DeltaTime;//200 * DeltaTime;
+			if (scrollForce < 0) {
+				scrollForce = 0;
+			}
+		}
+	}
 	if (timer2 > 0) {
 		if (timer2 < DeltaTime) {
 			timer2 = 0;
@@ -125,8 +155,9 @@ void ALevelBlockManager::Tick(float DeltaTime)
 				if (boxInstances[i]->isSelected_) {
 					//already selected (clicking again)
 					if (!boxInstances[i]->isCategory) {
-						if (i == 1 || i == 0) {
-							ABulletController::levelIndex = i;
+						int n = levelMap[i];
+						if (n == 1 || n == 0) {
+							ABulletController::levelIndex = n;
 							UGameplayStatics::OpenLevel(this, FName("Minimal_Default"));
 						}
 						else {
@@ -135,18 +166,9 @@ void ALevelBlockManager::Tick(float DeltaTime)
 					}
 					else {
 						//collapse levels
-						for (int j = 0; j < boxInstances[i]->mappedLevels.size(); j++) {
-							int boxIndex = boxInstances[i]->mappedLevels[j];
-							if (boxInstances[boxIndex]->isSelected_) {
-								//quickly deselects sublevels
-								//UpdateDeltas(boxIndex, -100 * boxInstances[boxIndex]->timer2);
-								//boxInstances[boxIndex]->AddActorLocalOffset(FVector(350 * (boxInstances[i]->timer2), 0, 0));
-								//boxInstances[boxIndex]->timer2 = 0;
-							}
-							//boxInstances[boxIndex]->isActive = false;
-						}
 						for (int j = 0; j < boxInstances.size(); j++) {
-							if (boxInstances[j]->isActive && boxInstances[j]->order_ > boxInstances[i]->adjustedOrder()) {
+							//bump
+							if (boxInstances[j]->isActive && Shifted(boxInstances[j]->order_) > Shifted(boxInstances[i]->adjustedOrder())) {
 								boxInstances[j]->AddActorLocalOffset(FVector(0, 0, boxInstances[i]->mappedLevels.size() * 200.0 * ((boxInstances[i]->timer3) / 0.2)));
 								//positionDeltas[j] += boxInstances[i]->mappedLevels.size() * -200.0;
 							}
@@ -185,8 +207,9 @@ void ALevelBlockManager::Tick(float DeltaTime)
 					
 					if(boxInstances[i]->isCategory) {
 						//expand levels
+						activeBoxes += boxInstances[i]->mappedLevels.size();
 						for (int j = 0; j < boxInstances.size(); j++) {
-							if (boxInstances[j]->isActive && boxInstances[j]->order_ > boxInstances[i]->adjustedOrder()) {
+							if (boxInstances[j]->isActive && Shifted(boxInstances[j]->order_) > Shifted(boxInstances[i]->adjustedOrder())) {
 								boxInstances[j]->AddActorLocalOffset(FVector(0, 0, boxInstances[i]->mappedLevels.size() * -200.0 * ((0.2 + boxInstances[i]->timer3)/0.2)));
 								//positionDeltas[j] += boxInstances[i]->mappedLevels.size() * -200.0;
 							}
@@ -263,6 +286,7 @@ void ALevelBlockManager::Tick(float DeltaTime)
 				}
 				else {
 					//going back
+					activeBoxes -= boxInstances[i]->mappedLevels.size();
 					for (int j = 0; j < boxInstances[i]->mappedLevels.size(); j++) {
 						int boxIndex = boxInstances[i]->mappedLevels[j];
 						//boxInstances[boxIndex]->AddActorLocalOffset(FVector(-7500 * (boxInstances[i]->timer3), 0, 0));
@@ -288,7 +312,7 @@ void ALevelBlockManager::Tick(float DeltaTime)
 					*/
 					for (int j = 0; j < boxInstances.size(); j++) {
 						//snaps bottom back
-						if (boxInstances[j]->isActive && boxInstances[j]->order_ > boxInstances[i]->adjustedOrder()) {
+						if (boxInstances[j]->isActive && Shifted(boxInstances[j]->order_) > Shifted(boxInstances[i]->adjustedOrder())) {
 							boxInstances[j]->AddActorLocalOffset(FVector(0, 0, (boxInstances[i]->mappedLevels.size() * -200.0 * (boxInstances[i]->timer3)/0.2)));
 						}
 					}
@@ -313,7 +337,7 @@ void ALevelBlockManager::Tick(float DeltaTime)
 					}
 					for (int j = 0; j < boxInstances.size(); j++) {
 						//moves bottom back
-						if (boxInstances[j]->isActive && boxInstances[j]->order_ > boxInstances[i]->adjustedOrder()) {
+						if (boxInstances[j]->isActive && Shifted(boxInstances[j]->order_) > Shifted(boxInstances[i]->adjustedOrder())) {
 							boxInstances[j]->AddActorLocalOffset(FVector(0, 0, (boxInstances[i]->mappedLevels.size() * 200.0 * (DeltaTime / 0.2))));
 						}
 					}
@@ -322,22 +346,37 @@ void ALevelBlockManager::Tick(float DeltaTime)
 			}
 		}
 	}
-	/*
-	if (pController->IsInputKeyDown(rightClick)) {
+	
+	if (pController->IsInputKeyDown(rightClick) || pController->IsInputKeyDown(leftClick)) {
 		//enable scrolling
-		for (int i = 0; i < positionDeltas.size(); i++) {
-			float dx; float dy;
-			pController->GetInputMouseDelta(dx, dy);
-			positionDeltas[i] += dy*15;
-		}
+		
+		float dx; float dy;
+		pController->GetInputMouseDelta(dx, dy);
+
+		scrollForce += 50*dy;
+			
+		
 	}
-	*/
+	
 	for (int i = 0; i < positionDeltas.size(); i++) {
 		//int temp = floor(GetActorLocation().Z / 200);
 		//int multiplier = (abs(2 * (((int)floor(boxInstances[i]->GetActorLocation().Z / 200)) % 2)) - 1);
 		//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, *(FString::FromInt(temp)));
 		boxInstances[i]->AddActorLocalOffset(FVector(0, 0, positionDeltas[i])); //positionDeltas[i] * 0.125 * multiplier
 		positionDeltas[i] = 0;
+		if (boxInstances[i]->isActive) {
+			float posX = boxInstances[i]->GetActorLocation().X;
+			float deltaZ = boxInstances[i]->GetActorLocation().Z + 1400 + (200 * (activeBoxes-8));
+			if (deltaZ < 0) {
+				boxInstances[i]->SetActorLocation(FVector(posX, 1, 1400 + deltaZ));
+				orderShift = 72-boxInstances[i]->order_;
+			}
+			deltaZ = boxInstances[i]->GetActorLocation().Z - 1400;
+			if (deltaZ > 0) {
+				boxInstances[i]->SetActorLocation(FVector(posX, 1, -1400 - (200 * (activeBoxes-8)) + deltaZ));
+				orderShift = 71-boxInstances[i]->order_;
+			}
+		}
 	}
 }
 void ALevelBlockManager::UpdateDeltas(int index, float delta)
@@ -361,6 +400,14 @@ void ALevelBlockManager::UpdateDeltas(int index, float delta)
 	}
 	*/
 }
+void ALevelBlockManager::AddDeltaToAll(float delta)
+{
+	for (int i = 0; i < positionDeltas.size(); i++) {
+		if (boxInstances[i]->isActive) {
+			positionDeltas[i] += delta;
+		}
+	}
+}
 void ALevelBlockManager::UnselectAllBoxes()
 {
 	for (int i = 0; i < boxInstances.size(); i++) {
@@ -368,6 +415,57 @@ void ALevelBlockManager::UnselectAllBoxes()
 			boxInstances[i]->isSelected_ = false;
 		}
 	}
+}
+void ALevelBlockManager::BindToInput()
+{
+	// Initialize our component
+	InputComponent = NewObject<UInputComponent>(this);
+	InputComponent->RegisterComponent();
+	if (InputComponent)
+	{
+		// Bind inputs here
+		// InputComponent->BindAction("Jump", IE_Pressed, this, &AUnrealisticPawn::Jump);
+		// etc...
+		InputComponent->BindAction("ScrollDown", IE_Pressed, this, &ALevelBlockManager::ScrollDown);
+		InputComponent->BindAction("ScrollUp", IE_Pressed, this, &ALevelBlockManager::ScrollUp);
+
+		// Now hook up our InputComponent to one in a Player
+		// Controller, so that input flows down to us
+		EnableInput(pController);
+	}
+}
+void ALevelBlockManager::ScrollDown()
+{
+	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, "SCROLLING DOWN");
+	scrollForce += 50;
+	//float newScrollForce = scrollForce - 50;
+	/*
+	if (newScrollForce < -100) {
+		scrollForce = -100;
+	}
+	else {
+		scrollForce = newScrollForce;
+	}
+	//scrollForce = -100;
+	*/
+}
+void ALevelBlockManager::ScrollUp()
+{
+	scrollForce -= 50;
+	//float newScrollForce = scrollForce + 50;
+	/*
+	if (newScrollForce > 100) {
+		scrollForce = 100;
+	}
+	else {
+		scrollForce = newScrollForce;
+	}
+	*/
+	//scrollForce = 100;
+}
+int ALevelBlockManager::Shifted(int n)
+{
+	return (n + orderShift) % 72;
 }
 UTexture* ALevelBlockManager::getBackround(int i)
 {
@@ -397,6 +495,18 @@ UTexture* ALevelBlockManager::getBackround(int i)
 	}
 	else if (i == 1) {
 		return tex9;
+	}
+	else if (i == 0) {
+		return tex10;
+	}
+	else if (i == 8) {
+		return tex11;
+	}
+	else if (i == 9) {
+		return tex12;
+	}
+	else if (i == 10) {
+		return tex13;
 	}
 	else {
 
@@ -431,6 +541,18 @@ USoundWave* ALevelBlockManager::getSound(int i)
 	}
 	else if (i == 1) {
 		return sound9;
+	}
+	else if (i == 0) {
+		return sound10;
+	}
+	else if (i == 8) {
+		return sound11;
+	}
+	else if (i == 9) {
+		return sound12;
+	}
+	else if (i == 10) {
+		return sound13;
 	}
 	else {
 
