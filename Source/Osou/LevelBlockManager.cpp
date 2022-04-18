@@ -173,6 +173,14 @@ void ALevelBlockManager::Tick(float DeltaTime)
 								//positionDeltas[j] += boxInstances[i]->mappedLevels.size() * -200.0;
 							}
 						}
+						if (boxInstances[i]->timer3 == 0) {
+							for (int j = 0; j < boxInstances[i]->mappedLevels.size(); j++) {
+								int boxIndex = boxInstances[i]->mappedLevels[j];
+								boxInstances[boxIndex]->AddActorLocalOffset(FVector(0, -0.5, 0));
+								//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "LTT IS COLL");
+								//boxInstances[boxIndex]->timer = 1;
+							}
+						}
 						
 						UnselectAllBoxes();
 						boxInstances[i]->timer3 -= 0.2;
@@ -217,7 +225,7 @@ void ALevelBlockManager::Tick(float DeltaTime)
 						if (boxInstances[i]->timer3 == 0) {
 							for (int j = 0; j < boxInstances[i]->mappedLevels.size(); j++) {
 								int boxIndex = boxInstances[i]->mappedLevels[j];
-								boxInstances[boxIndex]->SetActorLocation(FVector(3000, 1, boxInstances[i]->GetActorLocation().Z - (200 * (j + 1)) - 100 * (boxInstances[i]->timer))); //-20
+								boxInstances[boxIndex]->SetActorLocation(FVector(3000, 0.5, boxInstances[i]->GetActorLocation().Z - (200 * (j + 1)) - 100 * (boxInstances[i]->timer))); //-20
 								boxInstances[boxIndex]->isActive = true;
 								//boxInstances[boxIndex]->timer = 1;
 							}
@@ -279,7 +287,7 @@ void ALevelBlockManager::Tick(float DeltaTime)
 					//coming forward
 					for (int j = 0; j < boxInstances[i]->mappedLevels.size(); j++) {
 						int boxIndex = boxInstances[i]->mappedLevels[j];
-						boxInstances[boxIndex]->AddActorLocalOffset(FVector(-7500 * (boxInstances[i]->timer3), 0, 0));
+						boxInstances[boxIndex]->AddActorLocalOffset(FVector(-7500 * (boxInstances[i]->timer3), 0.5, 0));
 						boxInstances[boxIndex]->isActive = true;
 					}
 					boxInstances[i]->timer3 = 0;
