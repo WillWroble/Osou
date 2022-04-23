@@ -13,6 +13,7 @@
 #include "Sound/SoundWave.h"
 #include <vector>
 #include <Engine/Texture.h>
+#include <stdlib.h>
 #include "Materials/MaterialInstanceDynamic.h"
 #include "Kismet/GameplayStatics.h"
 #include "Components/TextRenderComponent.h"
@@ -73,6 +74,7 @@ public:
 	int orderShift;
 	bool forwardPolarity;
 	bool isFadeToTwo;
+	bool isCollapsing;
 
 	float timer;
 	float timer2;
@@ -80,6 +82,9 @@ public:
 
 
 	float scrollForce;
+
+	const float curveCoeff = 0;
+
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		UMaterialInstanceDynamic* dMat;
 

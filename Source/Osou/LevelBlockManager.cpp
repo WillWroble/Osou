@@ -36,6 +36,12 @@ ALevelBlockManager::ALevelBlockManager()
 void ALevelBlockManager::BeginPlay()
 {
 	Super::BeginPlay();
+	/*
+	APawn* evilPawn = pController->GetPawn();
+	if (evilPawn != nullptr) {
+		evilPawn->Destroy();
+	}
+	*/
 	rightClick = FKey("RightMouseButton");
 	leftClick = FKey("LeftMouseButton");
 	pController = GetWorld()->GetFirstPlayerController();
@@ -53,6 +59,7 @@ void ALevelBlockManager::BeginPlay()
 	orderShift = 0;
 	activeBoxes = 8;
 	wormhole = -1270;
+	isCollapsing = false;
 
 	BindToInput();
 
@@ -97,6 +104,10 @@ void ALevelBlockManager::BeginPlay()
 	0, -1, -1, 2, 1, 3, 4, 5, 6, 7, 8};
 	for (int i = 0; i < 70; i++) {
 		levelMap.push_back(-1);
+	}
+	APawn* evilPawn = pController->GetPawn();
+	if (evilPawn != nullptr) {
+		evilPawn->Destroy();
 	}
 	
 }
@@ -166,6 +177,7 @@ void ALevelBlockManager::Tick(float DeltaTime)
 					}
 					else {
 						//collapse levels
+						isCollapsing = true;
 						for (int j = 0; j < boxInstances.size(); j++) {
 							//bump
 							if (boxInstances[j]->isActive && Shifted(boxInstances[j]->order_) > Shifted(boxInstances[i]->adjustedOrder())) {
@@ -215,6 +227,7 @@ void ALevelBlockManager::Tick(float DeltaTime)
 					
 					if(boxInstances[i]->isCategory) {
 						//expand levels
+						isCollapsing = true;
 						activeBoxes += boxInstances[i]->mappedLevels.size();
 						for (int j = 0; j < boxInstances.size(); j++) {
 							if (boxInstances[j]->isActive && Shifted(boxInstances[j]->order_) > Shifted(boxInstances[i]->adjustedOrder())) {
@@ -281,7 +294,9 @@ void ALevelBlockManager::Tick(float DeltaTime)
 			}
 		}
 		if (boxInstances[i]->timer3 != 0) {
-			if (DeltaTime > fabs(boxInstances[i]->timer3)) {
+			if (DeltaTime + curveCoeff * (DeltaTime * (0.2 * (boxInstances[i]->timer3 > 0) - boxInstances[i]->timer3)) > fabs(boxInstances[i]->timer3) || (false  && boxInstances[i]->timer3 < 0)) {
+				isCollapsing = false;
+				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, "SNAPPING");
 				//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::SanitizeFloat(fabs(boxInstances[i]->timer3)));
 				if (boxInstances[i]->timer3 > 0) {
 					//coming forward
@@ -329,27 +344,28 @@ void ALevelBlockManager::Tick(float DeltaTime)
 
 			}
 			else {
+				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, "MOVING");
 				if (boxInstances[i]->timer3 > 0) {
 					for (int j = 0; j < boxInstances[i]->mappedLevels.size(); j++) {
 						//coming forward
 						int boxIndex = boxInstances[i]->mappedLevels[j];
-						boxInstances[boxIndex]->AddActorLocalOffset(FVector(-7500 * DeltaTime, 0, 0));
+						boxInstances[boxIndex]->AddActorLocalOffset(FVector(-7500 * (DeltaTime + curveCoeff * (DeltaTime * (0.2 - boxInstances[i]->timer3))), 0, 0));
 					}
-					boxInstances[i]->timer3 -= 1 * DeltaTime;
+					boxInstances[i]->timer3 -= 1 * DeltaTime + curveCoeff * (DeltaTime * (0.2 - boxInstances[i]->timer3));
 				}
 				else {
 					for (int j = 0; j < boxInstances[i]->mappedLevels.size(); j++) {
 						//going back
 						int boxIndex = boxInstances[i]->mappedLevels[j];
-						boxInstances[boxIndex]->AddActorLocalOffset(FVector(7500 * DeltaTime, 0, 0));
+						boxInstances[boxIndex]->AddActorLocalOffset(FVector(7500 * (DeltaTime + curveCoeff * (DeltaTime * (-1* boxInstances[i]->timer3))), 0, 0));
 					}
 					for (int j = 0; j < boxInstances.size(); j++) {
 						//moves bottom back
 						if (boxInstances[j]->isActive && Shifted(boxInstances[j]->order_) > Shifted(boxInstances[i]->adjustedOrder())) {
-							boxInstances[j]->AddActorLocalOffset(FVector(0, 0, (boxInstances[i]->mappedLevels.size() * 200.0 * (DeltaTime / 0.2))));
+							boxInstances[j]->AddActorLocalOffset(FVector(0, 0, (boxInstances[i]->mappedLevels.size() * 200.0 * ((DeltaTime + curveCoeff * (DeltaTime * (-1 * boxInstances[i]->timer3))) / 0.2))));
 						}
 					}
-					boxInstances[i]->timer3 += 1 * DeltaTime;
+					boxInstances[i]->timer3 += (1 * DeltaTime + curveCoeff*(DeltaTime*(-1*(boxInstances[i]->timer3))));
 				}
 			}
 		}
@@ -372,7 +388,7 @@ void ALevelBlockManager::Tick(float DeltaTime)
 		//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, *(FString::FromInt(temp)));
 		boxInstances[i]->AddActorLocalOffset(FVector(0, 0, positionDeltas[i])); //positionDeltas[i] * 0.125 * multiplier
 		positionDeltas[i] = 0;
-		if (boxInstances[i]->isActive) {
+		if (boxInstances[i]->isActive && !isCollapsing) {
 			float posX = boxInstances[i]->GetActorLocation().X;
 			float deltaZ = boxInstances[i]->GetActorLocation().Z + 1400 + (200 * (activeBoxes-8));
 			if (deltaZ < 0) {
