@@ -15,16 +15,20 @@
 #include <Engine/Texture.h>
 #include <stdlib.h>
 #include "Materials/MaterialInstanceDynamic.h"
+#include "MySaveGame.h"
 #include "Kismet/GameplayStatics.h"
 #include "Components/TextRenderComponent.h"
 #include "LevelBlockManager.generated.h"
 
+enum grade {S_, A_, B_, C_, D_};
 struct LevelData {
 
 	int levelNumber;
 	int levelDifficulty;
 	FText levelName;
 	std::vector<int> subLevels;
+	int grade;
+	float score;
 };
 UCLASS()
 class OSOU_API ALevelBlockManager : public AActor
@@ -46,6 +50,7 @@ public:
 	void AddDeltaToAll(float delta);
 	void UnselectAllBoxes();
 	void BindToInput();
+	void FinishedLoadingLevels(const FString& SlotName, const int32 UserINdex, USaveGame* LoadedGameData);
 	void ScrollDown();
 	void ScrollUp();
 	int Shifted(int n);
@@ -63,8 +68,10 @@ public:
 	UWorld* world;
 	FKey rightClick;
 	FKey leftClick;
-	std::vector<LevelData> levelDatas;
+	static std::vector<LevelData> levelDatas;
 	std::vector<ALevelBox*> boxInstances;
+	std::vector<FString> gradeConversionLetter;
+	std::vector<FColor> gradeConversionColor;
 	std::vector<float> positionDeltas;
 	std::vector<int> levelMap;
 	int lastTex;
@@ -84,6 +91,8 @@ public:
 	float scrollForce;
 
 	const float curveCoeff = 0;
+	//UPROPERTY(EditDefaultsOnly, Category = "SaveDataObject")
+	//	TSubclassOf<UMySaveGame> MySaveGameClass;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		UMaterialInstanceDynamic* dMat;

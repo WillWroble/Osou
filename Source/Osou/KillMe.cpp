@@ -118,6 +118,11 @@ void AKillMe::BeginPlay()
 	invunerableTime = 0;
 	iCounter = 0;
 	isInvunerable = false;
+	currentLevel = 0;
+	levelConversion = { 8, 12, 11, 13, 14, 15, 16, 17, 18 };
+	for (int i = 0; i < 70; i++) {
+		levelConversion.push_back(-1);
+	}
 	//speed = baseSpeed / (*currentBeat)[0];
 	//currentBeat.clear();
 	//textBox->SetText(FText::FromString("I fucking hate unreal engine"));
@@ -192,10 +197,7 @@ void AKillMe::Tick(float DeltaTime)
 				if (beats[transitionIndex + 1].size() == 0) {
 					//just reset for now
 					transitionIndex = 0;
-					rScore = ((float)perfects / (float)total) * ((float)100);
-					//hScore = 3;
-					isLevelFinsihedd = true;
-					OnFinishLevel();
+					FinishedLevel();
 				}
 				currentBeat = &(beats[transitionIndex]);
 				currentMulti = speedMultis[transitionIndex];
@@ -339,6 +341,10 @@ void AKillMe::ResetEverything()
 }
 void AKillMe::FinishedLevel()
 {
+	rScore = ((float)perfects / (float)total) * ((float)100);
+	//hScore = 3;
+	isLevelFinsihedd = true;
+	currentLevel = levelConversion[ABulletController::levelIndex];
 	OnFinishLevel();
 }
 void AKillMe::OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
@@ -346,7 +352,7 @@ void AKillMe::OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AA
 	if (OtherActor && (OtherActor != this) && OtherComp)
 	{
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Overlap Begin"));
-		if (isLevelFinsihedd || isInvunerable || ABulletController::levelIndex == 0) {
+		if (isLevelFinsihedd || isInvunerable || ABulletController::levelIndex == 1) {
 			return;
 		}
 		UpdateHealthBar();

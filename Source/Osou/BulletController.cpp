@@ -138,6 +138,7 @@ void ABulletController::Tick(float DeltaTime)
 			else if (tutorialTime < 19) {
 				player->sound->SetWaveParameter(FName("wave"), player->song0);
 				player->sound->Play();
+				player->FinishedLevel();
 			}
 			else if (tutorialTime < 66) {
 				if (player->Health < 0.5) {
@@ -287,6 +288,7 @@ void ABulletController::Tick(float DeltaTime)
 				temp.message = FString("Fantastic job!");
 				currentMessage = temp;
 				isDisplayMessage = true;
+				//player->FinishedLevel();
 			}
 			tutorialTime++;
 		}

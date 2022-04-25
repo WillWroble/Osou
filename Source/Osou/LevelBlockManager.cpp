@@ -4,6 +4,7 @@
 #include "LevelBlockManager.h"
 
 #define LOCTEXT_NAMESPACE "LevelNames"
+std::vector<LevelData> ALevelBlockManager::levelDatas = std::vector <LevelData>(72);
 // Sets default values
 ALevelBlockManager::ALevelBlockManager()
 {
@@ -11,10 +12,10 @@ ALevelBlockManager::ALevelBlockManager()
 	PrimaryActorTick.bCanEverTick = true;
 	timer = 0;
 	timer2 = 0;
-	levelDatas = std::vector <LevelData>(72);
+	//levelDatas = std::vector <LevelData>(72);
 	for (int i = 0; i < 72; i++) {
 		//set default values
-		levelDatas[i] = { -1,0, LOCTEXT("DefaultLevelName", "LEVEL NOT CREATED YET"), {} };
+		levelDatas[i] = { -1,0, LOCTEXT("DefaultLevelName", "LEVEL NOT CREATED YET"), {}};
 	}
 	levelDatas[0] = { 0,0, LOCTEXT("levelName0.1", "EnV Pack"), {8, 9, 10} };
 	levelDatas[1] = { 0,0, LOCTEXT("levelName0.2", "Touhou Pack"), {11, 12, 13, 14, 15, 16, 17, 18} };
@@ -60,45 +61,13 @@ void ALevelBlockManager::BeginPlay()
 	activeBoxes = 8;
 	wormhole = -1270;
 	isCollapsing = false;
+	gradeConversionLetter = { FString(""), FString("S"), FString("A"), FString("B"), FString("C"), FString("D") };
+	gradeConversionColor = {FColor::Transparent, FColor(0x8437DDFF), FColor(0x29A329FF), FColor(0x86A326FF), FColor(0xE9DB08FF), FColor(0xE90908FF) };
 
 	BindToInput();
-
-	float posX = 1500;
-	float posY = 800;
-	boxInstances = std::vector<ALevelBox*>(72);
-	for (int i = 0; i < levelDatas.size(); i++) {
-		if (i < 8) {
-			ALevelBox* tempBox = GetWorld()->SpawnActor<ALevelBox>(LevelBlockClass,
-				FVector(posX, 1, posY), //- (12.5*((2*(((int)abs(posY/200))%2))-1)
-				FRotator(0));
-			boxInstances[i] = (tempBox);
-			((UTextRenderComponent*)(tempBox->GetComponentsByTag(UTextRenderComponent::StaticClass(), "LevelName")[0]))->SetText(levelDatas[i].levelName);
-			tempBox->mappedLevels = levelDatas[i].subLevels;
-			tempBox->isActive = true;
-			tempBox->isCategory = true;
-			posY -= 200;
-		}
-		else {
-			ALevelBox* tempBox = GetWorld()->SpawnActor<ALevelBox>(LevelBlockClass,
-				FVector(9999, 1, 9999), //- (12.5*((2*(((int)abs(posY/200))%2))-1)
-				FRotator(0));
-			boxInstances[i] = (tempBox);
-			((UTextRenderComponent*)(tempBox->GetComponentsByTag(UTextRenderComponent::StaticClass(), "LevelName")[0]))->SetText(levelDatas[i].levelName);
-			tempBox->mappedLevels = levelDatas[i].subLevels;
-			tempBox->isActive = false;
-			tempBox->isCategory = false;
-		}
-	}
-	
-	int orderCount = 0;
-	for (int i = 0; i < 8; i++) {
-		boxInstances[i]->order_ = orderCount;
-		orderCount++;
-		for (int j = 0; j < boxInstances[i]->mappedLevels.size(); j++) {
-			boxInstances[boxInstances[i]->mappedLevels[j]]->order_ = orderCount;
-			orderCount++;
-		}
-	}
+	FAsyncLoadGameFromSlotDelegate LoadedDelegate;
+	LoadedDelegate.BindUObject(this, &ALevelBlockManager::FinishedLoadingLevels);
+	UGameplayStatics::AsyncLoadGameFromSlot(FString("osou_save"), 0, LoadedDelegate);
 	
 	levelMap = { -1, -1, -1, -1, -1, -1, -1, -1,
 	0, -1, -1, 2, 1, 3, 4, 5, 6, 7, 8};
@@ -115,6 +84,9 @@ void ALevelBlockManager::BeginPlay()
 void ALevelBlockManager::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	if (boxInstances.empty()) {
+		return;
+	}
 	
 	if (scrollForce != 0) {
 		if (scrollForce < -100) {
@@ -456,6 +428,73 @@ void ALevelBlockManager::BindToInput()
 		// Now hook up our InputComponent to one in a Player
 		// Controller, so that input flows down to us
 		EnableInput(pController);
+	}
+}
+void ALevelBlockManager::FinishedLoadingLevels(const FString& SlotName, const int32 UserINdex, USaveGame* LoadedGameData)
+{
+	UMySaveGame* currentSave = (UMySaveGame*)LoadedGameData;
+	if (currentSave) {
+		for (int i = 0; i < 72; i++) {
+			levelDatas[i].grade = currentSave->grades[i];
+			levelDatas[i].score = currentSave->scores[i];
+		}
+	}
+	else {
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "NO SAVE FILE FOUND");
+		for (int i = 0; i < 72; i++) {
+			levelDatas[i].grade = 0;
+			levelDatas[i].score = 0;
+		}
+	}
+	float posX = 1500;
+	float posY = 800;
+	boxInstances = std::vector<ALevelBox*>(72);
+	for (int i = 0; i < levelDatas.size(); i++) {
+		if (i < 8) {
+			ALevelBox* tempBox = GetWorld()->SpawnActor<ALevelBox>(LevelBlockClass,
+				FVector(posX, 1, posY), //- (12.5*((2*(((int)abs(posY/200))%2))-1)
+				FRotator(0));
+			boxInstances[i] = (tempBox);
+			((UTextRenderComponent*)(tempBox->GetComponentsByTag(UTextRenderComponent::StaticClass(), "LevelName")[0]))->SetText(levelDatas[i].levelName);
+			((UTextRenderComponent*)(tempBox->GetComponentsByTag(UTextRenderComponent::StaticClass(), "LevelScore")[0]))->SetText(gradeConversionLetter[levelDatas[i].grade]);
+			((UTextRenderComponent*)(tempBox->GetComponentsByTag(UTextRenderComponent::StaticClass(), "LevelScore")[0]))->SetTextRenderColor(gradeConversionColor[levelDatas[i].grade]);
+			((UTextRenderComponent*)(tempBox->GetComponentsByTag(UTextRenderComponent::StaticClass(), "ScoreNum")[0]))->SetText(FString::Printf(TEXT("%.1f"), levelDatas[i].score));
+			if (levelDatas[i].score == 0) {
+				((UTextRenderComponent*)(tempBox->GetComponentsByTag(UTextRenderComponent::StaticClass(), "ScoreNum")[0]))->SetText(FString(""));
+			}
+			tempBox->mappedLevels = levelDatas[i].subLevels;
+			tempBox->isActive = true;
+			tempBox->isCategory = true;
+			posY -= 200;
+		}
+		else {
+			ALevelBox* tempBox = GetWorld()->SpawnActor<ALevelBox>(LevelBlockClass,
+				FVector(9999, 1, 9999), //- (12.5*((2*(((int)abs(posY/200))%2))-1)
+				FRotator(0));
+			boxInstances[i] = (tempBox);
+			((UTextRenderComponent*)(tempBox->GetComponentsByTag(UTextRenderComponent::StaticClass(), "LevelName")[0]))->SetText(levelDatas[i].levelName);
+			((UTextRenderComponent*)(tempBox->GetComponentsByTag(UTextRenderComponent::StaticClass(), "LevelScore")[0]))->SetText(gradeConversionLetter[levelDatas[i].grade]);
+			((UTextRenderComponent*)(tempBox->GetComponentsByTag(UTextRenderComponent::StaticClass(), "LevelScore")[0]))->SetTextRenderColor(gradeConversionColor[levelDatas[i].grade]);
+			((UTextRenderComponent*)(tempBox->GetComponentsByTag(UTextRenderComponent::StaticClass(), "ScoreNum")[0]))->SetText(FString::Printf(TEXT("%.1f"), levelDatas[i].score));
+
+			if (levelDatas[i].score == 0) {
+				((UTextRenderComponent*)(tempBox->GetComponentsByTag(UTextRenderComponent::StaticClass(), "ScoreNum")[0]))->SetText(FString(""));
+			}
+
+			tempBox->mappedLevels = levelDatas[i].subLevels;
+			tempBox->isActive = false;
+			tempBox->isCategory = false;
+		}
+	}
+
+	int orderCount = 0;
+	for (int i = 0; i < 8; i++) {
+		boxInstances[i]->order_ = orderCount;
+		orderCount++;
+		for (int j = 0; j < boxInstances[i]->mappedLevels.size(); j++) {
+			boxInstances[boxInstances[i]->mappedLevels[j]]->order_ = orderCount;
+			orderCount++;
+		}
 	}
 }
 void ALevelBlockManager::ScrollDown()

@@ -51,6 +51,7 @@ public:
 	std::vector<float> transitionTimes;
 	std::vector<float> speedMultis;
 	std::vector<on_screen_message> messages;
+	std::vector<int> levelConversion;
 	UAudioComponent* sound;
 	
 	float currentMulti;
@@ -97,6 +98,8 @@ public:
 		float rScore;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		int hScore;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		int currentLevel;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		bool isInvunerable;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
