@@ -245,7 +245,7 @@ void AKillMe::Tick(float DeltaTime)
 		}
 		if (Health <= 0) {
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "BAD RYTHM");
-			//ResetEverything();
+			ResetEverything();
 		}
 		hasStarted = true;
 		scale = baseScale;//FVector(0.06 + ((*currentBeat)[index] * 0.38));
@@ -352,7 +352,7 @@ void AKillMe::OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AA
 	if (OtherActor && (OtherActor != this) && OtherComp)
 	{
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Overlap Begin"));
-		if (isLevelFinsihedd || isInvunerable || ABulletController::levelIndex == 1) {
+		if (isLevelFinsihedd || isInvunerable || ABulletController::levelIndex == 0) {
 			return;
 		}
 		UpdateHealthBar();

@@ -126,6 +126,13 @@ public:
 		UTexture* tex12;
 	UPROPERTY(EditDefaultsOnly, Category = "tex13")
 		UTexture* tex13;
+	UPROPERTY(EditDefaultsOnly, Category = "tex14")
+		UTexture* tex14;
+
+
+
+
+
 	UPROPERTY(EditDefaultsOnly, Category = "sound1")
 		USoundWave* sound1;
 	UPROPERTY(EditDefaultsOnly, Category = "sound2")
@@ -152,4 +159,10 @@ public:
 		USoundWave* sound12;
 	UPROPERTY(EditDefaultsOnly, Category = "sound13")
 		USoundWave* sound13;
+	UPROPERTY(EditDefaultsOnly, Category = "sound14")
+		USoundWave* sound14;
+	UPROPERTY(EditDefaultsOnly, Category = "sound15")
+		USoundWave* sound15;
+	UPROPERTY(EditDefaultsOnly, Category = "sound16")
+		USoundWave* sound16;
 };

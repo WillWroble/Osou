@@ -138,7 +138,7 @@ void ABulletController::Tick(float DeltaTime)
 			else if (tutorialTime < 19) {
 				player->sound->SetWaveParameter(FName("wave"), player->song0);
 				player->sound->Play();
-				player->FinishedLevel();
+				//player->FinishedLevel();
 			}
 			else if (tutorialTime < 66) {
 				if (player->Health < 0.5) {

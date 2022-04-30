@@ -17,11 +17,13 @@ ALevelBlockManager::ALevelBlockManager()
 		//set default values
 		levelDatas[i] = { -1,0, LOCTEXT("DefaultLevelName", "LEVEL NOT CREATED YET"), {}};
 	}
-	levelDatas[0] = { 0,0, LOCTEXT("levelName0.1", "EnV Pack"), {8, 9, 10} };
+	levelDatas[0] = { 0,0, LOCTEXT("levelName0.1", "EnV Pack"), {8, 23,  9, 10} };
 	levelDatas[1] = { 0,0, LOCTEXT("levelName0.2", "Touhou Pack"), {11, 12, 13, 14, 15, 16, 17, 18} };
 	levelDatas[7] = { 0,0, LOCTEXT("levelName0.8", "Avicii Pack"), {19, 20, 21, 22} };
-	levelDatas[8] =	 { 1,0, LOCTEXT("levelName1.1", "Vee (Tutorial) (WIP)"), {} };
-	levelDatas[11] = { 1,0, LOCTEXT("levelName2.1", "Flowering Night (WIP)"), {} };
+	levelDatas[8] =	{ 1,0, LOCTEXT("levelName1.1", "Vee (Tutorial)"), {} };
+	levelDatas[9] = { 1,0, LOCTEXT("levelName1.2", "Streetlights (WIP)"), {} };
+	levelDatas[10] = { 2,0, LOCTEXT("levelName1.3", "Enn (WIP)"), {} };
+	levelDatas[11] = { 3,0, LOCTEXT("levelName2.1", "Flowering Night (WIP)"), {} };
 	levelDatas[12] = { 4,0, LOCTEXT("levelName2.2", "UN Owen Was Her"), {} };
 	levelDatas[13] = { 5,0, LOCTEXT("levelName2.3", "Beloved Tomboyish Girl (WIP)"), {} };
 	levelDatas[14] = { 6,0, LOCTEXT("levelName2.4", "Lullaby of a Deserted Hell (WIP)"), {} };
@@ -29,6 +31,7 @@ ALevelBlockManager::ALevelBlockManager()
 	levelDatas[16] = { 8,0, LOCTEXT("levelName2.6", "Reach for the Moon (WIP)"), {} };
 	levelDatas[17] = { 9,0, LOCTEXT("levelName2.7", "Necrofantasia (WIP)"), {} };
 	levelDatas[18] = { 10,0, LOCTEXT("levelName2.8", "Flight of the Bamboo Cutter (WIP)"), {} };
+	levelDatas[23] = { 10, 0, LOCTEXT("levelName1.4", "Vee (full level)"), {} };
 	positionDeltas = std::vector<float>(72, 0);
 
 }
@@ -112,6 +115,12 @@ void ALevelBlockManager::Tick(float DeltaTime)
 	if (timer2 > 0) {
 		if (timer2 < DeltaTime) {
 			timer2 = 0;
+			if (isFadeToTwo) {
+				dMat->SetScalarParameterValue(FName("blend"), timer2);
+			}
+			else {
+				dMat->SetScalarParameterValue(FName("blend"), 1 - timer2);
+			}
 			isFadeToTwo = !isFadeToTwo;
 			//lastTex = i;
 		}
@@ -571,6 +580,9 @@ UTexture* ALevelBlockManager::getBackround(int i)
 	else if (i == 10) {
 		return tex13;
 	}
+	else if (i == 23) {
+		return tex14;
+	}
 	else {
 
 	}
@@ -616,6 +628,9 @@ USoundWave* ALevelBlockManager::getSound(int i)
 	}
 	else if (i == 10) {
 		return sound13;
+	}
+	else if (i == 23) {
+		return sound14;
 	}
 	else {
 
