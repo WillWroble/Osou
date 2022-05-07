@@ -119,7 +119,7 @@ void AKillMe::BeginPlay()
 	iCounter = 0;
 	isInvunerable = false;
 	currentLevel = 0;
-	levelConversion = { 8, 12, 11, 13, 14, 15, 16, 17, 18 };
+	levelConversion = { 8, 12, 23, 13, 14, 15, 16, 17, 18 };
 	for (int i = 0; i < 70; i++) {
 		levelConversion.push_back(-1);
 	}
@@ -135,7 +135,7 @@ void AKillMe::BeginPlay()
 		sound->SetWaveParameter(FName("wave"), song2);
 	}
 	else if (li == 2) {
-		sound->SetWaveParameter(FName("wave"), song3);
+		sound->SetWaveParameter(FName("wave"), song1_2);
 	}
 	else if (li == 3) {
 		sound->SetWaveParameter(FName("wave"), song4);

@@ -77,6 +77,7 @@ void ALevelBlockManager::BeginPlay()
 	for (int i = 0; i < 70; i++) {
 		levelMap.push_back(-1);
 	}
+	levelMap[23] = 2;
 	APawn* evilPawn = pController->GetPawn();
 	if (evilPawn != nullptr) {
 		evilPawn->Destroy();
@@ -148,7 +149,7 @@ void ALevelBlockManager::Tick(float DeltaTime)
 					//already selected (clicking again)
 					if (!boxInstances[i]->isCategory) {
 						int n = levelMap[i];
-						if (n == 1 || n == 0) {
+						if (n == 2|| n == 1 || n == 0) {
 							ABulletController::levelIndex = n;
 							UGameplayStatics::OpenLevel(this, FName("Minimal_Default"));
 						}

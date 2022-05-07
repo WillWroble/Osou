@@ -58,12 +58,19 @@ void ABulletController::BeginPlay()
 		player->AddTextInstruction(0, 1, 3, FString("welcome to osou :D"));
 		//player->AddTextInstruction(1, 10, 0.5, FString("X2 Tempo in"), 1, 3);
 	}
-	else {
+	else if(levelIndex == 1){
 		player->SetTransitions({ 0, 15.5, 105 }); //105
 		player->setSpeedMultis({ 1, 1, 1 });
 		player->AddRythm({ 0.2 }, 0); //0.2
 		player->AddRythm({ 0.3 }, 1);
 		player->AddRythm({ 0.69 }, 2);
+	}
+	else {
+		player->SetTransitions({ 0, 30, 90 }); //105
+		player->setSpeedMultis({ 1, 1, 1 });
+		player->AddRythm({ 0.38 }, 0); //0.2
+		player->AddRythm({ 0.19 }, 1);
+		player->AddRythm({ 0.38 }, 2);
 	}
 	spawner = &(LevelLibrary::allLevels[levelIndex][0]);
 	player->speed = player->baseSpeed / player->beats[0][0];

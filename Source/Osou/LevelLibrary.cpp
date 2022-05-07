@@ -225,6 +225,31 @@ void LevelLibrary::BuildLevels()
 	//allLevels[1] = levelZero;
 	//allLevels[0] = levelOne;
 	//LEVEL TWO
+	std::vector<BulletSpawner> levelTwo = std::vector<BulletSpawner>();
+	levelTwo.push_back(BulletSpawner());
+	levelTwo[0].AddRythm({ 0.46, 0.1, 0.1 }, 20, 0);
+	levelTwo[0].AddInstruction(4, 0, 0, 9999);
+	levelTwo[0].AddLayersOfHorizontalSpawnPoints(4500, -2250, 1200, { -90 }, 500, 6, 0);
+
+	levelTwo[0].AddLayersOfHorizontalSpawnPoints(4500, -2250, 1200, { -90 }, 500, 6, 1);
+	levelTwo[0].AddLayersOfHorizontalSpawnPoints(4500, -2300, 1200, { -90 }, 500, 6, 1);
+	levelTwo[0].AddLayersOfHorizontalSpawnPoints(4500, -2200, 1200, { -90 }, 500, 6, 1);
+
+	levelTwo[0].AddLayersOfHorizontalSpawnPoints(4500, -2250, 1200, { -90 }, 500, 6, 2);
+
+
+	levelTwo[0].AddLayersOfHorizontalSpawnPoints(4250, -2000, 1200, { -90 }, 500, 6, 3);
+
+	levelTwo[0].AddLayersOfHorizontalSpawnPoints(4250, -2000, 1200, { -90 }, 500, 6, 4);
+	levelTwo[0].AddLayersOfHorizontalSpawnPoints(4250, -2050, 1200, { -90 }, 500, 6, 4);
+	levelTwo[0].AddLayersOfHorizontalSpawnPoints(4250, -1950, 1200, { -90 }, 500, 6, 4);
+
+	levelTwo[0].AddLayersOfHorizontalSpawnPoints(4250, -2000, 1200, { -90 }, 500, 6, 5);
+	levelTwo[0].AddSpawnPoint(-2250, -1200, B1, 0, BulletType::BasicBullet, { 400, 1 });
+	levelTwo[0].AddSpawnPoint(-2250, 1200, B4, 9, BulletType::BasicBullet, { 400, 1 });
+	levelTwo[0].AddSpawnPoint(2250, -1200, B2, 18, BulletType::BasicBullet, { 400, 1 });
+	levelTwo[0].AddSpawnPoint(2250, 1200, B3, 27, BulletType::BasicBullet, { 400, 1 });
+	allLevels.push_back(levelTwo);
 }
 
 LevelLibrary::LevelLibrary()
