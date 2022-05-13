@@ -63,11 +63,13 @@ public:
 	float beatTime;
 	float invunerableTime;
 	float absoluteTimer;
+	float rhythmBuffer;
 	int iCounter;
 	int beatIndex;
 	int perfects;
 	int messageIndex;
 	int total;
+	int tutHScore;
 	UFUNCTION(BlueprintImplementableEvent)
 	void OnSlightlyEarly();
 	UFUNCTION(BlueprintImplementableEvent)
@@ -117,6 +119,8 @@ public:
 		USoundWave* song1_2;
 	UPROPERTY(EditDefaultsOnly, Category = "song1.3")
 		USoundWave* song1_3;
+	UPROPERTY(EditDefaultsOnly, Category = "song1.4")
+		USoundWave* song1_4;
 	UPROPERTY(EditDefaultsOnly, Category = "song2")
 		USoundWave* song2;
 	UPROPERTY(EditDefaultsOnly, Category = "song3")

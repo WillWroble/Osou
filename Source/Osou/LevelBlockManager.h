@@ -26,9 +26,11 @@ struct LevelData {
 	int levelNumber;
 	int levelDifficulty;
 	FText levelName;
+	FText artistCredit;
 	std::vector<int> subLevels;
 	int grade;
 	float score;
+	
 };
 UCLASS()
 class OSOU_API ALevelBlockManager : public AActor
@@ -93,6 +95,11 @@ public:
 	const float curveCoeff = 0;
 	//UPROPERTY(EditDefaultsOnly, Category = "SaveDataObject")
 	//	TSubclassOf<UMySaveGame> MySaveGameClass;
+	UFUNCTION(BlueprintImplementableEvent)
+	void SetUIProperties();
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		FText textOut;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		UMaterialInstanceDynamic* dMat;

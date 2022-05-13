@@ -39,7 +39,9 @@ public:
 	void AddMultipleSpawnPoints(std::vector<float> xs, std::vector<float> ys, std::vector<float> angles, int index, BulletType bType = BulletType::BasicBullet, std::vector<float> bCoeff = {700, 1});
 	void AddMultipleLayersOfSpawnPoints(std::vector<float> xs, std::vector<float> ys, std::vector<float> angles, int timeSignature, int offset, BulletType bType = BulletType::BasicBullet, std::vector<float> bCoeff = {700, 1});
 	void AddHorizontalWallOfSpawnPoints(int width, int x, int y, std::vector<float> angles, int spacing, int index, BulletType Btype = BulletType::BasicBullet, std::vector<float> bCoeff = {700, 1});
+	void AddVerticalWallOfSpawnPoints(int height, int x, int y, std::vector<float> angles, int spacing, int index, BulletType Btype = BulletType::BasicBullet, std::vector<float> bCoeff = { 700, 1 });
 	void AddLayersOfHorizontalSpawnPoints(int width, int x, int y, std::vector<float> angles, int spacing, int timeSignature, int offset, BulletType bType = BulletType::BasicBullet, std::vector<float> bCoeff = { 700, 1 });
+	void AddLayersOfVerticalSpawnPoints(int height, int x, int y, std::vector<float> angles, int spacing, int timeSignature, int offset, BulletType bType = BulletType::BasicBullet, std::vector<float> bCoeff = { 700, 1 });
 	void AddProjectionFromPoint(FVector2D p, FVector2D l1, FVector2D l2, int spacing, int index, BulletType bType = BulletType::BasicBullet, std::vector<float> bCoeff = {700, 1});
 	void AddMovingSpawnPointByEquation(int spacing, int index, int timeSignature, float (*xfunc)(float), float (*yfunc)(float), float (*afunc)(float), BulletType bType = BulletType::BasicBullet, std::vector<float> bCoeff = {700, 1});
 	void AddSpawnPointByEquation(int spacing, int index, float (*xfunc)(float), float (*yfunc)(float), float (*afunc)(float), BulletType bType = BulletType::BasicBullet, std::vector<float> bCoeff = {700, 1});

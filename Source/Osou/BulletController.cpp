@@ -50,8 +50,8 @@ void ABulletController::BeginPlay()
 	//add player beats
 	//IMPORTANT 0.08 DELAY CONSTANT
 	if (levelIndex == 0) {
-		player->SetTransitions({ 0, 30, 90 }); //105
-		player->setSpeedMultis({ 1, 1, 1 });
+		player->SetTransitions({ 0, 9998, 9999 }); //105
+		player->setSpeedMultis({ 1.2, 1.2, 1.2 });
 		player->AddRythm({ 0.38 }, 0); //0.2
 		player->AddRythm({ 0.19 }, 1);
 		player->AddRythm({ 0.38 }, 2);
@@ -66,8 +66,8 @@ void ABulletController::BeginPlay()
 		player->AddRythm({ 0.69 }, 2);
 	}
 	else {
-		player->SetTransitions({ 0, 30, 90 }); //105
-		player->setSpeedMultis({ 1, 1, 1 });
+		player->SetTransitions({ 0, 998, 999 }); //105
+		player->setSpeedMultis({ 1.2, 1.2, 1.2 });
 		player->AddRythm({ 0.38 }, 0); //0.2
 		player->AddRythm({ 0.19 }, 1);
 		player->AddRythm({ 0.38 }, 2);
@@ -141,6 +141,7 @@ void ABulletController::Tick(float DeltaTime)
 		if (levelIndex == 0) {
 			if (tutorialTime < 18) {
 				//wait
+				//tutorialTime = 197;
 			}
 			else if (tutorialTime < 19) {
 				player->sound->SetWaveParameter(FName("wave"), player->song0);
@@ -148,13 +149,16 @@ void ABulletController::Tick(float DeltaTime)
 				//player->FinishedLevel();
 			}
 			else if (tutorialTime < 66) {
-				if (player->Health < 0.5) {
+				if (player->Health < 0.1) {
 					tutorialTime = 0;
 					player->sound->Stop();
 					//player->sound->Play();
 					index = 0;
 					clockTime = 0;
 					player->Health = 1;
+					player->hScore = 0;
+					
+					DisplayMessage(FString("Try again, stay on 130 bpm tempo"));
 				}
 			}
 			else if (tutorialTime < 67) {
@@ -181,7 +185,13 @@ void ABulletController::Tick(float DeltaTime)
 
 			}
 			else if (tutorialTime < 133) {
-				if (player->Health < 0.5) {
+				if (player->Health < 0.1 || player->hScore > 1) {
+					if (player->hScore > 1) {
+						DisplayMessage(FString("Try not to get too many times"));
+					}
+					else {
+						DisplayMessage(FString("Stay on 130bpm tempo, try again"));
+					}
 					tutorialTime = 77;
 					player->sound->Stop();
 					//player->sound->Play();
@@ -189,6 +199,8 @@ void ABulletController::Tick(float DeltaTime)
 					index = 0;
 					clockTime = 0;
 					player->Health = 1;
+					player->hScore = 0;
+					player->CloseWidget();
 				}
 			}
 			else if (tutorialTime < 134) {
@@ -197,6 +209,8 @@ void ABulletController::Tick(float DeltaTime)
 				temp.duration = 2;
 				temp.startTime = 0;
 				temp.message = FString("well done, now let's make this a little harder");
+				player->CloseWidget();
+				player->hScore = 0;
 				currentMessage = temp;
 				isDisplayMessage = true;
 			}
@@ -214,7 +228,13 @@ void ABulletController::Tick(float DeltaTime)
 				}
 			}
 			else if (tutorialTime < 197) {
-				if (player->Health < 0.5) {
+				if (player->Health < 0.1 || player->hScore > 1) {
+					if (player->hScore > 1) {
+						DisplayMessage(FString("Try not to get too many times"));
+					}
+					else {
+						DisplayMessage(FString("Stay at 130bpm tempo, try again"));
+					}
 					tutorialTime = 140; //134
 					player->sound->Stop();
 					player->sound->SetWaveParameter(FName("wave"), player->song1_2);
@@ -223,6 +243,8 @@ void ABulletController::Tick(float DeltaTime)
 					index = 0;
 					clockTime = 0;
 					player->Health = 1;
+					player->hScore = 0;
+					player->CloseWidget();
 					tutFirstTime = false;
 				}
 			}
@@ -273,9 +295,15 @@ void ABulletController::Tick(float DeltaTime)
 				}
 
 			}
-			else if (tutorialTime < 264) {
-				if (player->Health < 0.5) {
-					tutorialTime = 203;
+			else if (tutorialTime < 456-34) {
+				if (player->Health < 0.1 || player->hScore > 3) {
+					if (player->hScore > 3) {
+						DisplayMessage(FString("Try not to get hit too many times"));
+					}
+					else {
+						DisplayMessage(FString("You need to double your tempo, try again"));
+					}
+					tutorialTime = 203; //198
 					player->sound->Stop();
 					player->sound->SetWaveParameter(FName("wave"), player->song1_3);
 					//player->sound->Play();
@@ -283,19 +311,91 @@ void ABulletController::Tick(float DeltaTime)
 					index = 0;
 					clockTime = 0;
 					player->Health = 1;
+					player->hScore = 0;
+					player->CloseWidget();
 					tutFirstTime = false;
+
 				}
 			}
-			else {
+			else if(tutorialTime < 457-34) {
 				
 				on_screen_message temp;
 				temp.type = 0;
 				temp.duration = 2;
 				temp.startTime = 0;
-				temp.message = FString("Fantastic job!");
+				temp.message = FString("Fantastic job!, lets go back down to normal tempo");
 				currentMessage = temp;
 				isDisplayMessage = true;
 				//player->FinishedLevel();
+			}
+			else if (tutorialTime < 465-34) {
+				//wait
+			}
+			else if (tutorialTime < 466-34) {
+				on_screen_message temp;
+				temp.type = 1;
+				temp.duration = 0.33;
+				temp.startTime = 0;
+				temp.count = 3;
+				temp.message = FString("X0.5 in");
+				currentMessage = temp;
+				isDisplayMessage = true;
+			}
+			else if (tutorialTime < 490-34) {
+				//wait
+			}
+			else if (tutorialTime < 491 - 34) {
+				spawner = &(LevelLibrary::allLevels[2][0]);
+				levelIndex = 2;
+				index = 0;
+				transitionIndex = 0;
+				clockTime = 0;
+				//player->sound->SetWaveParameter(FName("wave"), player->song1_4);
+				player->currentBeat = &(player->beats[0]);
+				player->rhythmBuffer = 3;
+				player->setSpeedMultis({ 1.2, 1.2, 1.2 });
+				player->currentMulti = player->speedMultis[0];
+				player->rScore = (((float)player->perfects) / ((float)player->total))*100.0f;
+				//save data
+				float score = powf((player->rScore / 100), 0.25) * (100 - (player->tutHScore * 10));
+				int grade = 0;
+				//score = 75;
+				if (score >= 93.669998) {
+					grade = 1;
+				}
+				else if (score >= 84.306999) {
+					grade = 2;
+				}
+				else if (score >= 67.797997) {
+					grade = 3;
+				}
+				else if (score >= 46.837399) {
+					grade = 4;
+				}
+				else {
+					grade = 5;
+				}
+				if (UMySaveGame* LoadedGame = Cast<UMySaveGame>(UGameplayStatics::LoadGameFromSlot(FString("osou_save"), 0)))
+				{
+					// The operation was successful, so LoadedGame now contains the data we saved earlier.
+					//UE_LOG(LogTemp, Warning, TEXT("LOADED: %s"), *LoadedGame->PlayerName);
+					if (score > LoadedGame->scores[8]) {
+						LoadedGame->scores[8] = score;
+						LoadedGame->grades[8] = grade;
+						UGameplayStatics::SaveGameToSlot(LoadedGame, FString("osou_save"), 0);
+					}
+
+				}
+				else {
+					GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "DIDNT FIND SAVE");
+					UMySaveGame* SaveGameInstance = Cast<UMySaveGame>(UGameplayStatics::CreateSaveGameObject(UMySaveGame::StaticClass()));
+					SaveGameInstance->scores.Init(0, 72);
+					SaveGameInstance->grades.Init(0, 72);
+					SaveGameInstance->scores[8] = score;
+					SaveGameInstance->grades[8] = grade;
+					UGameplayStatics::SaveGameToSlot(SaveGameInstance, FString("osou_save"), 0);
+				}
+
 			}
 			tutorialTime++;
 		}
@@ -383,6 +483,17 @@ void ABulletController::ResetBullets()
 	clockTime = 0;
 	spawner = &(LevelLibrary::allLevels[levelIndex][0]);
 
+}
+void ABulletController::DisplayMessage(FString message, int type, float duration, float start)
+{
+	
+	on_screen_message temp;
+	temp.type = type;
+	temp.duration = duration;
+	temp.startTime = start;
+	temp.message = message;
+	currentMessage = temp;
+	isDisplayMessage = true;
 }
 /*
 testSpawner.AddTimes(UNtimes1);

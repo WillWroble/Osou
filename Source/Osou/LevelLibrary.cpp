@@ -12,6 +12,9 @@ void LevelLibrary::BuildLevels()
 	std::vector<float> B2 = std::vector<float>(10);
 	std::vector<float> B3 = std::vector<float>(10);
 	std::vector<float> B4 = std::vector<float>(10);
+	std::vector<float> C1 = { 0, 45, 90, 135, 180, 225, 270, 315};
+	std::vector<float> C2 = { -10, 35, 80, 125, 170, 215, 260, 305 };
+	std::vector<float> C3 = { 10, 55, 100, 145, 190, 235, 280, 325 };
 	for (int i = 0; i < 10; i++) {
 		B2[i] = B1[i] + 90;
 		B3[i] = B1[i] + 180;
@@ -70,7 +73,7 @@ void LevelLibrary::BuildLevels()
 	//levelZero[1].AddSpawnPoint(-800, 0, A1, 54, BulletType::BasicBullet, { 400, 1 });
 
 	levelZero.push_back(BulletSpawner());
-	levelZero[3].AddRythm({ 0.23, 0.05, 0.05 }, 20, 0);
+	levelZero[3].AddRythm({ 0.23, 0.05, 0.05 }, 120, 0);
 	levelZero[3].AddLayersOfHorizontalSpawnPoints(4500, -2250, 1200, { -90 }, 500, 6, 0, BulletType::BasicBullet, { 1400, 1 });
 
 	levelZero[3].AddLayersOfHorizontalSpawnPoints(4500, -2250, 1200, { -90 }, 500, 6, 1, BulletType::BasicBullet, { 1400, 1 });
@@ -87,6 +90,22 @@ void LevelLibrary::BuildLevels()
 	levelZero[3].AddLayersOfHorizontalSpawnPoints(4250, -1950, 1200, { -90 }, 500, 6, 4, BulletType::BasicBullet, { 1400, 1 });
 
 	levelZero[3].AddLayersOfHorizontalSpawnPoints(4250, -2000, 1200, { -90 }, 500, 6, 5, BulletType::BasicBullet, { 1400, 1 });
+
+	levelZero[3].AddSpawnPoint(2000, 1000, C1, 120);
+	levelZero[3].AddSpawnPoint(-2000, -1000, C1, 120+36);
+	levelZero[3].AddSpawnPoint(-2000, 1000, C1, 120+(36*2));
+	levelZero[3].AddSpawnPoint(2000, -1000, C1, 120+(36*3));
+
+	levelZero[3].AddSpawnPoint(2000, 1000, C2, 120);
+	levelZero[3].AddSpawnPoint(-2000, -1000, C2, 120 + 36);
+	levelZero[3].AddSpawnPoint(-2000, 1000, C2, 120 + (36 * 2));
+	levelZero[3].AddSpawnPoint(2000, 1000, C2, 120);
+
+	levelZero[3].AddSpawnPoint(-2000, -1000, C3, 120 + 36);
+	levelZero[3].AddSpawnPoint(-2000, 1000, C3, 120 + (36 * 2));
+	levelZero[3].AddSpawnPoint(2000, -1000, C3, 120 + (36 * 3));
+	levelZero[3].AddSpawnPoint(2000, -1000, C3, 120 + (36 * 3));
+
 
 	allLevels.push_back(levelZero);
 	
@@ -225,10 +244,11 @@ void LevelLibrary::BuildLevels()
 	//allLevels[1] = levelZero;
 	//allLevels[0] = levelOne;
 	//LEVEL TWO
+	//VEE FULL LEVEL
 	std::vector<BulletSpawner> levelTwo = std::vector<BulletSpawner>();
 	levelTwo.push_back(BulletSpawner());
-	levelTwo[0].AddRythm({ 0.46, 0.1, 0.1 }, 20, 0);
-	levelTwo[0].AddInstruction(4, 0, 0, 9999);
+	levelTwo[0].AddRythm({ 0.46, 0.1, 0.1 }, 68, 0);//68
+	
 	levelTwo[0].AddLayersOfHorizontalSpawnPoints(4500, -2250, 1200, { -90 }, 500, 6, 0);
 
 	levelTwo[0].AddLayersOfHorizontalSpawnPoints(4500, -2250, 1200, { -90 }, 500, 6, 1);
@@ -236,7 +256,7 @@ void LevelLibrary::BuildLevels()
 	levelTwo[0].AddLayersOfHorizontalSpawnPoints(4500, -2200, 1200, { -90 }, 500, 6, 1);
 
 	levelTwo[0].AddLayersOfHorizontalSpawnPoints(4500, -2250, 1200, { -90 }, 500, 6, 2);
-
+	
 
 	levelTwo[0].AddLayersOfHorizontalSpawnPoints(4250, -2000, 1200, { -90 }, 500, 6, 3);
 
@@ -245,10 +265,74 @@ void LevelLibrary::BuildLevels()
 	levelTwo[0].AddLayersOfHorizontalSpawnPoints(4250, -1950, 1200, { -90 }, 500, 6, 4);
 
 	levelTwo[0].AddLayersOfHorizontalSpawnPoints(4250, -2000, 1200, { -90 }, 500, 6, 5);
-	levelTwo[0].AddSpawnPoint(-2250, -1200, B1, 0, BulletType::BasicBullet, { 400, 1 });
-	levelTwo[0].AddSpawnPoint(-2250, 1200, B4, 9, BulletType::BasicBullet, { 400, 1 });
-	levelTwo[0].AddSpawnPoint(2250, -1200, B2, 18, BulletType::BasicBullet, { 400, 1 });
-	levelTwo[0].AddSpawnPoint(2250, 1200, B3, 27, BulletType::BasicBullet, { 400, 1 });
+
+	levelTwo[0].AddSpawnPoint(-2250, -1200, B1, 0+30, BulletType::BasicBullet, { 400, 1 });
+	levelTwo[0].AddSpawnPoint(-2250, 1200, B4, 9+30, BulletType::BasicBullet, { 400, 1 });
+	levelTwo[0].AddSpawnPoint(2250, -1200, B2, 18+30, BulletType::BasicBullet, { 400, 1 });
+	levelTwo[0].AddSpawnPoint(2250, 1200, B3, 27+30, BulletType::BasicBullet, { 400, 1 });
+	//hexagon
+	levelTwo[0].AddProjectionFromPoint(FVector2D(0, 0), FVector2D(1000, 1732), FVector2D(2000, 0), 3, 72);
+	levelTwo[0].AddProjectionFromPoint(FVector2D(0, 0), FVector2D(2000, 0), FVector2D(1000, -1732), 3, 72);
+	levelTwo[0].AddProjectionFromPoint(FVector2D(0, 0), FVector2D(1000, -1732), FVector2D(-1000, -1732), 3, 72);
+	levelTwo[0].AddProjectionFromPoint(FVector2D(0, 0), FVector2D(-1000, -1732), FVector2D(-2000, 0), 3, 72);
+	levelTwo[0].AddProjectionFromPoint(FVector2D(0, 0), FVector2D(-2000, 0), FVector2D(-1000, 1732), 3, 72);
+	levelTwo[0].AddProjectionFromPoint(FVector2D(0, 0), FVector2D(-1000, 1732), FVector2D(1000, 1732), 3, 72);
+
+	std::vector<FVector2D> vecs = { FVector2D(-2000, -1000), FVector2D(2000, 1000), FVector2D(2000, -1000), FVector2D(-2000, 1000)};
+	//std::vector<float> ys = { -1000, 1000, 1000, -1000 };
+
+	for (int i = 0; i < 4; i++) {
+		levelTwo[0].AddProjectionFromPoint(vecs[i], FVector2D(1000, 1732)+vecs[i], FVector2D(2000, 0)+vecs[i], 3, 102+18*i);
+		levelTwo[0].AddProjectionFromPoint(vecs[i], FVector2D(2000, 0)+vecs[i], FVector2D(1000, -1732)+vecs[i], 3, 102+18*i);
+		levelTwo[0].AddProjectionFromPoint(vecs[i], FVector2D(1000, -1732)+vecs[i], FVector2D(-1000, -1732)+vecs[i], 3, 102+18*i);
+		levelTwo[0].AddProjectionFromPoint(vecs[i], FVector2D(-1000, -1732)+vecs[i], FVector2D(-2000, 0)+vecs[i], 3, 102+18*i);
+		levelTwo[0].AddProjectionFromPoint(vecs[i], FVector2D(-2000, 0)+vecs[i], FVector2D(-1000, 1732)+vecs[i], 3, 102+18*i);
+		levelTwo[0].AddProjectionFromPoint(vecs[i], FVector2D(-1000, 1732)+vecs[i], FVector2D(1000, 1732)+vecs[i], 3, 102+18*i);
+	}
+
+	levelTwo.push_back(BulletSpawner());
+	levelTwo[1].AddRythm({ 0.46, 0.1, 0.1 }, 300, 0);
+	//vert one
+	levelTwo[1].AddLayersOfVerticalSpawnPoints(2531, 2250, -1266, { -180 }, 500, 12, 0);
+
+	levelTwo[1].AddLayersOfVerticalSpawnPoints(2531, 2250, -1216, { -180 }, 500, 12, 1);
+	levelTwo[1].AddLayersOfVerticalSpawnPoints(2531, 2250, -1266, { -180 }, 500, 12, 1);
+	levelTwo[1].AddLayersOfVerticalSpawnPoints(2531, 2250, -1316, { -180 }, 500, 12, 1);
+
+	levelTwo[1].AddLayersOfVerticalSpawnPoints(2531, 2250, -1266, { -180 }, 500, 12, 2);
+	//horiz one
+	levelTwo[1].AddLayersOfHorizontalSpawnPoints(4250, -2000, 1200, { -90 }, 500, 12, 3);
+
+	levelTwo[1].AddLayersOfHorizontalSpawnPoints(4250, -2000, 1200, { -90 }, 500, 12, 4);
+	levelTwo[1].AddLayersOfHorizontalSpawnPoints(4250, -2050, 1200, { -90 }, 500, 12, 4);
+	levelTwo[1].AddLayersOfHorizontalSpawnPoints(4250, -1950, 1200, { -90 }, 500, 12, 4);
+
+	levelTwo[1].AddLayersOfHorizontalSpawnPoints(4250, -2000, 1200, { -90 }, 500, 12, 5);
+	//vert two
+	levelTwo[1].AddLayersOfVerticalSpawnPoints(2531, 2250, -1266-250, { -180 }, 500, 12, 6);
+
+	levelTwo[1].AddLayersOfVerticalSpawnPoints(2531, 2250, -1216-250, { -180 }, 500, 12, 7);
+	levelTwo[1].AddLayersOfVerticalSpawnPoints(2531, 2250, -1266-250, { -180 }, 500, 12, 7);
+	levelTwo[1].AddLayersOfVerticalSpawnPoints(2531, 2250, -1316-250, { -180 }, 500, 12, 7);
+
+	levelTwo[1].AddLayersOfVerticalSpawnPoints(2531, 2250, -1266-250, { -180 }, 500, 12, 8);
+	//horiz two
+	levelTwo[1].AddLayersOfHorizontalSpawnPoints(4500, -2250, 1200, { -90 }, 500, 12, 9);
+
+	levelTwo[1].AddLayersOfHorizontalSpawnPoints(4500, -2250, 1200, { -90 }, 500, 12, 10);
+	levelTwo[1].AddLayersOfHorizontalSpawnPoints(4500, -2300, 1200, { -90 }, 500, 12, 10);
+	levelTwo[1].AddLayersOfHorizontalSpawnPoints(4500, -2200, 1200, { -90 }, 500, 12, 10);
+
+	levelTwo[1].AddLayersOfHorizontalSpawnPoints(4500, -2250, 1200, { -90 }, 500, 12, 11);
+
+
+
+
+
+	//levelTwo[0] = levelTwo[1];
+	
+
+	levelTwo[0].AddInstruction(4, 0, 0, 9999);
 	allLevels.push_back(levelTwo);
 }
 

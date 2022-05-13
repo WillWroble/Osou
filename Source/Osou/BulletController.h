@@ -12,6 +12,8 @@
 #include "CoreMinimal.h"
 #include "EquationLibrary.h"
 #include "LevelLibrary.h"
+#include "Kismet/GameplayStatics.h"
+#include "MySaveGame.h"
 #include "GameFramework/Actor.h"
 #include "BulletController.generated.h"
 
@@ -47,6 +49,7 @@ public:
 	bool tutFirstTime;
 	virtual void Tick(float DeltaTime) override;
 	void ResetBullets();
+	void DisplayMessage(FString message, int type = 0, float duration = 2, float start = 0);
 	int spawnerCount;
 	BulletSpawner* spawner;
 	std::list<ABasicBullet*> activeBullets;

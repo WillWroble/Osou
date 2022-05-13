@@ -62,6 +62,8 @@ AKillMe::AKillMe()
 	Health = 1;
 	PopupType = 0;
 	beatIndex = 0;
+	rhythmBuffer = 0;
+	tutHScore = 0;
 
 }
 
@@ -135,7 +137,7 @@ void AKillMe::BeginPlay()
 		sound->SetWaveParameter(FName("wave"), song2);
 	}
 	else if (li == 2) {
-		sound->SetWaveParameter(FName("wave"), song1_2);
+		sound->SetWaveParameter(FName("wave"), song1_4);
 	}
 	else if (li == 3) {
 		sound->SetWaveParameter(FName("wave"), song4);
@@ -163,6 +165,12 @@ void AKillMe::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	clockTime += DeltaTime;
+	if (rhythmBuffer < 0) {
+		rhythmBuffer = 0;
+	}
+	else if (rhythmBuffer > 0) {
+		rhythmBuffer -= DeltaTime;
+	}
 	if (isInvunerable == true) {
 		invunerableTime += DeltaTime;
 		if (invunerableTime > iCounter * 0.1) {
@@ -192,6 +200,7 @@ void AKillMe::Tick(float DeltaTime)
 		drumBeat->Play();
 		if (transitionTimes[transitionIndex + 1] < clockTime) {
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, "BEAT CHANGE");
+			rhythmBuffer = 3;
 			if (ABulletController::levelIndex != 0) {
 				transitionIndex++;
 				if (beats[transitionIndex + 1].size() == 0) {
@@ -212,26 +221,36 @@ void AKillMe::Tick(float DeltaTime)
 		total++;
 		if (timeout < (*currentBeat)[index] && hasStarted) {
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "EARLY");
-			Health -= ((*currentBeat)[index] + 0.08 - timeout) * 5;
 			PopupType = 0;
 			OnSlightlyEarly();
+			if (rhythmBuffer == 0) {
+				Health -= ((*currentBeat)[index] + 0.08 - timeout) * 5;
+			}
 			//ResetEverything();
 		} else if (timeout < (*currentBeat)[index] + 0.05) {
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Orange, "A LITTLE EARLY");
-			Health -= ((*currentBeat)[index] + 0.08 - timeout) * 5;
 			PopupType = 1;
 			OnSlightlyEarly();
+			if (rhythmBuffer == 0) {
+				Health -= ((*currentBeat)[index] + 0.08 - timeout) * 5;
+				Health += 0.1;
+			}
 		} else if (timeout > 0.16 + (*currentBeat)[index]) {
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "LATE");
-			Health -= (timeout - (*currentBeat)[index] - 0.08) * 5;
 			PopupType = 2;
 			OnSlightlyEarly();
+			if (rhythmBuffer == 0) {
+				Health -= (timeout - (*currentBeat)[index] - 0.08) * 5;
+			}
 			//ResetEverything();
 		} else if (timeout > (*currentBeat)[index] + 0.11) {
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Orange, "A LITTLE LATE");
-			Health -= (timeout - (*currentBeat)[index] - 0.08) * 5;
 			PopupType = 3;
 			OnSlightlyEarly();
+			if (rhythmBuffer == 0) {
+				Health -= (timeout - (*currentBeat)[index] - 0.08) * 5;
+				Health += 0.1;
+			}
 		} else {
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, "PERFECT!");
 			if (Health < 0.7) {
@@ -245,7 +264,9 @@ void AKillMe::Tick(float DeltaTime)
 		}
 		if (Health <= 0) {
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "BAD RYTHM");
-			ResetEverything();
+			if (ABulletController::levelIndex != 0) {
+				ResetEverything();
+			}
 		}
 		hasStarted = true;
 		scale = baseScale;//FVector(0.06 + ((*currentBeat)[index] * 0.38));
@@ -333,10 +354,14 @@ void AKillMe::ResetEverything()
 	bulletController->border->ResetBorder();
 	Health = 1;
 	hScore = 0;
+	tutHScore = 0;
 	CloseWidget();
 	isLevelFinsihedd = false;
 	//RESET SOUND
 	sound->Stop();
+	if (ABulletController::levelIndex == 2) {
+		sound->SetWaveParameter(FName("wave"), song1_4);
+	}
 	sound->Play();
 }
 void AKillMe::FinishedLevel()
@@ -351,14 +376,18 @@ void AKillMe::OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AA
 {
 	if (OtherActor && (OtherActor != this) && OtherComp)
 	{
+		//return;
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Overlap Begin"));
-		if (isLevelFinsihedd || isInvunerable || ABulletController::levelIndex == 0) {
+		if (isLevelFinsihedd || isInvunerable) {
 			return;
 		}
 		UpdateHealthBar();
 		hScore++;
+		tutHScore++;
 		if (hScore > 7) {
-			ResetEverything();
+			if (ABulletController::levelIndex != 0) {
+				ResetEverything();
+			}
 		}
 		else {
 			isInvunerable = true;

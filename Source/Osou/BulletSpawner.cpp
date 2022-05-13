@@ -137,10 +137,24 @@ void BulletSpawner::AddHorizontalWallOfSpawnPoints(int width, int x, int y, std:
 	}
 }
 
+void BulletSpawner::AddVerticalWallOfSpawnPoints(int height, int x, int y, std::vector<float> angles, int spacing, int index, BulletType bType, std::vector<float> bCoeff)
+{
+	for (int i = y; i < height + y; i += spacing) {
+		AddSpawnPoint(x, i, angles, index, bType, bCoeff);
+	}
+}
+
 void BulletSpawner::AddLayersOfHorizontalSpawnPoints(int width, int x, int y, std::vector<float> angles, int spacing, int timeSignature, int offset, BulletType bType, std::vector<float> bCoeff)
 {
 	for (int i = offset; i < spawnTable.size(); i += timeSignature) {
 		AddHorizontalWallOfSpawnPoints(width, x, y, angles, spacing, i, bType, bCoeff);
+	}
+}
+
+void BulletSpawner::AddLayersOfVerticalSpawnPoints(int height, int x, int y, std::vector<float> angles, int spacing, int timeSignature, int offset, BulletType bType, std::vector<float> bCoeff)
+{
+	for (int i = offset; i < spawnTable.size(); i += timeSignature) {
+		AddVerticalWallOfSpawnPoints(height, x, y, angles, spacing, i, bType, bCoeff);
 	}
 }
 

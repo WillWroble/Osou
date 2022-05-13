@@ -17,21 +17,21 @@ ALevelBlockManager::ALevelBlockManager()
 		//set default values
 		levelDatas[i] = { -1,0, LOCTEXT("DefaultLevelName", "LEVEL NOT CREATED YET"), {}};
 	}
-	levelDatas[0] = { 0,0, LOCTEXT("levelName0.1", "EnV Pack"), {8, 23,  9, 10} };
-	levelDatas[1] = { 0,0, LOCTEXT("levelName0.2", "Touhou Pack"), {11, 12, 13, 14, 15, 16, 17, 18} };
-	levelDatas[7] = { 0,0, LOCTEXT("levelName0.8", "Avicii Pack"), {19, 20, 21, 22} };
-	levelDatas[8] =	{ 1,0, LOCTEXT("levelName1.1", "Vee (Tutorial)"), {} };
-	levelDatas[9] = { 1,0, LOCTEXT("levelName1.2", "Streetlights (WIP)"), {} };
-	levelDatas[10] = { 2,0, LOCTEXT("levelName1.3", "Enn (WIP)"), {} };
-	levelDatas[11] = { 3,0, LOCTEXT("levelName2.1", "Flowering Night (WIP)"), {} };
-	levelDatas[12] = { 4,0, LOCTEXT("levelName2.2", "UN Owen Was Her"), {} };
-	levelDatas[13] = { 5,0, LOCTEXT("levelName2.3", "Beloved Tomboyish Girl (WIP)"), {} };
-	levelDatas[14] = { 6,0, LOCTEXT("levelName2.4", "Lullaby of a Deserted Hell (WIP)"), {} };
-	levelDatas[15] = { 7,0, LOCTEXT("levelName2.5", "Radiant Radiant Symphany (WIP)"), {} };
-	levelDatas[16] = { 8,0, LOCTEXT("levelName2.6", "Reach for the Moon (WIP)"), {} };
-	levelDatas[17] = { 9,0, LOCTEXT("levelName2.7", "Necrofantasia (WIP)"), {} };
-	levelDatas[18] = { 10,0, LOCTEXT("levelName2.8", "Flight of the Bamboo Cutter (WIP)"), {} };
-	levelDatas[23] = { 10, 0, LOCTEXT("levelName1.4", "Vee (full level)"), {} };
+	levelDatas[0] = { 0,0, LOCTEXT("levelName0.1", "EnV Pack"), LOCTEXT("artistName0.1", "     Artwork by Le Juicer abc"), {8, 23,  9, 10}};
+	levelDatas[1] = { 0,0, LOCTEXT("levelName0.2", "Touhou Pack"), LOCTEXT("artistName0.2", "     Artwork by My Juicer 123"), {11, 12, 13, 14, 15, 16, 17, 18} };
+	levelDatas[7] = { 0,0, LOCTEXT("levelName0.8", "Avicii Pack"), LOCTEXT("artistName0.8", "     Artwork by XQCL abc123"), {19, 20, 21, 22} };
+	levelDatas[8] =	{ 1,0, LOCTEXT("levelName1.1", "Vee (Tutorial)"), LOCTEXT("artistName1.1", "     Artwork by EL GOBLINO ZZZXX"), {} };
+	levelDatas[9] = { 1,0, LOCTEXT("levelName1.2", "Streetlights (WIP)"), LOCTEXT("artistName1.2", "     lol"), {} };
+	levelDatas[10] = { 2,0, LOCTEXT("levelName1.3", "Enn (WIP)"), LOCTEXT("artistName1.3", "     lol"), {} };
+	levelDatas[11] = { 3,0, LOCTEXT("levelName2.1", "Flowering Night (WIP)"), LOCTEXT("artistName2.1", "     lol"), {} };
+	levelDatas[12] = { 4,0, LOCTEXT("levelName2.2", "UN Owen Was Her"), LOCTEXT("artistName2.2", "     lol"), {} };
+	levelDatas[13] = { 5,0, LOCTEXT("levelName2.3", "Beloved Tomboyish Girl (WIP)"), LOCTEXT("artistName2.3", "     lol"), {} };
+	levelDatas[14] = { 6,0, LOCTEXT("levelName2.4", "Lullaby of a Deserted Hell (WIP)"), LOCTEXT("artistName2.4", "     lol"), {} };
+	levelDatas[15] = { 7,0, LOCTEXT("levelName2.5", "Radiant Radiant Symphany (WIP)"), LOCTEXT("artistName2.5", "     lol"), {} };
+	levelDatas[16] = { 8,0, LOCTEXT("levelName2.6", "Reach for the Moon (WIP)"), LOCTEXT("artistName2.6", "     lol"), {} };
+	levelDatas[17] = { 9,0, LOCTEXT("levelName2.7", "Necrofantasia (WIP)"), LOCTEXT("artistName2.7", "     lol"), {} };
+	levelDatas[18] = { 10,0, LOCTEXT("levelName2.8", "Flight of the Bamboo Cutter (WIP)"), LOCTEXT("artistName2.8", "     lol"), {} };
+	levelDatas[23] = { 10, 0, LOCTEXT("levelName1.4", "Vee (full level)"), LOCTEXT("artistName1.4", "     lol"), {} };
 	positionDeltas = std::vector<float>(72, 0);
 
 }
@@ -65,7 +65,7 @@ void ALevelBlockManager::BeginPlay()
 	wormhole = -1270;
 	isCollapsing = false;
 	gradeConversionLetter = { FString(""), FString("S"), FString("A"), FString("B"), FString("C"), FString("D") };
-	gradeConversionColor = {FColor::Transparent, FColor(0x8437DDFF), FColor(0x29A329FF), FColor(0x86A326FF), FColor(0xE9DB08FF), FColor(0xE90908FF) };
+	gradeConversionColor = {FColor::Transparent, FColor::Purple, FColor::Green, FColor::Yellow, FColor::Orange, FColor::Red };
 
 	BindToInput();
 	FAsyncLoadGameFromSlotDelegate LoadedDelegate;
@@ -201,7 +201,8 @@ void ALevelBlockManager::Tick(float DeltaTime)
 						audio2->FadeOut(1, 0);
 						audio1->FadeIn(1);
 					}
-
+					textOut = levelDatas[i].artistCredit;
+					SetUIProperties();
 					//getSound(lastTex)->FadeOut(1, 0);
 					//getSound(i)->FadeIn(1);
 					
