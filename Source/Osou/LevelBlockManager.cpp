@@ -22,7 +22,7 @@ ALevelBlockManager::ALevelBlockManager()
 	levelDatas[7] = { 0,0, LOCTEXT("levelName0.8", "Avicii Pack"), LOCTEXT("artistName0.8", "     Artwork by XQCL abc123"), {19, 20, 21, 22} };
 	levelDatas[8] =	{ 1,0, LOCTEXT("levelName1.1", "Vee (Tutorial)"), LOCTEXT("artistName1.1", "     Artwork by EL GOBLINO ZZZXX"), {} };
 	levelDatas[9] = { 1,0, LOCTEXT("levelName1.2", "Streetlights (WIP)"), LOCTEXT("artistName1.2", "     lol"), {} };
-	levelDatas[10] = { 2,0, LOCTEXT("levelName1.3", "Enn (WIP)"), LOCTEXT("artistName1.3", "     lol"), {} };
+	levelDatas[10] = { 2,0, LOCTEXT("levelName1.3", "Enn (WIP)"), LOCTEXT("artistName1.3", "     Artwork by Pei (Sumurai)"), {} };
 	levelDatas[11] = { 3,0, LOCTEXT("levelName2.1", "Flowering Night (WIP)"), LOCTEXT("artistName2.1", "     lol"), {} };
 	levelDatas[12] = { 4,0, LOCTEXT("levelName2.2", "UN Owen Was Her"), LOCTEXT("artistName2.2", "     lol"), {} };
 	levelDatas[13] = { 5,0, LOCTEXT("levelName2.3", "Beloved Tomboyish Girl (WIP)"), LOCTEXT("artistName2.3", "     lol"), {} };
@@ -31,7 +31,7 @@ ALevelBlockManager::ALevelBlockManager()
 	levelDatas[16] = { 8,0, LOCTEXT("levelName2.6", "Reach for the Moon (WIP)"), LOCTEXT("artistName2.6", "     lol"), {} };
 	levelDatas[17] = { 9,0, LOCTEXT("levelName2.7", "Necrofantasia (WIP)"), LOCTEXT("artistName2.7", "     lol"), {} };
 	levelDatas[18] = { 10,0, LOCTEXT("levelName2.8", "Flight of the Bamboo Cutter (WIP)"), LOCTEXT("artistName2.8", "     lol"), {} };
-	levelDatas[23] = { 10, 0, LOCTEXT("levelName1.4", "Vee (full level)"), LOCTEXT("artistName1.4", "     lol"), {} };
+	levelDatas[23] = { 10, 0, LOCTEXT("levelName1.4", "Vee (full level)"), LOCTEXT("artistName1.4", "     Artwork by Unknown Artist"), {} };
 	positionDeltas = std::vector<float>(72, 0);
 
 }

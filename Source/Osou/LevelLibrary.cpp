@@ -271,14 +271,20 @@ void LevelLibrary::BuildLevels()
 	levelTwo[0].AddSpawnPoint(2250, -1200, B2, 18+30, BulletType::BasicBullet, { 400, 1 });
 	levelTwo[0].AddSpawnPoint(2250, 1200, B3, 27+30, BulletType::BasicBullet, { 400, 1 });
 	//hexagon
-	levelTwo[0].AddProjectionFromPoint(FVector2D(0, 0), FVector2D(1000, 1732), FVector2D(2000, 0), 3, 72);
-	levelTwo[0].AddProjectionFromPoint(FVector2D(0, 0), FVector2D(2000, 0), FVector2D(1000, -1732), 3, 72);
-	levelTwo[0].AddProjectionFromPoint(FVector2D(0, 0), FVector2D(1000, -1732), FVector2D(-1000, -1732), 3, 72);
-	levelTwo[0].AddProjectionFromPoint(FVector2D(0, 0), FVector2D(-1000, -1732), FVector2D(-2000, 0), 3, 72);
-	levelTwo[0].AddProjectionFromPoint(FVector2D(0, 0), FVector2D(-2000, 0), FVector2D(-1000, 1732), 3, 72);
-	levelTwo[0].AddProjectionFromPoint(FVector2D(0, 0), FVector2D(-1000, 1732), FVector2D(1000, 1732), 3, 72);
+	levelTwo[0].AddProjectionFromPoint(FVector2D(0, 0), FVector2D(1000, 1732), FVector2D(2000, 0), 3, 69);
+	levelTwo[0].AddProjectionFromPoint(FVector2D(0, 0), FVector2D(2000, 0), FVector2D(1000, -1732), 3, 69);
+	levelTwo[0].AddProjectionFromPoint(FVector2D(0, 0), FVector2D(1000, -1732), FVector2D(-1000, -1732), 3, 69);
+	levelTwo[0].AddProjectionFromPoint(FVector2D(0, 0), FVector2D(-1000, -1732), FVector2D(-2000, 0), 3, 69);
+	levelTwo[0].AddProjectionFromPoint(FVector2D(0, 0), FVector2D(-2000, 0), FVector2D(-1000, 1732), 3, 69);
+	levelTwo[0].AddProjectionFromPoint(FVector2D(0, 0), FVector2D(-1000, 1732), FVector2D(1000, 1732), 3, 69);
 
-	std::vector<FVector2D> vecs = { FVector2D(-2000, -1000), FVector2D(2000, 1000), FVector2D(2000, -1000), FVector2D(-2000, 1000)};
+	//angled lines 
+	levelTwo[0].SpawnBetweenTwoPoints(FVector2D(0, 2500), FVector2D(2500, 0), 5, 85, BulletType::HexagonBullet);
+	levelTwo[0].SpawnBetweenTwoPoints(FVector2D(2500, 0), FVector2D(0, -2500), 5, 85, BulletType::HexagonBullet);
+	levelTwo[0].SpawnBetweenTwoPoints(FVector2D(0, -2500), FVector2D(-2500, 0), 5, 85, BulletType::HexagonBullet);
+	levelTwo[0].SpawnBetweenTwoPoints(FVector2D(-2500, 0), FVector2D(0, 2500), 5, 85, BulletType::HexagonBullet);
+
+	std::vector<FVector2D> vecs = { FVector2D(-2000, -1000), FVector2D(-2000, 1000), FVector2D(-2000, -1000), FVector2D(-2000, 1000)};
 	//std::vector<float> ys = { -1000, 1000, 1000, -1000 };
 
 	for (int i = 0; i < 4; i++) {
@@ -288,10 +294,17 @@ void LevelLibrary::BuildLevels()
 		levelTwo[0].AddProjectionFromPoint(vecs[i], FVector2D(-1000, -1732)+vecs[i], FVector2D(-2000, 0)+vecs[i], 3, 102+18*i);
 		levelTwo[0].AddProjectionFromPoint(vecs[i], FVector2D(-2000, 0)+vecs[i], FVector2D(-1000, 1732)+vecs[i], 3, 102+18*i);
 		levelTwo[0].AddProjectionFromPoint(vecs[i], FVector2D(-1000, 1732)+vecs[i], FVector2D(1000, 1732)+vecs[i], 3, 102+18*i);
+
+		levelTwo[0].AddProjectionFromPoint(-vecs[i], FVector2D(1000, 1732) -vecs[i], FVector2D(2000, 0) -vecs[i], 3, 102 + 18 * i);
+		levelTwo[0].AddProjectionFromPoint(-vecs[i], FVector2D(2000, 0) -vecs[i], FVector2D(1000, -1732) -vecs[i], 3, 102 + 18 * i);
+		levelTwo[0].AddProjectionFromPoint(-vecs[i], FVector2D(1000, -1732) -vecs[i], FVector2D(-1000, -1732) -vecs[i], 3, 102 + 18 * i);
+		levelTwo[0].AddProjectionFromPoint(-vecs[i], FVector2D(-1000, -1732) -vecs[i], FVector2D(-2000, 0) -vecs[i], 3, 102 + 18 * i);
+		levelTwo[0].AddProjectionFromPoint(-vecs[i], FVector2D(-2000, 0) -vecs[i], FVector2D(-1000, 1732) -vecs[i], 3, 102 + 18 * i);
+		levelTwo[0].AddProjectionFromPoint(-vecs[i], FVector2D(-1000, 1732) -vecs[i], FVector2D(1000, 1732) -vecs[i], 3, 102 + 18 * i);
 	}
 
 	levelTwo.push_back(BulletSpawner());
-	levelTwo[1].AddRythm({ 0.46, 0.1, 0.1 }, 300, 0);
+	levelTwo[1].AddRythm({ 0.46, 0.1, 0.1 }, 37, 0);
 	//vert one
 	levelTwo[1].AddLayersOfVerticalSpawnPoints(2531, 2250, -1266, { -180 }, 500, 12, 0);
 
@@ -325,11 +338,101 @@ void LevelLibrary::BuildLevels()
 
 	levelTwo[1].AddLayersOfHorizontalSpawnPoints(4500, -2250, 1200, { -90 }, 500, 12, 11);
 
+	levelTwo[1].AddRythm({ 0.92 }, 15, 15.46);//was 15
+	//levelTwo[1].AddSpawnPoints(0, 0, A1, 1, 900);
+	//levelTwo[1].AddCorners({30, 60}, 1, 900);
+	levelTwo[1].AddSpawnPoints(2250, 1000, A1, 4, 111);
+	levelTwo[1].AddSpawnPoints(-2250, -1000, A1, 4, 112);
+	levelTwo[1].AddSpawnPoints(-2250, 1000, A1, 4, 113);
+	levelTwo[1].AddSpawnPoints(2250, -1000, A1, 4, 114);
+
+	levelTwo[1].SortSpawnTimes();
+
+	levelTwo.push_back(BulletSpawner());
+	levelTwo[2].AddRythm({ 0.23, 0.05, 0.05 }, 91, 0);
+	//beat 1
+	levelTwo[2].AddLayersOfHorizontalSpawnPoints(4500, -2250, 1200, { -90 }, 500, 6, 0, BulletType::BasicBullet, { 1400, 1 });
+
+	levelTwo[2].AddLayersOfHorizontalSpawnPoints(4500, -2250, 1200, { -90 }, 500, 6, 1, BulletType::BasicBullet, { 1400, 1 });
+	levelTwo[2].AddLayersOfHorizontalSpawnPoints(4500, -2300, 1200, { -90 }, 500, 6, 1, BulletType::BasicBullet, { 1400, 1 });
+	levelTwo[2].AddLayersOfHorizontalSpawnPoints(4500, -2200, 1200, { -90 }, 500, 6, 1, BulletType::BasicBullet, { 1400, 1 });
+
+	levelTwo[2].AddLayersOfHorizontalSpawnPoints(4500, -2250, 1200, { -90 }, 500, 6, 2, BulletType::BasicBullet, { 1400, 1 });
+
+	//beat 2
+	levelTwo[2].AddLayersOfHorizontalSpawnPoints(4250, -2000, 1200, { -90 }, 500, 6, 3, BulletType::BasicBullet, { 1400, 1 });
+
+	levelTwo[2].AddLayersOfHorizontalSpawnPoints(4250, -2000, 1200, { -90 }, 500, 6, 4, BulletType::BasicBullet, { 1400, 1 });
+	levelTwo[2].AddLayersOfHorizontalSpawnPoints(4250, -2050, 1200, { -90 }, 500, 6, 4, BulletType::BasicBullet, { 1400, 1 });
+	levelTwo[2].AddLayersOfHorizontalSpawnPoints(4250, -1950, 1200, { -90 }, 500, 6, 4, BulletType::BasicBullet, { 1400, 1 });
+
+	levelTwo[2].AddLayersOfHorizontalSpawnPoints(4250, -2000, 1200, { -90 }, 500, 6, 5, BulletType::BasicBullet, { 1400, 1 });
+
+	//filling layer 1
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(4500, -2250, 1200, { -90 }, 1000, 27, BulletType::BasicBullet, { 1400, 1 });
+
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(4500, -2250, 1200, { -90 }, 1000, 28, BulletType::BasicBullet, { 1400, 1 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(4500, -2300, 1200, { -90 }, 1000, 28, BulletType::BasicBullet, { 1400, 1 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(4500, -2200, 1200, { -90 }, 1000, 28, BulletType::BasicBullet, { 1400, 1 });
+
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(4500, -2250, 1200, { -90 }, 1000, 29, BulletType::BasicBullet, { 1400, 1 });
+
+	//filling layer 2
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(4250, -2000, 1200, { -90 }, 1000, 42, BulletType::BasicBullet, { 1400, 1 });
+
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(4250, -2000, 1200, { -90 }, 1000, 43, BulletType::BasicBullet, { 1400, 1 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(4250, -2050, 1200, { -90 }, 1000, 43, BulletType::BasicBullet, { 1400, 1 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(4250, -1950, 1200, { -90 }, 1000, 43, BulletType::BasicBullet, { 1400, 1 });
+
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(4250, -2000, 1200, { -90 }, 1000, 44, BulletType::BasicBullet, { 1400, 1 });
+
+	//filling layer 3
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(4250, -2000, 1200, { -90 }, 1500, 54, BulletType::BasicBullet, { 1400, 1 });
+
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(4250, -2000, 1200, { -90 }, 1500, 55, BulletType::BasicBullet, { 1400, 1 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(4250, -2050, 1200, { -90 }, 1500, 55, BulletType::BasicBullet, { 1400, 1 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(4250, -1950, 1200, { -90 }, 1500, 55, BulletType::BasicBullet, { 1400, 1 });
+
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(4250, -2000, 1200, { -90 }, 1500, 56, BulletType::BasicBullet, { 1400, 1 });
+
+	//filling layer 4
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(4500, -2250, 1200, { -90 }, 1500, 69, BulletType::BasicBullet, { 1400, 1 });
+
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(4500, -2250, 1200, { -90 }, 1500, 70, BulletType::BasicBullet, { 1400, 1 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(4500, -2300, 1200, { -90 }, 1500, 70, BulletType::BasicBullet, { 1400, 1 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(4500, -2200, 1200, { -90 }, 1500, 70, BulletType::BasicBullet, { 1400, 1 });
+
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(4500, -2250, 1200, { -90 }, 1500, 71, BulletType::BasicBullet, { 1400, 1 });
+
+	//filling layer 5
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(4500, -2250, 1200, { -90 }, 1000, 93, BulletType::BasicBullet, { 1400, 1 });
+
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(4500, -2250, 1200, { -90 }, 1000, 94, BulletType::BasicBullet, { 1400, 1 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(4500, -2300, 1200, { -90 }, 1000, 94, BulletType::BasicBullet, { 1400, 1 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(4500, -2200, 1200, { -90 }, 1000, 94, BulletType::BasicBullet, { 1400, 1 });
+
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(4500, -2250, 1200, { -90 }, 1000, 95, BulletType::BasicBullet, { 1400, 1 });
+
+	//filling layer 6
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(4250, -2000, 1200, { -90 }, 1000, 120, BulletType::BasicBullet, { 1400, 1 });
+
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(4250, -2000, 1200, { -90 }, 1000, 121, BulletType::BasicBullet, { 1400, 1 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(4250, -2050, 1200, { -90 }, 1000, 121, BulletType::BasicBullet, { 1400, 1 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(4250, -1950, 1200, { -90 }, 1000, 121, BulletType::BasicBullet, { 1400, 1 });
+
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(4250, -2000, 1200, { -90 }, 1000, 122, BulletType::BasicBullet, { 1400, 1 });
+
+	levelTwo.push_back(BulletSpawner());
+	levelTwo[3].AddRythm({ 0.46, 0.1, 0.1 }, 100, 0);
+
+	
 
 
 
 
-	//levelTwo[0] = levelTwo[1];
+
+
+	//levelTwo[0] = levelTwo[2];
 	
 
 	levelTwo[0].AddInstruction(4, 0, 0, 9999);

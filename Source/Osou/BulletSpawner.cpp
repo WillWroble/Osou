@@ -158,6 +158,24 @@ void BulletSpawner::AddLayersOfVerticalSpawnPoints(int height, int x, int y, std
 	}
 }
 
+void BulletSpawner::SpawnBetweenTwoPoints(FVector2D p1, FVector2D p2, int spacing, int index, BulletType bType, std::vector<float> bCoeff)
+{
+	FVector2D delta = p2 - p1;
+	float z = delta.SizeSquared();
+	//float d1 = sqrtf(y - (powf((z + y - x), 2) / (4 * z)));
+	for (int i = 0; i < spacing; i++) {
+		float scale = ((float)i) / ((float)spacing);
+		FVector2D sD = delta * scale; //scaled delta
+		FVector2D spawn = p1 + sD;
+		float a = atan2f(delta.Y, delta.X) * (180 / PI);
+		a -= 90;
+		//float s = bCoeff[0] * ray.Size() / d1;
+		//std::vector<float> tempCoeff = std::vector<float>(bCoeff);
+		//tempCoeff[0] = s;
+		AddSpawnPoint(spawn.X, spawn.Y, { a }, index, bType, bCoeff);
+	}
+}
+
 void BulletSpawner::AddProjectionFromPoint(FVector2D p, FVector2D l1, FVector2D l2, int spacing, int index, BulletType bType, std::vector<float> bCoeff)
 {
 	FVector2D delta = l2 - l1;

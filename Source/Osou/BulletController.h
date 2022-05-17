@@ -44,6 +44,7 @@ public:
 	// Called every frame
 	float clockTime;
 	float messageTime;
+	float adjustedDeltaTime;
 	int tutorialTime;
 	int messageCounter;
 	bool tutFirstTime;
@@ -59,5 +60,7 @@ public:
 		TSubclassOf<AActor> ExplodingBullet;
 	UPROPERTY(EditDefaultsOnly, Category = "CurvedBullet")
 		TSubclassOf<AActor> CurvedBullet;
+	UPROPERTY(EditDefaultsOnly, Category = "HexBullet")
+		TSubclassOf<AActor> HexBullet;
 
 };

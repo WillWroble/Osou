@@ -23,6 +23,7 @@ ABulletController::ABulletController()
 	messageTime = 0;
 	messageIndex = 0;
 	tutorialTime = 0;
+	adjustedDeltaTime = 0;
 	tutFirstTime = true;
 
 }
@@ -66,14 +67,16 @@ void ABulletController::BeginPlay()
 		player->AddRythm({ 0.69 }, 2);
 	}
 	else {
-		player->SetTransitions({ 0, 998, 999 }); //105
+		player->SetTransitions({ 0, 74-1.2,104-.12 }); //105
 		player->setSpeedMultis({ 1.2, 1.2, 1.2 });
 		player->AddRythm({ 0.38 }, 0); //0.2
 		player->AddRythm({ 0.19 }, 1);
 		player->AddRythm({ 0.38 }, 2);
+		player->AddTextInstruction(1, 72-1.2, 0.4, FString("X2 in"), 1.0, 3);
 	}
 	spawner = &(LevelLibrary::allLevels[levelIndex][0]);
 	player->speed = player->baseSpeed / player->beats[0][0];
+	player->currentMulti = player->speedMultis[0];
 	border->instructions = spawner->borderInstructions;
 	border->InitializeFromOutside();
 	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, *(FString::FromInt(LevelLibrary::allLevels.size())));
@@ -87,10 +90,25 @@ void ABulletController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	clockTime += DeltaTime;
+	//adjustedDeltaTime = DeltaTime;
+	std::list<ABasicBullet*>::iterator itr = activeBullets.begin();
+	while (itr != activeBullets.end()) {
 
+		(*itr)->UpdateMovement(DeltaTime);
+		if ((abs((*itr)->GetActorLocation().X) > 2250 || abs((*itr)->GetActorLocation().Z) > 1265 || (*itr)->flaggedForRemoval) && (*itr)->time > 5) {
+			if (!(*itr)->Destroy()) {
+				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "COULDNT DESTROY BULLET");
+			}
+			itr = activeBullets.erase(itr);
+		}
+		else {
+			++itr;
+		}
+	}
 	//check spawning routines
 	if (spawner->spawnTable[index].time < clockTime) {
 		//time to spawn shit!
+		adjustedDeltaTime = clockTime - spawner->spawnTable[index].time;
 		for (int i = 0; i < spawner->spawnTable[index].spawnMap.size(); i++) {
 			//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "SPAWNING STUFF");
 			//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::SanitizeFloat(spawner->spawnAngles[index][i]));
@@ -113,10 +131,14 @@ void ABulletController::Tick(float DeltaTime)
 				else if (tempBType == BulletType::CurvedBullet) {
 					tempClass = CurvedBullet;
 				}
+				else if (tempBType == BulletType::HexagonBullet) {
+					tempClass = HexBullet;
+				}
 				activeBullets.push_back(GetWorld()->SpawnActor<ABasicBullet>(tempClass,
 					pos,
 					FRotator(angle + spawner->spawnTable[index].spawnMap[i].angles[j], 0, 0)));
 				activeBullets.back()->Start(spawner->spawnTable[index].spawnMap[i].coeffecients);
+				activeBullets.back()->UpdateMovement(adjustedDeltaTime);
 				//activeBullets.back()->coeffecient = spawner->spawnTable[index].spawnMap[i].bCoeffecient;
 			}
 		}
@@ -348,6 +370,7 @@ void ABulletController::Tick(float DeltaTime)
 				spawner = &(LevelLibrary::allLevels[2][0]);
 				levelIndex = 2;
 				index = 0;
+				messageIndex = 0;
 				transitionIndex = 0;
 				clockTime = 0;
 				//player->sound->SetWaveParameter(FName("wave"), player->song1_4);
@@ -400,7 +423,7 @@ void ABulletController::Tick(float DeltaTime)
 			tutorialTime++;
 		}
 	}
-	if (player->messages.size() > messageIndex && clockTime > player->messages[messageIndex].startTime) {
+	if (player->messages.size() > messageIndex && player->clockTime > player->messages[messageIndex].startTime) {
 		currentMessage = player->messages[messageIndex];
 		isDisplayMessage = true;
 		messageIndex++;
@@ -449,20 +472,6 @@ void ABulletController::Tick(float DeltaTime)
 				messageTime = 0;
 				messageCounter = 0;
 			}
-		}
-	}
-	std::list<ABasicBullet*>::iterator itr = activeBullets.begin();
-	while (itr != activeBullets.end()) {
-
-		(*itr)->UpdateMovement(DeltaTime);
-		if ((abs((*itr)->GetActorLocation().X) > 2250 || abs((*itr)->GetActorLocation().Z) > 1265 || (*itr)->flaggedForRemoval) && (*itr)->time > 5) {
-			if (!(*itr)->Destroy()) {
-				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "COULDNT DESTROY BULLET");
-			}
-			itr = activeBullets.erase(itr);
-		}
-		else {
-			++itr;
 		}
 	}
 	border->UpdateMovement(DeltaTime);
