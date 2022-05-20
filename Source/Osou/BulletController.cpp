@@ -21,6 +21,7 @@ ABulletController::ABulletController()
 	isDisplayMessage = false;
 	messageCounter = 0;
 	messageTime = 0;
+	messageClockTime = 0;
 	messageIndex = 0;
 	tutorialTime = 0;
 	adjustedDeltaTime = 0;
@@ -67,12 +68,14 @@ void ABulletController::BeginPlay()
 		player->AddRythm({ 0.69 }, 2);
 	}
 	else {
-		player->SetTransitions({ 0, 74-1.2,104-.12 }); //105
-		player->setSpeedMultis({ 1.2, 1.2, 1.2 });
+		player->SetTransitions({ 0, 72.8,104 -72.8, 58}); //72.8
+		player->setSpeedMultis({ 1.2, 1.2, 1.2, 1.2 });
 		player->AddRythm({ 0.38 }, 0); //0.2
 		player->AddRythm({ 0.19 }, 1);
 		player->AddRythm({ 0.38 }, 2);
+		player->AddRythm({ 0.38 }, 3);
 		player->AddTextInstruction(1, 72-1.2, 0.4, FString("X2 in"), 1.0, 3);
+		player->AddTextInstruction(1, 104 - 1.2-2, 0.4, FString("X0.5 in"), 1.0, 3);
 	}
 	spawner = &(LevelLibrary::allLevels[levelIndex][0]);
 	player->speed = player->baseSpeed / player->beats[0][0];
@@ -90,6 +93,7 @@ void ABulletController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	clockTime += DeltaTime;
+	messageClockTime += DeltaTime;
 	//adjustedDeltaTime = DeltaTime;
 	std::list<ABasicBullet*>::iterator itr = activeBullets.begin();
 	while (itr != activeBullets.end()) {
@@ -133,6 +137,9 @@ void ABulletController::Tick(float DeltaTime)
 				}
 				else if (tempBType == BulletType::HexagonBullet) {
 					tempClass = HexBullet;
+				}
+				else if (tempBType == BulletType::CurvedBulletReg) {
+					tempClass = CurvedBulletReg;
 				}
 				activeBullets.push_back(GetWorld()->SpawnActor<ABasicBullet>(tempClass,
 					pos,
@@ -423,7 +430,7 @@ void ABulletController::Tick(float DeltaTime)
 			tutorialTime++;
 		}
 	}
-	if (player->messages.size() > messageIndex && player->clockTime > player->messages[messageIndex].startTime) {
+	if (player->messages.size() > messageIndex && messageClockTime > player->messages[messageIndex].startTime) {
 		currentMessage = player->messages[messageIndex];
 		isDisplayMessage = true;
 		messageIndex++;
@@ -490,6 +497,7 @@ void ABulletController::ResetBullets()
 	transitionIndex = 0;
 	index = 0;
 	clockTime = 0;
+	messageClockTime = 0;
 	spawner = &(LevelLibrary::allLevels[levelIndex][0]);
 
 }

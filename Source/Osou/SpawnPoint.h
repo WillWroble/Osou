@@ -17,7 +17,7 @@ enum class BulletType : unit8 {
 };
 */
 
-enum BulletType {BasicBullet, ExplodingBullet, CurvedBullet, HexagonBullet};
+enum BulletType {BasicBullet, ExplodingBullet, CurvedBullet, HexagonBullet, CurvedBulletReg};
 
 class OSOU_API SpawnPoint
 {

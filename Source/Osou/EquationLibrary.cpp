@@ -16,6 +16,9 @@ float EquationLibrary::xDelta(float i, float t)
 	if (i == 0) {
 		return bxcurve1(t);
 	}
+	else if (i == 1) {
+		return bxcurve2(t);
+	}
 	return 0;
 }
 
@@ -24,6 +27,9 @@ float EquationLibrary::yDelta(float i, float t)
 	if (i == 0) {
 		return bycurve1(t);
 	}
+	else if (i == 1) {
+		return bycurve2(t);
+	}
 	return 0;
 }
 
@@ -31,6 +37,9 @@ float EquationLibrary::aDelta(float i, float t)
 {
 	if (i == 0) {
 		return bacurve1(t);
+	}
+	else if (i == 1) {
+		return bacurve2(t);
 	}
 	return 0;
 }

@@ -2,6 +2,7 @@
 
 
 #include "BulletSpawner.h"
+#include <assert.h>
 
 
 BulletSpawner::BulletSpawner()
@@ -34,6 +35,18 @@ void BulletSpawner::AddRythm(std::vector<float> beat, int quanity, float offset)
 void BulletSpawner::SortSpawnTimes()
 {
 	std::sort(spawnTable.begin(), spawnTable.end(), FrameCompare);
+}
+
+void BulletSpawner::ClearSlot(int index)
+{
+	spawnTable[index].spawnMap.clear();
+}
+
+void BulletSpawner::ClearSlots(int timeSignature, int offSet, int count)
+{
+	for (int i = offSet; i < spawnTable.size() && i - offSet < count*timeSignature; i += timeSignature) {
+		ClearSlot(i);
+	}
 }
 
 void BulletSpawner::AddSpawnPoint(float x, float y, std::vector<float> angles, int index, BulletType bType, std::vector<float> bCoeff)
@@ -174,6 +187,25 @@ void BulletSpawner::SpawnBetweenTwoPoints(FVector2D p1, FVector2D p2, int spacin
 		//tempCoeff[0] = s;
 		AddSpawnPoint(spawn.X, spawn.Y, { a }, index, bType, bCoeff);
 	}
+}
+
+void BulletSpawner::SpawnTriangleBlob(int x, int y, float angle, float spacing, int count, int index, BulletType bType, std::vector<float> bCoeff)
+{
+	FVector2D vertVec = FVector2D(cosf(((float)(angle - 45.0f)) * (PI / 180.0f)), sinf(((float)(angle - 45.0f)) * (PI / 180.0f)));
+	FVector2D horizVec = FVector2D(vertVec);
+	horizVec = horizVec.GetRotated(-90);
+	FVector2D startDelta = vertVec * (count - 1) * spacing*-1;
+	float start_x = x + startDelta.X;
+	float start_y = y + startDelta.Y;
+	//FVector2D spawn = FVector2D(start_x, start_y);
+	for (int i = 0; i < count; i++) {
+		FVector2D spawn = FVector2D(start_x, start_y) + (vertVec * i * spacing);
+		for (int j = 0; j < i+1; j++) {
+			AddSpawnPoint(spawn.X, spawn.Y, { angle }, index, bType, bCoeff);
+			spawn = spawn + (horizVec*spacing);
+		}
+	}
+
 }
 
 void BulletSpawner::AddProjectionFromPoint(FVector2D p, FVector2D l1, FVector2D l2, int spacing, int index, BulletType bType, std::vector<float> bCoeff)

@@ -224,7 +224,7 @@ void AKillMe::Tick(float DeltaTime)
 			PopupType = 0;
 			OnSlightlyEarly();
 			if (rhythmBuffer == 0) {
-				Health -= ((*currentBeat)[index] + 0.08 - timeout) * 5;
+				Health -= ((*currentBeat)[index] + 0.08 - timeout) * 4;
 			}
 			//ResetEverything();
 		} else if (timeout < (*currentBeat)[index] + 0.05) {
@@ -233,14 +233,14 @@ void AKillMe::Tick(float DeltaTime)
 			OnSlightlyEarly();
 			if (rhythmBuffer == 0) {
 				Health -= ((*currentBeat)[index] + 0.08 - timeout) * 5;
-				Health += 0.1;
+				Health += 0.15;
 			}
 		} else if (timeout > 0.16 + (*currentBeat)[index]) {
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "LATE");
 			PopupType = 2;
 			OnSlightlyEarly();
 			if (rhythmBuffer == 0) {
-				Health -= (timeout - (*currentBeat)[index] - 0.08) * 5;
+				Health -= (timeout - (*currentBeat)[index] - 0.08) * 4;
 			}
 			//ResetEverything();
 		} else if (timeout > (*currentBeat)[index] + 0.11) {
@@ -249,7 +249,7 @@ void AKillMe::Tick(float DeltaTime)
 			OnSlightlyEarly();
 			if (rhythmBuffer == 0) {
 				Health -= (timeout - (*currentBeat)[index] - 0.08) * 5;
-				Health += 0.1;
+				Health += 0.15;
 			}
 		} else {
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, "PERFECT!");

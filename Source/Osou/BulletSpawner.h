@@ -28,6 +28,8 @@ public:
 	//building functions
 	void AddRythm(std::vector<float> beat, int quanity, float offset);
 	void SortSpawnTimes();
+	void ClearSlot(int index);
+	void ClearSlots(int timeSignature, int offSet, int count = 9999);
 	void AddSpawnPoint(float x, float y, std::vector<float> angles, int index, BulletType bType = BulletType::BasicBullet, std::vector<float> bCoeff = {700, 1});
 	void AddInstruction(int type, float x, float y, float duration);
 	void AddSpawnPoints(float x, float y, std::vector<float> angles, int timeSignature, int offset, BulletType bType = BulletType::BasicBullet, std::vector<float> bCoeff = {700, 1});
@@ -43,6 +45,7 @@ public:
 	void AddLayersOfHorizontalSpawnPoints(int width, int x, int y, std::vector<float> angles, int spacing, int timeSignature, int offset, BulletType bType = BulletType::BasicBullet, std::vector<float> bCoeff = { 700, 1 });
 	void AddLayersOfVerticalSpawnPoints(int height, int x, int y, std::vector<float> angles, int spacing, int timeSignature, int offset, BulletType bType = BulletType::BasicBullet, std::vector<float> bCoeff = { 700, 1 });
 	void SpawnBetweenTwoPoints(FVector2D p1, FVector2D p2, int spacing, int index, BulletType bType = BulletType::BasicBullet, std::vector<float> bCoeff = { 700, 1 });
+	void SpawnTriangleBlob(int x, int y, float angle, float spacing, int count, int index, BulletType bType = BulletType::BasicBullet, std::vector<float> bCoeff = { 700, 1 });
 	void AddProjectionFromPoint(FVector2D p, FVector2D l1, FVector2D l2, int spacing, int index, BulletType bType = BulletType::BasicBullet, std::vector<float> bCoeff = {700, 1});
 	void AddMovingSpawnPointByEquation(int spacing, int index, int timeSignature, float (*xfunc)(float), float (*yfunc)(float), float (*afunc)(float), BulletType bType = BulletType::BasicBullet, std::vector<float> bCoeff = {700, 1});
 	void AddSpawnPointByEquation(int spacing, int index, float (*xfunc)(float), float (*yfunc)(float), float (*afunc)(float), BulletType bType = BulletType::BasicBullet, std::vector<float> bCoeff = {700, 1});
