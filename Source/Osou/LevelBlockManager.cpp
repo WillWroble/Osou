@@ -444,7 +444,7 @@ void ALevelBlockManager::BindToInput()
 void ALevelBlockManager::FinishedLoadingLevels(const FString& SlotName, const int32 UserINdex, USaveGame* LoadedGameData)
 {
 	UMySaveGame* currentSave = (UMySaveGame*)LoadedGameData;
-	if (!currentSave->autoStartTutorial) {
+	if (currentSave) {
 		for (int i = 0; i < 72; i++) {
 			levelDatas[i].grade = currentSave->grades[i];
 			levelDatas[i].score = currentSave->scores[i];
@@ -461,8 +461,8 @@ void ALevelBlockManager::FinishedLoadingLevels(const FString& SlotName, const in
 		SaveGameInstance->grades.Init(0, 72);
 		SaveGameInstance->autoStartTutorial = false;
 		UGameplayStatics::SaveGameToSlot(SaveGameInstance, FString("osou_save"), 0);
-		ABulletController::levelIndex = levelMap[8];
-		UGameplayStatics::OpenLevel(this, FName("Minimal_Default"));
+		//ABulletController::levelIndex = levelMap[8];
+		//UGameplayStatics::OpenLevel(this, FName("Minimal_Default"));
 
 	}
 	float posX = 1500;

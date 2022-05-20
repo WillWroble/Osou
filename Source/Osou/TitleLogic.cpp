@@ -15,6 +15,14 @@ ATitleLogic::ATitleLogic()
 void ATitleLogic::BeginPlay()
 {
 	Super::BeginPlay();
+	pController = GetWorld()->GetFirstPlayerController();
+	pController->bShowMouseCursor = true;
+	pController->bEnableMouseOverEvents = true;
+
+	APawn* evilPawn = pController->GetPawn();
+	if (evilPawn != nullptr) {
+		evilPawn->Destroy();
+	}
 	
 }
 

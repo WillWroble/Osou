@@ -165,6 +165,7 @@ void AKillMe::BeginPlay()
 void AKillMe::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	pController->GetViewportSize(screenW, screenH);
 	if (!isTimeFrozen) {
 		clockTime += DeltaTime;
 	}
@@ -303,8 +304,8 @@ void AKillMe::Tick(float DeltaTime)
 		x = x - (screenW / 2);
 		x = x * 4500 / screenW;
 		y = y * 4500 / screenW;
-		direction.X = x - GetActorLocation().X;
-		direction.Z = y - GetActorLocation().Z;
+		direction.X = x - GetActorLocation().X;//x-
+		direction.Z = y - GetActorLocation().Z;//y-
 		direction.Normalize();
 	}
 	timeout += DeltaTime;
@@ -312,7 +313,8 @@ void AKillMe::Tick(float DeltaTime)
 		scale -= FVector(DeltaTime * 0.24 / ((*currentBeat)[index] + 0.08)); //0.38
 		circleSprite->SetRelativeScale3D(scale);
 		if (timeout < (*currentBeat)[index]) {
-			AddActorLocalOffset(direction * DeltaTime * speed * currentMulti);
+			AddActorLocalOffset(direction * DeltaTime * speed* currentMulti);//speed*currentMulti
+			//AddActorLocalOffset(GetActorLocation()* DeltaTime* speed* currentMulti);
 		}
 	}
 	beatTime += DeltaTime;

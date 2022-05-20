@@ -14,6 +14,8 @@ class OSOU_API ATitleLogic : public AActor
 public:	
 	// Sets default values for this actor's properties
 	ATitleLogic();
+	APlayerController* pController;
+
 
 protected:
 	// Called when the game starts or when spawned

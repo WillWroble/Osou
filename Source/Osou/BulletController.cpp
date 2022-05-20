@@ -379,6 +379,7 @@ void ABulletController::Tick(float DeltaTime)
 			}
 			else if (tutorialTime < 491 - 34+27*(tutFirstTime)) {
 
+				player->messages.clear();
 				player->SetTransitions({ 0, 72.8,104 - 72.8, 58 }); //72.8
 				player->setSpeedMultis({ 1.2, 1.2, 1.2, 1.2 });
 				player->AddRythm({ 0.38 }, 0); //0.2
