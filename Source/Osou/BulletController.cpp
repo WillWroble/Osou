@@ -26,6 +26,7 @@ ABulletController::ABulletController()
 	tutorialTime = 0;
 	adjustedDeltaTime = 0;
 	tutFirstTime = true;
+	isTimeFrozen = false;
 
 }
 
@@ -99,7 +100,7 @@ void ABulletController::Tick(float DeltaTime)
 	while (itr != activeBullets.end()) {
 
 		(*itr)->UpdateMovement(DeltaTime);
-		if ((abs((*itr)->GetActorLocation().X) > 2250 || abs((*itr)->GetActorLocation().Z) > 1265 || (*itr)->flaggedForRemoval) && (*itr)->time > 5) {
+		if ((((abs((*itr)->GetActorLocation().X) > 2250 || abs((*itr)->GetActorLocation().Z) > 1265) && (*itr)->time > 5) || (*itr)->flaggedForRemoval)) {
 			if (!(*itr)->Destroy()) {
 				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "COULDNT DESTROY BULLET");
 			}
@@ -108,6 +109,9 @@ void ABulletController::Tick(float DeltaTime)
 		else {
 			++itr;
 		}
+	}
+	if (isTimeFrozen) {
+		return;
 	}
 	//check spawning routines
 	if (spawner->spawnTable[index].time < clockTime) {
@@ -324,7 +328,7 @@ void ABulletController::Tick(float DeltaTime)
 				}
 
 			}
-			else if (tutorialTime < 456-34) {
+			else if (tutorialTime < 456-34+27*(tutFirstTime)) {
 				if (player->Health < 0.1 || player->hScore > 3) {
 					if (player->hScore > 3) {
 						DisplayMessage(FString("Try not to get hit too many times"));
@@ -346,7 +350,7 @@ void ABulletController::Tick(float DeltaTime)
 
 				}
 			}
-			else if(tutorialTime < 457-34) {
+			else if(tutorialTime < 457-34+27*(tutFirstTime)) {
 				
 				on_screen_message temp;
 				temp.type = 0;
@@ -357,10 +361,10 @@ void ABulletController::Tick(float DeltaTime)
 				isDisplayMessage = true;
 				//player->FinishedLevel();
 			}
-			else if (tutorialTime < 465-34) {
+			else if (tutorialTime < 465-34+27*(tutFirstTime)) {
 				//wait
 			}
-			else if (tutorialTime < 466-34) {
+			else if (tutorialTime < 466-34+27*(tutFirstTime)) {
 				on_screen_message temp;
 				temp.type = 1;
 				temp.duration = 0.33;
@@ -370,20 +374,30 @@ void ABulletController::Tick(float DeltaTime)
 				currentMessage = temp;
 				isDisplayMessage = true;
 			}
-			else if (tutorialTime < 490-34) {
+			else if (tutorialTime < 490-34+27*(tutFirstTime)) {
 				//wait
 			}
-			else if (tutorialTime < 491 - 34) {
+			else if (tutorialTime < 491 - 34+27*(tutFirstTime)) {
+
+				player->SetTransitions({ 0, 72.8,104 - 72.8, 58 }); //72.8
+				player->setSpeedMultis({ 1.2, 1.2, 1.2, 1.2 });
+				player->AddRythm({ 0.38 }, 0); //0.2
+				player->AddRythm({ 0.19 }, 1);
+				player->AddRythm({ 0.38 }, 2);
+				player->AddRythm({ 0.38 }, 3);
+				player->AddTextInstruction(1, 72 - 1.2, 0.4, FString("X2 in"), 1.0, 3);
+				player->AddTextInstruction(1, 104 - 1.2 - 2, 0.4, FString("X0.5 in"), 1.0, 3);
+
 				spawner = &(LevelLibrary::allLevels[2][0]);
 				levelIndex = 2;
 				index = 0;
 				messageIndex = 0;
 				transitionIndex = 0;
 				clockTime = 0;
+				messageClockTime = 0;
 				//player->sound->SetWaveParameter(FName("wave"), player->song1_4);
 				player->currentBeat = &(player->beats[0]);
 				player->rhythmBuffer = 3;
-				player->setSpeedMultis({ 1.2, 1.2, 1.2 });
 				player->currentMulti = player->speedMultis[0];
 				player->rScore = (((float)player->perfects) / ((float)player->total))*100.0f;
 				//save data
@@ -425,7 +439,10 @@ void ABulletController::Tick(float DeltaTime)
 					SaveGameInstance->grades[8] = grade;
 					UGameplayStatics::SaveGameToSlot(SaveGameInstance, FString("osou_save"), 0);
 				}
-
+				player->clockTime = 0;
+				player->hScore = 0;
+				player->total = 0;
+				player->perfects = 0;
 			}
 			tutorialTime++;
 		}

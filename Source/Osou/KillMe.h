@@ -62,12 +62,13 @@ public:
 	float clockTime;
 	float beatTime;
 	float invunerableTime;
-	float absoluteTimer;
+	bool isTimeFrozen;
+	//float absoluteTimer;
 	float rhythmBuffer;
 	int iCounter;
 	int beatIndex;
 	int perfects;
-	int messageIndex;
+	//int messageIndex;
 	int total;
 	int tutHScore;
 	UFUNCTION(BlueprintImplementableEvent)
@@ -86,6 +87,8 @@ public:
 	void FadeOutText();
 	UFUNCTION(BlueprintCallable)
 	void ResetEverything();
+	UFUNCTION(BlueprintCallable)
+	void StopEverything();
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		float Health;

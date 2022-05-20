@@ -10,6 +10,7 @@
 #include "BulletController.h"
 #include "Engine/StaticMeshActor.h"
 #include "Components/AudioComponent.h"
+#include "PaperSpriteComponent.h"
 #include "Sound/SoundWave.h"
 #include <vector>
 #include <Engine/Texture.h>

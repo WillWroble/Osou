@@ -20,18 +20,18 @@ ALevelBlockManager::ALevelBlockManager()
 	levelDatas[0] = { 0,0, LOCTEXT("levelName0.1", "EnV Pack"), LOCTEXT("artistName0.1", "     Artwork by Le Juicer abc"), {8, 23,  9, 10}};
 	levelDatas[1] = { 0,0, LOCTEXT("levelName0.2", "Touhou Pack"), LOCTEXT("artistName0.2", "     Artwork by My Juicer 123"), {11, 12, 13, 14, 15, 16, 17, 18} };
 	levelDatas[7] = { 0,0, LOCTEXT("levelName0.8", "Avicii Pack"), LOCTEXT("artistName0.8", "     Artwork by XQCL abc123"), {19, 20, 21, 22} };
-	levelDatas[8] =	{ 1,0, LOCTEXT("levelName1.1", "Vee (Tutorial)"), LOCTEXT("artistName1.1", "     Artwork by EL GOBLINO ZZZXX"), {} };
-	levelDatas[9] = { 1,0, LOCTEXT("levelName1.2", "Streetlights (WIP)"), LOCTEXT("artistName1.2", "     lol"), {} };
-	levelDatas[10] = { 2,0, LOCTEXT("levelName1.3", "Enn (WIP)"), LOCTEXT("artistName1.3", "     Artwork by Pei (Sumurai)"), {} };
-	levelDatas[11] = { 3,0, LOCTEXT("levelName2.1", "Flowering Night (WIP)"), LOCTEXT("artistName2.1", "     lol"), {} };
-	levelDatas[12] = { 4,0, LOCTEXT("levelName2.2", "UN Owen Was Her"), LOCTEXT("artistName2.2", "     lol"), {} };
-	levelDatas[13] = { 5,0, LOCTEXT("levelName2.3", "Beloved Tomboyish Girl (WIP)"), LOCTEXT("artistName2.3", "     lol"), {} };
-	levelDatas[14] = { 6,0, LOCTEXT("levelName2.4", "Lullaby of a Deserted Hell (WIP)"), LOCTEXT("artistName2.4", "     lol"), {} };
-	levelDatas[15] = { 7,0, LOCTEXT("levelName2.5", "Radiant Radiant Symphany (WIP)"), LOCTEXT("artistName2.5", "     lol"), {} };
-	levelDatas[16] = { 8,0, LOCTEXT("levelName2.6", "Reach for the Moon (WIP)"), LOCTEXT("artistName2.6", "     lol"), {} };
-	levelDatas[17] = { 9,0, LOCTEXT("levelName2.7", "Necrofantasia (WIP)"), LOCTEXT("artistName2.7", "     lol"), {} };
-	levelDatas[18] = { 10,0, LOCTEXT("levelName2.8", "Flight of the Bamboo Cutter (WIP)"), LOCTEXT("artistName2.8", "     lol"), {} };
-	levelDatas[23] = { 10, 0, LOCTEXT("levelName1.4", "Vee (full level)"), LOCTEXT("artistName1.4", "     Artwork by Unknown Artist"), {} };
+	levelDatas[8] =	{ 1,1, LOCTEXT("levelName1.1", "Vee (Tutorial)"), LOCTEXT("artistName1.1", "     Artwork by EL GOBLINO ZZZXX"), {} };
+	levelDatas[9] = { 1,2, LOCTEXT("levelName1.2", "Streetlights (WIP)"), LOCTEXT("artistName1.2", "     lol"), {} };
+	levelDatas[10] = { 2,4, LOCTEXT("levelName1.3", "Enn (WIP)"), LOCTEXT("artistName1.3", "     Artwork by Pei (Sumurai)"), {} };
+	levelDatas[11] = { 3,2, LOCTEXT("levelName2.1", "Flowering Night (WIP)"), LOCTEXT("artistName2.1", "     lol"), {} };
+	levelDatas[12] = { 4,2, LOCTEXT("levelName2.2", "UN Owen Was Her"), LOCTEXT("artistName2.2", "     lol"), {} };
+	levelDatas[13] = { 5,2, LOCTEXT("levelName2.3", "Beloved Tomboyish Girl (WIP)"), LOCTEXT("artistName2.3", "     lol"), {} };
+	levelDatas[14] = { 6,3, LOCTEXT("levelName2.4", "Lullaby of a Deserted Hell (WIP)"), LOCTEXT("artistName2.4", "     lol"), {} };
+	levelDatas[15] = { 7,3, LOCTEXT("levelName2.5", "Radiant Radiant Symphany (WIP)"), LOCTEXT("artistName2.5", "     lol"), {} };
+	levelDatas[16] = { 8,4, LOCTEXT("levelName2.6", "Reach for the Moon (WIP)"), LOCTEXT("artistName2.6", "     lol"), {} };
+	levelDatas[17] = { 9,4, LOCTEXT("levelName2.7", "Necrofantasia (WIP)"), LOCTEXT("artistName2.7", "     lol"), {} };
+	levelDatas[18] = { 10,4, LOCTEXT("levelName2.8", "Flight of the Bamboo Cutter (WIP)"), LOCTEXT("artistName2.8", "     lol"), {} };
+	levelDatas[23] = { 10, 2, LOCTEXT("levelName1.4", "Vee (full level)"), LOCTEXT("artistName1.4", "     Artwork by Unknown Artist"), {} };
 	positionDeltas = std::vector<float>(72, 0);
 
 }
@@ -444,7 +444,7 @@ void ALevelBlockManager::BindToInput()
 void ALevelBlockManager::FinishedLoadingLevels(const FString& SlotName, const int32 UserINdex, USaveGame* LoadedGameData)
 {
 	UMySaveGame* currentSave = (UMySaveGame*)LoadedGameData;
-	if (currentSave) {
+	if (!currentSave->autoStartTutorial) {
 		for (int i = 0; i < 72; i++) {
 			levelDatas[i].grade = currentSave->grades[i];
 			levelDatas[i].score = currentSave->scores[i];
@@ -456,6 +456,14 @@ void ALevelBlockManager::FinishedLoadingLevels(const FString& SlotName, const in
 			levelDatas[i].grade = 0;
 			levelDatas[i].score = 0;
 		}
+		UMySaveGame* SaveGameInstance = Cast<UMySaveGame>(UGameplayStatics::CreateSaveGameObject(UMySaveGame::StaticClass()));
+		SaveGameInstance->scores.Init(0, 72);
+		SaveGameInstance->grades.Init(0, 72);
+		SaveGameInstance->autoStartTutorial = false;
+		UGameplayStatics::SaveGameToSlot(SaveGameInstance, FString("osou_save"), 0);
+		ABulletController::levelIndex = levelMap[8];
+		UGameplayStatics::OpenLevel(this, FName("Minimal_Default"));
+
 	}
 	float posX = 1500;
 	float posY = 800;
@@ -487,7 +495,22 @@ void ALevelBlockManager::FinishedLoadingLevels(const FString& SlotName, const in
 			((UTextRenderComponent*)(tempBox->GetComponentsByTag(UTextRenderComponent::StaticClass(), "LevelScore")[0]))->SetText(gradeConversionLetter[levelDatas[i].grade]);
 			((UTextRenderComponent*)(tempBox->GetComponentsByTag(UTextRenderComponent::StaticClass(), "LevelScore")[0]))->SetTextRenderColor(gradeConversionColor[levelDatas[i].grade]);
 			((UTextRenderComponent*)(tempBox->GetComponentsByTag(UTextRenderComponent::StaticClass(), "ScoreNum")[0]))->SetText(FString::Printf(TEXT("%.1f"), levelDatas[i].score));
-
+			TArray<UActorComponent*> starSprites = tempBox->GetComponentsByTag(UPaperSpriteComponent::StaticClass(), "Star");
+			if (levelDatas[i].levelDifficulty > 0) {
+				((UPaperSpriteComponent*)starSprites[0])->SetVisibility(true);
+			}
+			if (levelDatas[i].levelDifficulty > 1) {
+				((UPaperSpriteComponent*)starSprites[1])->SetVisibility(true);
+			}
+			if (levelDatas[i].levelDifficulty > 2) {
+				((UPaperSpriteComponent*)starSprites[2])->SetVisibility(true);
+			}
+			if (levelDatas[i].levelDifficulty > 3) {
+				((UPaperSpriteComponent*)starSprites[3])->SetVisibility(true);
+			}
+			if (levelDatas[i].levelDifficulty > 4) {
+				((UPaperSpriteComponent*)starSprites[4])->SetVisibility(true);
+			}
 			if (levelDatas[i].score == 0) {
 				((UTextRenderComponent*)(tempBox->GetComponentsByTag(UTextRenderComponent::StaticClass(), "ScoreNum")[0]))->SetText(FString(""));
 			}

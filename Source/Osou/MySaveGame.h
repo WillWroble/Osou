@@ -18,5 +18,7 @@ public:
 		TArray<int> grades;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		TArray<float> scores;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		bool autoStartTutorial = true;
 	
 };

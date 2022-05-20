@@ -64,6 +64,7 @@ AKillMe::AKillMe()
 	beatIndex = 0;
 	rhythmBuffer = 0;
 	tutHScore = 0;
+	isTimeFrozen = false;
 
 }
 
@@ -164,7 +165,9 @@ void AKillMe::BeginPlay()
 void AKillMe::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	clockTime += DeltaTime;
+	if (!isTimeFrozen) {
+		clockTime += DeltaTime;
+	}
 	if (rhythmBuffer < 0) {
 		rhythmBuffer = 0;
 	}
@@ -262,7 +265,10 @@ void AKillMe::Tick(float DeltaTime)
 			PopupType = 4;
 			OnSlightlyEarly();
 		}
-		if (Health <= 0) {
+		if (Health < 0) {
+			Health = 0;
+		}
+		if (Health <= 0 && !isTimeFrozen) {
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "BAD RYTHM");
 			if (ABulletController::levelIndex != 0) {
 				ResetEverything();
@@ -363,6 +369,14 @@ void AKillMe::ResetEverything()
 		sound->SetWaveParameter(FName("wave"), song1_4);
 	}
 	sound->Play();
+	bulletController->isTimeFrozen = false;
+	isTimeFrozen = false;
+}
+void AKillMe::StopEverything()
+{
+	bulletController->isTimeFrozen = true;
+	isTimeFrozen = true;
+	sound->Stop();
 }
 void AKillMe::FinishedLevel()
 {
@@ -378,7 +392,7 @@ void AKillMe::OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AA
 	{
 		return;
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Overlap Begin"));
-		if (isLevelFinsihedd || isInvunerable) {
+		if (isLevelFinsihedd || isInvunerable || isTimeFrozen) {
 			return;
 		}
 		UpdateHealthBar();

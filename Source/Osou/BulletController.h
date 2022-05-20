@@ -49,6 +49,7 @@ public:
 	int tutorialTime;
 	int messageCounter;
 	bool tutFirstTime;
+	bool isTimeFrozen;
 	virtual void Tick(float DeltaTime) override;
 	void ResetBullets();
 	void DisplayMessage(FString message, int type = 0, float duration = 2, float start = 0);
