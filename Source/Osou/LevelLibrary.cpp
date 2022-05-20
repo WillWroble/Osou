@@ -470,73 +470,73 @@ void LevelLibrary::BuildLevels()
 	levelTwo[2].ClearSlots(21,139, 6);
 	levelTwo[2].ClearSlots(21,140, 6);
 
-	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -3250, 1200, { -90 }, 500, 138, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, 0.5});
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -3250, 1200, { -90 }, 500, 138, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, 0.25});
 
-	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -3250+35, 1200, { -90 }, 500, 139, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, 0.5 });
-	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -3300+35, 1200, { -90 }, 500, 139, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, 0.5 });
-	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -3200+35, 1200, { -90 }, 500, 139, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, 0.5 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -3250+17.5, 1200, { -90 }, 500, 139, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, 0.25 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -3300+17.5, 1200, { -90 }, 500, 139, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, 0.25 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -3200+17.5, 1200, { -90 }, 500, 139, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, 0.25 });
 
-	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -3250+70, 1200, { -90 }, 500, 140, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, 0.5 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -3250+35, 1200, { -90 }, 500, 140, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, 0.25 });
 
 	//shifting layer 2
-	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -2000, 1200, { -90 }, 500, 159, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.5 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -2000, 1200, { -90 }, 500, 159, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.25 });
 
-	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -2000 - 35, 1200, { -90 }, 500, 160, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.5 });
-	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -2050 - 35, 1200, { -90 }, 500, 160, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.5 });
-	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -1950 - 35, 1200, { -90 }, 500, 160, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.5 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -2000 - 17.5, 1200, { -90 }, 500, 160, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.25 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -2050 - 17.5, 1200, { -90 }, 500, 160, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.25 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -1950 - 17.5, 1200, { -90 }, 500, 160, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.25 });
 
-	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -2000 - 70, 1200, { -90 }, 500, 161, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.5 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -2000 - 35, 1200, { -90 }, 500, 161, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.25 });
 
 	//shifting layer 3 
-	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -2250, 1200, { -90 }, 500, 180, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.5 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -2250, 1200, { -90 }, 500, 180, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.25 });
 
-	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -2250 - 35, 1200, { -90 }, 500, 181, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.5 });
-	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -2300 - 35, 1200, { -90 }, 500, 181, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.5 });
-	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -2200 - 35, 1200, { -90 }, 500, 181, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.5 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -2250 - 17.5, 1200, { -90 }, 500, 181, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.25 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -2300 - 17.5, 1200, { -90 }, 500, 181, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.25 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -2200 - 17.5, 1200, { -90 }, 500, 181, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.25 });
 
-	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -2250 - 70, 1200, { -90 }, 500, 182, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.5 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -2250 - 35, 1200, { -90 }, 500, 182, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.25 });
 
 	//shifting layer 4
-	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -3000, 1200, { -90 }, 500, 201, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, 0.5 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -3000, 1200, { -90 }, 500, 201, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, 0.25 });
 
-	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -3000 + 35, 1200, { -90 }, 500, 202, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, 0.5 });
-	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -3050 + 35, 1200, { -90 }, 500, 202, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, 0.5 });
-	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -2950 + 35, 1200, { -90 }, 500, 202, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, 0.5 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -3000 + 17.5, 1200, { -90 }, 500, 202, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, 0.25 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -3050 + 17.5, 1200, { -90 }, 500, 202, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, 0.25 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -2950 + 17.5, 1200, { -90 }, 500, 202, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, 0.25 });
 
-	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -3000 + 70, 1200, { -90 }, 500, 203, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, 0.5 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -3000 + 35, 1200, { -90 }, 500, 203, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, 0.25 });
 
 	//shifting layer 5
-	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -3250, 1200, { -90 }, 500, 222, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, 0.5 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -3250, 1200, { -90 }, 500, 222, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, 0.25 });
 
-	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -3250 + 35, 1200, { -90 }, 500, 223, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, 0.5 });
-	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -3300 + 35, 1200, { -90 }, 500, 223, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, 0.5 });
-	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -3200 + 35, 1200, { -90 }, 500, 223, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, 0.5 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -3250 + 17.5, 1200, { -90 }, 500, 223, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, 0.25 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -3300 + 17.5, 1200, { -90 }, 500, 223, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, 0.25 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -3200 + 17.5, 1200, { -90 }, 500, 223, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, 0.25 });
 
-	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -3250 + 70, 1200, { -90 }, 500, 224, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, 0.5 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -3250 + 35, 1200, { -90 }, 500, 224, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, 0.25 });
 	//filling layer 5
-	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -3000, 1200, { -90 }, 1000, 222, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, 0.5 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -3000, 1200, { -90 }, 1000, 222, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, 0.25 });
 
-	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -3000 + 35, 1200, { -90 }, 1000, 223, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, 0.5 });
-	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -3050 + 35, 1200, { -90 }, 1000, 223, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, 0.5 });
-	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -2950 + 35, 1200, { -90 }, 1000, 223, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, 0.5 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -3000 + 17.5, 1200, { -90 }, 1000, 223, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, 0.25 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -3050 + 17.5, 1200, { -90 }, 1000, 223, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, 0.25 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -2950 + 17.5, 1200, { -90 }, 1000, 223, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, 0.25 });
 
-	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -3000 + 70, 1200, { -90 }, 1000, 224, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, 0.5 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -3000 + 35, 1200, { -90 }, 1000, 224, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, 0.25 });
 	//shifting layer 6
-	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -2000, 1200, { -90 }, 500, 243, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.5 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -2000, 1200, { -90 }, 500, 243, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.25 });
 
-	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -2000 - 35, 1200, { -90 }, 500, 244, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.5 });
-	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -2050 - 35, 1200, { -90 }, 500, 244, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.5 });
-	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -1950 - 35, 1200, { -90 }, 500, 244, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.5 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -2000 - 17.5, 1200, { -90 }, 500, 244, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.25 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -2050 - 17.5, 1200, { -90 }, 500, 244, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.25 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -1950 - 17.5, 1200, { -90 }, 500, 244, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.25 });
 
-	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -2000 - 70, 1200, { -90 }, 500, 245, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.5 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -2000 - 35, 1200, { -90 }, 500, 245, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.25 });
 	//filling layer 6
-	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -2250, 1200, { -90 }, 1000, 243, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.5 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -2250, 1200, { -90 }, 1000, 243, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.25 });
 
-	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -2250 - 35, 1200, { -90 }, 1000, 244, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.5 });
-	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -2300 - 35, 1200, { -90 }, 1000, 244, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.5 });
-	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -2200 - 35, 1200, { -90 }, 1000, 244, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.5 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -2250 - 17.5, 1200, { -90 }, 1000, 244, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.25 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -2300 - 17.5, 1200, { -90 }, 1000, 244, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.25 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -2200 - 17.5, 1200, { -90 }, 1000, 244, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.25 });
 
-	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -2250 - 70, 1200, { -90 }, 1000, 245, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.5 });
+	levelTwo[2].AddHorizontalWallOfSpawnPoints(5500, -2250 - 35, 1200, { -90 }, 1000, 245, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.25 });
 
 
 	//regular layer refill

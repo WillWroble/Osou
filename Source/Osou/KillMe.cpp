@@ -192,13 +192,24 @@ void AKillMe::Tick(float DeltaTime)
 		}
 	}
 	clicked = pController->IsInputKeyDown(leftClick) || pController->IsInputKeyDown(space);
-	if (trail != nullptr && trail->EmitterInstances.Num() > 0 && trail->EmitterInstances[0] != nullptr) {
+	if (trail != nullptr) {
+		if (trail->IsPendingKill()) {
+			trail = nullptr;
+		}
+		else {
+			trail->SetBeamSourcePoint(0, GetActorLocation(), 0);
+		}
+	}
+	/*if (IsValid(trail) && trail->EmitterInstances.Num() > 0 && trail->EmitterInstances[0] != nullptr) {
 		FVector tPoint;
 		trail->EmitterInstances[0]->GetBeamTargetPoint(0, tPoint);
 		if (tPoint != GetActorLocation()) {
 			trail->SetBeamSourcePoint(0, GetActorLocation(), 0);
 		}
 	}
+	else if (trail != nullptr && trail->IsPendingKill()) {
+		trail = nullptr;
+	}*/
 	if (clicked && !wasClicked && !isLevelFinsihedd) {
 		drumBeat->Play();
 		if (transitionTimes[transitionIndex + 1] < clockTime) {
@@ -316,6 +327,9 @@ void AKillMe::Tick(float DeltaTime)
 	}
 
 	wasClicked = clicked;
+	if (timeout > 3 && !isTimeFrozen) {
+		ResetEverything();
+	}
 }
 void AKillMe::AddRythm(std::vector<float> beat, int in)
 {
@@ -376,14 +390,15 @@ void AKillMe::StopEverything()
 {
 	bulletController->isTimeFrozen = true;
 	isTimeFrozen = true;
-	sound->Stop();
+	sound->FadeOut(2, 0);
 }
 void AKillMe::FinishedLevel()
 {
 	rScore = ((float)perfects / (float)total) * ((float)100);
 	//hScore = 3;
-	isLevelFinsihedd = true;
+	//isLevelFinsihedd = true;
 	currentLevel = levelConversion[ABulletController::levelIndex];
+	StopEverything();
 	OnFinishLevel();
 }
 void AKillMe::OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
