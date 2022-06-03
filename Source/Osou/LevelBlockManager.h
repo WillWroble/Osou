@@ -57,6 +57,8 @@ public:
 	void ScrollDown();
 	void ScrollUp();
 	int Shifted(int n);
+	ALevelBox* findByOrder(int n);
+	ALevelBox* findLowest();
 	UTexture* getBackround(int i);
 	USoundWave* getSound(int i);
 	UAudioComponent* audio1;
@@ -71,6 +73,11 @@ public:
 	UWorld* world;
 	FKey rightClick;
 	FKey leftClick;
+	FVector scrollTarget;
+	ALevelBox* topBox;
+	ALevelBox* bottomBox;
+	ALevelBox* tempTop;
+	ALevelBox* tempBottom;
 	static std::vector<LevelData> levelDatas;
 	std::vector<ALevelBox*> boxInstances;
 	std::vector<FString> gradeConversionLetter;
@@ -108,6 +115,8 @@ public:
 
 	UPROPERTY(EditDefaultsOnly, Category = "LevelBlockBlueprint")
 		TSubclassOf<AActor> LevelBlockClass;
+	UPROPERTY(EditDefaultsOnly, Category = "tex0")
+		UTexture* tex0;
 	UPROPERTY(EditDefaultsOnly, Category = "tex1")
 		UTexture* tex1;
 	UPROPERTY(EditDefaultsOnly, Category = "tex2")
@@ -140,7 +149,8 @@ public:
 
 
 
-
+	UPROPERTY(EditDefaultsOnly, Category = "sound0")
+		USoundWave* sound0;
 	UPROPERTY(EditDefaultsOnly, Category = "sound1")
 		USoundWave* sound1;
 	UPROPERTY(EditDefaultsOnly, Category = "sound2")

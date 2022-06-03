@@ -329,8 +329,20 @@ void AKillMe::Tick(float DeltaTime)
 	}
 
 	wasClicked = clicked;
-	if (timeout > 3 && !isTimeFrozen) {
-		ResetEverything();
+	if (timeout > 1 && !isTimeFrozen) {
+		//ResetEverything();
+		if (ABulletController::levelIndex == 0) {
+			if (bulletController->tutorialTime < 28) {
+				//do nothing
+			}
+			else {
+				Health = 0;
+			}
+		}
+		else {
+			ResetEverything();
+		}
+		//Health = 0;
 	}
 }
 void AKillMe::AddRythm(std::vector<float> beat, int in)
@@ -407,7 +419,7 @@ void AKillMe::OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AA
 {
 	if (OtherActor && (OtherActor != this) && OtherComp)
 	{
-		return;
+		//return;
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Overlap Begin"));
 		if (isLevelFinsihedd || isInvunerable || isTimeFrozen) {
 			return;

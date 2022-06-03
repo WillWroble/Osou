@@ -21,6 +21,7 @@ ALevelBox::ALevelBox()
 void ALevelBox::BeginPlay()
 {
 	Super::BeginPlay();
+	pos1 = GetActorLocation();
 	
 }
 
@@ -35,5 +36,6 @@ int ALevelBox::adjustedOrder()
 {
 	return order_ + mappedLevels.size();
 }
+
 
 

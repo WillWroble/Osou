@@ -33,6 +33,7 @@ void ABasicBullet::UpdateMovement(float DeltaTime)
 	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::SanitizeFloat(angle));
 	time += DeltaTime;
 	AddActorLocalOffset(FVector(1,0,0) * coeffeceints[0] * DeltaTime); //500
+	//AddActorLocalOffset(FVector(1, 0, 0) * coeffeceints[0] * (1.0f/60.0f));
 	
 }
 

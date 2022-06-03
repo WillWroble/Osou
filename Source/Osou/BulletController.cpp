@@ -59,6 +59,7 @@ void ABulletController::BeginPlay()
 		player->AddRythm({ 0.19 }, 1);
 		player->AddRythm({ 0.38 }, 2);
 		player->AddTextInstruction(0, 1, 3, FString("welcome to osou :D"));
+		player->AddTextInstruction(0, 4.5, 3, FString("Osou is a rhythm game, so try to click to the 130 bpm rhythm"));
 		//player->AddTextInstruction(1, 10, 0.5, FString("X2 Tempo in"), 1, 3);
 	}
 	else if(levelIndex == 1){
@@ -179,6 +180,8 @@ void ABulletController::Tick(float DeltaTime)
 			else if (tutorialTime < 19) {
 				player->sound->SetWaveParameter(FName("wave"), player->song0);
 				player->sound->Play();
+				player->Health = 1;
+				//DisplayMessage(FString("Osou is a rhythm game, so try to click to the 130 bpm tempo"));
 				//player->FinishedLevel();
 			}
 			else if (tutorialTime < 66) {
@@ -220,7 +223,7 @@ void ABulletController::Tick(float DeltaTime)
 			else if (tutorialTime < 133) {
 				if (player->Health < 0.1 || player->hScore > 1) {
 					if (player->hScore > 1) {
-						DisplayMessage(FString("Try not to get too many times"));
+						DisplayMessage(FString("Try not to get hit too many times"));
 					}
 					else {
 						DisplayMessage(FString("Stay on 130bpm tempo, try again"));
@@ -263,7 +266,7 @@ void ABulletController::Tick(float DeltaTime)
 			else if (tutorialTime < 197) {
 				if (player->Health < 0.1 || player->hScore > 1) {
 					if (player->hScore > 1) {
-						DisplayMessage(FString("Try not to get too many times"));
+						DisplayMessage(FString("Try not to get hit too many times"));
 					}
 					else {
 						DisplayMessage(FString("Stay at 130bpm tempo, try again"));
@@ -502,7 +505,7 @@ void ABulletController::Tick(float DeltaTime)
 	border->UpdateMovement(DeltaTime);
 	if (border->CheckForCollision(player->GetActorLocation())) {
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "OUTSIDE OF RANGE");
-		//player->ResetEverything();
+		player->ResetEverything();
 	}
 }
 void ABulletController::ResetBullets()

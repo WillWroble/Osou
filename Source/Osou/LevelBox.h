@@ -27,14 +27,40 @@ public:
 	std::vector<int> mappedLevels;
 	int level;
 	int order_;
-	float timer;
+	//float timer;
 	float timer2;
 	float timer3;
+	FVector pos1;
 	bool isSelected_;
 	bool isActive;
 	bool isCategory;
+	FVector startPosition;
 	int adjustedOrder();
-
+	UFUNCTION(BlueprintImplementableEvent)
+		void ManualTick();
+	UFUNCTION(BlueprintImplementableEvent)
+		void ManualBegin();
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		float dTime;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		float interpTime;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		bool isCursorHovering;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		float timer;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		float deltaPosition;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		FString levelScore;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		FText levelGrade;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		FText levelName;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		FColor levelColor;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		int levelDifficulty;
+	
+
+
 };
