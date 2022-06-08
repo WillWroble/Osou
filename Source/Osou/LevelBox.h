@@ -51,6 +51,8 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		float deltaPosition;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		bool splitDistance;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		FString levelScore;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		FText levelGrade;

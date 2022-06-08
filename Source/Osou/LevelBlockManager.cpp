@@ -219,6 +219,9 @@ void ALevelBlockManager::Tick(float DeltaTime)
 						for (int j = 0; j < boxInstances.size(); j++) {
 							if (boxInstances[j]->isActive && Shifted(boxInstances[j]->order_) > Shifted(boxInstances[i]->adjustedOrder())) {
 								boxInstances[j]->AddActorLocalOffset(FVector(0, 0, boxInstances[i]->mappedLevels.size() * -360.0 * ((0.2 + boxInstances[i]->timer3)/0.2)));
+								if (boxInstances[j]->GetActorLocation().Z < -2890) {
+									boxInstances[j]->splitDistance = true;
+								}
 								//positionDeltas[j] += boxInstances[i]->mappedLevels.size() * -360.0;
 							}
 						}
@@ -390,7 +393,7 @@ void ALevelBlockManager::Tick(float DeltaTime)
 		//	float deltaZ = boxInstances[i]->GetActorLocation().Z + 2380+ (360 * (activeBoxes - 8));
 		//	if (deltaZ <= 0) {
 		//		//bottom to top
-		//		//boxInstances[i]->SetActorLocation(FVector(posX, 1, 2890));
+		//		//boxInstances[i]->SetActorLocation(FVector(posX, 1, 3190));
 		//		if (boxInstances[i] == bottomBox) {
 		//			boxInstances[i]->AddActorLocalOffset(FVector(0, 0, 2380 * 2 + (360 * (activeBoxes - 8))));
 		//			boxInstances[i]->startPosition.Z += 2380 * 2 + (360 * (activeBoxes - 8));
@@ -412,7 +415,7 @@ void ALevelBlockManager::Tick(float DeltaTime)
 		//	deltaZ = boxInstances[i]->GetActorLocation().Z - 2380 ;
 		//	if (deltaZ >= 0) {
 		//		//top to bottom
-		//		//boxInstances[i]->SetActorLocation(FVector(posX, 1, -2890 - (360 * (activeBoxes - 8))));
+		//		//boxInstances[i]->SetActorLocation(FVector(posX, 1, -3190 - (360 * (activeBoxes - 8))));
 		//		if (boxInstances[i] == topBox) {
 		//			boxInstances[i]->AddActorLocalOffset(FVector(0, 0, -2380 * 2) - (360 * (activeBoxes - 8)));
 		//			boxInstances[i]->startPosition.Z -= 2380 * 2 + (360 * (activeBoxes - 8));
@@ -440,11 +443,11 @@ void ALevelBlockManager::Tick(float DeltaTime)
 		//UKismetSystemLibrary::MoveComponentTo(this->RootComponent, (boxInstances[i]->startPosition + scrollTarget), FRotator(0), true, true, 1, true, EMoveComponentAction::Move, LatentInfo);
 		//scrollTarget += FVector(0, 0, 1) * 2 * roundf(positionDeltas[i] / 2);
 		/*FVector v = FMath::VInterpTo(GetActorLocation(), 
-			FVector(15000, 10, (fmod((boxInstances[i]->startPosition.Z + scrollTarget.Z)+2890, 2890*2)-2890) * 10), 
+			FVector(15000, 10, (fmod((boxInstances[i]->startPosition.Z + scrollTarget.Z)+3190, 3190*2)-3190) * 10), 
 			DeltaTime, 6);*/
 		//FVector v = FMath::VInterpTo(GetActorLocation(),(boxInstances[i]->startPosition + scrollTarget) * 10, DeltaTime, 6);
 		//boxInstances[i]->SetActorLocation(FVector(2*roundf(v.X/2), 1, 2*roundf(v.Z/2)));
-		//v.Z = fmod(v.Z+2890, 2 * 2890)-2890;
+		//v.Z = fmod(v.Z+3190, 2 * 3190)-3190;
 		//boxInstances[i]->SetActorLocation(v);
 		//boxInstances[i]->SetActorLocation(boxInstances[i]->startPosition);
 		positionDeltas[i] = 0;
@@ -454,21 +457,23 @@ void ALevelBlockManager::Tick(float DeltaTime)
 
 		if (boxInstances[i]->isActive && !isCollapsing) {
 			float posX = boxInstances[i]->GetActorLocation().X;
-			float deltaZ = boxInstances[i]->GetActorLocation().Z + 2890 + (360 * (activeBoxes - 8));
+			float deltaZ = boxInstances[i]->GetActorLocation().Z + 3190 + (360 * (activeBoxes - 8));
 			if (deltaZ <= 0) {
-				//boxInstances[i]->SetActorLocation(FVector(posX, 1, 2890+ deltaZ));
-				boxInstances[i]->AddActorLocalOffset(FVector(0, 0, 2890 * 2+ (360 * (activeBoxes - 8))));
+				//boxInstances[i]->SetActorLocation(FVector(posX, 1, 3190+ deltaZ));
+				boxInstances[i]->AddActorLocalOffset(FVector(0, 0, 3190 * 2+ (360 * (activeBoxes - 8))));
 				orderShift = 72-boxInstances[i]->order_;
-				//boxInstances[i]->interpTime = -1;//FVector::Dist(boxInstances[i]->GetActorLocation()+FVector(0, 0, 2890 * 2 + (360 * (activeBoxes - 8))), FVector(6500, 0, 0));
-				//boxInstances[i]->startPosition.Z += 2890*2 + (360 * (activeBoxes - 8));
+				//boxInstances[i]->splitDistance = true;
+				//boxInstances[i]->interpTime = -1;//FVector::Dist(boxInstances[i]->GetActorLocation()+FVector(0, 0, 3190 * 2 + (360 * (activeBoxes - 8))), FVector(6500, 0, 0));
+				//boxInstances[i]->startPosition.Z += 3190*2 + (360 * (activeBoxes - 8));
 			}
-			deltaZ = boxInstances[i]->GetActorLocation().Z - 2890;
+			deltaZ = boxInstances[i]->GetActorLocation().Z - 3190;
 			if (deltaZ >= 0) {
-				//boxInstances[i]->SetActorLocation(FVector(posX, 1, -2890 - (360 * (activeBoxes - 8)) + deltaZ));
-				boxInstances[i]->AddActorLocalOffset(FVector(0, 0, -2890 * 2-(360 * (activeBoxes - 8))));
+				//boxInstances[i]->SetActorLocation(FVector(posX, 1, -3190 - (360 * (activeBoxes - 8)) + deltaZ));
+				boxInstances[i]->AddActorLocalOffset(FVector(0, 0, -3190 * 2-(360 * (activeBoxes - 8))));
 				orderShift = 71-boxInstances[i]->order_;
-				//boxInstances[i]->interpTime = -1;//FVector::Dist(boxInstances[i]->GetActorLocation()+ FVector(0, 0, -2890 * 2 - (360 * (activeBoxes - 8))), FVector(6500, 0, 0));
-				//boxInstances[i]->startPosition.Z -= 2890*2 + (360 * (activeBoxes - 8));
+				//boxInstances[i]->splitDistance = true;
+				//boxInstances[i]->interpTime = -1;//FVector::Dist(boxInstances[i]->GetActorLocation()+ FVector(0, 0, -3190 * 2 - (360 * (activeBoxes - 8))), FVector(6500, 0, 0));
+				//boxInstances[i]->startPosition.Z -= 3190*2 + (360 * (activeBoxes - 8));
 			}
 		}
 		boxInstances[i]->dTime = DeltaTime;

@@ -108,6 +108,7 @@ public:
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		FText textOut;
+	
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		UMaterialInstanceDynamic* dMat;

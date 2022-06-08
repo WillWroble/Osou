@@ -63,10 +63,12 @@ void ABulletController::BeginPlay()
 		//player->AddTextInstruction(1, 10, 0.5, FString("X2 Tempo in"), 1, 3);
 	}
 	else if(levelIndex == 1){
-		player->SetTransitions({ 0, 15.5, 105 }); //105
-		player->setSpeedMultis({ 1, 1, 1 });
+		//UN OWEN WAS HER
+		player->SetTransitions({ 0, 15.5, 105 }); //({ 0, 15.5, 11.9, 90 }); //{0, 15.5, 105}
+		player->setSpeedMultis({ 1, 1, 1});
 		player->AddRythm({ 0.2 }, 0); //0.2
 		player->AddRythm({ 0.3 }, 1);
+		//player->AddRythm({ 0.4, 0.4, 0.4, 0.4, 0.4, 0.2, 0.2, 0.4, 0.4, 0.4, 0.2, 0.2, 0.2, 0.2, 0.1, 0.1, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.4 }, 2);
 		player->AddRythm({ 0.69 }, 2);
 	}
 	else {

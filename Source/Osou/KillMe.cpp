@@ -288,7 +288,7 @@ void AKillMe::Tick(float DeltaTime)
 		}
 		hasStarted = true;
 		scale = baseScale;//FVector(0.06 + ((*currentBeat)[index] * 0.38));
-		speed = baseSpeed / (*currentBeat)[index];
+		speed = baseSpeed / (*currentBeat)[index]; //(*currentBeat)[index]
 		index++;
 		if (index == currentBeat->size()) {
 			//reset beat
