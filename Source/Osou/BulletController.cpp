@@ -53,33 +53,51 @@ void ABulletController::BeginPlay()
 	//add player beats
 	//IMPORTANT 0.08 DELAY CONSTANT
 	if (levelIndex == 0) {
+		//VEE PART ONE
 		player->SetTransitions({ 0, 9998, 9999 }); //105
-		player->setSpeedMultis({ 1.2, 1.2, 1.2 });
-		player->AddRythm({ 0.38 }, 0); //0.2
-		player->AddRythm({ 0.19 }, 1);
-		player->AddRythm({ 0.38 }, 2);
+		player->setSpeedMultis({ 1.2/0.46, 1.2/0.23, 1.2/0.46 });
+		player->AddRythm({ 0.46 }, 0); //0.2
+		player->AddRythm({ 0.23 }, 1);
+		player->AddRythm({ 0.46 }, 2);
 		player->AddTextInstruction(0, 1, 3, FString("welcome to osou :D"));
 		player->AddTextInstruction(0, 4.5, 3, FString("Osou is a rhythm game, so try to click to the 130 bpm rhythm"));
 		//player->AddTextInstruction(1, 10, 0.5, FString("X2 Tempo in"), 1, 3);
 	}
 	else if(levelIndex == 1){
 		//UN OWEN WAS HER
-		player->SetTransitions({ 0, 15.5, 105 }); //({ 0, 15.5, 11.9, 90 }); //{0, 15.5, 105}
-		player->setSpeedMultis({ 1, 1, 1});
-		player->AddRythm({ 0.2 }, 0); //0.2
-		player->AddRythm({ 0.3 }, 1);
-		//player->AddRythm({ 0.4, 0.4, 0.4, 0.4, 0.4, 0.2, 0.2, 0.4, 0.4, 0.4, 0.2, 0.2, 0.2, 0.2, 0.1, 0.1, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.4 }, 2);
-		player->AddRythm({ 0.69 }, 2);
+		player->rhythmDelayConstants = { 0, 0, 0.3, 0 };
+		player->SetTransitions({ 0, 15.5, 11.9, 105 }); //({ 0, 15.5, 11.9, 90 }); //{0, 15.5, 105}
+		player->setSpeedMultis({ 1/0.275, 1/0.387, 1/0.387, 1/0.69});
+		player->AddRythm({ 0.28 }, 0); //0.28
+		player->AddRythm({ 0.387 }, 1);
+		player->AddRythm({ 0.387, 0.387, 0.387, 0.387, 0.387, 0.387/2, 0.387/2, 0.387, 0.387, 0.387, 0.387/2, 0.387/2, 0.387/2, 
+			0.387/2, 0.387/4, 0.387/4, 0.387/2, 0.387/2, 0.387/2, 0.387/2, 0.387/2, 0.387/2, 0.387 }, 2);
+		player->AddRythm({ 0.69 }, 3);
 	}
-	else {
-		player->SetTransitions({ 0, 72.8,104 -72.8, 58}); //72.8
-		player->setSpeedMultis({ 1.2, 1.2, 1.2, 1.2 });
-		player->AddRythm({ 0.38 }, 0); //0.2
-		player->AddRythm({ 0.19 }, 1);
-		player->AddRythm({ 0.38 }, 2);
-		player->AddRythm({ 0.38 }, 3);
+	else if(levelIndex == 2) {
+		//VEE PART TWO
+		player->rhythmDelayConstant = 0.36;
+		player->rhythmDelayConstants = { 0.36, 0.1, 0, 0, 0 };
+		player->SetTransitions({ 0, 45, 72.8-45,104 -72.8, 58}); //72.8
+		player->setSpeedMultis({ 1.2/0.46, 1.2/0.46, 1.2/0.23, 1.2/0.46, 1.2/0.46 });
+		player->AddRythm({ 0.46}, 0); //0.2
+		player->AddRythm({ 0.46 }, 1);
+		player->AddRythm({ 0.23 }, 2);
+		player->AddRythm({ 0.46 }, 3);
+		player->AddRythm({ 0.46 }, 4);
 		player->AddTextInstruction(1, 72-1.2, 0.4, FString("X2 in"), 1.0, 3);
 		player->AddTextInstruction(1, 104 - 1.2-2, 0.4, FString("X0.5 in"), 1.0, 3);
+	}
+	else {
+		//MONO
+		player->rhythmDelayConstant = 0;
+		player->rhythmDelayConstants = { 0.0, 0.0 };
+		player->SetTransitions({0, 300 });
+		player->setSpeedMultis({ 2, 2 });
+		player->AddRythm({ 1.82, 2, 2, 1, 1, 1, 1, 0.5, 1.5, 0.5, 1.5, 0.5, 1, 0.25, 0.25, 0.5, 1, 0.25, 0.25, 0.5, 0.5, 0.5, 0.25, 0.25, 0.5, 0.5, 0.5, 0.25, 
+			0.25, 0.5, 0.5, 0.25, 0.25, 0.25, 
+			0.25, 0.5, 0.5, 0.25, 0.25, 0.25}, 0);
+		player->AddRythm({ 1 }, 1);
 	}
 	spawner = &(LevelLibrary::allLevels[levelIndex][0]);
 	player->speed = player->baseSpeed / player->beats[0][0];

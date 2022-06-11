@@ -153,7 +153,7 @@ void ALevelBlockManager::Tick(float DeltaTime)
 					//already selected (clicking again)
 					if (!boxInstances[i]->isCategory) {
 						int n = levelMap[i];
-						if (n == 2|| n == 1 || n == 0) {
+						if (n == 2|| n == 1 || n == 0 || n == 3) {
 							ABulletController::levelIndex = n;
 							UGameplayStatics::OpenLevel(this, FName("Minimal_Default"));
 						}

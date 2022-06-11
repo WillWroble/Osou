@@ -56,6 +56,7 @@ public:
 	
 	float currentMulti;
 	int index;
+	int relativeIndex;
 	int transitionIndex;
 	float baseSpeed;
 	float speed;
@@ -65,6 +66,8 @@ public:
 	bool isTimeFrozen;
 	//float absoluteTimer;
 	float rhythmBuffer;
+	float rhythmDelayConstant;
+	std::vector<float> rhythmDelayConstants;
 	int iCounter;
 	int beatIndex;
 	int perfects;
