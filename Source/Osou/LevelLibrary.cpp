@@ -642,7 +642,7 @@ void LevelLibrary::BuildLevels()
 
 	levelTwo[3].SortSpawnTimes();
 
-
+	
 
 	//levelTwo[0] = levelTwo[3];
 	
@@ -653,8 +653,31 @@ void LevelLibrary::BuildLevels()
 	std::vector<BulletSpawner> levelThree = std::vector<BulletSpawner>();
 	levelThree.push_back(BulletSpawner());
 
-	levelThree[0].AddRythm({ 1 }, 100, 0);
-	levelThree[0].AddSpawnPoints(0, 0, { 0, 90, 180, 270 }, 1, 0);
+	levelThree[0].AddRythm({ 0.1 }, 300, 1);
+	//levelThree[0].AddSpawnPoints(0, 0, { 0, 90, 180, 270 }, 1, 0);
+
+
+
+	levelThree[0].AddHorizontalWallOfSpawnPoints(4500, -2250, 1200, { -90 }, 400, 0, BulletType::BasicBullet, { 700, 1.4 });
+
+	levelThree[0].AddHorizontalWallOfSpawnPoints(2500, -2250, 1200, { -90 }, 100, 60, BulletType::BasicBullet, { 700, 1.4 });
+	levelThree[0].AddHorizontalWallOfSpawnPoints(1750, 500, 1200, { -90 }, 100, 60, BulletType::BasicBullet, { 700, 1.4 });
+
+	levelThree[0].AddHorizontalWallOfSpawnPoints(1750, -2250, 1200, { -90 }, 100, 90, BulletType::BasicBullet, { 700, 1.4 });
+	levelThree[0].AddHorizontalWallOfSpawnPoints(2500, -250, 1200, { -90 }, 100, 90, BulletType::BasicBullet, { 700, 1.4 });
+
+	levelThree[0].AddHorizontalWallOfSpawnPoints(4500, -2250, 1200, { -90 }, 300, 120, BulletType::BasicBullet, { 700, 1.4 });
+	levelThree[0].AddHorizontalWallOfSpawnPoints(4500, -2100, 1200, { -90 }, 300, 123, BulletType::BasicBullet, { 700, 1.4 });
+	levelThree[0].AddHorizontalWallOfSpawnPoints(4500, -2250, 1200, { -90 }, 300, 126, BulletType::BasicBullet, { 700, 1.4 });
+
+	levelThree[0].AddHorizontalWallOfSpawnPoints(4500, -2100, 1200, { -90 }, 300, 120+26, BulletType::BasicBullet, { 700, 1.4 });
+	levelThree[0].AddHorizontalWallOfSpawnPoints(4500, -2250, 1200, { -90 }, 300, 123+26, BulletType::BasicBullet, { 700, 1.4 });
+	levelThree[0].AddHorizontalWallOfSpawnPoints(4500, -2100, 1200, { -90 }, 300, 126+26, BulletType::BasicBullet, { 700, 1.4 });
+
+	levelThree[0].AddHorizontalWallOfSpawnPoints(4500, -2250, 1200, { -90 }, 300, 120+52, BulletType::BasicBullet, { 700, 1.4 });
+	levelThree[0].AddHorizontalWallOfSpawnPoints(4500, -2100, 1200, { -90 }, 300, 123+52, BulletType::BasicBullet, { 700, 1.4 });
+	levelThree[0].AddHorizontalWallOfSpawnPoints(4500, -2250, 1200, { -90 }, 300, 126+52, BulletType::BasicBullet, { 700, 1.4 });
+
 
 	levelThree[0].AddInstruction(4, 0, 0, 9999);
 	allLevels.push_back(levelThree);

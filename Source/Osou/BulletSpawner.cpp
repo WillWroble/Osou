@@ -63,6 +63,24 @@ void BulletSpawner::AddSpawnPoint(float x, float y, std::vector<float> angles, i
 	spawnTable[index].spawnMap.push_back(p);
 }
 
+void BulletSpawner::AddSpawnPointByTime(float x, float y, std::vector<float> angles, float time, BulletType bType, std::vector<float> bCoeff)
+{
+	TimeFrame newTimeFrame = TimeFrame();
+	newTimeFrame.time = time;
+	spawnTable.push_back(newTimeFrame);
+	int index = spawnTable.size() - 1;
+	if (index >= spawnTable.size()) {
+		//index out of range
+		//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, (index));
+		if (index < 64)
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, *(FString::FromInt(index)));
+
+		return;
+	}
+	SpawnPoint p(x, y, angles, bType, bCoeff);
+	spawnTable[index].spawnMap.push_back(p);
+}
+
 void BulletSpawner::AddInstruction(int type, float x, float y, float duration)
 {
 	BorderInstruction newInstruction;
@@ -147,6 +165,13 @@ void BulletSpawner::AddHorizontalWallOfSpawnPoints(int width, int x, int y, std:
 {
 	for (int i = x; i < width + x; i += spacing) {
 		AddSpawnPoint(i, y, angles, index, bType, bCoeff);
+	}
+}
+
+void BulletSpawner::AddHorizontalWallOfSpawnPointsByTime(int width, int x, int y, std::vector<float> angles, int spacing, float time, BulletType Btype, std::vector<float> bCoeff)
+{
+	for (int i = x; i < width + x; i += spacing) {
+		AddSpawnPointByTime(i, y, angles, time, Btype, bCoeff);
 	}
 }
 

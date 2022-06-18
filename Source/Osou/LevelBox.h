@@ -34,6 +34,7 @@ public:
 	bool isSelected_;
 	bool isActive;
 	bool isCategory;
+	bool isPreExpanded;
 	FVector startPosition;
 	int adjustedOrder();
 	UFUNCTION(BlueprintImplementableEvent)

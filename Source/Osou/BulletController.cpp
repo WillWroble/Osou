@@ -54,37 +54,39 @@ void ABulletController::BeginPlay()
 	//IMPORTANT 0.08 DELAY CONSTANT
 	if (levelIndex == 0) {
 		//VEE PART ONE
+		player->rhythmDelayConstants = { .46, 0.19, 0};
 		player->SetTransitions({ 0, 9998, 9999 }); //105
 		player->setSpeedMultis({ 1.2/0.46, 1.2/0.23, 1.2/0.46 });
-		player->AddRythm({ 0.46 }, 0); //0.2
-		player->AddRythm({ 0.23 }, 1);
-		player->AddRythm({ 0.46 }, 2);
+		player->AddRythm({ 0.46154 }, 0); //0.2
+		player->AddRythm({ 0.23077 }, 1);
+		player->AddRythm({ 0.46154 }, 2);
 		player->AddTextInstruction(0, 1, 3, FString("welcome to osou :D"));
 		player->AddTextInstruction(0, 4.5, 3, FString("Osou is a rhythm game, so try to click to the 130 bpm rhythm"));
 		//player->AddTextInstruction(1, 10, 0.5, FString("X2 Tempo in"), 1, 3);
 	}
 	else if(levelIndex == 1){
 		//UN OWEN WAS HER
-		player->rhythmDelayConstants = { 0, 0, 0.3, 0 };
-		player->SetTransitions({ 0, 15.5, 11.9, 105 }); //({ 0, 15.5, 11.9, 90 }); //{0, 15.5, 105}
-		player->setSpeedMultis({ 1/0.275, 1/0.387, 1/0.387, 1/0.69});
-		player->AddRythm({ 0.28 }, 0); //0.28
+		player->rhythmDelayConstants = { 0, 0.287, 0, 0 };
+		player->SetTransitions({ 0, 15.5, 11.9+0.387, 105 }); //({ 0, 15.5, 11.9, 90 }); //{0, 15.5, 105}
+		player->setSpeedMultis({ 1/0.26, 1/0.387, 1/0.387, 1/0.69});
+		player->AddRythm({ 0.27666666 }, 0); //0.28
 		player->AddRythm({ 0.387 }, 1);
 		player->AddRythm({ 0.387, 0.387, 0.387, 0.387, 0.387, 0.387/2, 0.387/2, 0.387, 0.387, 0.387, 0.387/2, 0.387/2, 0.387/2, 
-			0.387/2, 0.387/4, 0.387/4, 0.387/2, 0.387/2, 0.387/2, 0.387/2, 0.387/2, 0.387/2, 0.387 }, 2);
+			 0.387/4, 0.387/4,0.387 / 2,  0.387 / 2, 0.387 / 2, 0.387/2, 0.387/2, 0.387/2, 2*0.387 }, 2);
 		player->AddRythm({ 0.69 }, 3);
 	}
 	else if(levelIndex == 2) {
 		//VEE PART TWO
 		player->rhythmDelayConstant = 0.36;
-		player->rhythmDelayConstants = { 0.36, 0.1, 0, 0, 0 };
-		player->SetTransitions({ 0, 45, 72.8-45,104 -72.8, 58}); //72.8
-		player->setSpeedMultis({ 1.2/0.46, 1.2/0.46, 1.2/0.23, 1.2/0.46, 1.2/0.46 });
-		player->AddRythm({ 0.46}, 0); //0.2
-		player->AddRythm({ 0.46 }, 1);
-		player->AddRythm({ 0.23 }, 2);
-		player->AddRythm({ 0.46 }, 3);
-		player->AddRythm({ 0.46 }, 4);
+		player->rhythmDelayConstants = { 0.33, 0.438, 0.222, 0.23, 0.06, 0 };//0.1
+		player->SetTransitions({ 0, 45, 72.8-45, 86 - 72.8, 104 -86, 58}); //72.8
+		player->setSpeedMultis({ 1.2/0.46, 1.2/0.46, 1.2/0.23, 1.2 / 0.23, 1.2/0.46, 1.2/0.46 });
+		player->AddRythm({ 0.46154}, 0); //0.2
+		player->AddRythm({ 0.46154 }, 1);
+		player->AddRythm({ 0.23077 }, 2);
+		player->AddRythm({ 0.23077 }, 3);
+		player->AddRythm({ 0.46154 }, 4);
+		player->AddRythm({ 0.46154 }, 5);
 		player->AddTextInstruction(1, 72-1.2, 0.4, FString("X2 in"), 1.0, 3);
 		player->AddTextInstruction(1, 104 - 1.2-2, 0.4, FString("X0.5 in"), 1.0, 3);
 	}
@@ -100,8 +102,9 @@ void ABulletController::BeginPlay()
 		player->AddRythm({ 1 }, 1);
 	}
 	spawner = &(LevelLibrary::allLevels[levelIndex][0]);
-	player->speed = player->baseSpeed / player->beats[0][0];
+	player->speed = player->baseSpeed;// / player->beats[0][0];
 	player->currentMulti = player->speedMultis[0];
+	player->rhythmDelayConstant = player->rhythmDelayConstants[0];
 	border->instructions = spawner->borderInstructions;
 	border->InitializeFromOutside();
 	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, *(FString::FromInt(LevelLibrary::allLevels.size())));
@@ -213,7 +216,7 @@ void ABulletController::Tick(float DeltaTime)
 					clockTime = 0;
 					player->Health = 1;
 					player->hScore = 0;
-					
+					player->rhythmDelayConstant = 0.21;
 					DisplayMessage(FString("Try again, stay on 130 bpm tempo"));
 				}
 			}
@@ -228,6 +231,7 @@ void ABulletController::Tick(float DeltaTime)
 				isDisplayMessage = true;
 				player->sound->Stop();
 				player->sound->SetWaveParameter(FName("wave"), player->song1_1);
+				player->rhythmDelayConstant = 0.35;
 				
 			}
 			else if (tutorialTime <87) {
@@ -235,6 +239,7 @@ void ABulletController::Tick(float DeltaTime)
 			}
 			else if (tutorialTime < 88) {
 				spawner = &(LevelLibrary::allLevels[levelIndex][1]);
+				//player->rhythmDelayConstant = player->rhythmDelayConstants[0];
 				index = 0;
 				clockTime = 0;
 				player->sound->Play();
@@ -257,6 +262,7 @@ void ABulletController::Tick(float DeltaTime)
 					player->Health = 1;
 					player->hScore = 0;
 					player->CloseWidget();
+					player->rhythmDelayConstant = 0.415;
 				}
 			}
 			else if (tutorialTime < 134) {
@@ -269,6 +275,7 @@ void ABulletController::Tick(float DeltaTime)
 				player->hScore = 0;
 				currentMessage = temp;
 				isDisplayMessage = true;
+				player->rhythmDelayConstant = 0.1;
 			}
 			else if (tutorialTime < 149) {
 				//wait
@@ -300,6 +307,7 @@ void ABulletController::Tick(float DeltaTime)
 					clockTime = 0;
 					player->Health = 1;
 					player->hScore = 0;
+					player->rhythmDelayConstant = 0.1;
 					player->CloseWidget();
 					tutFirstTime = false;
 				}
@@ -349,6 +357,9 @@ void ABulletController::Tick(float DeltaTime)
 				if (!tutFirstTime) {
 					player->sound->Play();
 				}
+				else {
+					player->rhythmDelayConstant = player->rhythmDelayConstants[1];
+				}
 
 			}
 			else if (tutorialTime < 456-34+27*(tutFirstTime)) {
@@ -368,6 +379,7 @@ void ABulletController::Tick(float DeltaTime)
 					clockTime = 0;
 					player->Health = 1;
 					player->hScore = 0;
+					player->rhythmDelayConstant = 0.18;
 					player->CloseWidget();
 					tutFirstTime = false;
 
@@ -403,12 +415,15 @@ void ABulletController::Tick(float DeltaTime)
 			else if (tutorialTime < 491 - 34+27*(tutFirstTime)) {
 
 				player->messages.clear();
-				player->SetTransitions({ 0, 72.8,104 - 72.8, 58 }); //72.8
-				player->setSpeedMultis({ 1.2, 1.2, 1.2, 1.2 });
-				player->AddRythm({ 0.38 }, 0); //0.2
-				player->AddRythm({ 0.19 }, 1);
-				player->AddRythm({ 0.38 }, 2);
-				player->AddRythm({ 0.38 }, 3);
+				player->rhythmDelayConstant = 0.39;
+				player->rhythmDelayConstants = { 0.37, 0.458, 0.252, 0, 0 };//0.1
+				player->SetTransitions({ 0, 45, 72.8 - 45,104 - 72.8, 58 }); //72.8
+				player->setSpeedMultis({ 1.2 / 0.46, 1.2 / 0.46, 1.2 / 0.23, 1.2 / 0.46, 1.2 / 0.46 });
+				player->AddRythm({ 0.46154 }, 0); //0.2
+				player->AddRythm({ 0.46154 }, 1);
+				player->AddRythm({ 0.23077 }, 2);
+				player->AddRythm({ 0.46154 }, 3);
+				player->AddRythm({ 0.46 }, 4);
 				player->AddTextInstruction(1, 72 - 1.2, 0.4, FString("X2 in"), 1.0, 3);
 				player->AddTextInstruction(1, 104 - 1.2 - 2, 0.4, FString("X0.5 in"), 1.0, 3);
 

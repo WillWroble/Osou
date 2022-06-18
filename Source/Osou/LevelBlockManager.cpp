@@ -233,8 +233,15 @@ void ALevelBlockManager::Tick(float DeltaTime)
 								boxInstances[boxIndex]->isActive = true;
 								boxInstances[boxIndex]->SetHidden(false);
 								//boxInstances[boxIndex]->timer = 1;
-								boxInstances[boxIndex]->interpTime = -1;//FVector::Dist(boxInstances[boxIndex]->GetActorLocation(), FVector(6500, 0, 0));
-								
+								//boxInstances[boxIndex]->interpTime = -1;//FVector::Dist(boxInstances[boxIndex]->GetActorLocation(), FVector(6500, 0, 0));
+								if (boxInstances[boxIndex]->GetActorLocation().Z < -2890) {
+									boxInstances[boxIndex]->SetActorLocation(FVector(3000, 0.5, boxInstances[i]->GetActorLocation().Z - (360 * (j + 1)) - 200 * (boxInstances[i]->timer)));
+									boxInstances[boxIndex]->splitDistance = true;
+									boxInstances[boxIndex]->isPreExpanded = true;
+								}
+								else {
+									boxInstances[boxIndex]->interpTime = -1;
+								}
 							}
 						}
 						boxInstances[i]->timer3 += 0.2;
@@ -296,6 +303,7 @@ void ALevelBlockManager::Tick(float DeltaTime)
 					//coming forward
 					for (int j = 0; j < boxInstances[i]->mappedLevels.size(); j++) {
 						int boxIndex = boxInstances[i]->mappedLevels[j];
+						if (boxInstances[boxIndex]->isPreExpanded) continue;
 						boxInstances[boxIndex]->AddActorLocalOffset(FVector(-15000 * (boxInstances[i]->timer3), 0.5, 0));
 						boxInstances[boxIndex]->isActive = true;
 						boxInstances[boxIndex]->interpTime = -1;
@@ -318,6 +326,7 @@ void ALevelBlockManager::Tick(float DeltaTime)
 						}
 						boxInstances[boxIndex]->AddActorLocalOffset(FVector(-15000 * (boxInstances[i]->timer3), 0, 0));
 						boxInstances[boxIndex]->isActive = false;
+						boxInstances[boxIndex]->isPreExpanded = false;
 						boxInstances[boxIndex]->SetHidden(true);
 						//boxInstances[boxIndex]->timer2 = 0;
 					}
@@ -346,6 +355,7 @@ void ALevelBlockManager::Tick(float DeltaTime)
 					for (int j = 0; j < boxInstances[i]->mappedLevels.size(); j++) {
 						//coming forward
 						int boxIndex = boxInstances[i]->mappedLevels[j];
+						if (boxInstances[boxIndex]->isPreExpanded) continue;
 						boxInstances[boxIndex]->AddActorLocalOffset(FVector(-15000 * (DeltaTime + curveCoeff * (DeltaTime * (0.2 - boxInstances[i]->timer3))), 0, 0));
 						boxInstances[boxIndex]->interpTime = -1;//FVector::Dist(boxInstances[boxIndex]->GetActorLocation(), FVector(6500, 0, 0));
 					}

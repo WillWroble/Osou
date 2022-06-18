@@ -10,6 +10,7 @@ ALevelBox::ALevelBox()
 	PrimaryActorTick.bCanEverTick = true;
 	isCursorHovering = false;
 	isSelected_ = false;
+	isPreExpanded = false;
 	timer = 0;
 	timer2 = 0;
 	timer3 = 0;
