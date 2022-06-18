@@ -175,9 +175,14 @@ void ALevelBlockManager::Tick(float DeltaTime)
 							for (int j = 0; j < boxInstances[i]->mappedLevels.size(); j++) {
 								int boxIndex = boxInstances[i]->mappedLevels[j];
 								boxInstances[boxIndex]->AddActorLocalOffset(FVector(0, -0.5, 0));
+								boxInstances[boxIndex]->isPreExpanded = false;
 								//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "LTT IS COLL");
 								//boxInstances[boxIndex]->timer = 1;
 							}
+						}
+						for (int j = 0; j < boxInstances[i]->mappedLevels.size(); j++) {
+							int boxIndex = boxInstances[i]->mappedLevels[j];
+							boxInstances[boxIndex]->isPreExpanded = false;
 						}
 						
 						UnselectAllBoxes();
@@ -235,9 +240,10 @@ void ALevelBlockManager::Tick(float DeltaTime)
 								//boxInstances[boxIndex]->timer = 1;
 								//boxInstances[boxIndex]->interpTime = -1;//FVector::Dist(boxInstances[boxIndex]->GetActorLocation(), FVector(6500, 0, 0));
 								if (boxInstances[boxIndex]->GetActorLocation().Z < -2890) {
-									boxInstances[boxIndex]->SetActorLocation(FVector(3000, 0.5, boxInstances[i]->GetActorLocation().Z - (360 * (j + 1)) - 200 * (boxInstances[i]->timer)));
+									boxInstances[boxIndex]->SetActorLocation(FVector(3000, 1, boxInstances[i]->GetActorLocation().Z - (360 * (j + 1)) - 200 * (boxInstances[i]->timer)));
 									boxInstances[boxIndex]->splitDistance = true;
 									boxInstances[boxIndex]->isPreExpanded = true;
+									GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, "PRE EXPANDING");
 								}
 								else {
 									boxInstances[boxIndex]->interpTime = -1;
@@ -303,8 +309,10 @@ void ALevelBlockManager::Tick(float DeltaTime)
 					//coming forward
 					for (int j = 0; j < boxInstances[i]->mappedLevels.size(); j++) {
 						int boxIndex = boxInstances[i]->mappedLevels[j];
-						if (boxInstances[boxIndex]->isPreExpanded) continue;
-						boxInstances[boxIndex]->AddActorLocalOffset(FVector(-15000 * (boxInstances[i]->timer3), 0.5, 0));
+						if (!boxInstances[boxIndex]->isPreExpanded) {
+							boxInstances[boxIndex]->AddActorLocalOffset(FVector(-15000 * (boxInstances[i]->timer3), 0.5, 0));
+						}
+						boxInstances[boxIndex]->isPreExpanded = false;
 						boxInstances[boxIndex]->isActive = true;
 						boxInstances[boxIndex]->interpTime = -1;
 					}
@@ -355,8 +363,10 @@ void ALevelBlockManager::Tick(float DeltaTime)
 					for (int j = 0; j < boxInstances[i]->mappedLevels.size(); j++) {
 						//coming forward
 						int boxIndex = boxInstances[i]->mappedLevels[j];
-						if (boxInstances[boxIndex]->isPreExpanded) continue;
-						boxInstances[boxIndex]->AddActorLocalOffset(FVector(-15000 * (DeltaTime + curveCoeff * (DeltaTime * (0.2 - boxInstances[i]->timer3))), 0, 0));
+						//if (boxInstances[boxIndex]->isPreExpanded) continue;
+						if (!boxInstances[boxIndex]->isPreExpanded) {
+							boxInstances[boxIndex]->AddActorLocalOffset(FVector(-15000 * (DeltaTime + curveCoeff * (DeltaTime * (0.2 - boxInstances[i]->timer3))), 0, 0));
+						}
 						boxInstances[boxIndex]->interpTime = -1;//FVector::Dist(boxInstances[boxIndex]->GetActorLocation(), FVector(6500, 0, 0));
 					}
 					boxInstances[i]->timer3 -= 1 * DeltaTime + curveCoeff * (DeltaTime * (0.2 - boxInstances[i]->timer3));
@@ -366,6 +376,7 @@ void ALevelBlockManager::Tick(float DeltaTime)
 						//going back
 						int boxIndex = boxInstances[i]->mappedLevels[j];
 						boxInstances[boxIndex]->AddActorLocalOffset(FVector(15000 * (DeltaTime + curveCoeff * (DeltaTime * (-1* boxInstances[i]->timer3))), 0, 0));
+						boxInstances[boxIndex]->isPreExpanded = false;
 					}
 					for (int j = 0; j < boxInstances.size(); j++) {
 						//moves bottom back
@@ -396,6 +407,7 @@ void ALevelBlockManager::Tick(float DeltaTime)
 	for (int i = 0; i < positionDeltas.size(); i++) {
 
 		if (!boxInstances[i]->isActive) {
+			positionDeltas[i] = 0;
 			continue;
 		}
 		//if (boxInstances[i]->isActive && !isCollapsing && false) {
@@ -515,9 +527,9 @@ void ALevelBlockManager::AddDeltaToAll(float delta)
 {
 	scrollTarget += FVector(0, 0, 1) * delta*1.5;
 	for (int i = 0; i < positionDeltas.size(); i++) {
-		if (boxInstances[i]->isActive) {
+		//if (boxInstances[i]->isActive) {
 			positionDeltas[i] += delta;
-		}
+		//}
 	}
 }
 void ALevelBlockManager::UnselectAllBoxes()
