@@ -6,54 +6,44 @@
 #include "GameFramework/Actor.h"
 #include <vector>
 #include <utility>
+#include "KillMe.h"
+#include "Kismet/GameplayStatics.h"
+//#include "InputCoreTypes.h"
+#include "PaperSpriteComponent.h"
+#include "Components/AudioComponent.h"
+#include "BulletController.h"
+#include "EngineUtils.h"
 #include "Particles/ParticleSystemComponent.h"
 #include "ParticleEmitterInstances.h"
 #include "Blueprint/UserWidget.h"
 #include "Blueprint/WidgetTree.h"
 #include "Components/EditableTextBox.h"
 #include "Components/EditableText.h"
-
-#include "Kismet/GameplayStatics.h"
-//#include "InputCoreTypes.h"
-#include "PaperSpriteComponent.h"
-#include "Components/AudioComponent.h"
-//#include "BulletController.h"
-#include "EngineUtils.h"
-
-#include "KillMe.generated.h"
-struct on_screen_message
-{
-	FString message;
-	float startTime;
-	float duration;
-	float interval;
-	int type;
-	int count;
-};
+#include "KillMe2.generated.h"
 
 UCLASS()
-class OSOU_API AKillMe : public AActor
+class OSOU_API AKillMe2 : public AActor
 {
 	GENERATED_BODY()
-	
-public:	
+
+public:
 	// Sets default values for this actor's properties
-	AKillMe();
+	AKillMe2();
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:	
+public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-	virtual void AddRythm(std::vector<float> beat, int in);
-	virtual void SetTransitions(std::vector<float> ts);
-	virtual void setSpeedMultis(std::vector<float> s);
+	void AddRythm(std::vector<float> beat, int in);
+	void SetTransitions(std::vector<float> ts);
+	void setSpeedMultis(std::vector<float> s);
 
-	virtual void AddTextInstruction(int type, float start, float duration, FString textContent, float interval = 1, int count = 0);
+	void AddTextInstruction(int type, float start, float duration, FString textContent, float interval = 1, int count = 0);
 	//void ResetEverything();
-	virtual void FinishedLevel();
+	void FinishedLevel();
 	std::vector<std::vector<float>> beats;
 	std::vector<float>* currentBeat;
 	std::vector<float> transitionTimes;
@@ -70,7 +60,7 @@ public:
 	UParticleSystemComponent* trail;
 	FParticleEmitterInstance* emitter;
 	APlayerController* pController;
-	//ABulletController* bulletController;
+	ABulletController* bulletController;
 	FKey leftClick;
 	FKey space;
 	FVector direction;
@@ -83,19 +73,13 @@ public:
 	bool isMoving;
 	int screenW;
 	int screenH;
-	int skipCount;
-	int successivePerfects;
 	float travelTime;
 	float timeout;
-	float relativeTimeout;
-	float travelTimeout;
 	bool hasStarted;
 	bool clicked;
 
-	
 	float currentMulti;
 	int index;
-	int relativeIndex;
 	int transitionIndex;
 	float baseSpeed;
 	float speed;
@@ -105,8 +89,6 @@ public:
 	bool isTimeFrozen;
 	//float absoluteTimer;
 	float rhythmBuffer;
-	float rhythmDelayConstant;
-	std::vector<float> rhythmDelayConstants;
 	int iCounter;
 	int beatIndex;
 	int perfects;
@@ -114,23 +96,23 @@ public:
 	int total;
 	int tutHScore;
 	UFUNCTION(BlueprintImplementableEvent)
-	void OnSlightlyEarly();
+		void OnSlightlyEarly();
 	UFUNCTION(BlueprintImplementableEvent)
-	void OnBeatChange();
+		void OnBeatChange();
 	UFUNCTION(BlueprintImplementableEvent)
-	void OnFinishLevel();
+		void OnFinishLevel();
 	UFUNCTION(BlueprintImplementableEvent)
-	void CloseWidget();
+		void CloseWidget();
 	UFUNCTION(BlueprintImplementableEvent)
-	void UpdateHealthBar();
+		void UpdateHealthBar();
 	UFUNCTION(BlueprintImplementableEvent)
-	void FadeInText();
+		void FadeInText();
 	UFUNCTION(BlueprintImplementableEvent)
-	void FadeOutText();
+		void FadeOutText();
 	UFUNCTION(BlueprintCallable)
-	virtual void ResetEverything();
+		void ResetEverything();
 	UFUNCTION(BlueprintCallable)
-	void StopEverything();
+		void StopEverything();
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		float Health;

@@ -56,7 +56,7 @@ void ABulletController::BeginPlay()
 		//VEE PART ONE
 		player->rhythmDelayConstants = { .46, 0.19, 0};
 		player->SetTransitions({ 0, 9998, 9999 }); //105
-		player->setSpeedMultis({ 1.2/0.46, 1.2/0.23, 1.2/0.46 });
+		player->setSpeedMultis({ 1.2, 1.2, 1.2 });
 		player->AddRythm({ 0.46154 }, 0); //0.2
 		player->AddRythm({ 0.23077 }, 1);
 		player->AddRythm({ 0.46154 }, 2);

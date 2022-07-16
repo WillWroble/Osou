@@ -1,51 +1,17 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "KillMe.h"
-#include "BulletController.h"
-//#include "Kismet/GameplayStatics.h"
-////#include "InputCoreTypes.h"
-//#include "PaperSpriteComponent.h"
-//#include "Components/AudioComponent.h"
-//#include "BulletController.h"
-//#include "EngineUtils.h"
+#include "KillMe2.h"
 
 
-//UWidget* childWidget;
-//UPaperSpriteComponent* sprite;
-//UPaperSpriteComponent* circleSprite;
-////UAudioComponent* sound;
-//UAudioComponent* drumBeat;
-//UParticleSystemComponent* trail;
-//FParticleEmitterInstance* emitter;
-//APlayerController* pController;
-ABulletController* bulletController;
-//FKey leftClick;
-//FKey space;
-//FVector direction;
-//FVector baseScale;
-//FVector scale;
-//FVector baseLocation;
-//
-//bool isLevelFinsihedd;
-//bool wasClicked;
-//bool isMoving;
-//int screenW;
-//int screenH;
-//int skipCount;
-//int successivePerfects;
-//float travelTime;
-//float timeout;
-//float relativeTimeout;
-//float travelTimeout;
-//bool hasStarted;
-//bool clicked;
+
+
 
 
 // Sets default values
-AKillMe::AKillMe()
+AKillMe2::AKillMe2()
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	baseScale = FVector(0.3); //0.1675
 	PrimaryActorTick.bCanEverTick = true;
 	isLevelFinsihedd = false;
@@ -54,16 +20,11 @@ AKillMe::AKillMe()
 	isMoving = false;
 	travelTime = 0;
 	timeout = 0;
-	relativeTimeout = 0;
-	travelTimeout = 0;
 	direction = FVector(0, 0, 0);
 	screenW = 0; screenH = 0;
 	index = 0;
-	relativeIndex = 0;
 	transitionIndex = 0;
-	skipCount = 0;
 	baseSpeed = 1200 * 0.2; //700
-	speed = baseSpeed;
 	baseLocation = FVector(0, 2, 0);
 	clockTime = 0;
 	beats = std::vector<std::vector<float>>(99);
@@ -74,14 +35,12 @@ AKillMe::AKillMe()
 	beatIndex = 0;
 	rhythmBuffer = 0;
 	tutHScore = 0;
-	rhythmDelayConstant = 0;
-	successivePerfects = 0;
 	isTimeFrozen = false;
 
 }
 
 // Called when the game starts or when spawned
-void AKillMe::BeginPlay()
+void AKillMe2::BeginPlay()
 {
 	Super::BeginPlay();
 	//pController = UGameplayStatics::GetPlayerController(GetWorld(), 0);
@@ -109,10 +68,9 @@ void AKillMe::BeginPlay()
 	pController->bShowMouseCursor = true;
 	pController->bEnableClickEvents = true;
 	pController->bEnableMouseOverEvents = true;
-	sprite->OnComponentBeginOverlap.AddDynamic(this, &AKillMe::OnOverlapBegin);
+	sprite->OnComponentBeginOverlap.AddDynamic(this, &AKillMe2::OnOverlapBegin);
 	currentBeat = &(beats[0]);
-	currentMulti = speedMultis[0];
-	rhythmDelayConstant = rhythmDelayConstants[0];
+	//currentMulti = speedMultis[0];
 	if (templateEmitter == nullptr) {
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("DIDNT FIND CIRCLE COMPONENT"));
 	}
@@ -135,7 +93,6 @@ void AKillMe::BeginPlay()
 	iCounter = 0;
 	isInvunerable = false;
 	currentLevel = 0;
-	rhythmBuffer = 2;
 	levelConversion = { 8, 12, 23, 13, 14, 15, 16, 17, 18 };
 	for (int i = 0; i < 70; i++) {
 		levelConversion.push_back(-1);
@@ -144,10 +101,10 @@ void AKillMe::BeginPlay()
 	//currentBeat.clear();
 	//textBox->SetText(FText::FromString("I fucking hate unreal engine"));
 	int li = ABulletController::levelIndex;
-	if (li == 0) 
+	if (li == 0)
 	{
 		//sound->SetWaveParameter(FName("wave"), song0);
-	} 
+	}
 	else if (li == 1) {
 		sound->SetWaveParameter(FName("wave"), song2);
 	}
@@ -172,19 +129,16 @@ void AKillMe::BeginPlay()
 	else {
 		sound->SetWaveParameter(FName("wave"), song2);
 	}
-	
+
 }
 
 // Called every frame
-void AKillMe::Tick(float DeltaTime)
+void AKillMe2::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	pController->GetViewportSize(screenW, screenH);
 	if (!isTimeFrozen) {
 		clockTime += DeltaTime;
-	}
-	if (clockTime < rhythmDelayConstant) {
-		//return;
 	}
 	if (rhythmBuffer < 0) {
 		rhythmBuffer = 0;
@@ -198,7 +152,8 @@ void AKillMe::Tick(float DeltaTime)
 			if (iCounter % 2 == 0) {
 				sprite->SetVisibility(false);
 
-			} else {
+			}
+			else {
 				sprite->SetVisibility(true);
 			}
 			iCounter++;
@@ -229,152 +184,6 @@ void AKillMe::Tick(float DeltaTime)
 		trail = nullptr;
 	}*/
 	if (clicked && !wasClicked && !isLevelFinsihedd) {
-		//drumBeat->Play();
-		//if (transitionTimes[transitionIndex + 1] < clockTime) {
-		//	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, "BEAT CHANGE");
-		//	rhythmBuffer = 3;
-		//	if (ABulletController::levelIndex != 0) {
-		//		transitionIndex++;
-		//		if (beats[transitionIndex + 1].size() == 0) {
-		//			//just reset for now
-		//			transitionIndex = 0;
-		//			FinishedLevel();
-		//		}
-		//		currentBeat = &(beats[transitionIndex]);
-		//		currentMulti = speedMultis[transitionIndex];
-		//	}
-		//	index = 0;
-		//	clockTime = 0;
-		//}
-		//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "hello??");
-		trail = UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), templateEmitter, FVector(0,2,0), FRotator(0));
-		trail->SetBeamTargetPoint(0, this->GetActorLocation(), 0);
-		trail->SetBeamSourcePoint(0, this->GetActorLocation(), 0);
-		//total++;
-		if (relativeTimeout < ((*currentBeat)[relativeIndex]+rhythmDelayConstant)-0.16 && hasStarted) {//&& hasStarted
-			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "EARLY");
-			PopupType = 0;
-			OnSlightlyEarly();
-			if (rhythmBuffer == 0) {
-				Health -= (((*currentBeat)[relativeIndex]+rhythmDelayConstant) - relativeTimeout) * 4/1 * .5 *(2-Health);
-			}
-			successivePerfects = 0;
-			//ResetEverything();
-		} else if (relativeTimeout < ((*currentBeat)[relativeIndex]+rhythmDelayConstant) - 0.08) {
-			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Orange, "A LITTLE EARLY");
-			PopupType = 1;
-			OnSlightlyEarly();
-			/*if (rhythmBuffer == 0) {
-				Health -= (((*currentBeat)[relativeIndex]+rhythmDelayConstant) - relativeTimeout) * 5/1 * 1 * (2 - Health);
-				Health += 0.15;
-			}*/
-			successivePerfects = 0;
-
-		} else if (relativeTimeout > 0.16 + ((*currentBeat)[relativeIndex]+rhythmDelayConstant)) {
-			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "LATE");
-			PopupType = 2;
-			OnSlightlyEarly();
-			if (rhythmBuffer == 0) {
-				Health -= (relativeTimeout - ((*currentBeat)[relativeIndex]+rhythmDelayConstant)) * 4/1 * .5 * (2 - Health);
-			}
-			//ResetEverything();
-			successivePerfects = 0;
-
-		} else if (relativeTimeout > ((*currentBeat)[relativeIndex]+rhythmDelayConstant) + 0.08) {
-			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Orange, "A LITTLE LATE");
-			PopupType = 3;
-			OnSlightlyEarly();
-			/*if (rhythmBuffer == 0) {
-				Health -= (relativeTimeout - ((*currentBeat)[relativeIndex]+rhythmDelayConstant)) * 5/1 * 1 * (2 - Health);
-				Health += 0.15;
-			}*/
-			successivePerfects = 0;
-
-		} else {
-			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, "PERFECT!");
-			
-			Health += 0.1f*successivePerfects;
-			if (Health > 1) {
-				Health = 1;
-			}
-			
-			successivePerfects++;
-			perfects++;
-			PopupType = 4;
-			OnSlightlyEarly();
-		}
-		if (Health < 0) {
-			Health = 0;
-		}
-		if (Health <= 0 && !isTimeFrozen) {
-			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "BAD RYTHM");
-			if (ABulletController::levelIndex != 0) {
-				wasClicked = true;
-				//ResetEverything();
-				//return;
-			}
-		}
-
-		if (relativeTimeout < 0) {
-			//ahead (ahead now)
-			//do nothing
-		}
-		else if (relativeTimeout > ((*currentBeat)[relativeIndex]+rhythmDelayConstant)) {
-			//behind (aligned now)
-			relativeTimeout = timeout;
-			relativeIndex = index;
-		}
-		else {
-			//aligned (early now)
-			if (relativeTimeout > ((*currentBeat)[relativeIndex] + rhythmDelayConstant)/2) {
-				relativeTimeout = timeout - ((*currentBeat)[index] + rhythmDelayConstant);
-				relativeIndex = (relativeIndex + 1) % currentBeat->size();
-				skipCount++;
-			}
-		}
-
-		travelTimeout = 0;
-		
-		hasStarted = true;
-		//scale = baseScale;//FVector(0.06 + ((*currentBeat)[index]+rhythmDelayConstant * 0.38));
-		//speed = baseSpeed / (*currentBeat)[index]+rhythmDelayConstant; //(*currentBeat)[index]+rhythmDelayConstant
-		//index++;
-		//if (index == currentBeat->size()) {
-		//	//reset beat
-		//	index = 0;
-		//}
-		//timeout = 0;
-		isMoving = true;
-		//CALCULATE DIRECTION
-		float x = 0; float y = 0;
-		pController->GetMousePosition(x, y);
-		y = screenH - y;
-		y = y - (screenH / 2);
-		x = x - (screenW / 2);
-		x = x * 4500 / screenW;
-		y = y * 4500 / screenW;
-		direction.X = x - GetActorLocation().X;//x-
-		direction.Z = y - GetActorLocation().Z;//y-
-		direction.Normalize();
-	}
-
-	timeout += DeltaTime;
-	relativeTimeout += DeltaTime;
-	travelTimeout += DeltaTime;
-	if (travelTimeout < ((*currentBeat)[relativeIndex]+rhythmDelayConstant)) {
-		AddActorLocalOffset(direction * DeltaTime * speed * currentMulti);//speed*currentMulti
-		//AddActorLocalOffset(GetActorLocation()* DeltaTime* speed* currentMulti);
-	}
-	if (clockTime < rhythmDelayConstant) {
-		//return;
-	}
-	if (timeout < (*currentBeat)[index]+rhythmDelayConstant) { //+0.16
-		scale -= FVector(DeltaTime * 0.2 / ((*currentBeat)[index]+rhythmDelayConstant+0)); //0.38 //0.24
-		circleSprite->SetRelativeScale3D(scale);
-	}
-	else {
-		//reset circle and beat
-		float temp1 = (*currentBeat)[index] + rhythmDelayConstant;
 		drumBeat->Play();
 		if (transitionTimes[transitionIndex + 1] < clockTime) {
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, "BEAT CHANGE");
@@ -388,59 +197,103 @@ void AKillMe::Tick(float DeltaTime)
 				}
 				currentBeat = &(beats[transitionIndex]);
 				currentMulti = speedMultis[transitionIndex];
-				rhythmDelayConstant = rhythmDelayConstants[transitionIndex];
 			}
 			index = 0;
 			clockTime = 0;
 		}
-		else {
-			if (relativeTimeout == timeout && rhythmDelayConstant != 0) {
-				relativeTimeout -= rhythmDelayConstant;
-				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, "XQCL");
-				
-			}
-			rhythmDelayConstant = 0;
-		}
+		//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "hello??");
+		trail = UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), templateEmitter, FVector(0, 2, 0), FRotator(0));
+		trail->SetBeamTargetPoint(0, this->GetActorLocation(), 0);
+		trail->SetBeamSourcePoint(0, this->GetActorLocation(), 0);
 		total++;
-
-		scale = baseScale;//FVector(0.06 + ((*currentBeat)[index]+rhythmDelayConstant * 0.38));
-
-
-		speed = baseSpeed;// / (*currentBeat)[0]; //(*currentBeat)[index]+rhythmDelayConstant
-
+		if (timeout < (*currentBeat)[index] && hasStarted) {
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "EARLY");
+			PopupType = 0;
+			OnSlightlyEarly();
+			if (rhythmBuffer == 0) {
+				Health -= ((*currentBeat)[index] + 0.08 - timeout) * 4;
+			}
+			//ResetEverything();
+		}
+		else if (timeout < (*currentBeat)[index] + 0.05) {
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Orange, "A LITTLE EARLY");
+			PopupType = 1;
+			OnSlightlyEarly();
+			if (rhythmBuffer == 0) {
+				Health -= ((*currentBeat)[index] + 0.08 - timeout) * 5;
+				Health += 0.15;
+			}
+		}
+		else if (timeout > 0.16 + (*currentBeat)[index]) {
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "LATE");
+			PopupType = 2;
+			OnSlightlyEarly();
+			if (rhythmBuffer == 0) {
+				Health -= (timeout - (*currentBeat)[index] - 0.08) * 4;
+			}
+			//ResetEverything();
+		}
+		else if (timeout > (*currentBeat)[index] + 0.11) {
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Orange, "A LITTLE LATE");
+			PopupType = 3;
+			OnSlightlyEarly();
+			if (rhythmBuffer == 0) {
+				Health -= (timeout - (*currentBeat)[index] - 0.08) * 5;
+				Health += 0.15;
+			}
+		}
+		else {
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, "PERFECT!");
+			if (Health < 0.7) {
+				Health += 0.3;
+			}
+			else {
+				Health = 1;
+			}
+			perfects++;
+			PopupType = 4;
+			OnSlightlyEarly();
+		}
+		if (Health < 0) {
+			Health = 0;
+		}
+		if (Health <= 0 && !isTimeFrozen) {
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "BAD RYTHM");
+			if (ABulletController::levelIndex != 0) {
+				ResetEverything();
+			}
+		}
+		hasStarted = true;
+		scale = baseScale;//FVector(0.06 + ((*currentBeat)[index] * 0.38));
+		speed = baseSpeed / (*currentBeat)[index];
 		index++;
 		if (index == currentBeat->size()) {
 			//reset beat
 			index = 0;
 		}
-		scale -= FVector((timeout - temp1) * 0.2 / ((*currentBeat)[index]+rhythmDelayConstant + 0)); //0.24
-
-		timeout = timeout - temp1;
+		timeout = 0;
+		isMoving = true;
+		//CALCULATE DIRECTION
+		float x = 0; float y = 0;
+		pController->GetMousePosition(x, y);
+		y = screenH - y;
+		y = y - (screenH / 2);
+		x = x - (screenW / 2);
+		x = x * 4500 / screenW;
+		y = y * 4500 / screenW;
+		direction.X = x - GetActorLocation().X;//x-
+		direction.Z = y - GetActorLocation().Z;//y-
+		direction.Normalize();
 	}
-	if (relativeTimeout > fmaxf(((*currentBeat)[relativeIndex]) + (((*currentBeat)[index]) / 2), ((*currentBeat)[relativeIndex]) + 0.16) && rhythmDelayConstant == 0) {
-		//force later relative update
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "FORCED LATE");
-		PopupType = 2;
-		OnSlightlyEarly();
-		if (rhythmBuffer == 0) {
-			Health -= (relativeTimeout - ((*currentBeat)[relativeIndex] + rhythmDelayConstant)) * 4 / 1 * 0.5 * (2 - Health);
+	timeout += DeltaTime;
+	if (timeout < (*currentBeat)[index] + 0.16) {
+		scale -= FVector(DeltaTime * 0.24 / ((*currentBeat)[index] + 0.08)); //0.38
+		circleSprite->SetRelativeScale3D(scale);
+		if (timeout < (*currentBeat)[index]) {
+			AddActorLocalOffset(direction * DeltaTime * speed * currentMulti);//speed*currentMulti
+			//AddActorLocalOffset(GetActorLocation()* DeltaTime* speed* currentMulti);
 		}
-		if (Health < 0) {
-			Health = 0;
-		}
-		successivePerfects = 0;
-		if (Health <= 0 && !isTimeFrozen) {
-			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "BAD RYTHM");
-			if (ABulletController::levelIndex != 0) {
-				ResetEverything();
-				return;
-			}
-		}
-		relativeTimeout = timeout;
-		relativeIndex = index;
-
 	}
-
 	beatTime += DeltaTime;
 	if (beatTime > (*currentBeat)[beatIndex]) {
 		beatTime = 0;
@@ -453,35 +306,35 @@ void AKillMe::Tick(float DeltaTime)
 	}
 
 	wasClicked = clicked;
-	//if (timeout > 1 && !isTimeFrozen) {
-	//	//ResetEverything();
-	//	if (ABulletController::levelIndex == 0) {
-	//		if (bulletController->tutorialTime < 28) {
-	//			//do nothing
-	//		}
-	//		else {
-	//			Health = 0;
-	//		}
-	//	}
-	//	else {
-	//		ResetEverything();
-	//	}
-	//	//Health = 0;
-	//}
+	if (timeout > 1 && !isTimeFrozen) {
+		//ResetEverything();
+		if (ABulletController::levelIndex == 0) {
+			if (bulletController->tutorialTime < 28) {
+				//do nothing
+			}
+			else {
+				Health = 0;
+			}
+		}
+		else {
+			ResetEverything();
+		}
+		//Health = 0;
+	}
 }
-void AKillMe::AddRythm(std::vector<float> beat, int in)
+void AKillMe2::AddRythm(std::vector<float> beat, int in)
 {
 	beats[in] = beat;
 }
-void AKillMe::SetTransitions(std::vector<float> ts)
+void AKillMe2::SetTransitions(std::vector<float> ts)
 {
 	transitionTimes = ts;
 }
-void AKillMe::setSpeedMultis(std::vector<float> s)
+void AKillMe2::setSpeedMultis(std::vector<float> s)
 {
 	speedMultis = s;
 }
-void AKillMe::AddTextInstruction(int type, float start, float duration, FString textContent, float interval, int count)
+void AKillMe2::AddTextInstruction(int type, float start, float duration, FString textContent, float interval, int count)
 {
 	on_screen_message temp;
 	temp.duration = duration;
@@ -492,23 +345,16 @@ void AKillMe::AddTextInstruction(int type, float start, float duration, FString 
 	temp.count = count;
 	messages.push_back(temp);
 }
-void AKillMe::ResetEverything()
+void AKillMe2::ResetEverything()
 {
 	//return;
-	rhythmBuffer = 2;
 	bulletController->ResetBullets();
 	transitionIndex = 0;
 	index = 0;
-	relativeIndex = 0;
 	currentBeat = &(beats[0]);
-	currentMulti = speedMultis[0];
-	rhythmDelayConstant = rhythmDelayConstants[0];
 	scale = baseScale;
-	circleSprite->SetRelativeScale3D(scale);
-	speed = baseSpeed;// / (*currentBeat)[0];
+	speed = baseSpeed / (*currentBeat)[0];
 	timeout = 0;
-	relativeTimeout = 0;
-	travelTimeout = 0;
 	clockTime = 0;
 	this->SetActorLocation(baseLocation);
 	trail = UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), templateEmitter, FVector(0, 2, 0), FRotator(0));
@@ -531,13 +377,13 @@ void AKillMe::ResetEverything()
 	bulletController->isTimeFrozen = false;
 	isTimeFrozen = false;
 }
-void AKillMe::StopEverything()
+void AKillMe2::StopEverything()
 {
 	bulletController->isTimeFrozen = true;
 	isTimeFrozen = true;
 	sound->FadeOut(2, 0);
 }
-void AKillMe::FinishedLevel()
+void AKillMe2::FinishedLevel()
 {
 	rScore = ((float)perfects / (float)total) * ((float)100);
 	//hScore = 3;
@@ -546,11 +392,11 @@ void AKillMe::FinishedLevel()
 	StopEverything();
 	OnFinishLevel();
 }
-void AKillMe::OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+void AKillMe2::OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
 	if (OtherActor && (OtherActor != this) && OtherComp)
 	{
-		return;
+		//return;
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Overlap Begin"));
 		if (isLevelFinsihedd || isInvunerable || isTimeFrozen) {
 			return;
