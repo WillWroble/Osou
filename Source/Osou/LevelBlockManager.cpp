@@ -155,7 +155,13 @@ void ALevelBlockManager::Tick(float DeltaTime)
 						int n = levelMap[i];
 						if (n == 2|| n == 1 || n == 0 || n == 3) {
 							ABulletController::levelIndex = n;
-							UGameplayStatics::OpenLevel(this, FName("Minimal_Default"));
+							if (n == 3) {
+								UGameplayStatics::OpenLevel(this, FName("TrueRhythm"));
+							}
+							else {
+								UGameplayStatics::OpenLevel(this, FName("Classic"));
+							}
+							
 						}
 						else {
 							GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "LEVEL NOT RDY");

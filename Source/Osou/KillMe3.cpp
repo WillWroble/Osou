@@ -40,6 +40,9 @@ AKillMe3::AKillMe3()
 void AKillMe3::BeginPlay()
 {
 	Super::BeginPlay();
+	TActorIterator<ABulletController> It(GetWorld());
+	bulletController3 = *It;
+	/*
 	//pController = UGameplayStatics::GetPlayerController(GetWorld(), 0);
 	pController = GetWorld()->GetFirstPlayerController();
 	sprite = (UPaperSpriteComponent*)this->RootComponent;
@@ -65,7 +68,7 @@ void AKillMe3::BeginPlay()
 	pController->bShowMouseCursor = true;
 	pController->bEnableClickEvents = true;
 	pController->bEnableMouseOverEvents = true;
-	sprite->OnComponentBeginOverlap.AddDynamic(this, &AKillMe3::OnOverlapBegin);
+	sprite->OnComponentBeginOverlap.AddDynamic(this, &AKillMe::OnOverlapBegin);
 	currentBeat = &(beats[0]);
 	//currentMulti = speedMultis[0];
 	if (templateEmitter == nullptr) {
@@ -126,7 +129,7 @@ void AKillMe3::BeginPlay()
 	else {
 		sound->SetWaveParameter(FName("wave"), song2);
 	}
-
+	*/
 }
 
 // Called every frame
@@ -135,16 +138,16 @@ void AKillMe3::Tick(float DeltaTime)
 	Super::Super::Tick(DeltaTime);
 	pController->GetViewportSize(screenW, screenH);
 	if (!isTimeFrozen) {
-		clockTime += DeltaTime;
+		clockTime += (DeltaTime*ABulletController::audioCoeff);
 	}
 	if (rhythmBuffer < 0) {
 		rhythmBuffer = 0;
 	}
 	else if (rhythmBuffer > 0) {
-		rhythmBuffer -= DeltaTime;
+		rhythmBuffer -= (DeltaTime*ABulletController::audioCoeff);
 	}
 	if (isInvunerable == true) {
-		invunerableTime += DeltaTime;
+		invunerableTime += (DeltaTime*ABulletController::audioCoeff);
 		if (invunerableTime > iCounter * 0.1) {
 			if (iCounter % 2 == 0) {
 				sprite->SetVisibility(false);
@@ -282,16 +285,16 @@ void AKillMe3::Tick(float DeltaTime)
 		direction.Z = y - GetActorLocation().Z;//y-
 		direction.Normalize();
 	}
-	timeout += DeltaTime;
+	timeout += (DeltaTime*ABulletController::audioCoeff);
 	if (timeout < (((*currentBeat)[index])-0.08) + 0.16) {
-		scale -= FVector(DeltaTime * 0.24 / ((((*currentBeat)[index])-0.08) + 0.08)); //0.38
+		scale -= FVector(DeltaTime * ABulletController::audioCoeff * 0.24 / ((((*currentBeat)[index])-0.08) + 0.08)); //0.38
 		circleSprite->SetRelativeScale3D(scale);
 		if (timeout < (((*currentBeat)[index])-0.08)) {
-			AddActorLocalOffset(direction * DeltaTime * speed * currentMulti);//speed*currentMulti
+			AddActorLocalOffset(direction * DeltaTime* ABulletController::audioCoeff* speed * currentMulti);//speed*currentMulti
 			//AddActorLocalOffset(GetActorLocation()* DeltaTime* speed* currentMulti);
 		}
 	}
-	beatTime += DeltaTime;
+	beatTime += (DeltaTime*ABulletController::audioCoeff);
 	if (beatTime > (*currentBeat)[beatIndex]) {
 		beatTime = 0;
 		metronomeSpeed = 1 / (*currentBeat)[beatIndex];

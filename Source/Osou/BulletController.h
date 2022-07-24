@@ -36,6 +36,7 @@ public:
 	AMovingBorder* border;
 	//level selector
 	static int levelIndex;
+	static float audioCoeff;
 	int transitionIndex;
 	int index;    
 	int messageIndex;

@@ -181,7 +181,7 @@ void AKillMe::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 	pController->GetViewportSize(screenW, screenH);
 	if (!isTimeFrozen) {
-		clockTime += DeltaTime;
+		clockTime += (DeltaTime*ABulletController::audioCoeff);
 	}
 	if (clockTime < rhythmDelayConstant) {
 		//return;
@@ -190,10 +190,10 @@ void AKillMe::Tick(float DeltaTime)
 		rhythmBuffer = 0;
 	}
 	else if (rhythmBuffer > 0) {
-		rhythmBuffer -= DeltaTime;
+		rhythmBuffer -= (DeltaTime*ABulletController::audioCoeff);
 	}
 	if (isInvunerable == true) {
-		invunerableTime += DeltaTime;
+		invunerableTime += (DeltaTime*ABulletController::audioCoeff);
 		if (invunerableTime > iCounter * 0.1) {
 			if (iCounter % 2 == 0) {
 				sprite->SetVisibility(false);
@@ -358,18 +358,18 @@ void AKillMe::Tick(float DeltaTime)
 		direction.Normalize();
 	}
 
-	timeout += DeltaTime;
-	relativeTimeout += DeltaTime;
-	travelTimeout += DeltaTime;
+	timeout += (DeltaTime*ABulletController::audioCoeff);
+	relativeTimeout += (DeltaTime*ABulletController::audioCoeff);
+	travelTimeout += (DeltaTime*ABulletController::audioCoeff);
 	if (travelTimeout < ((*currentBeat)[relativeIndex]+rhythmDelayConstant)) {
-		AddActorLocalOffset(direction * DeltaTime * speed * currentMulti);//speed*currentMulti
+		AddActorLocalOffset(direction * DeltaTime * ABulletController::audioCoeff * speed * currentMulti);//speed*currentMulti
 		//AddActorLocalOffset(GetActorLocation()* DeltaTime* speed* currentMulti);
 	}
 	if (clockTime < rhythmDelayConstant) {
 		//return;
 	}
 	if (timeout < (*currentBeat)[index]+rhythmDelayConstant) { //+0.16
-		scale -= FVector(DeltaTime * 0.2 / ((*currentBeat)[index]+rhythmDelayConstant+0)); //0.38 //0.24
+		scale -= FVector(DeltaTime * ABulletController::audioCoeff * 0.2 / ((*currentBeat)[index]+rhythmDelayConstant+0)); //0.38 //0.24
 		circleSprite->SetRelativeScale3D(scale);
 	}
 	else {
@@ -441,10 +441,10 @@ void AKillMe::Tick(float DeltaTime)
 
 	}
 
-	beatTime += DeltaTime;
-	if (beatTime > (*currentBeat)[beatIndex]) {
+	beatTime += (DeltaTime*ABulletController::audioCoeff);
+	if (beatTime > (*currentBeat)[0]) {
 		beatTime = 0;
-		metronomeSpeed = 1 / (*currentBeat)[beatIndex];
+		metronomeSpeed = 1 / (*currentBeat)[0];
 		beatIndex++;
 		if (beatIndex == currentBeat->size()) {
 			beatIndex = 0;
@@ -550,7 +550,7 @@ void AKillMe::OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AA
 {
 	if (OtherActor && (OtherActor != this) && OtherComp)
 	{
-		return;
+		//return;
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Overlap Begin"));
 		if (isLevelFinsihedd || isInvunerable || isTimeFrozen) {
 			return;

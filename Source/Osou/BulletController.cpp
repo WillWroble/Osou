@@ -9,6 +9,7 @@ AKillMe* player;
 BulletSpawner testSpawner;
 //std::vector<BulletSpawner> LevelLibrary::allLevels[levelIndex];
 int ABulletController::levelIndex = 0;
+float ABulletController::audioCoeff = 1.0f;
 
 // Sets default values
 ABulletController::ABulletController()
@@ -50,45 +51,70 @@ void ABulletController::BeginPlay()
 	} else {
 		//do more things
 	}
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::SanitizeFloat(ABulletController::audioCoeff));
+
 	//add player beats
 	//IMPORTANT 0.08 DELAY CONSTANT
 	if (levelIndex == 0) {
 		//VEE PART ONE
-		player->rhythmDelayConstants = { .46, 0.19, 0};
+		//player->rhythmDelayConstants = { .46, 0.19, 0};
+		//player->SetTransitions({ 0, 9998, 9999 }); //105
+		//player->setSpeedMultis({ 1.2, 1.2, 1.2 });
+		//player->AddRythm({ 0.46154 }, 0); //0.2
+		//player->AddRythm({ 0.23077 }, 1);
+		//player->AddRythm({ 0.46154 }, 2);
+		//player->AddTextInstruction(0, 1, 3, FString("welcome to osou :D"));
+		//player->AddTextInstruction(0, 4.5, 3, FString("Osou is a rhythm game, so try to click to the 130 bpm rhythm"));
+		//player->AddTextInstruction(1, 10, 0.5, FString("X2 Tempo in"), 1, 3);
+		player->rhythmDelayConstants = { 0, 0, 0 };
 		player->SetTransitions({ 0, 9998, 9999 }); //105
 		player->setSpeedMultis({ 1.2, 1.2, 1.2 });
-		player->AddRythm({ 0.46154 }, 0); //0.2
-		player->AddRythm({ 0.23077 }, 1);
-		player->AddRythm({ 0.46154 }, 2);
+		player->AddRythm({ 0.46 }, 0); //0.2
+		player->AddRythm({ 0.23 }, 1);
+		player->AddRythm({ 0.46 }, 2);
 		player->AddTextInstruction(0, 1, 3, FString("welcome to osou :D"));
 		player->AddTextInstruction(0, 4.5, 3, FString("Osou is a rhythm game, so try to click to the 130 bpm rhythm"));
-		//player->AddTextInstruction(1, 10, 0.5, FString("X2 Tempo in"), 1, 3);
 	}
 	else if(levelIndex == 1){
 		//UN OWEN WAS HER
-		player->rhythmDelayConstants = { 0, 0.287, 0, 0 };
-		player->SetTransitions({ 0, 15.5, 11.9+0.387, 105 }); //({ 0, 15.5, 11.9, 90 }); //{0, 15.5, 105}
-		player->setSpeedMultis({ 1/0.26, 1/0.387, 1/0.387, 1/0.69});
-		player->AddRythm({ 0.27666666 }, 0); //0.28
-		player->AddRythm({ 0.387 }, 1);
-		player->AddRythm({ 0.387, 0.387, 0.387, 0.387, 0.387, 0.387/2, 0.387/2, 0.387, 0.387, 0.387, 0.387/2, 0.387/2, 0.387/2, 
-			 0.387/4, 0.387/4,0.387 / 2,  0.387 / 2, 0.387 / 2, 0.387/2, 0.387/2, 0.387/2, 2*0.387 }, 2);
-		player->AddRythm({ 0.69 }, 3);
+		//player->rhythmDelayConstants = { 0, 0.287, 0, 0 };
+		//player->SetTransitions({ 0, 15.5, 105 }); //({ 0, 15.5, 11.9, 90 }); //{0, 15.5, 105}
+		//player->setSpeedMultis({ 1, 1, 1});
+		//player->AddRythm({ 0.27666666 }, 0); //0.28
+		//player->AddRythm({ 0.387 }, 1);
+		////player->AddRythm({ 0.387, 0.387, 0.387, 0.387, 0.387, 0.387/2, 0.387/2, 0.387, 0.387, 0.387, 0.387/2, 0.387/2, 0.387/2, 
+		////	 0.387/4, 0.387/4,0.387 / 2,  0.387 / 2, 0.387 / 2, 0.387/2, 0.387/2, 0.387/2, 2*0.387 }, 2);
+		//player->AddRythm({ 0.69 }, 2);
+		player->rhythmDelayConstants = { 0, 0, 0 };
+		player->SetTransitions({ 0, 15.5, 105 }); //105
+		player->setSpeedMultis({ 1, 1, 1 });
+		player->AddRythm({ 0.28 }, 0); //0.2
+		player->AddRythm({ 0.38 }, 1);
+		player->AddRythm({ 0.69 }, 2);
 	}
 	else if(levelIndex == 2) {
 		//VEE PART TWO
-		player->rhythmDelayConstant = 0.36;
-		player->rhythmDelayConstants = { 0.33, 0.438, 0.222, 0.23, 0.06, 0 };//0.1
-		player->SetTransitions({ 0, 45, 72.8-45, 86 - 72.8, 104 -86, 58}); //72.8
-		player->setSpeedMultis({ 1.2/0.46, 1.2/0.46, 1.2/0.23, 1.2 / 0.23, 1.2/0.46, 1.2/0.46 });
-		player->AddRythm({ 0.46154}, 0); //0.2
-		player->AddRythm({ 0.46154 }, 1);
-		player->AddRythm({ 0.23077 }, 2);
-		player->AddRythm({ 0.23077 }, 3);
-		player->AddRythm({ 0.46154 }, 4);
-		player->AddRythm({ 0.46154 }, 5);
-		player->AddTextInstruction(1, 72-1.2, 0.4, FString("X2 in"), 1.0, 3);
-		player->AddTextInstruction(1, 104 - 1.2-2, 0.4, FString("X0.5 in"), 1.0, 3);
+		//player->rhythmDelayConstant = 0.36;
+		//player->rhythmDelayConstants = { 0.33, 0.438, 0.222, 0.23, 0.06, 0 };//0.1
+		//player->SetTransitions({ 0, 45, 72.8-45, 86 - 72.8, 104 -86, 58}); //72.8
+		//player->setSpeedMultis({ 1.2/0.46, 1.2/0.46, 1.2/0.23, 1.2 / 0.23, 1.2/0.46, 1.2/0.46 });
+		//player->AddRythm({ 0.46154}, 0); //0.2
+		//player->AddRythm({ 0.46154 }, 1);
+		//player->AddRythm({ 0.23077 }, 2);
+		//player->AddRythm({ 0.23077 }, 3);
+		//player->AddRythm({ 0.46154 }, 4);
+		//player->AddRythm({ 0.46154 }, 5);
+		//player->AddTextInstruction(1, 72-1.2, 0.4, FString("X2 in"), 1.0, 3);
+		//player->AddTextInstruction(1, 104 - 1.2-2, 0.4, FString("X0.5 in"), 1.0, 3);
+		player->rhythmDelayConstants = { 0, 0, 0 , 0 };
+		player->SetTransitions({ 0, 72.8,104 - 72.8, 58 }); //72.8
+		player->setSpeedMultis({ 1.2, 1.2, 1.2, 1.2 });
+		player->AddRythm({ 0.46 }, 0); //0.2
+		player->AddRythm({ 0.23 }, 1);
+		player->AddRythm({ 0.46 }, 2);
+		player->AddRythm({ 0.46 }, 3);
+		player->AddTextInstruction(1, 72 - 1.2, 0.4, FString("X2 in"), 1.0, 3);
+		player->AddTextInstruction(1, 104 - 1.2 - 2, 0.4, FString("X0.5 in"), 1.0, 3);
 	}
 	else {
 		//MONO
@@ -117,13 +143,13 @@ void ABulletController::BeginPlay()
 void ABulletController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	clockTime += DeltaTime;
-	messageClockTime += DeltaTime;
+	clockTime += (DeltaTime*ABulletController::audioCoeff);
+	messageClockTime += (DeltaTime*ABulletController::audioCoeff);
 	//adjustedDeltaTime = DeltaTime;
 	std::list<ABasicBullet*>::iterator itr = activeBullets.begin();
 	while (itr != activeBullets.end()) {
 
-		(*itr)->UpdateMovement(DeltaTime);
+		(*itr)->UpdateMovement(DeltaTime*ABulletController::audioCoeff);
 		if ((((abs((*itr)->GetActorLocation().X) > 2250 || abs((*itr)->GetActorLocation().Z) > 1265) && (*itr)->time > 5) || (*itr)->flaggedForRemoval)) {
 			if (!(*itr)->Destroy()) {
 				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "COULDNT DESTROY BULLET");
@@ -415,15 +441,24 @@ void ABulletController::Tick(float DeltaTime)
 			else if (tutorialTime < 491 - 34+27*(tutFirstTime)) {
 
 				player->messages.clear();
-				player->rhythmDelayConstant = 0.39;
-				player->rhythmDelayConstants = { 0.37, 0.458, 0.252, 0, 0 };//0.1
-				player->SetTransitions({ 0, 45, 72.8 - 45,104 - 72.8, 58 }); //72.8
-				player->setSpeedMultis({ 1.2 / 0.46, 1.2 / 0.46, 1.2 / 0.23, 1.2 / 0.46, 1.2 / 0.46 });
-				player->AddRythm({ 0.46154 }, 0); //0.2
-				player->AddRythm({ 0.46154 }, 1);
-				player->AddRythm({ 0.23077 }, 2);
-				player->AddRythm({ 0.46154 }, 3);
-				player->AddRythm({ 0.46 }, 4);
+				//player->rhythmDelayConstant = 0.39;
+				//player->rhythmDelayConstants = { 0.37, 0.458, 0.252, 0, 0 };//0.1
+				//player->SetTransitions({ 0, 45, 72.8 - 45,104 - 72.8, 58 }); //72.8
+				//player->setSpeedMultis({ 1.2 , 1.2 , 1.2 , 1.2 / 0.46, 1.2 / 0.46 });
+				//player->AddRythm({ 0.46154 }, 0); //0.2
+				//player->AddRythm({ 0.46154 }, 1);
+				//player->AddRythm({ 0.23077 }, 2);
+				//player->AddRythm({ 0.46154 }, 3);
+				//player->AddRythm({ 0.46 }, 4);
+				//player->AddTextInstruction(1, 72 - 1.2, 0.4, FString("X2 in"), 1.0, 3);
+				//player->AddTextInstruction(1, 104 - 1.2 - 2, 0.4, FString("X0.5 in"), 1.0, 3);
+				player->rhythmDelayConstants = { 0, 0, 0 , 0 };
+				player->SetTransitions({ 0, 72.8,104 - 72.8, 58 }); //72.8
+				player->setSpeedMultis({ 1.2, 1.2, 1.2, 1.2 });
+				player->AddRythm({ 0.46 }, 0); //0.2
+				player->AddRythm({ 0.23 }, 1);
+				player->AddRythm({ 0.46 }, 2);
+				player->AddRythm({ 0.46 }, 3);
 				player->AddTextInstruction(1, 72 - 1.2, 0.4, FString("X2 in"), 1.0, 3);
 				player->AddTextInstruction(1, 104 - 1.2 - 2, 0.4, FString("X0.5 in"), 1.0, 3);
 
@@ -497,7 +532,7 @@ void ABulletController::Tick(float DeltaTime)
 				player->content = currentMessage.message;
 				player->FadeInText();
 			}
-			messageTime += DeltaTime;
+			messageTime += (DeltaTime*ABulletController::audioCoeff);
 			if (messageTime > currentMessage.duration) {
 				player->FadeOutText();
 				messageTime = 0;
@@ -529,7 +564,7 @@ void ABulletController::Tick(float DeltaTime)
 				messageTime = 0.001;
 				
 			}
-			messageTime += DeltaTime;
+			messageTime += (DeltaTime*ABulletController::audioCoeff);
 			if (messageCounter == currentMessage.count * 2 + 4) {
 				isDisplayMessage = false;
 				messageTime = 0;
@@ -537,7 +572,7 @@ void ABulletController::Tick(float DeltaTime)
 			}
 		}
 	}
-	border->UpdateMovement(DeltaTime);
+	border->UpdateMovement(DeltaTime*ABulletController::audioCoeff);
 	if (border->CheckForCollision(player->GetActorLocation())) {
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "OUTSIDE OF RANGE");
 		player->ResetEverything();
