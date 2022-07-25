@@ -37,24 +37,34 @@ public:
 	APlayerController* pController;
 	UAudioComponent* sound;
 	std::vector<float> clickTimes;
+	std::vector<float> allClickTimes;
 	on_screen_message currentMessage;
 	std::vector<on_screen_message> messages;
 	float prevTime;
 	bool collectionMode;
 	bool isDisplayMessage;
-	bool testCompleted;
 	int messageIndex;
 	int messageCounter;
 	float messageTime;
 	float messageClockTime;
-	float testClockTime;
+	//float testClockTime;
+	UFUNCTION(BlueprintCallable)
+		void SetLevelToTrueRhythm();
 
 	UFUNCTION(BlueprintImplementableEvent)
 		void FadeInText();
 	UFUNCTION(BlueprintImplementableEvent)
 		void FadeOutText();
+	UFUNCTION(BlueprintImplementableEvent)
+		void AddUI();
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		FString content;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		float testClockTime;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		float audioCoeff_BP;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		bool testCompleted;
 
 };

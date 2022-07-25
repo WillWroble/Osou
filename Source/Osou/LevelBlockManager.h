@@ -105,9 +105,13 @@ public:
 	//	TSubclassOf<UMySaveGame> MySaveGameClass;
 	UFUNCTION(BlueprintImplementableEvent)
 	void SetUIProperties();
+	UFUNCTION(BlueprintImplementableEvent)
+		void CheckForCalibration();
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		FText textOut;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		bool hasCalibrated;
 	
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)

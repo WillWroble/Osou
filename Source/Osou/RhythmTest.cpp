@@ -24,6 +24,9 @@ void ARhythmTest::BeginPlay()
 	prevTime = 0;
 	collectionMode = false;
 	pController = GetWorld()->GetFirstPlayerController();
+	pController->bShowMouseCursor = true;
+	pController->bEnableClickEvents = true;
+	pController->bEnableMouseOverEvents = true;
 	sound = (UAudioComponent*)(this->GetComponentsByTag(UAudioComponent::StaticClass(), "tag1"))[0];
 
 	BindToInput();
@@ -33,6 +36,8 @@ void ARhythmTest::BeginPlay()
 	AddTextInstruction(0, 9, 3, FString("in order to play you must complete a short rhythm test to calibrate the game to your device's audio playback"));
 	AddTextInstruction(1, 13, 1, FString("start clicking to the 120 bpm beat in: "), 1, 3);
 
+	allClickTimes.clear();
+	clickTimes.clear();
 
 
 }
@@ -66,17 +71,20 @@ void ARhythmTest::Tick(float DeltaTime)
 		else if (m / 0.5 > 1.05 || m / 0.5 < 0.95) {
 			//off beat
 			testClockTime = -15;
-			DisplayMessage(FString("your BPM is very different from the 120BPM playing either your speakers are way too fast/slow or you are off beat, try again"), 1, 1, 0);
+			DisplayMessage(FString("your BPM is very different from the 120BPM playing\n\n either your speakers are way too fast/slow or you are off beat, try again"), 1, 1, 0);
 			clickTimes.clear();
 		}
 		else {
 			//test completed
-
-			ABulletController::audioCoeff = 0.5/m;
-			DisplayMessage(FString("Test Completed successfully you can now begin the level"), 0, 3, 0);
+			allClickTimes.push_back(0.5/m);
+			ABulletController::audioCoeff = mean(allClickTimes);
+			clickTimes.clear();
+			DisplayMessage(FString("Test Completed successfully\n\nyou can now begin the level or continue calibrating for a more accurate reading (reccomended)"), 0, 10, 0);
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::SanitizeFloat(ABulletController::audioCoeff));
 			testClockTime = 0;
 			testCompleted = true;
+			audioCoeff_BP = ABulletController::audioCoeff;
+			AddUI();
 			
 		}
 	}
@@ -190,6 +198,10 @@ float ARhythmTest::stddev(std::vector<float> v)
 	for (int i = 0; i < v.size(); i++)
 		E += (v[i] - ave) * (v[i] - ave);
 	return sqrt(E/v.size());
+}
+void ARhythmTest::SetLevelToTrueRhythm()
+{
+	ABulletController::levelIndex = 3;
 }
 void ARhythmTest::BindToInput()
 {

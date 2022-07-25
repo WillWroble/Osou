@@ -603,6 +603,15 @@ void ABulletController::DisplayMessage(FString message, int type, float duration
 	currentMessage = temp;
 	isDisplayMessage = true;
 }
+void ABulletController::SetCalibration()
+{
+	audioCoeff = audioCoeff_BP;
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::SanitizeFloat(ABulletController::audioCoeff));
+}
+void ABulletController::SetLevelToTrueRhythm()
+{
+	levelIndex = 3;
+}
 /*
 testSpawner.AddTimes(UNtimes1);
 		std::vector<float> zero8 = { 0,0,0,0,0,0,0,0 };

@@ -57,6 +57,12 @@ public:
 	int spawnerCount;
 	BulletSpawner* spawner;
 	std::list<ABasicBullet*> activeBullets;
+	UFUNCTION(BlueprintCallable)
+		void SetCalibration();
+	UFUNCTION(BlueprintCallable)
+		void SetLevelToTrueRhythm();
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		float audioCoeff_BP;
 	UPROPERTY(EditDefaultsOnly, Category = "Parameters")
 		TSubclassOf<AActor> BulletClass;
 	UPROPERTY(EditDefaultsOnly, Category = "ExplodingBullet")

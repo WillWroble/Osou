@@ -19,6 +19,10 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		TArray<float> scores;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		float soundCoeff = 1;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		bool autoStartTutorial = true;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		bool hasCalibratedSound = false;
 	
 };

@@ -20,7 +20,7 @@ ALevelBlockManager::ALevelBlockManager()
 	}
 	levelDatas[0] = { 0,0, LOCTEXT("levelName0.1", "EnV Pack"), LOCTEXT("artistName0.1", "     Artwork by Le Juicer abc"), {8, 23,  9, 10}};
 	levelDatas[1] = { 0,0, LOCTEXT("levelName0.2", "Touhou Pack"), LOCTEXT("artistName0.2", "     Artwork by My Juicer 123"), {11, 12, 13, 14, 15, 16, 17, 18} };
-	levelDatas[7] = { 0,0, LOCTEXT("levelName0.8", "Avicii Pack"), LOCTEXT("artistName0.8", "     Artwork by XQCL abc123"), {19, 20, 21, 22} };
+	levelDatas[7] = { 0,0, LOCTEXT("levelName0.8", "True Rhythm (Experimental)"), LOCTEXT("artistName0.8", "     Artwork by XQCL abc123"), {19, 20, 21, 22} };
 	levelDatas[8] =	{ 1,1, LOCTEXT("levelName1.1", "Vee (Tutorial)"), LOCTEXT("artistName1.1", "     Artwork by EL GOBLINO ZZZXX"), {} };
 	levelDatas[9] = { 1,2, LOCTEXT("levelName1.2", "Streetlights (WIP)"), LOCTEXT("artistName1.2", "     lol"), {} };
 	levelDatas[10] = { 2,4, LOCTEXT("levelName1.3", "Enn (WIP)"), LOCTEXT("artistName1.3", "     Artwork by Pei (Sumurai)"), {} };
@@ -33,6 +33,8 @@ ALevelBlockManager::ALevelBlockManager()
 	levelDatas[17] = { 9,4, LOCTEXT("levelName2.7", "Necrofantasia (WIP)"), LOCTEXT("artistName2.7", "     lol"), {} };
 	levelDatas[18] = { 10,4, LOCTEXT("levelName2.8", "Flight of the Bamboo Cutter (WIP)"), LOCTEXT("artistName2.8", "     lol"), {} };
 	levelDatas[23] = { 10, 2, LOCTEXT("levelName1.4", "Vee (full level)"), LOCTEXT("artistName1.4", "     Artwork by Unknown Artist"), {} };
+	levelDatas[19] = { 10, 2, LOCTEXT("levelName8.1", "Simple Rhythm"), LOCTEXT("artistName8.1", "     Artwork by Unknown Artist"), {} };
+
 	positionDeltas = std::vector<float>(72, 0);
 
 }
@@ -80,6 +82,7 @@ void ALevelBlockManager::BeginPlay()
 		levelMap.push_back(-1);
 	}
 	levelMap[23] = 2;
+	levelMap[19] = 3;
 	APawn* evilPawn = pController->GetPawn();
 	if (evilPawn != nullptr) {
 		evilPawn->Destroy();
@@ -156,7 +159,10 @@ void ALevelBlockManager::Tick(float DeltaTime)
 						if (n == 2|| n == 1 || n == 0 || n == 3) {
 							ABulletController::levelIndex = n;
 							if (n == 3) {
-								UGameplayStatics::OpenLevel(this, FName("TrueRhythm"));
+								CheckForCalibration();
+								if (hasCalibrated) {
+									UGameplayStatics::OpenLevel(this, FName("TrueRhythm"));
+								}
 							}
 							else {
 								UGameplayStatics::OpenLevel(this, FName("Classic"));
@@ -837,5 +843,6 @@ USoundWave* ALevelBlockManager::getSound(int i)
 	}
 	return sound0;
 }
+
 #undef LOCTEXT_NAMESPACE
 
