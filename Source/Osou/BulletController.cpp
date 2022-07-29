@@ -91,6 +91,7 @@ void ABulletController::BeginPlay()
 		player->AddRythm({ 0.28 }, 0); //0.2
 		player->AddRythm({ 0.38 }, 1);
 		player->AddRythm({ 0.69 }, 2);
+		player->AddTextInstruction(1, 7.5, 1, FString("Beat Change in"), 1.0, 3);
 	}
 	else if(levelIndex == 2) {
 		//VEE PART TWO
@@ -116,15 +117,34 @@ void ABulletController::BeginPlay()
 		player->AddTextInstruction(1, 72 - 1.2, 0.4, FString("X2 in"), 1.0, 3);
 		player->AddTextInstruction(1, 104 - 1.2 - 2, 0.4, FString("X0.5 in"), 1.0, 3);
 	}
-	else {
-		//MONO
+	else if(levelIndex == 3){
+		//SIMPLE RHYTHM
 		player->rhythmDelayConstant = 0;
 		player->rhythmDelayConstants = { 0.0, 0.0 };
-		player->SetTransitions({0, 300 });
-		player->setSpeedMultis({ 2, 2 });
+		player->SetTransitions({0, 32 });
+		player->setSpeedMultis({ 3, 2.5 });
 		player->AddRythm({ 1.82, 2, 2, 1, 1, 1, 1, 0.5, 1.5, 0.5, 1.5, 0.5, 1, 0.25, 0.25, 0.5, 1, 0.25, 0.25, 0.5, 0.5, 0.5, 0.25, 0.25, 0.5, 0.5, 0.5, 0.25, 
 			0.25, 0.5, 0.5, 0.25, 0.25, 0.25, 
-			0.25, 0.5, 0.5, 0.25, 0.25, 0.25}, 0);
+			0.25, 0.5, 0.5, 0.25, 0.25, 0.25, 0.25,
+			0.25, 0.25, 0.5, 0.25, 0.25, 0.25, 0.25,
+			0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25,
+			0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 
+			0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25,
+			0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.16667, 0.16667, 0.16667,
+			0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.16667, 0.16667, 0.16667, 
+			0.25, 0.25, 0.125, 0.125, 0.125, 0.125, 0.25, 0.25, 0.16667, 0.16667, 0.16667, 
+			0.25, 0.25, 0.125, 0.125, 0.125, 0.125, 0.25, 0.25, 0.16667, 0.16667, 0.16667, 
+			0.25, 0.25, 0.125, 0.125, 0.125, 0.125, 0.125, 0.125, 0.125, 0.125, 0.16667, 0.16667, 0.16667, 
+			}, 0);
+		player->AddRythm({ 1 }, 1);
+	}
+	else {
+		//EVERY BATTLE
+		player->rhythmDelayConstant = 0;
+		player->rhythmDelayConstants = { 0.0, 0.0 };
+		player->SetTransitions({ 0, 32 });
+		player->setSpeedMultis({ 3, 2.5 });
+		player->AddRythm({ 1 }, 0);
 		player->AddRythm({ 1 }, 1);
 	}
 	spawner = &(LevelLibrary::allLevels[levelIndex][0]);

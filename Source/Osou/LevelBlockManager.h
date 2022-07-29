@@ -8,6 +8,7 @@
 #include "GameFramework/PlayerController.h"
 #include "LevelBox.h"
 #include "BulletController.h"
+#include "KillMe.h"
 #include "Engine/StaticMeshActor.h"
 #include "Components/AudioComponent.h"
 #include "PaperSpriteComponent.h"
@@ -150,6 +151,8 @@ public:
 		UTexture* tex13;
 	UPROPERTY(EditDefaultsOnly, Category = "tex14")
 		UTexture* tex14;
+	UPROPERTY(EditDefaultsOnly, Category = "tex15")
+		UTexture* tex15;
 
 
 
@@ -188,4 +191,6 @@ public:
 		USoundWave* sound15;
 	UPROPERTY(EditDefaultsOnly, Category = "sound16")
 		USoundWave* sound16;
+	UPROPERTY(EditDefaultsOnly, Category = "sound17")
+		USoundWave* sound17;
 };

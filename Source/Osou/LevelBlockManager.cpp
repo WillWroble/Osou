@@ -34,6 +34,8 @@ ALevelBlockManager::ALevelBlockManager()
 	levelDatas[18] = { 10,4, LOCTEXT("levelName2.8", "Flight of the Bamboo Cutter (WIP)"), LOCTEXT("artistName2.8", "     lol"), {} };
 	levelDatas[23] = { 10, 2, LOCTEXT("levelName1.4", "Vee (full level)"), LOCTEXT("artistName1.4", "     Artwork by Unknown Artist"), {} };
 	levelDatas[19] = { 10, 2, LOCTEXT("levelName8.1", "Simple Rhythm"), LOCTEXT("artistName8.1", "     Artwork by Unknown Artist"), {} };
+	levelDatas[20] = { 10, 2, LOCTEXT("levelName8.2", "Every Battle"), LOCTEXT("artistName8.2", "     Artwork by Unknown Artist"), {} };
+
 
 	positionDeltas = std::vector<float>(72, 0);
 
@@ -77,12 +79,13 @@ void ALevelBlockManager::BeginPlay()
 	UGameplayStatics::AsyncLoadGameFromSlot(FString("osou_save"), 0, LoadedDelegate);
 	
 	levelMap = { -1, -1, -1, -1, -1, -1, -1, -1,
-	0, -1, -1, 2, 1, 3, 4, 5, 6, 7, 8};
+	0, -1, -1, 2, 1, -1, 4, 5, 6, 7, 8};
 	for (int i = 0; i < 70; i++) {
 		levelMap.push_back(-1);
 	}
 	levelMap[23] = 2;
 	levelMap[19] = 3;
+	levelMap[20] = 4;
 	APawn* evilPawn = pController->GetPawn();
 	if (evilPawn != nullptr) {
 		evilPawn->Destroy();
@@ -156,15 +159,17 @@ void ALevelBlockManager::Tick(float DeltaTime)
 					//already selected (clicking again)
 					if (!boxInstances[i]->isCategory) {
 						int n = levelMap[i];
-						if (n == 2|| n == 1 || n == 0 || n == 3) {
+						if (n == 2|| n == 1 || n == 0 || n == 3 || n == 4) {
 							ABulletController::levelIndex = n;
-							if (n == 3) {
+							if (n == 3 || n == 4) {
 								CheckForCalibration();
 								if (hasCalibrated) {
+									AKillMe::is4HealthStatic = true;
 									UGameplayStatics::OpenLevel(this, FName("TrueRhythm"));
 								}
 							}
 							else {
+								AKillMe::is4HealthStatic = false;
 								UGameplayStatics::OpenLevel(this, FName("Classic"));
 							}
 							
@@ -789,6 +794,9 @@ UTexture* ALevelBlockManager::getBackround(int i)
 	else if (i == 23) {
 		return tex14;
 	}
+	else if (i == 20) {
+		return tex15;
+	}
 	else {
 
 	}
@@ -837,6 +845,9 @@ USoundWave* ALevelBlockManager::getSound(int i)
 	}
 	else if (i == 23) {
 		return sound14;
+	}
+	else if (i == 20) {
+		return sound17;
 	}
 	else {
 

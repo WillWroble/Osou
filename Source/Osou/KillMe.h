@@ -45,6 +45,7 @@ protected:
 	virtual void BeginPlay() override;
 
 public:	
+	static bool is4HealthStatic;
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 	virtual void AddRythm(std::vector<float> beat, int in);
@@ -138,6 +139,8 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		int PopupType;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		bool is4Health;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		float metronomeSpeed;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		UUserWidget* widget;
@@ -180,6 +183,8 @@ public:
 		USoundWave* song7;
 	UPROPERTY(EditDefaultsOnly, Category = "song8")
 		USoundWave* song8;
+	UPROPERTY(EditDefaultsOnly, Category = "song9")
+		USoundWave* song9;
 
 
 	//UPROPERTY(EditDefaultsOnly, Category = "WidgetParam")

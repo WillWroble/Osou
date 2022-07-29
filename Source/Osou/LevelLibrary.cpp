@@ -678,10 +678,33 @@ void LevelLibrary::BuildLevels()
 	levelThree[0].AddHorizontalWallOfSpawnPoints(4500, -2100, 1200, { -90 }, 300, 123+52, BulletType::BasicBullet, { 700, 1.4 });
 	levelThree[0].AddHorizontalWallOfSpawnPoints(4500, -2250, 1200, { -90 }, 300, 126+52, BulletType::BasicBullet, { 700, 1.4 });
 
+	levelThree[0].AddHorizontalWallOfSpawnPoints(4500, -2250, 1200, { -90 }, 300, 120 + 78, BulletType::BasicBullet, { 700, 1.4 });
+	levelThree[0].AddHorizontalWallOfSpawnPoints(4500, -2100, 1200, { -90 }, 300, 123 + 78, BulletType::BasicBullet, { 700, 1.4 });
+	levelThree[0].AddHorizontalWallOfSpawnPoints(4500, -2250, 1200, { -90 }, 300, 126 + 78, BulletType::BasicBullet, { 700, 1.4 });
+	levelThree[0].AddHorizontalWallOfSpawnPoints(4500, -2100, 1200, { -90 }, 600, 120 + 78, BulletType::BasicBullet, { 700, 1.4 });
+	levelThree[0].AddHorizontalWallOfSpawnPoints(4500, -2250, 1200, { -90 }, 600, 123 + 78, BulletType::BasicBullet, { 700, 1.4 });
+	levelThree[0].AddHorizontalWallOfSpawnPoints(4500, -2100, 1200, { -90 }, 600, 126 + 78, BulletType::BasicBullet, { 700, 1.4 });
+
+	levelThree[0].AddHorizontalWallOfSpawnPoints(4500, -2250, 1200, { -90 }, 300, 120 + 128, BulletType::BasicBullet, { 1050, 1.4 });
+	levelThree[0].AddHorizontalWallOfSpawnPoints(4500, -2400, 1200, { -90 }, 300, 122 + 128, BulletType::BasicBullet, { 1050, 1.4 });
+	levelThree[0].AddHorizontalWallOfSpawnPoints(4500, -2250, 1200, { -90 }, 300, 124 + 128, BulletType::BasicBullet, { 1050, 1.4 });
+	levelThree[0].AddHorizontalWallOfSpawnPoints(4500, -2400, 1200, { -90 }, 600, 120 + 128, BulletType::BasicBullet, { 1050, 1.4 });
+	levelThree[0].AddHorizontalWallOfSpawnPoints(4500, -2250, 1200, { -90 }, 600, 122 + 128, BulletType::BasicBullet, { 1050, 1.4 });
+	levelThree[0].AddHorizontalWallOfSpawnPoints(4500, -2400, 1200, { -90 }, 600, 124 + 128, BulletType::BasicBullet, { 1050, 1.4 });
+
 
 	levelThree[0].AddInstruction(4, 0, 0, 9999);
 	allLevels.push_back(levelThree);
 
+
+	std::vector<BulletSpawner> levelFour = std::vector<BulletSpawner>();
+	levelFour.push_back(BulletSpawner());
+
+
+	levelFour[0].AddRythm({ 0.1 }, 300, 1);
+
+	levelFour[0].AddInstruction(4, 0, 0, 9999);
+	allLevels.push_back(levelFour);
 
 }
 

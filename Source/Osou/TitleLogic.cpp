@@ -18,6 +18,7 @@ void ATitleLogic::BeginPlay()
 	pController = GetWorld()->GetFirstPlayerController();
 	pController->bShowMouseCursor = true;
 	pController->bEnableMouseOverEvents = true;
+	ABulletController::levelIndex = 0;
 
 	APawn* evilPawn = pController->GetPawn();
 	if (evilPawn != nullptr) {

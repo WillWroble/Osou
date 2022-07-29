@@ -41,7 +41,7 @@ ABulletController* bulletController;
 //bool hasStarted;
 //bool clicked;
 
-
+bool AKillMe::is4HealthStatic = false;
 // Sets default values
 AKillMe::AKillMe()
 {
@@ -77,6 +77,8 @@ AKillMe::AKillMe()
 	rhythmDelayConstant = 0;
 	successivePerfects = 0;
 	isTimeFrozen = false;
+	is4Health = is4HealthStatic;
+
 
 }
 
@@ -136,7 +138,7 @@ void AKillMe::BeginPlay()
 	isInvunerable = false;
 	currentLevel = 0;
 	rhythmBuffer = 2;
-	levelConversion = { 8, 12, 23, 13, 14, 15, 16, 17, 18 };
+	levelConversion = { 8, 12, 23, 19, 14, 15, 16, 17, 18 };
 	for (int i = 0; i < 70; i++) {
 		levelConversion.push_back(-1);
 	}
@@ -158,7 +160,7 @@ void AKillMe::BeginPlay()
 		sound->SetWaveParameter(FName("wave"), song4);
 	}
 	else if (li == 4) {
-		sound->SetWaveParameter(FName("wave"), song5);
+		sound->SetWaveParameter(FName("wave"), song9);
 	}
 	else if (li == 5) {
 		sound->SetWaveParameter(FName("wave"), song6);
@@ -251,16 +253,17 @@ void AKillMe::Tick(float DeltaTime)
 		trail->SetBeamTargetPoint(0, this->GetActorLocation(), 0);
 		trail->SetBeamSourcePoint(0, this->GetActorLocation(), 0);
 		//total++;
-		if (relativeTimeout < ((*currentBeat)[relativeIndex]+rhythmDelayConstant)-0.16 && hasStarted) {//&& hasStarted
+		if (relativeTimeout < ((*currentBeat)[relativeIndex]+rhythmDelayConstant)-0.08 && hasStarted) {//&& hasStarted
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "EARLY");
 			PopupType = 0;
 			OnSlightlyEarly();
 			if (rhythmBuffer == 0) {
-				Health -= (((*currentBeat)[relativeIndex]+rhythmDelayConstant) - relativeTimeout) * 4/1 * .5 *(2-Health);
+				//Health -= (((*currentBeat)[relativeIndex]+rhythmDelayConstant) - relativeTimeout) * 4/1 * .5 *(2-Health);
+				Health -= ((((*currentBeat)[relativeIndex]) - 0.08) + 0.08 - relativeTimeout) * 2;
 			}
 			successivePerfects = 0;
 			//ResetEverything();
-		} else if (relativeTimeout < ((*currentBeat)[relativeIndex]+rhythmDelayConstant) - 0.08) {
+		} else if (relativeTimeout < ((*currentBeat)[relativeIndex]+rhythmDelayConstant) - 0.05) {
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Orange, "A LITTLE EARLY");
 			PopupType = 1;
 			OnSlightlyEarly();
@@ -268,19 +271,26 @@ void AKillMe::Tick(float DeltaTime)
 				Health -= (((*currentBeat)[relativeIndex]+rhythmDelayConstant) - relativeTimeout) * 5/1 * 1 * (2 - Health);
 				Health += 0.15;
 			}*/
+			if (rhythmBuffer == 0) {
+				Health -= ((((*currentBeat)[relativeIndex]) - 0.08) + 0.08 - relativeTimeout) * 3;
+				Health += 0.15;
+			}
 			successivePerfects = 0;
 
-		} else if (relativeTimeout > 0.16 + ((*currentBeat)[relativeIndex]+rhythmDelayConstant)) {
+		} else if (relativeTimeout > 0.08 + ((*currentBeat)[relativeIndex]+rhythmDelayConstant)) {
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "LATE");
 			PopupType = 2;
 			OnSlightlyEarly();
-			if (rhythmBuffer == 0) {
+			/*if (rhythmBuffer == 0) {
 				Health -= (relativeTimeout - ((*currentBeat)[relativeIndex]+rhythmDelayConstant)) * 4/1 * .5 * (2 - Health);
+			}*/
+			if (rhythmBuffer == 0) {
+				Health -= (relativeTimeout - (((*currentBeat)[relativeIndex]) - 0.08) - 0.08) * 2;
 			}
 			//ResetEverything();
 			successivePerfects = 0;
 
-		} else if (relativeTimeout > ((*currentBeat)[relativeIndex]+rhythmDelayConstant) + 0.08) {
+		} else if (relativeTimeout > ((*currentBeat)[relativeIndex]+rhythmDelayConstant) + 0.05) {
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Orange, "A LITTLE LATE");
 			PopupType = 3;
 			OnSlightlyEarly();
@@ -288,12 +298,18 @@ void AKillMe::Tick(float DeltaTime)
 				Health -= (relativeTimeout - ((*currentBeat)[relativeIndex]+rhythmDelayConstant)) * 5/1 * 1 * (2 - Health);
 				Health += 0.15;
 			}*/
+			if (rhythmBuffer == 0) {
+				Health -= (relativeTimeout - (((*currentBeat)[relativeIndex]) - 0.08) - 0.08) * 3;
+				Health += 0.15;
+			}
 			successivePerfects = 0;
 
 		} else {
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, "PERFECT!");
 			
-			Health += 0.1f*successivePerfects;
+			//Health += 0.1f*successivePerfects;
+			
+			Health += 0.3;
 			if (Health > 1) {
 				Health = 1;
 			}
@@ -310,8 +326,8 @@ void AKillMe::Tick(float DeltaTime)
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "BAD RYTHM");
 			if (ABulletController::levelIndex != 0) {
 				wasClicked = true;
-				//ResetEverything();
-				//return;
+				ResetEverything();
+				return;
 			}
 		}
 
@@ -558,7 +574,7 @@ void AKillMe::OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AA
 		UpdateHealthBar();
 		hScore++;
 		tutHScore++;
-		if (hScore > 7) {
+		if (hScore > 7 || (hScore > 3 && is4Health)) {
 			if (ABulletController::levelIndex != 0) {
 				ResetEverything();
 			}

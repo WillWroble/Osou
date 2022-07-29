@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "BulletController.h"
 #include "TitleLogic.generated.h"
 
 UCLASS()
