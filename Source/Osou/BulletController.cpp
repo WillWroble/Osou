@@ -219,6 +219,9 @@ void ABulletController::Tick(float DeltaTime)
 				else if (tempBType == BulletType::CurvedBulletReg) {
 					tempClass = CurvedBulletReg;
 				}
+				else if (tempBType == BulletType::CurvedGrowingBullet) {
+					tempClass = CurvedGrowingBullet;
+				}
 				activeBullets.push_back(GetWorld()->SpawnActor<ABasicBullet>(tempClass,
 					pos,
 					FRotator(angle + spawner->spawnTable[index].spawnMap[i].angles[j], 0, 0)));

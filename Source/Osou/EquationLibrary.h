@@ -16,10 +16,15 @@ public:
 	static float bxcurve1(float t);
 	static float bycurve1(float t);
 	static float bacurve1(float t);
-
+	//shifting
 	static float bxcurve2(float t) { return 1; }
 	static float bycurve2(float t) { return 1; }
 	static float bacurve2(float t) { return 0; }
+	//slowing
+	static float bxcurve3(float t) { return powf(1.0f/(t+1), 1); }
+	static float bycurve3(float t) { return 0; }
+	static float bacurve3(float t) { return 0; }
+
 
 	static float xDelta(float i, float t);
 	static float yDelta(float i, float t);

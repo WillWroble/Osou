@@ -73,5 +73,7 @@ public:
 		TSubclassOf<AActor> HexBullet;
 	UPROPERTY(EditDefaultsOnly, Category = "CurvedBullet_Reg")
 		TSubclassOf<AActor> CurvedBulletReg;
+	UPROPERTY(EditDefaultsOnly, Category = "CurvedGrowingBullet")
+		TSubclassOf<AActor> CurvedGrowingBullet;
 
 };

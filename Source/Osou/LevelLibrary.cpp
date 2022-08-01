@@ -8,6 +8,7 @@ void LevelLibrary::BuildLevels()
 {
 	//ANGEL SETS
 	std::vector<float> A1 = { 0, 22.5, 45, 67.5, 90, 112.5, 135, 157.5, 180, 202.5, 225, 247.5, 270, 292.5, 315, 337.5 };
+	std::vector<float> A1_2 = std::vector<float>(16);
 	std::vector<float> B1 = { 0, 10, 20, 30, 40, 50, 60, 70, 80, 90 };
 	std::vector<float> B2 = std::vector<float>(10);
 	std::vector<float> B3 = std::vector<float>(10);
@@ -15,6 +16,36 @@ void LevelLibrary::BuildLevels()
 	std::vector<float> C1 = { 0, 45, 90, 135, 180, 225, 270, 315};
 	std::vector<float> C2 = { -10, 35, 80, 125, 170, 215, 260, 305 };
 	std::vector<float> C3 = { 10, 55, 100, 145, 190, 235, 280, 325 };
+	std::vector<float> D1 = { 0, 10, 20, 30 ,40, 50, 60, 70, 80, 90,100, 110,120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240, 250, 260, 270, 280, 290, 300, 310, 320, 330, 340, 350 };
+	std::vector<float> D2 = std::vector<float>(36);
+	std::vector<float> E1 = { 0, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 156, 168, 180, 192, 204, 216, 228, 240, 252, 264, 276, 288, 300, 312, 324, 336, 348 };
+	std::vector<float> E2 = std::vector<float>(30);
+	std::vector<float> F1 = std::vector<float>(24);
+	std::vector<float> F2 = std::vector<float>(24);
+	std::vector<float> G1 = std::vector<float>(20);
+	std::vector<float> G2 = std::vector<float>(20);
+
+	float fCount = 0;
+	for (int i = 0; i < 24; i++) {
+		F1[i] = fCount;
+		F2[i] = fCount + 7.5;
+		fCount += 15;
+	}
+	fCount = 0;
+	for (int i = 0; i < 20; i++) {
+		G1[i] = fCount;
+		G2[i] = fCount + 9;
+		fCount += 18;
+	}
+	for (int i = 0; i < 30; i++) {
+		E2[i] = E1[i] + 6;
+	}
+	for (int i = 0; i < 36; i++) {
+		D2[i] = D1[i] + 5;
+	}
+	for (int i = 0; i < 16; i++) {
+		A1_2[i] = A1[i] + 11.25;
+	}
 	for (int i = 0; i < 10; i++) {
 		B2[i] = B1[i] + 90;
 		B3[i] = B1[i] + 180;
@@ -701,7 +732,11 @@ void LevelLibrary::BuildLevels()
 	levelFour.push_back(BulletSpawner());
 
 
-	levelFour[0].AddRythm({ 0.1 }, 300, 1);
+	levelFour[0].AddRythm({ 1.09091*3-(0.2727*2), 0.5455+(0.2727/2), 0.5455+(0.2727/2) }, 5, -0.8);
+	levelFour[0].AddSpawnPoints(0, 0, A1, 3, 0, BulletType::CurvedGrowingBullet, { 700, 1,2,1,1,1 });
+	levelFour[0].AddSpawnPoints(0, 0, A1_2, 3, 1+6, BulletType::CurvedGrowingBullet, { 700, 1,2,1,1,1 });
+	levelFour[0].AddSpawnPoints(0, 0, A1, 3, 2+12, BulletType::CurvedGrowingBullet, { 700, 1,2,1,1,1 });
+
 
 	levelFour[0].AddInstruction(4, 0, 0, 9999);
 	allLevels.push_back(levelFour);
