@@ -141,11 +141,15 @@ void ABulletController::BeginPlay()
 	else {
 		//EVERY BATTLE
 		player->rhythmDelayConstant = 0;
-		player->rhythmDelayConstants = { 0.0, 0.0 };
-		player->SetTransitions({ 0, 32 });
-		player->setSpeedMultis({ 3, 2.5 });
-		player->AddRythm({ 1 }, 0);
-		player->AddRythm({ 1 }, 1);
+		player->rhythmDelayConstants = { 0.0, 0.0, 0.0 };
+		player->SetTransitions({ 0, 26, 17 });
+		player->setSpeedMultis({ 3, 2.5, 2.5 });
+		player->AddRythm({ 1.091, 1.091, 1.091, 1.091, 1.091, 1.091, 2.182, 1.091*0.75, 0.2727, .5455, .5455, .89, 0.2727, 0.2727, 0.2727, 
+			.5455, .83, 0.2727, .5455, .2727, 0.2727, 0.86, 0.2727, .2727, 0.2727, 
+			.5455, 1.091, 0.2727, 0.2727, .5455, 0.2727, 0.2727, 0.2727, 0.2727, 
+			.84, 0.2727, 1.091, 0.2727, 0.2727, 0.5455, 2.182}, 0);
+		player->AddRythm({ 0.5455 }, 1);
+		player->AddRythm({ 1 }, 2);
 	}
 	spawner = &(LevelLibrary::allLevels[levelIndex][0]);
 	player->speed = player->baseSpeed;// / player->beats[0][0];

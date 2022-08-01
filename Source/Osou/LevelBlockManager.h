@@ -90,9 +90,14 @@ public:
 	int audioPtr2;
 	int activeBoxes;
 	int orderShift;
+	int upShift;
+	int downShift;
 	bool forwardPolarity;
 	bool isFadeToTwo;
 	bool isCollapsing;
+	bool wtf;
+	bool normalUp;
+	bool normalDown;
 
 	float timer;
 	float timer2;

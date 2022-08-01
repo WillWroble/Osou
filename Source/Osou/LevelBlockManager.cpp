@@ -4,7 +4,7 @@
 #include "LevelBlockManager.h"
 
 #define LOCTEXT_NAMESPACE "LevelNames"
-std::vector<LevelData> ALevelBlockManager::levelDatas = std::vector <LevelData>(72);
+std::vector<LevelData> ALevelBlockManager::levelDatas = std::vector <LevelData>(73);
 // Sets default values
 ALevelBlockManager::ALevelBlockManager()
 {
@@ -13,8 +13,8 @@ ALevelBlockManager::ALevelBlockManager()
 	timer = 0;
 	timer2 = 0;
 	scrollTarget = FVector(0, 0, 0);
-	//levelDatas = std::vector <LevelData>(72);
-	for (int i = 0; i < 72; i++) {
+	//levelDatas = std::vector <LevelData>(73);
+	for (int i = 0; i < 73; i++) {
 		//set default values
 		levelDatas[i] = { -1,0, LOCTEXT("DefaultLevelName", "LEVEL NOT CREATED YET"), {}};
 	}
@@ -34,10 +34,10 @@ ALevelBlockManager::ALevelBlockManager()
 	levelDatas[18] = { 10,4, LOCTEXT("levelName2.8", "Flight of the Bamboo Cutter (WIP)"), LOCTEXT("artistName2.8", "     lol"), {} };
 	levelDatas[23] = { 10, 2, LOCTEXT("levelName1.4", "Vee (full level)"), LOCTEXT("artistName1.4", "     Artwork by Unknown Artist"), {} };
 	levelDatas[19] = { 10, 2, LOCTEXT("levelName8.1", "Simple Rhythm"), LOCTEXT("artistName8.1", "     Artwork by Unknown Artist"), {} };
-	levelDatas[20] = { 10, 2, LOCTEXT("levelName8.2", "Every Battle"), LOCTEXT("artistName8.2", "     Artwork by Unknown Artist"), {} };
+	levelDatas[20] = { 10, 2, LOCTEXT("levelName8.2", "Every Battle (PREVIEW)"), LOCTEXT("artistName8.2", "     Artwork by Unknown Artist"), {} };
 
 
-	positionDeltas = std::vector<float>(72, 0);
+	positionDeltas = std::vector<float>(73, 0);
 
 }
 
@@ -63,9 +63,14 @@ void ALevelBlockManager::BeginPlay()
 	pController->bEnableMouseOverEvents = true;
 	forwardPolarity = false;
 	isFadeToTwo = true;
+	wtf = true;
+	normalUp = true;
+	normalDown = true;
 	lastTex = 0;
 	scrollForce = 0;
 	orderShift = 0;
+	upShift = 0;
+	downShift = 0;
 	activeBoxes = 8;
 	wormhole = -1270;
 	isCollapsing = false;
@@ -432,7 +437,7 @@ void ALevelBlockManager::Tick(float DeltaTime)
 		//	float deltaZ = boxInstances[i]->GetActorLocation().Z + 2380+ (360 * (activeBoxes - 8));
 		//	if (deltaZ <= 0) {
 		//		//bottom to top
-		//		//boxInstances[i]->SetActorLocation(FVector(posX, 1, 3190));
+		//		//boxInstances[i]->SetActorLocation(FVector(posX, 1, 2690));
 		//		if (boxInstances[i] == bottomBox) {
 		//			boxInstances[i]->AddActorLocalOffset(FVector(0, 0, 2380 * 2 + (360 * (activeBoxes - 8))));
 		//			boxInstances[i]->startPosition.Z += 2380 * 2 + (360 * (activeBoxes - 8));
@@ -447,14 +452,14 @@ void ALevelBlockManager::Tick(float DeltaTime)
 		//			
 		//		}
 		//		//tempBottom = findByOrder(70);
-		//		orderShift = 72 - boxInstances[i]->order_;
+		//		orderShift = 73 - boxInstances[i]->order_;
 		//		tempBottom = findLowest();
 		//		//boxInstances[i]->startPosition.Z += 2380* 2 + (360 * (activeBoxes - 8));
 		//	}
 		//	deltaZ = boxInstances[i]->GetActorLocation().Z - 2380 ;
 		//	if (deltaZ >= 0) {
 		//		//top to bottom
-		//		//boxInstances[i]->SetActorLocation(FVector(posX, 1, -3190 - (360 * (activeBoxes - 8))));
+		//		//boxInstances[i]->SetActorLocation(FVector(posX, 1, -2690 - (360 * (activeBoxes - 8))));
 		//		if (boxInstances[i] == topBox) {
 		//			boxInstances[i]->AddActorLocalOffset(FVector(0, 0, -2380 * 2) - (360 * (activeBoxes - 8)));
 		//			boxInstances[i]->startPosition.Z -= 2380 * 2 + (360 * (activeBoxes - 8));
@@ -467,7 +472,7 @@ void ALevelBlockManager::Tick(float DeltaTime)
 		//			
 		//		}
 		//		//tempTop = findByOrder(1);
-		//		orderShift = 71 - boxInstances[i]->order_;
+		//		orderShift = 72 - boxInstances[i]->order_;
 		//		tempTop = findByOrder(0);
 		//		//boxInstances[i]->startPosition.Z -= 2380* 2 + (360 * (activeBoxes - 8));
 		//	}
@@ -482,11 +487,11 @@ void ALevelBlockManager::Tick(float DeltaTime)
 		//UKismetSystemLibrary::MoveComponentTo(this->RootComponent, (boxInstances[i]->startPosition + scrollTarget), FRotator(0), true, true, 1, true, EMoveComponentAction::Move, LatentInfo);
 		//scrollTarget += FVector(0, 0, 1) * 2 * roundf(positionDeltas[i] / 2);
 		/*FVector v = FMath::VInterpTo(GetActorLocation(), 
-			FVector(15000, 10, (fmod((boxInstances[i]->startPosition.Z + scrollTarget.Z)+3190, 3190*2)-3190) * 10), 
+			FVector(15000, 10, (fmod((boxInstances[i]->startPosition.Z + scrollTarget.Z)+2690, 2690*2)-2690) * 10), 
 			DeltaTime, 6);*/
 		//FVector v = FMath::VInterpTo(GetActorLocation(),(boxInstances[i]->startPosition + scrollTarget) * 10, DeltaTime, 6);
 		//boxInstances[i]->SetActorLocation(FVector(2*roundf(v.X/2), 1, 2*roundf(v.Z/2)));
-		//v.Z = fmod(v.Z+3190, 2 * 3190)-3190;
+		//v.Z = fmod(v.Z+2690, 2 * 2690)-2690;
 		//boxInstances[i]->SetActorLocation(v);
 		//boxInstances[i]->SetActorLocation(boxInstances[i]->startPosition);
 		positionDeltas[i] = 0;
@@ -496,23 +501,68 @@ void ALevelBlockManager::Tick(float DeltaTime)
 
 		if (boxInstances[i]->isActive && !isCollapsing) {
 			float posX = boxInstances[i]->GetActorLocation().X;
-			float deltaZ = boxInstances[i]->GetActorLocation().Z + 3190 + (360 * (activeBoxes - 8));
+			float deltaZ = boxInstances[i]->GetActorLocation().Z + 2690 + (360 * (activeBoxes - 8));
 			if (deltaZ <= 0) {
-				//boxInstances[i]->SetActorLocation(FVector(posX, 1, 3190+ deltaZ));
-				boxInstances[i]->AddActorLocalOffset(FVector(0, 0, 3190 * 2+ (360 * (activeBoxes - 8))));
-				orderShift = 72-boxInstances[i]->order_;
+				//boxInstances[i]->SetActorLocation(FVector(posX, 1, 2690+ deltaZ));
+				boxInstances[i]->AddActorLocalOffset(FVector(0, 0, 2690 * 2+ (360 * (activeBoxes - 8))));
+				//upShift = 73-boxInstances[i]->order_;
+				//orderShift = upShift - downShift;
+				if (!normalDown && false) {
+					
+					//normalUp = false;
+					orderShift = 0 + boxInstances[i]->order_;
+					boxInstances[i]->hasGoneThroughPortal = false;
+					downShift--;
+				}
+				else {
+					normalUp = false;
+					orderShift = 73 - boxInstances[i]->order_;
+					boxInstances[i]->hasGoneThroughPortal = true;
+					upShift++;
+					if (upShift == activeBoxes) {
+						upShift = 0;
+					}
+				}
+				if (orderShift % 73 == 0) {
+					GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "RESET");
+					normalDown = true;
+					normalUp = true;
+				}
 				//boxInstances[i]->splitDistance = true;
-				//boxInstances[i]->interpTime = -1;//FVector::Dist(boxInstances[i]->GetActorLocation()+FVector(0, 0, 3190 * 2 + (360 * (activeBoxes - 8))), FVector(6500, 0, 0));
-				//boxInstances[i]->startPosition.Z += 3190*2 + (360 * (activeBoxes - 8));
+				//boxInstances[i]->interpTime = -1;//FVector::Dist(boxInstances[i]->GetActorLocation()+FVector(0, 0, 2690 * 2 + (360 * (activeBoxes - 8))), FVector(6500, 0, 0));
+				//boxInstances[i]->startPosition.Z += 2690*2 + (360 * (activeBoxes - 8));
 			}
-			deltaZ = boxInstances[i]->GetActorLocation().Z - 3190;
+			deltaZ = boxInstances[i]->GetActorLocation().Z - 2690;
 			if (deltaZ >= 0) {
-				//boxInstances[i]->SetActorLocation(FVector(posX, 1, -3190 - (360 * (activeBoxes - 8)) + deltaZ));
-				boxInstances[i]->AddActorLocalOffset(FVector(0, 0, -3190 * 2-(360 * (activeBoxes - 8))));
-				orderShift = 71-boxInstances[i]->order_;
+				//boxInstances[i]->SetActorLocation(FVector(posX, 1, -2690 - (360 * (activeBoxes - 8)) + deltaZ));
+				boxInstances[i]->AddActorLocalOffset(FVector(0, 0, -2690 * 2-(360 * (activeBoxes - 8))));
+				//orderShift = 72-boxInstances[i]->order_;
+				if (!normalUp && false) {
+
+					//normalDown = false;
+					orderShift = 1 + boxInstances[i]->order_;
+					boxInstances[i]->hasGoneThroughPortal = false;
+					upShift--;
+				}
+				else {
+					normalDown = false;
+					orderShift = 72 - boxInstances[i]->order_;
+					boxInstances[i]->hasGoneThroughPortal = true;
+					downShift++;
+					if (downShift == activeBoxes) {
+						downShift = 0;
+					}
+				}
+				if (orderShift % 73 == 0) {
+					GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "RESET");
+					normalDown = true;
+					normalUp = true;
+				}
+				//orderShift = (upShift - downShift) + 73;
+				
 				//boxInstances[i]->splitDistance = true;
-				//boxInstances[i]->interpTime = -1;//FVector::Dist(boxInstances[i]->GetActorLocation()+ FVector(0, 0, -3190 * 2 - (360 * (activeBoxes - 8))), FVector(6500, 0, 0));
-				//boxInstances[i]->startPosition.Z -= 3190*2 + (360 * (activeBoxes - 8));
+				//boxInstances[i]->interpTime = -1;//FVector::Dist(boxInstances[i]->GetActorLocation()+ FVector(0, 0, -2690 * 2 - (360 * (activeBoxes - 8))), FVector(6500, 0, 0));
+				//boxInstances[i]->startPosition.Z -= 2690*2 + (360 * (activeBoxes - 8));
 			}
 		}
 		boxInstances[i]->dTime = DeltaTime;
@@ -601,9 +651,9 @@ void ALevelBlockManager::FinishedLoadingLevels(const FString& SlotName, const in
 	}
 	float posX = 3000;
 	float posY = 800;
-	boxInstances = std::vector<ALevelBox*>(72);
+	boxInstances = std::vector<ALevelBox*>(73);
 	for (int i = 0; i < levelDatas.size(); i++) {
-		if (i < 8) {
+		if (i < 8 || i == 72) {
 			ALevelBox* tempBox = GetWorld()->SpawnActor<ALevelBox>(LevelBlockClass,
 				FVector(posX, 1, posY), //- (12.5*((2*(((int)abs(posY/360))%2))-1)
 				FRotator(0));
@@ -626,7 +676,10 @@ void ALevelBlockManager::FinishedLoadingLevels(const FString& SlotName, const in
 			//tempBox->SetActorScale3D(FVector(0.7*1.70666666667, 0.7*1.70666666667, 0.7*1.70666666667));
 			tempBox->SetActorScale3D(FVector(1, 1, 1));
 			tempBox->ManualBegin();
-			
+			if (i == 72) {
+				tempBox->SetHidden(true);
+				tempBox->SetActorEnableCollision(false);
+			}
 		}
 		else {
 			ALevelBox* tempBox = GetWorld()->SpawnActor<ALevelBox>(LevelBlockClass,
@@ -688,6 +741,7 @@ void ALevelBlockManager::FinishedLoadingLevels(const FString& SlotName, const in
 			orderCount++;
 		}
 	}
+	boxInstances[72]->order_ = 72;
 }
 void ALevelBlockManager::ScrollDown()
 {
@@ -720,14 +774,14 @@ void ALevelBlockManager::ScrollUp()
 }
 int ALevelBlockManager::Shifted(int n)
 {
-	return (n + orderShift) % 72;
+	return (n + orderShift) % 73;
 }
 ALevelBox* ALevelBlockManager::findByOrder(int n)
 {
 	if (boxInstances.empty()) {
 		return nullptr;
 	}
-	for (int i = 0; i < 72; i++) {
+	for (int i = 0; i < 73; i++) {
 		if (Shifted(boxInstances[i]->order_) == n) {
 			return boxInstances[i];
 		}
@@ -741,7 +795,7 @@ ALevelBox* ALevelBlockManager::findLowest()
 	if (boxInstances.empty()) {
 		return nullptr;
 	}
-	for (int i = 0; i < 72; i++) {
+	for (int i = 0; i < 73; i++) {
 		if (Shifted(boxInstances[i]->order_) > largest && boxInstances[i]->isActive) {
 			largest = Shifted(boxInstances[i]->order_);
 			index = i;

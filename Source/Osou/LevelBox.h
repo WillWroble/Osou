@@ -35,6 +35,9 @@ public:
 	bool isActive;
 	bool isCategory;
 	bool isPreExpanded;
+	bool hasGoneThroughBottomPortal;
+	bool hasGoneThroughTopPortal;
+	bool hasGoneThroughPortal;
 	FVector startPosition;
 	int adjustedOrder();
 	UFUNCTION(BlueprintImplementableEvent)

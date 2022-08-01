@@ -253,7 +253,7 @@ void AKillMe::Tick(float DeltaTime)
 		trail->SetBeamTargetPoint(0, this->GetActorLocation(), 0);
 		trail->SetBeamSourcePoint(0, this->GetActorLocation(), 0);
 		//total++;
-		if (relativeTimeout < ((*currentBeat)[relativeIndex]+rhythmDelayConstant)-0.08 && hasStarted) {//&& hasStarted
+		if (relativeTimeout < ((*currentBeat)[relativeIndex]+rhythmDelayConstant)-0.12 && hasStarted) {//&& hasStarted
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "EARLY");
 			PopupType = 0;
 			OnSlightlyEarly();
@@ -263,7 +263,7 @@ void AKillMe::Tick(float DeltaTime)
 			}
 			successivePerfects = 0;
 			//ResetEverything();
-		} else if (relativeTimeout < ((*currentBeat)[relativeIndex]+rhythmDelayConstant) - 0.05) {
+		} else if (relativeTimeout < ((*currentBeat)[relativeIndex]+rhythmDelayConstant) - 0.07) {
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Orange, "A LITTLE EARLY");
 			PopupType = 1;
 			OnSlightlyEarly();
@@ -277,7 +277,7 @@ void AKillMe::Tick(float DeltaTime)
 			}
 			successivePerfects = 0;
 
-		} else if (relativeTimeout > 0.08 + ((*currentBeat)[relativeIndex]+rhythmDelayConstant)) {
+		} else if (relativeTimeout > 0.12 + ((*currentBeat)[relativeIndex]+rhythmDelayConstant)) {
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "LATE");
 			PopupType = 2;
 			OnSlightlyEarly();
@@ -290,7 +290,7 @@ void AKillMe::Tick(float DeltaTime)
 			//ResetEverything();
 			successivePerfects = 0;
 
-		} else if (relativeTimeout > ((*currentBeat)[relativeIndex]+rhythmDelayConstant) + 0.05) {
+		} else if (relativeTimeout > ((*currentBeat)[relativeIndex]+rhythmDelayConstant) + 0.07) {
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Orange, "A LITTLE LATE");
 			PopupType = 3;
 			OnSlightlyEarly();
