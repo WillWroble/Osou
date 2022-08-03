@@ -24,6 +24,10 @@ public:
 	static float bxcurve3(float t) { return powf(1.0f/(t+1), 1); }
 	static float bycurve3(float t) { return 0; }
 	static float bacurve3(float t) { return 0; }
+	//dampended slowing
+	static float bxcurve4(float t) { return powf(1.0f / (t + 1), 0.5); }
+	static float bycurve4(float t) { return 0; }
+	static float bacurve4(float t) { return 0; }
 
 
 	static float xDelta(float i, float t);

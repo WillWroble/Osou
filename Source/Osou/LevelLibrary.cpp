@@ -732,10 +732,22 @@ void LevelLibrary::BuildLevels()
 	levelFour.push_back(BulletSpawner());
 
 
-	levelFour[0].AddRythm({ 1.09091*3-(0.2727*2), 0.5455+(0.2727/2), 0.5455+(0.2727/2) }, 5, -0.8);
+	levelFour[0].AddRythm({ 1.09091*3-(0.2727*2), 0.5455+(0.2727/2), 0.5455+(0.2727/2) }, 6, -0.8);
 	levelFour[0].AddSpawnPoints(0, 0, A1, 3, 0, BulletType::CurvedGrowingBullet, { 700, 1,2,1,1,1 });
 	levelFour[0].AddSpawnPoints(0, 0, A1_2, 3, 1+6, BulletType::CurvedGrowingBullet, { 700, 1,2,1,1,1 });
 	levelFour[0].AddSpawnPoints(0, 0, A1, 3, 2+12, BulletType::CurvedGrowingBullet, { 700, 1,2,1,1,1 });
+	
+	levelFour[0].ClearSlot(17);
+	levelFour[0].ClearSlot(16);
+
+	levelFour.push_back(BulletSpawner());
+	levelFour[1].AddRythm({ 2*0.5455*0.85 }, 99, 0);
+	levelFour[1].AddLayersOfHorizontalSpawnPoints(4500, -2250, 1200, { -90 }, 500*0.85, 2, 0, BulletType::BasicBullet, { 400, 1.7 });
+	levelFour[1].AddLayersOfHorizontalSpawnPoints(4500, -2250+(250*0.85), 1200, { -90 }, 500*0.85, 2, 1, BulletType::BasicBullet, { 400, 1.7 });
+
+	levelFour[1].AddCorners({22.5, 45, 67.5}, 16, 10, BulletType::CurvedGrowingBullet, { 1050, 0.5, 3, 1, 1, 1 });
+
+
 
 
 	levelFour[0].AddInstruction(4, 0, 0, 9999);
