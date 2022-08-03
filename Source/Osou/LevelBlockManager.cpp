@@ -18,20 +18,20 @@ ALevelBlockManager::ALevelBlockManager()
 		//set default values
 		levelDatas[i] = { -1,0, LOCTEXT("DefaultLevelName", "LEVEL NOT CREATED YET"), {}};
 	}
-	levelDatas[0] = { 0,0, LOCTEXT("levelName0.1", "EnV Pack"), LOCTEXT("artistName0.1", "     Artwork by Le Juicer abc"), {8, 23,  9, 10}};
-	levelDatas[1] = { 0,0, LOCTEXT("levelName0.2", "Touhou Pack"), LOCTEXT("artistName0.2", "     Artwork by My Juicer 123"), {11, 12, 13, 14, 15, 16, 17, 18} };
-	levelDatas[7] = { 0,0, LOCTEXT("levelName0.8", "True Rhythm (Experimental)"), LOCTEXT("artistName0.8", "     Artwork by XQCL abc123"), {19, 20, 21, 22} };
-	levelDatas[8] =	{ 1,1, LOCTEXT("levelName1.1", "Vee (Tutorial)"), LOCTEXT("artistName1.1", "     Artwork by EL GOBLINO ZZZXX"), {} };
-	levelDatas[9] = { 1,2, LOCTEXT("levelName1.2", "Streetlights (WIP)"), LOCTEXT("artistName1.2", "     lol"), {} };
+	levelDatas[0] = { 0,0, LOCTEXT("levelName0.1", "EnV Pack"), LOCTEXT("artistName0.1", "     Artwork by TODO"), {8, 23,  9, 10}};
+	levelDatas[1] = { 0,0, LOCTEXT("levelName0.2", "Touhou Pack"), LOCTEXT("artistName0.2", "     Artwork by TODO"), {11, 12, 13, 14, 15, 16, 17, 18} };
+	levelDatas[7] = { 0,0, LOCTEXT("levelName0.8", "True Rhythm (Experimental)"), LOCTEXT("artistName0.8", "     Artwork by TODO"), {19, 20, 21, 22} };
+	levelDatas[8] =	{ 1,1, LOCTEXT("levelName1.1", "Vee (Tutorial)"), LOCTEXT("artistName1.1", "     Artwork by TODO"), {} };
+	levelDatas[9] = { 1,2, LOCTEXT("levelName1.2", "Streetlights (WIP)"), LOCTEXT("artistName1.2", "     TODO"), {} };
 	levelDatas[10] = { 2,4, LOCTEXT("levelName1.3", "Enn (WIP)"), LOCTEXT("artistName1.3", "     Artwork by Pei (Sumurai)"), {} };
-	levelDatas[11] = { 3,2, LOCTEXT("levelName2.1", "Flowering Night (WIP)"), LOCTEXT("artistName2.1", "     lol"), {} };
-	levelDatas[12] = { 4,2, LOCTEXT("levelName2.2", "UN Owen Was Her"), LOCTEXT("artistName2.2", "     lol"), {} };
-	levelDatas[13] = { 5,2, LOCTEXT("levelName2.3", "Beloved Tomboyish Girl (WIP)"), LOCTEXT("artistName2.3", "     lol"), {} };
-	levelDatas[14] = { 6,3, LOCTEXT("levelName2.4", "Lullaby of a Deserted Hell (WIP)"), LOCTEXT("artistName2.4", "     lol"), {} };
-	levelDatas[15] = { 7,3, LOCTEXT("levelName2.5", "Radiant Radiant Symphany (WIP)"), LOCTEXT("artistName2.5", "     lol"), {} };
-	levelDatas[16] = { 8,4, LOCTEXT("levelName2.6", "Reach for the Moon (WIP)"), LOCTEXT("artistName2.6", "     lol"), {} };
-	levelDatas[17] = { 9,4, LOCTEXT("levelName2.7", "Necrofantasia (WIP)"), LOCTEXT("artistName2.7", "     lol"), {} };
-	levelDatas[18] = { 10,4, LOCTEXT("levelName2.8", "Flight of the Bamboo Cutter (WIP)"), LOCTEXT("artistName2.8", "     lol"), {} };
+	levelDatas[11] = { 3,2, LOCTEXT("levelName2.1", "Flowering Night (WIP)"), LOCTEXT("artistName2.1", "     TODO"), {} };
+	levelDatas[12] = { 4,2, LOCTEXT("levelName2.2", "UN Owen Was Her"), LOCTEXT("artistName2.2", "     TODO"), {} };
+	levelDatas[13] = { 5,2, LOCTEXT("levelName2.3", "Beloved Tomboyish Girl (WIP)"), LOCTEXT("artistName2.3", "     TODO"), {} };
+	levelDatas[14] = { 6,3, LOCTEXT("levelName2.4", "Lullaby of a Deserted Hell (WIP)"), LOCTEXT("artistName2.4", "     TODO"), {} };
+	levelDatas[15] = { 7,3, LOCTEXT("levelName2.5", "Radiant Radiant Symphany (WIP)"), LOCTEXT("artistName2.5", "     TODO"), {} };
+	levelDatas[16] = { 8,4, LOCTEXT("levelName2.6", "Reach for the Moon (WIP)"), LOCTEXT("artistName2.6", "     TODO"), {} };
+	levelDatas[17] = { 9,4, LOCTEXT("levelName2.7", "Necrofantasia (WIP)"), LOCTEXT("artistName2.7", "     TODO"), {} };
+	levelDatas[18] = { 10,4, LOCTEXT("levelName2.8", "Flight of the Bamboo Cutter (WIP)"), LOCTEXT("artistName2.8", "     TODO"), {} };
 	levelDatas[23] = { 10, 2, LOCTEXT("levelName1.4", "Vee (full level)"), LOCTEXT("artistName1.4", "     Artwork by Unknown Artist"), {} };
 	levelDatas[19] = { 10, 2, LOCTEXT("levelName8.1", "Simple Rhythm"), LOCTEXT("artistName8.1", "     Artwork by Unknown Artist"), {} };
 	levelDatas[20] = { 10, 2, LOCTEXT("levelName8.2", "Every Battle (PREVIEW)"), LOCTEXT("artistName8.2", "     Artwork by Unknown Artist"), {} };
@@ -159,7 +159,7 @@ void ALevelBlockManager::Tick(float DeltaTime)
 			if (pController->WasInputKeyJustPressed(leftClick)) {
 
 				//UnselectAllBoxes();
-				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "UVVGVGVYTYT");
+				//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "UVVGVGVYTYT");
 				if (boxInstances[i]->isSelected_) {
 					//already selected (clicking again)
 					if (!boxInstances[i]->isCategory) {
