@@ -345,47 +345,47 @@
 "../../../Engine/Plugins/2D/Paper2D/Content/DefaultSpriteMaterial.uexp" 344
 "../../../Engine/Plugins/2D/Paper2D/Content/OpaqueUnlitSpriteMaterial.uasset" 345
 "../../../Engine/Plugins/2D/Paper2D/Content/OpaqueUnlitSpriteMaterial.uexp" 346
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat3Components.uasset" 347
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat3Components.uexp" 348
-"../../../Engine/Plugins/Editor/SpeedTreeImporter/Content/SpeedTree9/UnpackInteger3.uasset" 349
-"../../../Engine/Plugins/Editor/SpeedTreeImporter/Content/SpeedTree9/UnpackInteger3.uexp" 350
-"../../../Engine/Plugins/Editor/SpeedTreeImporter/Content/SpeedTree9/UnpackDirection.uasset" 351
-"../../../Engine/Plugins/Editor/SpeedTreeImporter/Content/SpeedTree9/UnpackDirection.uexp" 352
-"../../../Engine/Plugins/Editor/SpeedTreeImporter/Content/SpeedTree9/game_wind_noise.uasset" 353
-"../../../Engine/Plugins/Editor/SpeedTreeImporter/Content/SpeedTree9/game_wind_noise.uexp" 354
-"../../../Engine/Plugins/Editor/SpeedTreeImporter/Content/SpeedTree9/game_wind_noise.ubulk" 355
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/SafeNormalize.uasset" 356
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/SafeNormalize.uexp" 357
-"../../../Engine/Plugins/Editor/SpeedTreeImporter/Content/SpeedTree9/SpeedTreeWindMotion.uasset" 358
-"../../../Engine/Plugins/Editor/SpeedTreeImporter/Content/SpeedTree9/SpeedTreeWindMotion.uexp" 359
-"../../../Engine/Plugins/Editor/SpeedTreeImporter/Content/SpeedTree9/SpeedTreeBranchMotion.uasset" 360
-"../../../Engine/Plugins/Editor/SpeedTreeImporter/Content/SpeedTree9/SpeedTreeBranchMotion.uexp" 361
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/ObjectLocalBounds.uasset" 362
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/ObjectLocalBounds.uexp" 363
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/UVs/BoundingBoxBased_0-1_UVW.uasset" 364
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/UVs/BoundingBoxBased_0-1_UVW.uexp" 365
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/VectorLength.uasset" 366
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/VectorLength.uexp" 367
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/WorldPositionOffset/ObjectScale.uasset" 368
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/WorldPositionOffset/ObjectScale.uexp" 369
-"../../../Engine/Plugins/Editor/SpeedTreeImporter/Content/SpeedTree9/SpeedTreeWind.uasset" 370
-"../../../Engine/Plugins/Editor/SpeedTreeImporter/Content/SpeedTree9/SpeedTreeWind.uexp" 371
-"../../../Engine/Plugins/Editor/SpeedTreeImporter/Content/SpeedTree9/SpeedTreeBillboard.uasset" 372
-"../../../Engine/Plugins/Editor/SpeedTreeImporter/Content/SpeedTree9/SpeedTreeBillboard.uexp" 373
-"../../../Engine/Plugins/Editor/SpeedTreeImporter/Content/SpeedTree9/EmptyNormal.uasset" 374
-"../../../Engine/Plugins/Editor/SpeedTreeImporter/Content/SpeedTree9/EmptyNormal.uexp" 375
-"../../../Engine/Plugins/Editor/SpeedTreeImporter/Content/SpeedTree9/Empty.uasset" 376
-"../../../Engine/Plugins/Editor/SpeedTreeImporter/Content/SpeedTree9/Empty.uexp" 377
+"../../../Engine/Plugins/Editor/SpeedTreeImporter/Content/SpeedTree9/Empty.uasset" 347
+"../../../Engine/Plugins/Editor/SpeedTreeImporter/Content/SpeedTree9/Empty.uexp" 348
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat3Components.uasset" 349
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat3Components.uexp" 350
+"../../../Engine/Plugins/Editor/SpeedTreeImporter/Content/SpeedTree9/UnpackInteger3.uasset" 351
+"../../../Engine/Plugins/Editor/SpeedTreeImporter/Content/SpeedTree9/UnpackInteger3.uexp" 352
+"../../../Engine/Plugins/Editor/SpeedTreeImporter/Content/SpeedTree9/UnpackDirection.uasset" 353
+"../../../Engine/Plugins/Editor/SpeedTreeImporter/Content/SpeedTree9/UnpackDirection.uexp" 354
+"../../../Engine/Plugins/Editor/SpeedTreeImporter/Content/SpeedTree9/game_wind_noise.uasset" 355
+"../../../Engine/Plugins/Editor/SpeedTreeImporter/Content/SpeedTree9/game_wind_noise.uexp" 356
+"../../../Engine/Plugins/Editor/SpeedTreeImporter/Content/SpeedTree9/game_wind_noise.ubulk" 357
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/SafeNormalize.uasset" 358
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/SafeNormalize.uexp" 359
+"../../../Engine/Plugins/Editor/SpeedTreeImporter/Content/SpeedTree9/SpeedTreeWindMotion.uasset" 360
+"../../../Engine/Plugins/Editor/SpeedTreeImporter/Content/SpeedTree9/SpeedTreeWindMotion.uexp" 361
+"../../../Engine/Plugins/Editor/SpeedTreeImporter/Content/SpeedTree9/SpeedTreeBranchMotion.uasset" 362
+"../../../Engine/Plugins/Editor/SpeedTreeImporter/Content/SpeedTree9/SpeedTreeBranchMotion.uexp" 363
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/ObjectLocalBounds.uasset" 364
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/ObjectLocalBounds.uexp" 365
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/UVs/BoundingBoxBased_0-1_UVW.uasset" 366
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/UVs/BoundingBoxBased_0-1_UVW.uexp" 367
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/VectorLength.uasset" 368
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/VectorLength.uexp" 369
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/WorldPositionOffset/ObjectScale.uasset" 370
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/WorldPositionOffset/ObjectScale.uexp" 371
+"../../../Engine/Plugins/Editor/SpeedTreeImporter/Content/SpeedTree9/SpeedTreeWind.uasset" 372
+"../../../Engine/Plugins/Editor/SpeedTreeImporter/Content/SpeedTree9/SpeedTreeWind.uexp" 373
+"../../../Engine/Plugins/Editor/SpeedTreeImporter/Content/SpeedTree9/SpeedTreeBillboard.uasset" 374
+"../../../Engine/Plugins/Editor/SpeedTreeImporter/Content/SpeedTree9/SpeedTreeBillboard.uexp" 375
+"../../../Engine/Plugins/Editor/SpeedTreeImporter/Content/SpeedTree9/EmptyNormal.uasset" 376
+"../../../Engine/Plugins/Editor/SpeedTreeImporter/Content/SpeedTree9/EmptyNormal.uexp" 377
 "../../../Engine/Plugins/Editor/SpeedTreeImporter/Content/SpeedTree9/SpeedTreeBillboardMaster.uasset" 378
 "../../../Engine/Plugins/Editor/SpeedTreeImporter/Content/SpeedTree9/SpeedTreeBillboardMaster.uexp" 379
 "../../../Engine/Plugins/Editor/SpeedTreeImporter/Content/SpeedTree9/SpeedTreeCameraFacing.uasset" 380
 "../../../Engine/Plugins/Editor/SpeedTreeImporter/Content/SpeedTree9/SpeedTreeCameraFacing.uexp" 381
 "../../../Engine/Plugins/Editor/SpeedTreeImporter/Content/SpeedTree9/SpeedTreeMaster.uasset" 382
 "../../../Engine/Plugins/Editor/SpeedTreeImporter/Content/SpeedTree9/SpeedTreeMaster.uexp" 383
-"../../../Engine/Content/BasicShapes/Cylinder.uasset" 384
-"../../../Engine/Content/BasicShapes/Cylinder.uexp" 385
-"../../../Engine/Content/ArtTools/RenderToTexture/Materials/Debug/M_Emissive_Color.uasset" 386
-"../../../Engine/Content/ArtTools/RenderToTexture/Materials/Debug/M_Emissive_Color.uexp" 387
+"../../../Engine/Content/ArtTools/RenderToTexture/Materials/Debug/M_Emissive_Color.uasset" 384
+"../../../Engine/Content/ArtTools/RenderToTexture/Materials/Debug/M_Emissive_Color.uexp" 385
+"../../../Engine/Content/BasicShapes/Cylinder.uasset" 386
+"../../../Engine/Content/BasicShapes/Cylinder.uexp" 387
 "../../../Engine/Plugins/Lumin/MagicLeapPassableWorld/Content/MagicLeapARPinInfoActor.uasset" 388
 "../../../Engine/Plugins/Lumin/MagicLeapPassableWorld/Content/MagicLeapARPinInfoActor.uexp" 389
 "../../../Engine/Plugins/Runtime/OpenXR/Content/Devices/GoogleDaydream/MRTexture.uasset" 390
@@ -521,207 +521,207 @@
 "C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Textures/MetronomeStick.uexp" 520
 "C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Textures/ilikedeath.uasset" 521
 "C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Textures/ilikedeath.uexp" 522
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Blueprints/MySaveGame_BP.uasset" 523
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Blueprints/MySaveGame_BP.uexp" 524
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Icons/64x64px/t_X64x64.uasset" 525
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Icons/64x64px/t_X64x64.uexp" 526
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/Others/t_ButtonExit.uasset" 527
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/Others/t_ButtonExit.uexp" 528
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/fonts/MontserratRegular.uasset" 523
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/fonts/MontserratRegular.uexp" 524
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/Others/t_ButtonExit.uasset" 525
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/Others/t_ButtonExit.uexp" 526
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Icons/64x64px/t_X64x64.uasset" 527
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Icons/64x64px/t_X64x64.uexp" 528
 "C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/widgets/templates/buttons/W_X_Button.uasset" 529
 "C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/widgets/templates/buttons/W_X_Button.uexp" 530
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/theme_colors/Struct_Yellow.uasset" 531
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/theme_colors/Struct_Yellow.uexp" 532
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/theme_colors/Struct_Red.uasset" 533
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/theme_colors/Struct_Red.uexp" 534
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/theme_colors/Struct_Purple.uasset" 535
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/theme_colors/Struct_Purple.uexp" 536
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/theme_colors/Struct_Pink.uasset" 537
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/theme_colors/Struct_Pink.uexp" 538
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/theme_colors/Struct_Green.uasset" 539
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/theme_colors/Struct_Green.uexp" 540
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/theme_colors/Struct_Black.uasset" 541
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/theme_colors/Struct_Black.uexp" 542
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/theme_colors/Enum_Themes.uasset" 543
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/theme_colors/Enum_Themes.uexp" 544
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/Others/t_toggle_on.uasset" 545
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/Others/t_toggle_on.uexp" 546
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/Others/t_toggle_off.uasset" 547
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/Others/t_toggle_off.uexp" 548
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/widgets/templates/toggle/W_Toggle_Template.uasset" 549
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/widgets/templates/toggle/W_Toggle_Template.uexp" 550
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Sliders/t_FillAndBgrScrollBarHorisontal.uasset" 551
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Sliders/t_FillAndBgrScrollBarHorisontal.uexp" 552
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Panels/t_Line.uasset" 531
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Panels/t_Line.uexp" 532
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/Others/t_toggle_on.uasset" 533
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/Others/t_toggle_on.uexp" 534
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/Others/t_toggle_off.uasset" 535
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/Others/t_toggle_off.uexp" 536
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/theme_colors/Enum_Themes.uasset" 537
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/theme_colors/Enum_Themes.uexp" 538
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/theme_colors/Struct_Yellow.uasset" 539
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/theme_colors/Struct_Yellow.uexp" 540
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/theme_colors/Struct_Red.uasset" 541
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/theme_colors/Struct_Red.uexp" 542
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/theme_colors/Struct_Purple.uasset" 543
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/theme_colors/Struct_Purple.uexp" 544
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/theme_colors/Struct_Pink.uasset" 545
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/theme_colors/Struct_Pink.uexp" 546
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/theme_colors/Struct_Green.uasset" 547
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/theme_colors/Struct_Green.uexp" 548
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/theme_colors/Struct_Black.uasset" 549
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/theme_colors/Struct_Black.uexp" 550
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/widgets/templates/toggle/W_Toggle_Template.uasset" 551
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/widgets/templates/toggle/W_Toggle_Template.uexp" 552
 "C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/Others/t_Handle.uasset" 553
 "C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/Others/t_Handle.uexp" 554
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/widgets/templates/slider/W_Slider_Template.uasset" 555
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/widgets/templates/slider/W_Slider_Template.uexp" 556
-"../../../Engine/Content/EditorBlueprintResources/StandardMacros.uasset" 557
-"../../../Engine/Content/EditorBlueprintResources/StandardMacros.uexp" 558
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Panels/t_Panel.uasset" 559
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Panels/t_Panel.uexp" 560
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/fonts/MontserratRegular.uasset" 561
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/fonts/MontserratRegular.uexp" 562
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Icons/32x32px/t_ArrowDown32x32.uasset" 563
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Icons/32x32px/t_ArrowDown32x32.uexp" 564
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsRed/ButtonsNormal/t_ButtonNormal.uasset" 565
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsRed/ButtonsNormal/t_ButtonNormal.uexp" 566
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsOutline/t_ButtonOutline.uasset" 567
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsOutline/t_ButtonOutline.uexp" 568
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Sliders/t_FillAndBgrScrollBarHorisontal.uasset" 555
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Sliders/t_FillAndBgrScrollBarHorisontal.uexp" 556
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/widgets/templates/slider/W_Slider_Template.uasset" 557
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/widgets/templates/slider/W_Slider_Template.uexp" 558
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsRed/ButtonsNormal/t_ButtonNormal.uasset" 559
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsRed/ButtonsNormal/t_ButtonNormal.uexp" 560
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsOutline/t_ButtonOutline.uasset" 561
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsOutline/t_ButtonOutline.uexp" 562
+"../../../Engine/Content/EditorBlueprintResources/StandardMacros.uasset" 563
+"../../../Engine/Content/EditorBlueprintResources/StandardMacros.uexp" 564
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Panels/t_Panel.uasset" 565
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Panels/t_Panel.uexp" 566
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Icons/32x32px/t_ArrowDown32x32.uasset" 567
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Icons/32x32px/t_ArrowDown32x32.uexp" 568
 "C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/widgets/templates/dropdown/W_Dropdown_Template.uasset" 569
 "C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/widgets/templates/dropdown/W_Dropdown_Template.uexp" 570
 "C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Icons/64x64px/t_Checmark64x64.uasset" 571
 "C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Icons/64x64px/t_Checmark64x64.uexp" 572
 "C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/widgets/templates/checkbox/W_Checkbox_Template.uasset" 573
 "C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/widgets/templates/checkbox/W_Checkbox_Template.uexp" 574
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/widgets/templates/buttons/enum_ButtonColors.uasset" 575
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/widgets/templates/buttons/enum_ButtonColors.uexp" 576
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeYellow/ButtonsColors/t_ButtonYellowPressed.uasset" 577
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeYellow/ButtonsColors/t_ButtonYellowPressed.uexp" 578
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeYellow/ButtonsColors/t_ButtonYellowLock.uasset" 579
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeYellow/ButtonsColors/t_ButtonYellowLock.uexp" 580
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeYellow/ButtonsColors/t_ButtonYellowHighlighted.uasset" 581
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeYellow/ButtonsColors/t_ButtonYellowHighlighted.uexp" 582
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeYellow/ButtonsColors/t_ButtonYellow.uasset" 583
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeYellow/ButtonsColors/t_ButtonYellow.uexp" 584
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemePurple/ButtonsColors/t_ButtonPurple_Highlighted.uasset" 585
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemePurple/ButtonsColors/t_ButtonPurple_Highlighted.uexp" 586
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemePurple/ButtonsColors/t_ButtonPurplePressed.uasset" 587
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemePurple/ButtonsColors/t_ButtonPurplePressed.uexp" 588
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemePurple/ButtonsColors/t_ButtonPurpleLock.uasset" 589
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemePurple/ButtonsColors/t_ButtonPurpleLock.uexp" 590
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemePurple/ButtonsColors/t_ButtonPurple.uasset" 591
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemePurple/ButtonsColors/t_ButtonPurple.uexp" 592
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemePink/ButtonsColors/t_ButtonPinkPressed.uasset" 593
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemePink/ButtonsColors/t_ButtonPinkPressed.uexp" 594
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemePink/ButtonsColors/t_ButtonPinkLock.uasset" 595
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemePink/ButtonsColors/t_ButtonPinkLock.uexp" 596
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemePink/ButtonsColors/t_ButtonPinkHighlighted.uasset" 597
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemePink/ButtonsColors/t_ButtonPinkHighlighted.uexp" 598
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemePink/ButtonsColors/t_ButtonPink.uasset" 599
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemePink/ButtonsColors/t_ButtonPink.uexp" 600
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeGreen/ButtonsColor/t_ButtonGreen_Highlighted.uasset" 601
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeGreen/ButtonsColor/t_ButtonGreen_Highlighted.uexp" 602
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeGreen/ButtonsColor/t_ButtonGreenPressed.uasset" 603
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeGreen/ButtonsColor/t_ButtonGreenPressed.uexp" 604
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeGreen/ButtonsColor/t_ButtonGreenLock.uasset" 605
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeGreen/ButtonsColor/t_ButtonGreenLock.uexp" 606
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeGreen/ButtonsColor/t_ButtonGreen.uasset" 607
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeGreen/ButtonsColor/t_ButtonGreen.uexp" 608
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsRed/ButtonsNormal/t_ButtonNormalPressed.uasset" 609
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsRed/ButtonsNormal/t_ButtonNormalPressed.uexp" 610
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsRed/ButtonsNormal/t_ButtonNormalLock.uasset" 611
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsRed/ButtonsNormal/t_ButtonNormalLock.uexp" 612
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsRed/ButtonsNormal/t_ButtonNormalHighligheted.uasset" 613
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsRed/ButtonsNormal/t_ButtonNormalHighligheted.uexp" 614
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsRed/ButtonsColors/t_ButtonRed_Highlighted.uasset" 615
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsRed/ButtonsColors/t_ButtonRed_Highlighted.uexp" 616
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsRed/ButtonsColors/t_ButtonRedPressed.uasset" 617
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsRed/ButtonsColors/t_ButtonRedPressed.uexp" 618
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsRed/ButtonsColors/t_ButtonRedLock.uasset" 619
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsRed/ButtonsColors/t_ButtonRedLock.uexp" 620
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsRed/ButtonsColors/t_ButtonRed.uasset" 621
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsRed/ButtonsColors/t_ButtonRed.uexp" 622
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsOutline/t_ButtonOutlinePressed.uasset" 623
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsOutline/t_ButtonOutlinePressed.uexp" 624
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsOutline/t_ButtonOutlineLock.uasset" 625
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsOutline/t_ButtonOutlineLock.uexp" 626
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsOutline/t_ButtonOutlineHighlighted.uasset" 627
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsOutline/t_ButtonOutlineHighlighted.uexp" 628
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsRed/ButtonsNormal/t_ButtonNormalPressed.uasset" 575
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsRed/ButtonsNormal/t_ButtonNormalPressed.uexp" 576
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsRed/ButtonsNormal/t_ButtonNormalLock.uasset" 577
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsRed/ButtonsNormal/t_ButtonNormalLock.uexp" 578
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsRed/ButtonsNormal/t_ButtonNormalHighligheted.uasset" 579
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsRed/ButtonsNormal/t_ButtonNormalHighligheted.uexp" 580
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsRed/ButtonsColors/t_ButtonRed_Highlighted.uasset" 581
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsRed/ButtonsColors/t_ButtonRed_Highlighted.uexp" 582
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsRed/ButtonsColors/t_ButtonRedPressed.uasset" 583
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsRed/ButtonsColors/t_ButtonRedPressed.uexp" 584
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsRed/ButtonsColors/t_ButtonRedLock.uasset" 585
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsRed/ButtonsColors/t_ButtonRedLock.uexp" 586
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsRed/ButtonsColors/t_ButtonRed.uasset" 587
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsRed/ButtonsColors/t_ButtonRed.uexp" 588
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsOutline/t_ButtonOutlinePressed.uasset" 589
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsOutline/t_ButtonOutlinePressed.uexp" 590
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsOutline/t_ButtonOutlineLock.uasset" 591
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsOutline/t_ButtonOutlineLock.uexp" 592
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsOutline/t_ButtonOutlineHighlighted.uasset" 593
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/ButtonsOutline/t_ButtonOutlineHighlighted.uexp" 594
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/widgets/templates/buttons/enum_ButtonColors.uasset" 595
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/widgets/templates/buttons/enum_ButtonColors.uexp" 596
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeYellow/ButtonsColors/t_ButtonYellowPressed.uasset" 597
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeYellow/ButtonsColors/t_ButtonYellowPressed.uexp" 598
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeYellow/ButtonsColors/t_ButtonYellowLock.uasset" 599
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeYellow/ButtonsColors/t_ButtonYellowLock.uexp" 600
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeYellow/ButtonsColors/t_ButtonYellowHighlighted.uasset" 601
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeYellow/ButtonsColors/t_ButtonYellowHighlighted.uexp" 602
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeYellow/ButtonsColors/t_ButtonYellow.uasset" 603
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeYellow/ButtonsColors/t_ButtonYellow.uexp" 604
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemePurple/ButtonsColors/t_ButtonPurple_Highlighted.uasset" 605
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemePurple/ButtonsColors/t_ButtonPurple_Highlighted.uexp" 606
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemePurple/ButtonsColors/t_ButtonPurplePressed.uasset" 607
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemePurple/ButtonsColors/t_ButtonPurplePressed.uexp" 608
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemePurple/ButtonsColors/t_ButtonPurpleLock.uasset" 609
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemePurple/ButtonsColors/t_ButtonPurpleLock.uexp" 610
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemePurple/ButtonsColors/t_ButtonPurple.uasset" 611
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemePurple/ButtonsColors/t_ButtonPurple.uexp" 612
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemePink/ButtonsColors/t_ButtonPinkPressed.uasset" 613
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemePink/ButtonsColors/t_ButtonPinkPressed.uexp" 614
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemePink/ButtonsColors/t_ButtonPinkLock.uasset" 615
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemePink/ButtonsColors/t_ButtonPinkLock.uexp" 616
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemePink/ButtonsColors/t_ButtonPinkHighlighted.uasset" 617
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemePink/ButtonsColors/t_ButtonPinkHighlighted.uexp" 618
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemePink/ButtonsColors/t_ButtonPink.uasset" 619
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemePink/ButtonsColors/t_ButtonPink.uexp" 620
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeGreen/ButtonsColor/t_ButtonGreen_Highlighted.uasset" 621
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeGreen/ButtonsColor/t_ButtonGreen_Highlighted.uexp" 622
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeGreen/ButtonsColor/t_ButtonGreenPressed.uasset" 623
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeGreen/ButtonsColor/t_ButtonGreenPressed.uexp" 624
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeGreen/ButtonsColor/t_ButtonGreenLock.uasset" 625
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeGreen/ButtonsColor/t_ButtonGreenLock.uexp" 626
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeGreen/ButtonsColor/t_ButtonGreen.uasset" 627
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeGreen/ButtonsColor/t_ButtonGreen.uexp" 628
 "C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/widgets/templates/buttons/W_ButtonText_Template.uasset" 629
 "C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/widgets/templates/buttons/W_ButtonText_Template.uexp" 630
 "C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/Others/t_BgrRadiobitton.uasset" 631
 "C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Buttons/Others/t_BgrRadiobitton.uexp" 632
 "C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/widgets/templates/toggle/W_TogglePin_Template.uasset" 633
 "C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/widgets/templates/toggle/W_TogglePin_Template.uexp" 634
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Panels/t_Line.uasset" 635
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Panels/t_Line.uexp" 636
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Blueprints/MySaveGame_BP.uasset" 635
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Blueprints/MySaveGame_BP.uexp" 636
 "C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/widgets/sample_windows/ThemeBlack/settings_store/W_SettingsBlack_Sample.uasset" 637
 "C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/widgets/sample_windows/ThemeBlack/settings_store/W_SettingsBlack_Sample.uexp" 638
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Textures/T_PurplePolygon.uasset" 639
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Textures/T_PurplePolygon.uexp" 640
-"../../../Engine/Plugins/2D/Paper2D/Content/TranslucentUnlitSpriteMaterial.uasset" 641
-"../../../Engine/Plugins/2D/Paper2D/Content/TranslucentUnlitSpriteMaterial.uexp" 642
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Sprites/PurplePolygon_Sprite.uasset" 643
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Sprites/PurplePolygon_Sprite.uexp" 644
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/IN_-_Flight_of_the_Bamboo_Cutter___Lunatic_Princess.uasset" 645
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/IN_-_Flight_of_the_Bamboo_Cutter___Lunatic_Princess.uexp" 646
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/538354_EnV---Vee1_2.uasset" 647
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/538354_EnV---Vee1_2.uexp" 648
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/538354_EnV---Vee1_1.uasset" 649
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/538354_EnV---Vee1_1.uexp" 650
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/538354_EnV---Vee.uasset" 651
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/538354_EnV---Vee.uexp" 652
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/130bpm.uasset" 653
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/130bpm.uexp" 654
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/drumkit/Audio/Kick/Cue/high_kick_2_wav_Cue.uasset" 655
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/drumkit/Audio/Kick/Cue/high_kick_2_wav_Cue.uexp" 656
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/_18__Necrofantasia.uasset" 657
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/_18__Necrofantasia.uexp" 658
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/eosd_stage_2_boss_-_cirnos_theme_-_beloved_tomboyish_girl.uasset" 659
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/eosd_stage_2_boss_-_cirnos_theme_-_beloved_tomboyish_girl.uexp" 660
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/IN_-_Reach_for_the_Moon__Immortal_Smoke.uasset" 661
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/IN_-_Reach_for_the_Moon__Immortal_Smoke.uexp" 662
-"../../../Engine/Plugins/2D/Paper2D/Content/MaskedUnlitSpriteMaterial.uasset" 663
-"../../../Engine/Plugins/2D/Paper2D/Content/MaskedUnlitSpriteMaterial.uexp" 664
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/EoSD_-_U_N__Owen_was_Her.uasset" 665
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/EoSD_-_U_N__Owen_was_Her.uexp" 666
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/ES_Every_Battle_-_Hallman.uasset" 667
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/ES_Every_Battle_-_Hallman.uexp" 668
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Textures/black-circle-png-634094.uasset" 669
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Textures/black-circle-png-634094.uexp" 670
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Textures/Score_converter-1_png__1_.uasset" 671
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Textures/Score_converter-1_png__1_.uexp" 672
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Textures/Score_converter-1_png__1_.ubulk" 673
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/widgets/templates/buttons/W_ButtonImage_Template.uasset" 674
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/widgets/templates/buttons/W_ButtonImage_Template.uexp" 675
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/fonts/MontserratSemiBold.uasset" 676
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/fonts/MontserratSemiBold.uexp" 677
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Icons/64x64px/t_Restart64x64.uasset" 678
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Icons/64x64px/t_Restart64x64.uexp" 679
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Icons/64x64px/t_Menu64x64.uasset" 680
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Icons/64x64px/t_Menu64x64.uexp" 681
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Icons/64x64px/t_ArrowRight64x64.uasset" 682
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Icons/64x64px/t_ArrowRight64x64.uexp" 683
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Widget/W_LevelScore.uasset" 684
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Widget/W_LevelScore.uexp" 685
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Textures/transparent-white-circle-10.uasset" 686
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Textures/transparent-white-circle-10.uexp" 687
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/t_noise01.uasset" 688
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/t_noise01.uexp" 689
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/t_noise01.ubulk" 690
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/swirl_noise01.uasset" 691
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/swirl_noise01.uexp" 692
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/swirl_noise01.ubulk" 693
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/lava.uasset" 694
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/lava.uexp" 695
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/MPC.uasset" 696
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/MPC.uexp" 697
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/WorldPositionOffset/UVLayoutToWorldSpacePosition.uasset" 698
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/WorldPositionOffset/UVLayoutToWorldSpacePosition.uexp" 699
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/WorldPositionOffset/ComponentPivotLocation.uasset" 700
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/WorldPositionOffset/ComponentPivotLocation.uexp" 701
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/WorldPositionOffset/Sprite.uasset" 702
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/WorldPositionOffset/Sprite.uexp" 703
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/WorldPositionOffset/LocalPosition.uasset" 704
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/WorldPositionOffset/LocalPosition.uexp" 705
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/HueShift.uasset" 706
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/HueShift.uexp" 707
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/flame.uasset" 708
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/flame.uexp" 709
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Sprites/WhiteCircle.uasset" 710
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Sprites/WhiteCircle.uexp" 711
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Materials/Mat_Beam.uasset" 712
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Materials/Mat_Beam.uexp" 713
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/ParticleSystems/BeamEffect.uasset" 714
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/ParticleSystems/BeamEffect.uexp" 715
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/Vee1_3.uasset" 716
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/Vee1_3.uexp" 717
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/Radiant_Radiant_Symphony.uasset" 718
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/Radiant_Radiant_Symphony.uexp" 719
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/piano-man.uasset" 720
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/piano-man.uexp" 721
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/ingame.uasset" 722
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/ingame.uexp" 723
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/ES_Every_Battle_-_Hallman.uasset" 639
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/ES_Every_Battle_-_Hallman.uexp" 640
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Textures/Score_converter-1_png__1_.uasset" 641
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Textures/Score_converter-1_png__1_.uexp" 642
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Textures/Score_converter-1_png__1_.ubulk" 643
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Textures/black-circle-png-634094.uasset" 644
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Textures/black-circle-png-634094.uexp" 645
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/fonts/MontserratSemiBold.uasset" 646
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/fonts/MontserratSemiBold.uexp" 647
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Icons/64x64px/t_Restart64x64.uasset" 648
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Icons/64x64px/t_Restart64x64.uexp" 649
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Icons/64x64px/t_Menu64x64.uasset" 650
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Icons/64x64px/t_Menu64x64.uexp" 651
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/widgets/templates/buttons/W_ButtonImage_Template.uasset" 652
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/widgets/templates/buttons/W_ButtonImage_Template.uexp" 653
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Icons/64x64px/t_ArrowRight64x64.uasset" 654
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/flat_dark_themed_gui/textures/TexturesThemeCommon/Icons/64x64px/t_ArrowRight64x64.uexp" 655
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Widget/W_LevelScore.uasset" 656
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Widget/W_LevelScore.uexp" 657
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Textures/transparent-white-circle-10.uasset" 658
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Textures/transparent-white-circle-10.uexp" 659
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/t_noise01.uasset" 660
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/t_noise01.uexp" 661
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/t_noise01.ubulk" 662
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/swirl_noise01.uasset" 663
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/swirl_noise01.uexp" 664
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/swirl_noise01.ubulk" 665
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/lava.uasset" 666
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/lava.uexp" 667
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/MPC.uasset" 668
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/MPC.uexp" 669
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/WorldPositionOffset/UVLayoutToWorldSpacePosition.uasset" 670
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/WorldPositionOffset/UVLayoutToWorldSpacePosition.uexp" 671
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/WorldPositionOffset/ComponentPivotLocation.uasset" 672
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/WorldPositionOffset/ComponentPivotLocation.uexp" 673
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/WorldPositionOffset/Sprite.uasset" 674
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/WorldPositionOffset/Sprite.uexp" 675
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/WorldPositionOffset/LocalPosition.uasset" 676
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/WorldPositionOffset/LocalPosition.uexp" 677
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/HueShift.uasset" 678
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/HueShift.uexp" 679
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/flame.uasset" 680
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/flame.uexp" 681
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Sprites/WhiteCircle.uasset" 682
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Sprites/WhiteCircle.uexp" 683
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Materials/Mat_Beam.uasset" 684
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Materials/Mat_Beam.uexp" 685
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/ParticleSystems/BeamEffect.uasset" 686
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/ParticleSystems/BeamEffect.uexp" 687
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/Vee1_3.uasset" 688
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/Vee1_3.uexp" 689
+"../../../Engine/Plugins/2D/Paper2D/Content/MaskedUnlitSpriteMaterial.uasset" 690
+"../../../Engine/Plugins/2D/Paper2D/Content/MaskedUnlitSpriteMaterial.uexp" 691
+"../../../Engine/Plugins/2D/Paper2D/Content/TranslucentUnlitSpriteMaterial.uasset" 692
+"../../../Engine/Plugins/2D/Paper2D/Content/TranslucentUnlitSpriteMaterial.uexp" 693
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Textures/T_PurplePolygon.uasset" 694
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Textures/T_PurplePolygon.uexp" 695
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Sprites/PurplePolygon_Sprite.uasset" 696
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Sprites/PurplePolygon_Sprite.uexp" 697
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/piano-man.uasset" 698
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/piano-man.uexp" 699
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/Radiant_Radiant_Symphony.uasset" 700
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/Radiant_Radiant_Symphony.uexp" 701
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/IN_-_Reach_for_the_Moon__Immortal_Smoke.uasset" 702
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/IN_-_Reach_for_the_Moon__Immortal_Smoke.uexp" 703
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/IN_-_Flight_of_the_Bamboo_Cutter___Lunatic_Princess.uasset" 704
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/IN_-_Flight_of_the_Bamboo_Cutter___Lunatic_Princess.uexp" 705
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/eosd_stage_2_boss_-_cirnos_theme_-_beloved_tomboyish_girl.uasset" 706
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/eosd_stage_2_boss_-_cirnos_theme_-_beloved_tomboyish_girl.uexp" 707
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/EoSD_-_U_N__Owen_was_Her.uasset" 708
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/EoSD_-_U_N__Owen_was_Her.uexp" 709
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/_18__Necrofantasia.uasset" 710
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/_18__Necrofantasia.uexp" 711
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/538354_EnV---Vee1_2.uasset" 712
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/538354_EnV---Vee1_2.uexp" 713
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/538354_EnV---Vee1_1.uasset" 714
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/538354_EnV---Vee1_1.uexp" 715
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/538354_EnV---Vee.uasset" 716
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/538354_EnV---Vee.uexp" 717
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/130bpm.uasset" 718
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/130bpm.uexp" 719
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/ingame.uasset" 720
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Music/ingame.uexp" 721
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/drumkit/Audio/Kick/Cue/high_kick_2_wav_Cue.uasset" 722
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/drumkit/Audio/Kick/Cue/high_kick_2_wav_Cue.uexp" 723
 "C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Blueprints/KillMe_BP.uasset" 724
 "C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Blueprints/KillMe_BP.uexp" 725
 "C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Widget/W_Pause.uasset" 726
@@ -734,344 +734,344 @@
 "C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Sprites/Background_Sprite.uexp" 733
 "C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Maps/Classic_BuiltData.uasset" 734
 "C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Maps/Classic_BuiltData.uexp" 735
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagaraRandomnessMode.uasset" 736
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagaraRandomnessMode.uexp" 737
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/GetRandomInfo.uasset" 738
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/GetRandomInfo.uexp" 739
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/RandomRangeFloat.uasset" 740
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/RandomRangeFloat.uexp" 741
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagaraRandomnessEvaluation.uasset" 742
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagaraRandomnessEvaluation.uexp" 743
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/V2/CalculateRandomRangeInteger.uasset" 744
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/V2/CalculateRandomRangeInteger.uexp" 745
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagaraArraySamplingMode.uasset" 746
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagaraArraySamplingMode.uexp" 747
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagara_WrapClamp.uasset" 748
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagara_WrapClamp.uexp" 749
-"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/Arrays/SelectFloatFromArray.uasset" 750
-"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/Arrays/SelectFloatFromArray.uexp" 751
-"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/UniformRange/UniformAOrBFloat.uasset" 752
-"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/UniformRange/UniformAOrBFloat.uexp" 753
-"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/TypeConversions/MakeVector2D.uasset" 754
-"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/TypeConversions/MakeVector2D.uexp" 755
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagaraVector2_Channels.uasset" 756
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagaraVector2_Channels.uexp" 757
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/ChannelMasks/SelectV2Channel.uasset" 758
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/ChannelMasks/SelectV2Channel.uexp" 759
-"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/TypeConversions/MakeFloatFromVector2d.uasset" 760
-"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/TypeConversions/MakeFloatFromVector2d.uexp" 761
-"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/Subtract/Subtract_Float.uasset" 762
-"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/Subtract/Subtract_Float.uexp" 763
-"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/Divide/Divide_Float.uasset" 764
-"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/Divide/Divide_Float.uexp" 765
-"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/Add/Add_Float.uasset" 766
-"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/Add/Add_Float.uexp" 767
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Textures/diamondicon.uasset" 768
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Textures/diamondicon.uexp" 769
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/hue_parameter.uasset" 770
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/hue_parameter.uexp" 771
-"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Density/ExponentialDensity.uasset" 772
-"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Density/ExponentialDensity.uexp" 773
-"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Gradient/RadialGradientExponential.uasset" 774
-"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Gradient/RadialGradientExponential.uexp" 775
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/m_Radial1.uasset" 776
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/m_Radial1.uexp" 777
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/Ribbons/ENiagara_UnsetDirectSetRandom.uasset" 778
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/Ribbons/ENiagara_UnsetDirectSetRandom.uexp" 779
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagaraSystemInactiveMode.uasset" 780
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagaraSystemInactiveMode.uexp" 781
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagaraCurlNoiseQuality.uasset" 782
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagaraCurlNoiseQuality.uexp" 783
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagaraChannelCorrelation.uasset" 784
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagaraChannelCorrelation.uexp" 785
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagara_UVFlippingMode.uasset" 786
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagara_UVFlippingMode.uexp" 787
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagara_SpriteRotationMode.uasset" 788
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagara_SpriteRotationMode.uexp" 789
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagara_SizeScaleMode.uasset" 790
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagara_SizeScaleMode.uexp" 791
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagara_PositionInitializationMode.uasset" 792
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagara_PositionInitializationMode.uexp" 793
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagara_MassInitializationMode.uasset" 794
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagara_MassInitializationMode.uexp" 795
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagara_LifetimeMode.uasset" 796
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagara_LifetimeMode.uexp" 797
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagara_ColorInitializationMode.uasset" 798
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagara_ColorInitializationMode.uexp" 799
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/Angles/ENiagara_AngleInput.uasset" 800
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/Angles/ENiagara_AngleInput.uexp" 801
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/DirectionAndLengthSafe.uasset" 802
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/DirectionAndLengthSafe.uexp" 803
-"../../../Engine/Plugins/FX/Niagara/Content/Modules/Update/Size/ScaleSpriteSizeBySpeed.uasset" 804
-"../../../Engine/Plugins/FX/Niagara/Content/Modules/Update/Size/ScaleSpriteSizeBySpeed.uexp" 805
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/SpriteRenderer/ENiagara_ScaleSpriteSize.uasset" 806
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/SpriteRenderer/ENiagara_ScaleSpriteSize.uexp" 807
-"../../../Engine/Plugins/FX/Niagara/Content/Modules/Update/Size/ScaleSpriteSize.uasset" 808
-"../../../Engine/Plugins/FX/Niagara/Content/Modules/Update/Size/ScaleSpriteSize.uexp" 809
-"../../../Engine/Plugins/FX/Niagara/Content/Modules/Update/Material/DynamicMaterialParameters.uasset" 810
-"../../../Engine/Plugins/FX/Niagara/Content/Modules/Update/Material/DynamicMaterialParameters.uexp" 811
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/Localspace/TransformBase.uasset" 812
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/Localspace/TransformBase.uexp" 813
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/Localspace/TransformPosition.uasset" 814
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/Localspace/TransformPosition.uexp" 815
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/Localspace/SimulationPosition.uasset" 816
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/Localspace/SimulationPosition.uexp" 817
-"../../../Engine/Plugins/FX/Niagara/Content/Modules/Update/Forces/PointAttractionForce.uasset" 818
-"../../../Engine/Plugins/FX/Niagara/Content/Modules/Update/Forces/PointAttractionForce.uexp" 819
-"../../../Engine/Plugins/FX/Niagara/Content/Modules/Update/Forces/Drag.uasset" 820
-"../../../Engine/Plugins/FX/Niagara/Content/Modules/Update/Forces/Drag.uexp" 821
-"../../../Engine/Plugins/FX/Niagara/Content/VectorFields/Assets/TilingCurl64.uasset" 822
-"../../../Engine/Plugins/FX/Niagara/Content/VectorFields/Assets/TilingCurl64.uexp" 823
-"../../../Engine/Plugins/FX/Niagara/Content/VectorFields/Assets/TilingCurl16.uasset" 824
-"../../../Engine/Plugins/FX/Niagara/Content/VectorFields/Assets/TilingCurl16.uexp" 825
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/FindAngleBetweenVectors.uasset" 826
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/FindAngleBetweenVectors.uexp" 827
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/V2/RemapRange.uasset" 828
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/V2/RemapRange.uexp" 829
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/V2/ConeMask.uasset" 830
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/V2/ConeMask.uexp" 831
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/Masks/ConeMask.uasset" 832
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/Masks/ConeMask.uexp" 833
-"../../../Engine/Plugins/FX/Niagara/Content/VectorFields/Assets/TilingCurl32.uasset" 834
-"../../../Engine/Plugins/FX/Niagara/Content/VectorFields/Assets/TilingCurl32.uexp" 835
-"../../../Engine/Plugins/FX/Niagara/Content/Modules/Update/Forces/CurlNoiseForce.uasset" 836
-"../../../Engine/Plugins/FX/Niagara/Content/Modules/Update/Forces/CurlNoiseForce.uexp" 837
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/System/SystemChangeState.uasset" 838
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/System/SystemChangeState.uexp" 839
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagara_EmitterStateOptions.uasset" 840
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagara_EmitterStateOptions.uexp" 841
-"../../../Engine/Plugins/FX/Niagara/Content/Modules/System/SystemState.uasset" 842
-"../../../Engine/Plugins/FX/Niagara/Content/Modules/System/SystemState.uexp" 843
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/Localspace/TransformVector.uasset" 844
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/Localspace/TransformVector.uexp" 845
-"../../../Engine/Plugins/FX/Niagara/Content/Modules/Spawn/Velocity/AddVelocity.uasset" 846
-"../../../Engine/Plugins/FX/Niagara/Content/Modules/Spawn/Velocity/AddVelocity.uexp" 847
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/CalculateTriangleArea.uasset" 848
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/CalculateTriangleArea.uexp" 849
-"../../../Engine/Plugins/FX/Niagara/Content/Modules/Spawn/MeshInterface/Initialize_MeshReproductionSprite.uasset" 850
-"../../../Engine/Plugins/FX/Niagara/Content/Modules/Spawn/MeshInterface/Initialize_MeshReproductionSprite.uexp" 851
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/DeriveThirdOrthogonalVector.uasset" 852
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/DeriveThirdOrthogonalVector.uexp" 853
-"../../../Engine/Plugins/FX/Niagara/Content/Modules/Spawn/Location/RotateAroundPoint.uasset" 854
-"../../../Engine/Plugins/FX/Niagara/Content/Modules/Spawn/Location/RotateAroundPoint.uexp" 855
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/Rotation/MatrixToQuaternion.uasset" 856
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/Rotation/MatrixToQuaternion.uexp" 857
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/Rotation/MakeQuaternionFrom3BasisVectors.uasset" 858
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/Rotation/MakeQuaternionFrom3BasisVectors.uexp" 859
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/Rotation/XYZRotationToQuaternion.uasset" 860
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/Rotation/XYZRotationToQuaternion.uexp" 861
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/Rotation/AngleUnitConverter.uasset" 862
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/Rotation/AngleUnitConverter.uexp" 863
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/Math/SaturateFloat.uasset" 864
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/Math/SaturateFloat.uexp" 865
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/PolarToCartesianCoordinates.uasset" 866
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/PolarToCartesianCoordinates.uexp" 867
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/Transforms/ENiagara_TransformType.uasset" 868
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/Transforms/ENiagara_TransformType.uexp" 869
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/Transforms/ENiagara_TransformOrder.uasset" 870
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/Transforms/ENiagara_TransformOrder.uexp" 871
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/Transforms/ENiagara_ScaleMode.uasset" 872
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/Transforms/ENiagara_ScaleMode.uexp" 873
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/Transforms/ENiagara_RotationMode.uasset" 874
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/Transforms/ENiagara_RotationMode.uexp" 875
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/Transforms/ENiagara_OffsetMode.uasset" 876
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/Transforms/ENiagara_OffsetMode.uexp" 877
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/Location/ENiagara_CylinderMode.uasset" 878
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/Location/ENiagara_CylinderMode.uexp" 879
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/Rotation/FindQuatBetween.uasset" 880
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/Rotation/FindQuatBetween.uexp" 881
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/Rotation/MultiplyQuaternion.uasset" 882
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/Rotation/MultiplyQuaternion.uexp" 883
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/V2/CalculateRandomBool.uasset" 884
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/V2/CalculateRandomBool.uexp" 885
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/RandomUnitVector.uasset" 886
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/RandomUnitVector.uexp" 887
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/V2/CalculateRandomRangeFloat.uasset" 888
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/V2/CalculateRandomRangeFloat.uexp" 889
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/V2/CalculateRandomRange.uasset" 890
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/V2/CalculateRandomRange.uexp" 891
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagara_AttributeSamplingApplyOutput.uasset" 892
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagara_AttributeSamplingApplyOutput.uexp" 893
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/Rotation/InvertQuaternion.uasset" 894
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/Rotation/InvertQuaternion.uexp" 895
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/RandomVector.uasset" 896
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/RandomVector.uexp" 897
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/Rotation/MultiplyVectorWithQuaternion.uasset" 898
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/Rotation/MultiplyVectorWithQuaternion.uexp" 899
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/Rotation/AxisAngleToQuaternion.uasset" 900
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/Rotation/AxisAngleToQuaternion.uexp" 901
-"../../../Engine/Plugins/FX/Niagara/Content/Modules/Spawn/Location/CylinderLocation.uasset" 902
-"../../../Engine/Plugins/FX/Niagara/Content/Modules/Spawn/Location/CylinderLocation.uexp" 903
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/LinearColor/HueShiftLinearColor.uasset" 904
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/LinearColor/HueShiftLinearColor.uexp" 905
-"../../../Engine/Plugins/FX/Niagara/Content/Modules/Spawn/Initialization/V2/InitializeParticle.uasset" 906
-"../../../Engine/Plugins/FX/Niagara/Content/Modules/Spawn/Initialization/V2/InitializeParticle.uexp" 907
-"../../../Engine/Plugins/FX/Niagara/Content/Modules/Emitter/SpawnRate.uasset" 908
-"../../../Engine/Plugins/FX/Niagara/Content/Modules/Emitter/SpawnRate.uexp" 909
-"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/ValueFromCurve/Vector2DFromCurve.uasset" 910
-"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/ValueFromCurve/Vector2DFromCurve.uexp" 911
-"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/ValueFromCurve/FloatFromCurve.uasset" 912
-"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/ValueFromCurve/FloatFromCurve.uexp" 913
-"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/UniformRange/V2/RandomRangeVector2D.uasset" 914
-"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/UniformRange/V2/RandomRangeVector2D.uexp" 915
-"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/UniformRange/V2/RandomRangeFloat.uasset" 916
-"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/UniformRange/V2/RandomRangeFloat.uexp" 917
-"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/UniformRange/UniformRangedVector2D.uasset" 918
-"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/UniformRange/UniformRangedVector2D.uexp" 919
-"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/UniformRange/UniformRangedVector.uasset" 920
-"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/UniformRange/UniformRangedVector.uexp" 921
-"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/Multiply/Multiply_Float.uasset" 922
-"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/Multiply/Multiply_Float.uexp" 923
-"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/Helpers/SimulationPosition.uasset" 924
-"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/Helpers/SimulationPosition.uexp" 925
-"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/Angles/AngleConversion.uasset" 926
-"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/Angles/AngleConversion.uexp" 927
-"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/Add/Add_Vector.uasset" 928
-"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/Add/Add_Vector.uexp" 929
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/radial.uasset" 930
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/radial.uexp" 931
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/m_Radial.uasset" 932
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/m_Radial.uexp" 933
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/StarterContent/Textures/T_Fire_Tiled_D.uasset" 934
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/StarterContent/Textures/T_Fire_Tiled_D.uexp" 935
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/StarterContent/Textures/T_Fire_Tiled_D.ubulk" 936
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/StarterContent/Textures/T_Fire_SubUV.uasset" 937
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/StarterContent/Textures/T_Fire_SubUV.uexp" 938
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/StarterContent/Textures/T_Fire_SubUV.ubulk" 939
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/M_Fire_SubUV.uasset" 940
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/M_Fire_SubUV.uexp" 941
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/StarterContent/Textures/T_Water_N.uasset" 942
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/StarterContent/Textures/T_Water_N.uexp" 943
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/StarterContent/Textures/T_Water_N.ubulk" 944
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/Distortion.uasset" 945
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/Distortion.uexp" 946
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagaraInactiveMode.uasset" 947
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagaraInactiveMode.uexp" 948
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagaraEmitterScalabilityMode_Limited.uasset" 949
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagaraEmitterScalabilityMode_Limited.uexp" 950
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagaraEmitterLifeCycleMode.uasset" 951
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagaraEmitterLifeCycleMode.uexp" 952
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagara_InfiniteLoopDuration.uasset" 953
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagara_InfiniteLoopDuration.uexp" 954
-"../../../Engine/Plugins/FX/Niagara/Content/Modules/Update/Lifetime/ParticleState.uasset" 955
-"../../../Engine/Plugins/FX/Niagara/Content/Modules/Update/Lifetime/ParticleState.uexp" 956
-"../../../Engine/Plugins/FX/Niagara/Content/Modules/Update/Color/Color.uasset" 957
-"../../../Engine/Plugins/FX/Niagara/Content/Modules/Update/Color/Color.uexp" 958
-"../../../Engine/Plugins/FX/Niagara/Content/Modules/Spawn/Initialization/InitializeParticle.uasset" 959
-"../../../Engine/Plugins/FX/Niagara/Content/Modules/Spawn/Initialization/InitializeParticle.uexp" 960
-"../../../Engine/Plugins/FX/Niagara/Content/Modules/Solvers/SolveForcesAndVelocity.uasset" 961
-"../../../Engine/Plugins/FX/Niagara/Content/Modules/Solvers/SolveForcesAndVelocity.uexp" 962
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/Emitter/EmitterChangeState.uasset" 963
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/Emitter/EmitterChangeState.uexp" 964
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagaraExecutionStateManagement.uasset" 965
-"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagaraExecutionStateManagement.uexp" 966
-"../../../Engine/Plugins/FX/Niagara/Content/Modules/Emitter/EmitterState.uasset" 967
-"../../../Engine/Plugins/FX/Niagara/Content/Modules/Emitter/EmitterState.uexp" 968
-"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/ValueFromCurve/ColorFromCurve.uasset" 969
-"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/ValueFromCurve/ColorFromCurve.uexp" 970
-"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/UniformRange/UniformRangedFloat.uasset" 971
-"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/UniformRange/UniformRangedFloat.uexp" 972
-"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/Angles/NormalizedAngleToDegrees.uasset" 973
-"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/Angles/NormalizedAngleToDegrees.uexp" 974
+"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/ValueFromCurve/FloatFromCurve.uasset" 736
+"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/ValueFromCurve/FloatFromCurve.uexp" 737
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagaraRandomnessMode.uasset" 738
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagaraRandomnessMode.uexp" 739
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagaraRandomnessEvaluation.uasset" 740
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagaraRandomnessEvaluation.uexp" 741
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/V2/CalculateRandomRange.uasset" 742
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/V2/CalculateRandomRange.uexp" 743
+"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/UniformRange/V2/RandomRangeVector2D.uasset" 744
+"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/UniformRange/V2/RandomRangeVector2D.uexp" 745
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/V2/CalculateRandomRangeFloat.uasset" 746
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/V2/CalculateRandomRangeFloat.uexp" 747
+"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/UniformRange/V2/RandomRangeFloat.uasset" 748
+"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/UniformRange/V2/RandomRangeFloat.uexp" 749
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/GetRandomInfo.uasset" 750
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/GetRandomInfo.uexp" 751
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/RandomRangeFloat.uasset" 752
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/RandomRangeFloat.uexp" 753
+"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/UniformRange/UniformRangedVector2D.uasset" 754
+"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/UniformRange/UniformRangedVector2D.uexp" 755
+"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/UniformRange/UniformRangedVector.uasset" 756
+"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/UniformRange/UniformRangedVector.uexp" 757
+"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/Multiply/Multiply_Float.uasset" 758
+"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/Multiply/Multiply_Float.uexp" 759
+"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/Helpers/SimulationPosition.uasset" 760
+"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/Helpers/SimulationPosition.uexp" 761
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/Angles/ENiagara_AngleInput.uasset" 762
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/Angles/ENiagara_AngleInput.uexp" 763
+"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/Angles/AngleConversion.uasset" 764
+"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/Angles/AngleConversion.uexp" 765
+"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/Add/Add_Vector.uasset" 766
+"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/Add/Add_Vector.uexp" 767
+"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Density/ExponentialDensity.uasset" 768
+"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Density/ExponentialDensity.uexp" 769
+"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Gradient/RadialGradientExponential.uasset" 770
+"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Gradient/RadialGradientExponential.uexp" 771
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/radial.uasset" 772
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/radial.uexp" 773
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/hue_parameter.uasset" 774
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/hue_parameter.uexp" 775
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/m_Radial.uasset" 776
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/m_Radial.uexp" 777
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/StarterContent/Textures/T_Fire_Tiled_D.uasset" 778
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/StarterContent/Textures/T_Fire_Tiled_D.uexp" 779
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/StarterContent/Textures/T_Fire_Tiled_D.ubulk" 780
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/StarterContent/Textures/T_Fire_SubUV.uasset" 781
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/StarterContent/Textures/T_Fire_SubUV.uexp" 782
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/StarterContent/Textures/T_Fire_SubUV.ubulk" 783
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/M_Fire_SubUV.uasset" 784
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/M_Fire_SubUV.uexp" 785
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/StarterContent/Textures/T_Water_N.uasset" 786
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/StarterContent/Textures/T_Water_N.uexp" 787
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/StarterContent/Textures/T_Water_N.ubulk" 788
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/Distortion.uasset" 789
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/Distortion.uexp" 790
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagaraInactiveMode.uasset" 791
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagaraInactiveMode.uexp" 792
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagaraEmitterScalabilityMode_Limited.uasset" 793
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagaraEmitterScalabilityMode_Limited.uexp" 794
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagaraEmitterLifeCycleMode.uasset" 795
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagaraEmitterLifeCycleMode.uexp" 796
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagara_InfiniteLoopDuration.uasset" 797
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagara_InfiniteLoopDuration.uexp" 798
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagara_EmitterStateOptions.uasset" 799
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagara_EmitterStateOptions.uexp" 800
+"../../../Engine/Plugins/FX/Niagara/Content/Modules/Update/Lifetime/ParticleState.uasset" 801
+"../../../Engine/Plugins/FX/Niagara/Content/Modules/Update/Lifetime/ParticleState.uexp" 802
+"../../../Engine/Plugins/FX/Niagara/Content/Modules/Update/Color/Color.uasset" 803
+"../../../Engine/Plugins/FX/Niagara/Content/Modules/Update/Color/Color.uexp" 804
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/Localspace/SimulationPosition.uasset" 805
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/Localspace/SimulationPosition.uexp" 806
+"../../../Engine/Plugins/FX/Niagara/Content/Modules/Spawn/Initialization/InitializeParticle.uasset" 807
+"../../../Engine/Plugins/FX/Niagara/Content/Modules/Spawn/Initialization/InitializeParticle.uexp" 808
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/DirectionAndLengthSafe.uasset" 809
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/DirectionAndLengthSafe.uexp" 810
+"../../../Engine/Plugins/FX/Niagara/Content/Modules/Solvers/SolveForcesAndVelocity.uasset" 811
+"../../../Engine/Plugins/FX/Niagara/Content/Modules/Solvers/SolveForcesAndVelocity.uexp" 812
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/Emitter/EmitterChangeState.uasset" 813
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/Emitter/EmitterChangeState.uexp" 814
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagaraExecutionStateManagement.uasset" 815
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagaraExecutionStateManagement.uexp" 816
+"../../../Engine/Plugins/FX/Niagara/Content/Modules/Emitter/EmitterState.uasset" 817
+"../../../Engine/Plugins/FX/Niagara/Content/Modules/Emitter/EmitterState.uexp" 818
+"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/ValueFromCurve/ColorFromCurve.uasset" 819
+"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/ValueFromCurve/ColorFromCurve.uexp" 820
+"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/UniformRange/UniformRangedFloat.uasset" 821
+"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/UniformRange/UniformRangedFloat.uexp" 822
+"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/Angles/NormalizedAngleToDegrees.uasset" 823
+"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/Angles/NormalizedAngleToDegrees.uexp" 824
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/V2/CalculateRandomRangeInteger.uasset" 825
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/V2/CalculateRandomRangeInteger.uexp" 826
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagaraArraySamplingMode.uasset" 827
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagaraArraySamplingMode.uexp" 828
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagara_WrapClamp.uasset" 829
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagara_WrapClamp.uexp" 830
+"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/Arrays/SelectFloatFromArray.uasset" 831
+"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/Arrays/SelectFloatFromArray.uexp" 832
+"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/UniformRange/UniformAOrBFloat.uasset" 833
+"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/UniformRange/UniformAOrBFloat.uexp" 834
+"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/TypeConversions/MakeVector2D.uasset" 835
+"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/TypeConversions/MakeVector2D.uexp" 836
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagaraVector2_Channels.uasset" 837
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagaraVector2_Channels.uexp" 838
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/ChannelMasks/SelectV2Channel.uasset" 839
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/ChannelMasks/SelectV2Channel.uexp" 840
+"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/TypeConversions/MakeFloatFromVector2d.uasset" 841
+"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/TypeConversions/MakeFloatFromVector2d.uexp" 842
+"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/Subtract/Subtract_Float.uasset" 843
+"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/Subtract/Subtract_Float.uexp" 844
+"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/Divide/Divide_Float.uasset" 845
+"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/Divide/Divide_Float.uexp" 846
+"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/Add/Add_Float.uasset" 847
+"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/Add/Add_Float.uexp" 848
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Textures/diamondicon.uasset" 849
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Textures/diamondicon.uexp" 850
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/m_Radial1.uasset" 851
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/m_Radial1.uexp" 852
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/Ribbons/ENiagara_UnsetDirectSetRandom.uasset" 853
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/Ribbons/ENiagara_UnsetDirectSetRandom.uexp" 854
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagaraSystemInactiveMode.uasset" 855
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagaraSystemInactiveMode.uexp" 856
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagaraCurlNoiseQuality.uasset" 857
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagaraCurlNoiseQuality.uexp" 858
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagaraChannelCorrelation.uasset" 859
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagaraChannelCorrelation.uexp" 860
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagara_UVFlippingMode.uasset" 861
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagara_UVFlippingMode.uexp" 862
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagara_SpriteRotationMode.uasset" 863
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagara_SpriteRotationMode.uexp" 864
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagara_SizeScaleMode.uasset" 865
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagara_SizeScaleMode.uexp" 866
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagara_PositionInitializationMode.uasset" 867
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagara_PositionInitializationMode.uexp" 868
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagara_MassInitializationMode.uasset" 869
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagara_MassInitializationMode.uexp" 870
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagara_LifetimeMode.uasset" 871
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagara_LifetimeMode.uexp" 872
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagara_ColorInitializationMode.uasset" 873
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagara_ColorInitializationMode.uexp" 874
+"../../../Engine/Plugins/FX/Niagara/Content/Modules/Update/Size/ScaleSpriteSizeBySpeed.uasset" 875
+"../../../Engine/Plugins/FX/Niagara/Content/Modules/Update/Size/ScaleSpriteSizeBySpeed.uexp" 876
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/SpriteRenderer/ENiagara_ScaleSpriteSize.uasset" 877
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/SpriteRenderer/ENiagara_ScaleSpriteSize.uexp" 878
+"../../../Engine/Plugins/FX/Niagara/Content/Modules/Update/Size/ScaleSpriteSize.uasset" 879
+"../../../Engine/Plugins/FX/Niagara/Content/Modules/Update/Size/ScaleSpriteSize.uexp" 880
+"../../../Engine/Plugins/FX/Niagara/Content/Modules/Update/Material/DynamicMaterialParameters.uasset" 881
+"../../../Engine/Plugins/FX/Niagara/Content/Modules/Update/Material/DynamicMaterialParameters.uexp" 882
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/Localspace/TransformBase.uasset" 883
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/Localspace/TransformBase.uexp" 884
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/Localspace/TransformPosition.uasset" 885
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/Localspace/TransformPosition.uexp" 886
+"../../../Engine/Plugins/FX/Niagara/Content/Modules/Update/Forces/PointAttractionForce.uasset" 887
+"../../../Engine/Plugins/FX/Niagara/Content/Modules/Update/Forces/PointAttractionForce.uexp" 888
+"../../../Engine/Plugins/FX/Niagara/Content/Modules/Update/Forces/Drag.uasset" 889
+"../../../Engine/Plugins/FX/Niagara/Content/Modules/Update/Forces/Drag.uexp" 890
+"../../../Engine/Plugins/FX/Niagara/Content/VectorFields/Assets/TilingCurl64.uasset" 891
+"../../../Engine/Plugins/FX/Niagara/Content/VectorFields/Assets/TilingCurl64.uexp" 892
+"../../../Engine/Plugins/FX/Niagara/Content/VectorFields/Assets/TilingCurl16.uasset" 893
+"../../../Engine/Plugins/FX/Niagara/Content/VectorFields/Assets/TilingCurl16.uexp" 894
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/FindAngleBetweenVectors.uasset" 895
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/FindAngleBetweenVectors.uexp" 896
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/V2/RemapRange.uasset" 897
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/V2/RemapRange.uexp" 898
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/V2/ConeMask.uasset" 899
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/V2/ConeMask.uexp" 900
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/Masks/ConeMask.uasset" 901
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/Masks/ConeMask.uexp" 902
+"../../../Engine/Plugins/FX/Niagara/Content/VectorFields/Assets/TilingCurl32.uasset" 903
+"../../../Engine/Plugins/FX/Niagara/Content/VectorFields/Assets/TilingCurl32.uexp" 904
+"../../../Engine/Plugins/FX/Niagara/Content/Modules/Update/Forces/CurlNoiseForce.uasset" 905
+"../../../Engine/Plugins/FX/Niagara/Content/Modules/Update/Forces/CurlNoiseForce.uexp" 906
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/System/SystemChangeState.uasset" 907
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/System/SystemChangeState.uexp" 908
+"../../../Engine/Plugins/FX/Niagara/Content/Modules/System/SystemState.uasset" 909
+"../../../Engine/Plugins/FX/Niagara/Content/Modules/System/SystemState.uexp" 910
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/Localspace/TransformVector.uasset" 911
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/Localspace/TransformVector.uexp" 912
+"../../../Engine/Plugins/FX/Niagara/Content/Modules/Spawn/Velocity/AddVelocity.uasset" 913
+"../../../Engine/Plugins/FX/Niagara/Content/Modules/Spawn/Velocity/AddVelocity.uexp" 914
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/CalculateTriangleArea.uasset" 915
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/CalculateTriangleArea.uexp" 916
+"../../../Engine/Plugins/FX/Niagara/Content/Modules/Spawn/MeshInterface/Initialize_MeshReproductionSprite.uasset" 917
+"../../../Engine/Plugins/FX/Niagara/Content/Modules/Spawn/MeshInterface/Initialize_MeshReproductionSprite.uexp" 918
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/DeriveThirdOrthogonalVector.uasset" 919
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/DeriveThirdOrthogonalVector.uexp" 920
+"../../../Engine/Plugins/FX/Niagara/Content/Modules/Spawn/Location/RotateAroundPoint.uasset" 921
+"../../../Engine/Plugins/FX/Niagara/Content/Modules/Spawn/Location/RotateAroundPoint.uexp" 922
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/Rotation/MatrixToQuaternion.uasset" 923
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/Rotation/MatrixToQuaternion.uexp" 924
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/Rotation/MakeQuaternionFrom3BasisVectors.uasset" 925
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/Rotation/MakeQuaternionFrom3BasisVectors.uexp" 926
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/Rotation/XYZRotationToQuaternion.uasset" 927
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/Rotation/XYZRotationToQuaternion.uexp" 928
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/Rotation/AngleUnitConverter.uasset" 929
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/Rotation/AngleUnitConverter.uexp" 930
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/Math/SaturateFloat.uasset" 931
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/Math/SaturateFloat.uexp" 932
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/PolarToCartesianCoordinates.uasset" 933
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/PolarToCartesianCoordinates.uexp" 934
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/Transforms/ENiagara_TransformType.uasset" 935
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/Transforms/ENiagara_TransformType.uexp" 936
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/Transforms/ENiagara_TransformOrder.uasset" 937
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/Transforms/ENiagara_TransformOrder.uexp" 938
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/Transforms/ENiagara_ScaleMode.uasset" 939
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/Transforms/ENiagara_ScaleMode.uexp" 940
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/Transforms/ENiagara_RotationMode.uasset" 941
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/Transforms/ENiagara_RotationMode.uexp" 942
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/Transforms/ENiagara_OffsetMode.uasset" 943
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/Transforms/ENiagara_OffsetMode.uexp" 944
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/Location/ENiagara_CylinderMode.uasset" 945
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/Location/ENiagara_CylinderMode.uexp" 946
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/Rotation/FindQuatBetween.uasset" 947
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/Rotation/FindQuatBetween.uexp" 948
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/Rotation/MultiplyQuaternion.uasset" 949
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/Rotation/MultiplyQuaternion.uexp" 950
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/V2/CalculateRandomBool.uasset" 951
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/V2/CalculateRandomBool.uexp" 952
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/RandomUnitVector.uasset" 953
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/RandomUnitVector.uexp" 954
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/Rotation/InvertQuaternion.uasset" 955
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/Rotation/InvertQuaternion.uexp" 956
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagara_AttributeSamplingApplyOutput.uasset" 957
+"../../../Engine/Plugins/FX/Niagara/Content/Enums/ENiagara_AttributeSamplingApplyOutput.uexp" 958
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/RandomVector.uasset" 959
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/RandomVector.uexp" 960
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/Rotation/MultiplyVectorWithQuaternion.uasset" 961
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/Rotation/MultiplyVectorWithQuaternion.uexp" 962
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/Rotation/AxisAngleToQuaternion.uasset" 963
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/Rotation/AxisAngleToQuaternion.uexp" 964
+"../../../Engine/Plugins/FX/Niagara/Content/Modules/Spawn/Location/CylinderLocation.uasset" 965
+"../../../Engine/Plugins/FX/Niagara/Content/Modules/Spawn/Location/CylinderLocation.uexp" 966
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/LinearColor/HueShiftLinearColor.uasset" 967
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/LinearColor/HueShiftLinearColor.uexp" 968
+"../../../Engine/Plugins/FX/Niagara/Content/Modules/Spawn/Initialization/V2/InitializeParticle.uasset" 969
+"../../../Engine/Plugins/FX/Niagara/Content/Modules/Spawn/Initialization/V2/InitializeParticle.uexp" 970
+"../../../Engine/Plugins/FX/Niagara/Content/Modules/Emitter/SpawnRate.uasset" 971
+"../../../Engine/Plugins/FX/Niagara/Content/Modules/Emitter/SpawnRate.uexp" 972
+"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/ValueFromCurve/Vector2DFromCurve.uasset" 973
+"../../../Engine/Plugins/FX/Niagara/Content/DynamicInputs/ValueFromCurve/Vector2DFromCurve.uexp" 974
 "C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/Fire1.uasset" 975
 "C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/effect/Fire1.uexp" 976
 "C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Blueprints/MovingBorder_BP.uasset" 977
 "C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Blueprints/MovingBorder_BP.uexp" 978
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/ExampleContent/Textures/flipbook.uasset" 979
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/ExampleContent/Textures/flipbook.uexp" 980
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/ExampleContent/Textures/flipbook.ubulk" 981
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/ExampleContent/Textures/DebugNumberPeriod.uasset" 982
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/ExampleContent/Textures/DebugNumberPeriod.uexp" 983
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/ExampleContent/DebugNumberStrip.uasset" 984
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/ExampleContent/DebugNumberStrip.uexp" 985
-"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Texturing/TextureCropping.uasset" 986
-"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Texturing/TextureCropping.uexp" 987
-"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Texturing/ComputeMipLevel.uasset" 988
-"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Texturing/ComputeMipLevel.uexp" 989
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/DebugScalarValues.uasset" 990
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/DebugScalarValues.uexp" 991
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/DebugFloat2Values.uasset" 992
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/DebugFloat2Values.uexp" 993
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Texturing/FlipBook.uasset" 994
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Texturing/FlipBook.uexp" 995
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/FireballFiles/FireBall_8x8.uasset" 996
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/FireballFiles/FireBall_8x8.uexp" 997
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/FireballFiles/FireBall_8x8.ubulk" 998
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Materials/FireBalls_map.uasset" 999
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Materials/FireBalls_map.uexp" 1000
-"../../../Engine/Content/BasicShapes/Plane.uasset" 1001
-"../../../Engine/Content/BasicShapes/Plane.uexp" 1002
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Blueprints/ExplodingBullet_BP.uasset" 1003
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Blueprints/ExplodingBullet_BP.uexp" 1004
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Textures/flower_petal2.uasset" 1005
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Textures/flower_petal2.uexp" 1006
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Sprites/flower_petal2_Sprite.uasset" 1007
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Sprites/flower_petal2_Sprite.uexp" 1008
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Blueprints/CurvedGrowingBullet_BP.uasset" 1009
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Blueprints/CurvedGrowingBullet_BP.uexp" 1010
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Textures/T_Redpolygon.uasset" 1011
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Textures/T_Redpolygon.uexp" 1012
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Sprites/RedPolygon_Sprite.uasset" 1013
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Sprites/RedPolygon_Sprite.uexp" 1014
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Blueprints/CurvedBullet_Reg_BP.uasset" 1015
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Blueprints/CurvedBullet_Reg_BP.uexp" 1016
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/ParticleSystems/KILLLLLLLL.uasset" 1017
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/ParticleSystems/KILLLLLLLL.uexp" 1018
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Blueprints/CurvedBullet_BP.uasset" 1019
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Blueprints/CurvedBullet_BP.uexp" 1020
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Blueprints/BasicBullet_BP.uasset" 1021
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Blueprints/BasicBullet_BP.uexp" 1022
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Textures/hexagonwhite.uasset" 1023
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Textures/hexagonwhite.uexp" 1024
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Textures/hexagonwhite.ubulk" 1025
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Materials/Glowey_hexagon.uasset" 1026
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Materials/Glowey_hexagon.uexp" 1027
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Blueprints/Big_Hexagon_Bullet_BP.uasset" 1028
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Blueprints/Big_Hexagon_Bullet_BP.uexp" 1029
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Textures/flower_petal2.uasset" 979
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Textures/flower_petal2.uexp" 980
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Sprites/flower_petal2_Sprite.uasset" 981
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Sprites/flower_petal2_Sprite.uexp" 982
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Blueprints/CurvedGrowingBullet_BP.uasset" 983
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Blueprints/CurvedGrowingBullet_BP.uexp" 984
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Textures/T_Redpolygon.uasset" 985
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Textures/T_Redpolygon.uexp" 986
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Sprites/RedPolygon_Sprite.uasset" 987
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Sprites/RedPolygon_Sprite.uexp" 988
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Blueprints/CurvedBullet_Reg_BP.uasset" 989
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Blueprints/CurvedBullet_Reg_BP.uexp" 990
+"../../../Engine/Content/BasicShapes/Plane.uasset" 991
+"../../../Engine/Content/BasicShapes/Plane.uexp" 992
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/FireballFiles/FireBall_8x8.uasset" 993
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/FireballFiles/FireBall_8x8.uexp" 994
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/FireballFiles/FireBall_8x8.ubulk" 995
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/ExampleContent/Textures/flipbook.uasset" 996
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/ExampleContent/Textures/flipbook.uexp" 997
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/ExampleContent/Textures/flipbook.ubulk" 998
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/ExampleContent/Textures/DebugNumberPeriod.uasset" 999
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/ExampleContent/Textures/DebugNumberPeriod.uexp" 1000
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/ExampleContent/DebugNumberStrip.uasset" 1001
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/ExampleContent/DebugNumberStrip.uexp" 1002
+"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Texturing/TextureCropping.uasset" 1003
+"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Texturing/TextureCropping.uexp" 1004
+"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Texturing/ComputeMipLevel.uasset" 1005
+"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Texturing/ComputeMipLevel.uexp" 1006
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/DebugScalarValues.uasset" 1007
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/DebugScalarValues.uexp" 1008
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/DebugFloat2Values.uasset" 1009
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/DebugFloat2Values.uexp" 1010
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Texturing/FlipBook.uasset" 1011
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Texturing/FlipBook.uexp" 1012
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Materials/FireBalls_map.uasset" 1013
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Materials/FireBalls_map.uexp" 1014
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/ParticleSystems/KILLLLLLLL.uasset" 1015
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/ParticleSystems/KILLLLLLLL.uexp" 1016
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Blueprints/CurvedBullet_BP.uasset" 1017
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Blueprints/CurvedBullet_BP.uexp" 1018
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Textures/hexagonwhite.uasset" 1019
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Textures/hexagonwhite.uexp" 1020
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Textures/hexagonwhite.ubulk" 1021
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Materials/Glowey_hexagon.uasset" 1022
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Materials/Glowey_hexagon.uexp" 1023
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Blueprints/Big_Hexagon_Bullet_BP.uasset" 1024
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Blueprints/Big_Hexagon_Bullet_BP.uexp" 1025
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Blueprints/BasicBullet_BP.uasset" 1026
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Blueprints/BasicBullet_BP.uexp" 1027
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Blueprints/ExplodingBullet_BP.uasset" 1028
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Blueprints/ExplodingBullet_BP.uexp" 1029
 "C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Blueprints/BulletController_BP.uasset" 1030
 "C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Blueprints/BulletController_BP.uexp" 1031
 "C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Blueprints/KillMe3_BP.uasset" 1032
 "C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Blueprints/KillMe3_BP.uexp" 1033
 "C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Maps/Classic.uexp" 1034
 "C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Maps/Classic.umap" 1035
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Misc/SpawnType.uasset" 1036
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Misc/SpawnType.uexp" 1037
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Misc/RibbonLinkType.uasset" 1038
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Misc/RibbonLinkType.uexp" 1039
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Misc/MovementType.uasset" 1040
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Misc/MovementType.uexp" 1041
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Niagara/Function/RGBtoHSV.uasset" 1042
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Niagara/Function/RGBtoHSV.uexp" 1043
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Niagara/Function/HSVtoRGB.uasset" 1044
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Niagara/Function/HSVtoRGB.uexp" 1045
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Niagara/Function/HueShift.uasset" 1046
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Niagara/Function/HueShift.uexp" 1047
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Niagara/Module/HueShiftScale.uasset" 1048
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Niagara/Module/HueShiftScale.uexp" 1049
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/Helpers/FN_FirstFrame_Numeric.uasset" 1050
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/Helpers/FN_FirstFrame_Numeric.uexp" 1051
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/Math/InterpolateOverTime_Float.uasset" 1052
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/Math/InterpolateOverTime_Float.uexp" 1053
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/Math/InterpolateOverTime_V3_.uasset" 1054
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/Math/InterpolateOverTime_V3_.uexp" 1055
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Niagara/Module/AudioSpectrumUpdate.uasset" 1056
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Niagara/Module/AudioSpectrumUpdate.uexp" 1057
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/DirectionAndLength.uasset" 1058
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/DirectionAndLength.uexp" 1059
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Niagara/Function/Rotation2D.uasset" 1060
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Niagara/Function/Rotation2D.uexp" 1061
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Niagara/Function/Normalized2DAngle.uasset" 1062
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Niagara/Function/Normalized2DAngle.uexp" 1063
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/NormalizedExecutionIndex.uasset" 1064
-"../../../Engine/Plugins/FX/Niagara/Content/Functions/NormalizedExecutionIndex.uexp" 1065
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Niagara/Module/AudioSpectrumPreferences.uasset" 1066
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Niagara/Module/AudioSpectrumPreferences.uexp" 1067
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Material/M_BasicSprite.uasset" 1068
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Material/M_BasicSprite.uexp" 1069
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Material/M_BasicRibbon.uasset" 1070
-"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Material/M_BasicRibbon.uexp" 1071
-"../../../Engine/Plugins/FX/Niagara/Content/Modules/Emitter/SpawnBurst_Instantaneous.uasset" 1072
-"../../../Engine/Plugins/FX/Niagara/Content/Modules/Emitter/SpawnBurst_Instantaneous.uexp" 1073
+"../../../Engine/Plugins/FX/Niagara/Content/Modules/Emitter/SpawnBurst_Instantaneous.uasset" 1036
+"../../../Engine/Plugins/FX/Niagara/Content/Modules/Emitter/SpawnBurst_Instantaneous.uexp" 1037
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Misc/SpawnType.uasset" 1038
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Misc/SpawnType.uexp" 1039
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Misc/RibbonLinkType.uasset" 1040
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Misc/RibbonLinkType.uexp" 1041
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Misc/MovementType.uasset" 1042
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Misc/MovementType.uexp" 1043
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Niagara/Function/RGBtoHSV.uasset" 1044
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Niagara/Function/RGBtoHSV.uexp" 1045
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Niagara/Function/HSVtoRGB.uasset" 1046
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Niagara/Function/HSVtoRGB.uexp" 1047
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Niagara/Function/HueShift.uasset" 1048
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Niagara/Function/HueShift.uexp" 1049
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Niagara/Module/HueShiftScale.uasset" 1050
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Niagara/Module/HueShiftScale.uexp" 1051
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/Helpers/FN_FirstFrame_Numeric.uasset" 1052
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/Helpers/FN_FirstFrame_Numeric.uexp" 1053
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/Math/InterpolateOverTime_Float.uasset" 1054
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/Math/InterpolateOverTime_Float.uexp" 1055
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/Math/InterpolateOverTime_V3_.uasset" 1056
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/Math/InterpolateOverTime_V3_.uexp" 1057
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Niagara/Module/AudioSpectrumUpdate.uasset" 1058
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Niagara/Module/AudioSpectrumUpdate.uexp" 1059
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/DirectionAndLength.uasset" 1060
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/DirectionAndLength.uexp" 1061
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Niagara/Function/Rotation2D.uasset" 1062
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Niagara/Function/Rotation2D.uexp" 1063
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Niagara/Function/Normalized2DAngle.uasset" 1064
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Niagara/Function/Normalized2DAngle.uexp" 1065
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/NormalizedExecutionIndex.uasset" 1066
+"../../../Engine/Plugins/FX/Niagara/Content/Functions/NormalizedExecutionIndex.uexp" 1067
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Niagara/Module/AudioSpectrumPreferences.uasset" 1068
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Niagara/Module/AudioSpectrumPreferences.uexp" 1069
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Material/M_BasicSprite.uasset" 1070
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Material/M_BasicSprite.uexp" 1071
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Material/M_BasicRibbon.uasset" 1072
+"C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Material/M_BasicRibbon.uexp" 1073
 "C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Examples/NS_SimpleLinesBig.uasset" 1074
 "C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/NiagaraAudioVisualizer/Examples/NS_SimpleLinesBig.uexp" 1075
 "C:/Users/WillWroble/Documents/Unreal Projects/Osou/Content/Maps/LevelSelect_BuiltData.uasset" 1076

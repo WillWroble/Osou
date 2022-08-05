@@ -546,6 +546,8 @@ void ABulletController::Tick(float DeltaTime)
 				player->perfects = 0;
 			}
 			tutorialTime++;
+			//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, *(FString::FromInt(tutorialTime)));
+
 		}
 	}
 	if (player->messages.size() > messageIndex && messageClockTime > player->messages[messageIndex].startTime) {

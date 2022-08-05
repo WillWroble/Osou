@@ -536,6 +536,12 @@ void AKillMe::ResetEverything()
 	Health = 1;
 	hScore = 0;
 	tutHScore = 0;
+	bulletController->tutorialTime = 0;
+	bulletController->tutFirstTime = true;
+	if (ABulletController::levelIndex == 1)
+	{
+		sound->SetWaveParameter(FName("wave"), song0);
+	}
 	CloseWidget();
 	isLevelFinsihedd = false;
 	//RESET SOUND

@@ -368,12 +368,22 @@ void AKillMe3::ResetEverything()
 	tutHScore = 0;
 	CloseWidget();
 	isLevelFinsihedd = false;
+
+	bulletController3->tutorialTime = 0;
+	bulletController3->tutFirstTime = true;
+	/*if (ABulletController::levelIndex == 1)
+	{
+		sound->SetWaveParameter(FName("wave"), song0);
+	}*/
+
 	//RESET SOUND
 	sound->Stop();
 	if (ABulletController::levelIndex == 2) {
 		sound->SetWaveParameter(FName("wave"), song1_4);
 	}
-	sound->Play();
+	if (ABulletController::levelIndex != 0) {
+		sound->Play();
+	}
 	bulletController3->isTimeFrozen = false;
 	isTimeFrozen = false;
 }
