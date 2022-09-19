@@ -753,6 +753,16 @@ void LevelLibrary::BuildLevels()
 	levelFour[0].AddInstruction(4, 0, 0, 9999);
 	allLevels.push_back(levelFour);
 
+	//LEVEL FIVE
+	std::vector<BulletSpawner> levelFive = std::vector<BulletSpawner>();
+	levelFive.push_back(BulletSpawner());
+
+	levelFive[0].AddRythm({ 1 }, 50, 0);
+	levelFive[0].AddSpawnPoints(69 , 420, A1, 1, 0, BulletType::KnifeBullet);
+
+	levelFive[0].AddInstruction(4, 0, 0, 9999);
+	allLevels.push_back(levelFive);
+
 }
 
 LevelLibrary::LevelLibrary()

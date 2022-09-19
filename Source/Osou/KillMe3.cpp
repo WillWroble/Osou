@@ -306,7 +306,7 @@ void AKillMe3::Tick(float DeltaTime)
 	}
 
 	wasClicked = clicked;
-	if (timeout > 1 && !isTimeFrozen) {
+	if (timeout > 3 && !isTimeFrozen) {
 		//ResetEverything();
 		if (ABulletController::levelIndex == 0) {
 			if (bulletController3->tutorialTime < 28) {

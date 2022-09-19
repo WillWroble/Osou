@@ -14,6 +14,7 @@
 #include "LevelLibrary.h"
 #include "Kismet/GameplayStatics.h"
 #include "MySaveGame.h"
+#include "InGameCharacter.h"
 #include "GameFramework/Actor.h"
 #include "BulletController.generated.h"
 
@@ -34,6 +35,7 @@ protected:
 public:
 	//references
 	AMovingBorder* border;
+	AInGameCharacter* character;
 	//level selector
 	static int levelIndex;
 	static float audioCoeff;
@@ -75,5 +77,7 @@ public:
 		TSubclassOf<AActor> CurvedBulletReg;
 	UPROPERTY(EditDefaultsOnly, Category = "CurvedGrowingBullet")
 		TSubclassOf<AActor> CurvedGrowingBullet;
+	UPROPERTY(EditDefaultsOnly, Category = "KnifeBullet")
+		TSubclassOf<AActor> KnifeBullet;
 
 };

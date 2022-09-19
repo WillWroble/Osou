@@ -40,6 +40,8 @@ void ABulletController::BeginPlay()
 	player = *It;
 	TActorIterator<AMovingBorder> It1(GetWorld());
 	border = *It1;
+	TActorIterator<AInGameCharacter> It2(GetWorld());
+	character = *It2;
 	if (player == nullptr) {
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "didnt find player");
 	}
@@ -92,6 +94,16 @@ void ABulletController::BeginPlay()
 		player->AddRythm({ 0.38 }, 1);
 		player->AddRythm({ 0.69 }, 2);
 		player->AddTextInstruction(1, 7.5, 1, FString("Beat Change in"), 1.0, 3);
+		character->AddInstruction(InstructionMode::move, 2, 1000, 1000);
+		character->AddInstruction(InstructionMode::flipHoriz, 0, 0, 0);
+		character->AddInstruction(InstructionMode::wait, 2, 0, 0);
+		character->AddInstruction(InstructionMode::flipHoriz, 0, 0, 0);
+		character->AddInstruction(InstructionMode::wait, 2, 0, 0);
+		character->AddInstruction(InstructionMode::playAnim, 0, 1, 0);
+
+
+
+		//character->AddInstruction(InstructionMode::wait, 9999, 0, 0);
 	}
 	else if(levelIndex == 2) {
 		//VEE PART TWO
@@ -138,7 +150,7 @@ void ABulletController::BeginPlay()
 			}, 0);
 		player->AddRythm({ 1 }, 1);
 	}
-	else {
+	else if (levelIndex == 4){
 		//EVERY BATTLE
 		player->rhythmDelayConstant = 0;
 		player->rhythmDelayConstants = { 0.0, 0.0, 0.0 };
@@ -150,6 +162,19 @@ void ABulletController::BeginPlay()
 			.84, 0.2727, 1.091, 0.2727, 0.2727, 0.5455, 2.182}, 0);
 		player->AddRythm({ 0.5455 }, 1);
 		player->AddRythm({ 1 }, 2);
+	}
+	else {
+		player->rhythmDelayConstants = { 0, 0 };
+		player->SetTransitions({ 0 , 20}); //105
+		player->setSpeedMultis({ 1 , 1});
+		player->AddRythm({ 0.392 }, 0); //0.2
+		player->AddRythm({ 0.392 }, 1);
+		character->AddInstruction(InstructionMode::move, 2, 1000, 1000);
+		character->AddInstruction(InstructionMode::flipHoriz, 0, 0, 0);
+		character->AddInstruction(InstructionMode::wait, 2, 0, 0);
+		//character->AddInstruction(InstructionMode::flipHoriz, 0, 0, 0);
+		character->AddInstruction(InstructionMode::wait, 2, 0, 0);
+		character->AddInstruction(InstructionMode::playAnim, 0, 1, 0);
 	}
 	spawner = &(LevelLibrary::allLevels[levelIndex][0]);
 	player->speed = player->baseSpeed;// / player->beats[0][0];
@@ -195,6 +220,12 @@ void ABulletController::Tick(float DeltaTime)
 			//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "SPAWNING STUFF");
 			//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::SanitizeFloat(spawner->spawnAngles[index][i]));
 			FVector pos(spawner->spawnTable[index].spawnMap[i].X, 2, spawner->spawnTable[index].spawnMap[i].Y);
+			if (pos.X == 69 && pos.Z == 420) {
+				//flag for spawn from character
+				pos = FVector(character->GetActorLocation().X, 2, character->GetActorLocation().Z);
+				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "CHARACTER SPAWN");
+
+			}
 			float angle = 0;
 			if (spawner->spawnTable[index].spawnMap[i].isAngleRelative) {
 				FVector playerPos = player->GetActorLocation();
@@ -221,6 +252,9 @@ void ABulletController::Tick(float DeltaTime)
 				}
 				else if (tempBType == BulletType::CurvedGrowingBullet) {
 					tempClass = CurvedGrowingBullet;
+				}
+				else if (tempBType == BulletType::KnifeBullet) {
+					tempClass = KnifeBullet;
 				}
 				activeBullets.push_back(GetWorld()->SpawnActor<ABasicBullet>(tempClass,
 					pos,

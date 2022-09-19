@@ -84,7 +84,7 @@ void ALevelBlockManager::BeginPlay()
 	UGameplayStatics::AsyncLoadGameFromSlot(FString("osou_save"), 0, LoadedDelegate);
 	
 	levelMap = { -1, -1, -1, -1, -1, -1, -1, -1,
-	0, -1, -1, 2, 1, -1, 4, 5, 6, 7, 8};
+	0, -1, -1, 5, 1, -1, 4, 5, 6, 7, 8};
 	for (int i = 0; i < 70; i++) {
 		levelMap.push_back(-1);
 	}
@@ -164,7 +164,7 @@ void ALevelBlockManager::Tick(float DeltaTime)
 					//already selected (clicking again)
 					if (!boxInstances[i]->isCategory) {
 						int n = levelMap[i];
-						if (n == 2|| n == 1 || n == 0 || n == 3 || n == 4) {
+						if (n == 2|| n == 1 || n == 0 || n == 3 || n == 4 || n == 5) {
 							ABulletController::levelIndex = n;
 							if (n == 3 || n == 4) {
 								CheckForCalibration();

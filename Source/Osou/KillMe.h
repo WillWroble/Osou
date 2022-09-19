@@ -12,6 +12,7 @@
 #include "Blueprint/WidgetTree.h"
 #include "Components/EditableTextBox.h"
 #include "Components/EditableText.h"
+#include "BeatCircle.h"
 
 #include "Kismet/GameplayStatics.h"
 //#include "InputCoreTypes.h"
@@ -61,6 +62,8 @@ public:
 	std::vector<float> speedMultis;
 	std::vector<on_screen_message> messages;
 	std::vector<int> levelConversion;
+	std::vector<ABeatCircle*> extraBeatCircles;
+	std::vector<float> extraScales;
 	UAudioComponent* sound;
 
 	UWidget* childWidget;
@@ -95,9 +98,12 @@ public:
 
 	
 	float currentMulti;
+	//float totalScale;
 	int index;
+	int savedIndex;
 	int relativeIndex;
 	int transitionIndex;
+	int circleCount;
 	float baseSpeed;
 	float speed;
 	float clockTime;
@@ -185,6 +191,9 @@ public:
 		USoundWave* song8;
 	UPROPERTY(EditDefaultsOnly, Category = "song9")
 		USoundWave* song9;
+
+	UPROPERTY(EditDefaultsOnly, Category = "BeatCircle")
+		TSubclassOf<AActor> BeatCircle;
 
 
 	//UPROPERTY(EditDefaultsOnly, Category = "WidgetParam")

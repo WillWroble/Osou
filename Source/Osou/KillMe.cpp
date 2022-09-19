@@ -138,7 +138,8 @@ void AKillMe::BeginPlay()
 	isInvunerable = false;
 	currentLevel = 0;
 	rhythmBuffer = 2;
-	levelConversion = { 8, 12, 23, 19, 20, 15, 16, 17, 18 };
+	circleCount = 0;
+	levelConversion = { 8, 12, 23, 19, 20, 11, 16, 17, 18 };
 	for (int i = 0; i < 70; i++) {
 		levelConversion.push_back(-1);
 	}
@@ -386,10 +387,37 @@ void AKillMe::Tick(float DeltaTime)
 	}
 	if (timeout < (*currentBeat)[index]+rhythmDelayConstant) { //+0.16
 		scale -= FVector(DeltaTime * ABulletController::audioCoeff * 0.2 / ((*currentBeat)[index]+rhythmDelayConstant+0)); //0.38 //0.24
+		for (int i = 0; i < extraBeatCircles.size(); i++) {
+			extraScales[i] -= 1*(DeltaTime * ABulletController::audioCoeff * 0.2 / ((*currentBeat)[savedIndex] + rhythmDelayConstant + 0));
+		}
+		if (scale.X < 0) {
+			scale = FVector(0);
+		}
 		circleSprite->SetRelativeScale3D(scale);
+		for (int i = 0; i < extraBeatCircles.size(); i++) {
+			extraBeatCircles[i]->SetActorScale3D(FVector(extraScales[i]));
+		}
+		/*if (extraScales.size() != 0 && extraScales[0] <= 0) {
+			extraBeatCircles[0]->Destroy();
+			extraBeatCircles.erase(extraBeatCircles.begin());
+			extraScales.erase(extraScales.begin());
+			circleCount--;
+		}*/
 	}
 	else {
 		//reset circle and beat
+		if (circleCount != 0 && index != savedIndex) {
+			extraBeatCircles[0]->Destroy();
+			extraBeatCircles.erase(extraBeatCircles.begin());
+			extraScales.erase(extraScales.begin());
+			circleCount--;
+			for (int i = 0; i < extraBeatCircles.size(); i++) {
+				extraScales[i] -= 1 * (DeltaTime * ABulletController::audioCoeff * 0.2 / ((*currentBeat)[savedIndex] + rhythmDelayConstant + 0));
+			}
+			for (int i = 0; i < extraBeatCircles.size(); i++) {
+				extraBeatCircles[i]->SetActorScale3D(FVector(extraScales[i]));
+			}
+		}
 		float temp1 = (*currentBeat)[index] + rhythmDelayConstant;
 		drumBeat->Play();
 		if (transitionTimes[transitionIndex + 1] < clockTime) {
@@ -419,7 +447,8 @@ void AKillMe::Tick(float DeltaTime)
 		}
 		total++;
 
-		scale = baseScale;//FVector(0.06 + ((*currentBeat)[index]+rhythmDelayConstant * 0.38));
+		if(extraScales.empty())// || baseScale.X > extraScales[extraScales.size()-1])
+			scale = baseScale;//FVector(0.06 + ((*currentBeat)[index]+rhythmDelayConstant * 0.38));
 
 
 		speed = baseSpeed;// / (*currentBeat)[0]; //(*currentBeat)[index]+rhythmDelayConstant
@@ -429,7 +458,23 @@ void AKillMe::Tick(float DeltaTime)
 			//reset beat
 			index = 0;
 		}
+		FVector totalScale(baseScale);
+		if (extraScales.empty()){// || baseScale.X > extraScales[extraScales.size() - 1]) {
+			while (index + 1 + circleCount < currentBeat->size() && (*currentBeat)[index + 1 + circleCount] <= 0.4) {
+				circleCount++;
+				totalScale += FVector(1) * ((*currentBeat)[index + circleCount]) * (ABulletController::audioCoeff * 0.2 / ((*currentBeat)[index] + rhythmDelayConstant + 0));//((*currentBeat)[index + 1 + circleCount]) * ((FVector(timeout - temp1)* (0.2 / ((*currentBeat)[index] + rhythmDelayConstant + 0)))/DeltaTime);
+				extraBeatCircles.push_back(GetWorld()->SpawnActor<ABeatCircle>(BeatCircle, FVector(0), FRotator(0)));
+				extraBeatCircles[extraBeatCircles.size() - 1]->SetActorScale3D(totalScale);
+				extraBeatCircles[extraBeatCircles.size() - 1]->AttachToActor(this, FAttachmentTransformRules::KeepRelativeTransform);
+				extraScales.push_back(totalScale.X);
+			}
+			savedIndex = index;
+		}
 		scale -= FVector((timeout - temp1) * 0.2 / ((*currentBeat)[index]+rhythmDelayConstant + 0)); //0.24
+
+		for (int i = 0; i < extraBeatCircles.size(); i++) {
+			extraScales[i] -= 1*(timeout - temp1) * 0.2 / ((*currentBeat)[index] + rhythmDelayConstant + 0);
+		}
 
 		timeout = timeout - temp1;
 	}
