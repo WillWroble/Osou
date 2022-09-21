@@ -11,9 +11,12 @@ void ACurvedBullet::BeginPlay()
 void ACurvedBullet::Start(std::vector<float> coeff)
 {
 	Super::Start(coeff);
-	int d = 6 - coeffeceints.size();
+	int d = 7 - coeffeceints.size();
 	for (int i = 0; i < d; i++) {
 		coeffeceints.push_back(1);
+	}
+	if (coeffeceints[6] == 0) {
+		dontDestroy = true;
 	}
 }
 

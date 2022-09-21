@@ -4,13 +4,22 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "PaperFlipbookComponent.h"
+#include "KillMe.h"
 #include <vector>
 #include "InGameCharacter.generated.h"
 
-enum InstructionMode {move, resize, teleport, wait, instaRotate, flipHoriz, playAnim};
+enum InstructionMode {move, resize, teleport, wait, instaRotate, flipHoriz, playAnim, startDash, endDash};
+enum BehaviorMode {avoidHoriz, followHoriz, idle, alert};
 
 struct CharacterInstruction {
 	InstructionMode ins;
+	float duration;
+	float x;
+	float y;
+};
+struct CharacterBehavior {
+	BehaviorMode beh;
 	float duration;
 	float x;
 	float y;
@@ -30,16 +39,29 @@ protected:
 
 public:	
 	std::vector<CharacterInstruction> instructions;
+	std::vector<CharacterBehavior> behaviors;
+
+	bool isStopped;
 	int ins_index;
+	int beh_index;
 	float timer;
+	float timer2;
 	FVector delta;
 	FVector scale;
 	FVector scaleDelta;
 	CharacterInstruction currentInstruction;
+	UPaperFlipbookComponent* flipBook;
+	AKillMe* player;
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 	void AddInstruction(InstructionMode ins, float duration, float x, float y);
-
+	void AddInstructions(InstructionMode ins, float duration, float x, float y, int count);
+	void AddBehavior(BehaviorMode beh, float duration, float x, float y);
+	void PointTowardsPlayer();
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		int levelIndex_BP;
+	UFUNCTION(BlueprintImplementableEvent)
+		void InitAnims();
 	UFUNCTION(BlueprintImplementableEvent)
 		void PlayAnimOne();
 	UFUNCTION(BlueprintImplementableEvent)
@@ -50,5 +72,14 @@ public:
 		void PlayAnimFour();
 	UFUNCTION(BlueprintImplementableEvent)
 		void PlayAnimFive();
+	UFUNCTION(BlueprintImplementableEvent)
+		void StartDashAnim();
+	UFUNCTION(BlueprintImplementableEvent)
+		void EndDashAnim();
+	UFUNCTION(BlueprintImplementableEvent)
+		void SetDefaultAnimToDash();
+	UFUNCTION(BlueprintImplementableEvent)
+		void SetDefaultAnimToIdle();
+
 
 };

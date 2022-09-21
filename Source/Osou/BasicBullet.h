@@ -26,6 +26,7 @@ public:
 	virtual void UpdateMovement(float DeltaTime);
 	virtual void Start(std::vector<float> coeff);
 	bool flaggedForRemoval;
+	bool dontDestroy;
 	float speed;
 	float coeffecient;
 	float time;

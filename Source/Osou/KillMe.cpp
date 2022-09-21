@@ -382,6 +382,9 @@ void AKillMe::Tick(float DeltaTime)
 		AddActorLocalOffset(direction * DeltaTime * ABulletController::audioCoeff * speed * currentMulti);//speed*currentMulti
 		//AddActorLocalOffset(GetActorLocation()* DeltaTime* speed* currentMulti);
 	}
+	else {
+		direction = FVector(0);
+	}
 	if (clockTime < rhythmDelayConstant) {
 		//return;
 	}
@@ -632,6 +635,11 @@ void AKillMe::OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AA
 		}
 		else {
 			isInvunerable = true;
+		}
+		AInGameCharacter* c = bulletController->character;
+		if (c->behaviors[c->beh_index].beh == BehaviorMode::alert || c->behaviors[c->beh_index].beh == BehaviorMode::idle) {
+			if(ABulletController::levelIndex == 1)
+				c->PlayAnimFour();
 		}
 		//ResetEverything();
 	}

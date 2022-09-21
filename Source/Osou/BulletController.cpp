@@ -42,6 +42,9 @@ void ABulletController::BeginPlay()
 	border = *It1;
 	TActorIterator<AInGameCharacter> It2(GetWorld());
 	character = *It2;
+
+	character->player = player;
+
 	if (player == nullptr) {
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "didnt find player");
 	}
@@ -94,12 +97,26 @@ void ABulletController::BeginPlay()
 		player->AddRythm({ 0.38 }, 1);
 		player->AddRythm({ 0.69 }, 2);
 		player->AddTextInstruction(1, 7.5, 1, FString("Beat Change in"), 1.0, 3);
-		character->AddInstruction(InstructionMode::move, 2, 1000, 1000);
-		character->AddInstruction(InstructionMode::flipHoriz, 0, 0, 0);
+		//character->AddInstruction(InstructionMode::move, 2, 1000, 1000);
+		//character->AddInstruction(InstructionMode::flipHoriz, 0, 0, 0);
 		character->AddInstruction(InstructionMode::wait, 2, 0, 0);
-		character->AddInstruction(InstructionMode::flipHoriz, 0, 0, 0);
-		character->AddInstruction(InstructionMode::wait, 2, 0, 0);
+		//character->AddInstruction(InstructionMode::flipHoriz, 0, 0, 0);
+		//character->AddInstruction(InstructionMode::wait, 2, 0, 0);
 		character->AddInstruction(InstructionMode::playAnim, 0, 1, 0);
+		character->AddInstruction(InstructionMode::wait, 2, 0, 0);
+		character->AddInstruction(InstructionMode::playAnim, 0, 2, 0);
+		character->AddInstruction(InstructionMode::wait, 2, 0, 0);
+		character->AddInstruction(InstructionMode::playAnim, 0, 3, 0);
+		character->AddInstruction(InstructionMode::wait, 9.5, 0, 0);
+		character->AddInstruction(InstructionMode::move, 2, 0, 1000);
+
+
+
+
+
+		character->AddBehavior(BehaviorMode::alert, 15.5, 0, 0);
+		character->AddBehavior(BehaviorMode::idle, 50, 0, 0);
+
 
 
 
@@ -165,8 +182,8 @@ void ABulletController::BeginPlay()
 	}
 	else {
 		player->rhythmDelayConstants = { 0, 0 };
-		player->SetTransitions({ 0 , 20}); //105
-		player->setSpeedMultis({ 1 , 1});
+		player->SetTransitions({ 0 , 40}); //105
+		player->setSpeedMultis({ 1.3 , 1.3});
 		player->AddRythm({ 0.392 }, 0); //0.2
 		player->AddRythm({ 0.392 }, 1);
 		character->AddInstruction(InstructionMode::move, 2, 1000, 1000);
@@ -175,6 +192,20 @@ void ABulletController::BeginPlay()
 		//character->AddInstruction(InstructionMode::flipHoriz, 0, 0, 0);
 		character->AddInstruction(InstructionMode::wait, 2, 0, 0);
 		character->AddInstruction(InstructionMode::playAnim, 0, 1, 0);
+		character->AddInstruction(InstructionMode::wait, 2, 0, 0);
+		character->AddInstruction(InstructionMode::startDash, 0, 0, 0);
+		character->AddInstruction(InstructionMode::move, 2, -1000, 1000);
+		character->AddInstruction(InstructionMode::endDash, 0, 0, 0);
+		character->AddInstruction(InstructionMode::flipHoriz, 0, 0, 0);
+		character->AddInstruction(InstructionMode::wait, 4, 0, 0);
+		character->AddInstruction(InstructionMode::playAnim, 0, 1, 0);
+		character->AddInstruction(InstructionMode::wait, 1, 0, 0);
+		character->AddInstructions(InstructionMode::playAnim, 0.784 * 2, 1, 0, 8);
+
+		character->AddBehavior(BehaviorMode::idle, 15, 0, 0);
+		character->AddBehavior(BehaviorMode::avoidHoriz, 20, 0, 0);
+
+
 	}
 	spawner = &(LevelLibrary::allLevels[levelIndex][0]);
 	player->speed = player->baseSpeed;// / player->beats[0][0];
@@ -199,7 +230,7 @@ void ABulletController::Tick(float DeltaTime)
 	while (itr != activeBullets.end()) {
 
 		(*itr)->UpdateMovement(DeltaTime*ABulletController::audioCoeff);
-		if ((((abs((*itr)->GetActorLocation().X) > 2250 || abs((*itr)->GetActorLocation().Z) > 1265) && (*itr)->time > 5) || (*itr)->flaggedForRemoval)) {
+		if ((((abs((*itr)->GetActorLocation().X) > 2250 || abs((*itr)->GetActorLocation().Z) > 1265) && (*itr)->time > 5 && !(*itr)->dontDestroy) || (*itr)->flaggedForRemoval)) {
 			if (!(*itr)->Destroy()) {
 				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "COULDNT DESTROY BULLET");
 			}
@@ -223,7 +254,7 @@ void ABulletController::Tick(float DeltaTime)
 			if (pos.X == 69 && pos.Z == 420) {
 				//flag for spawn from character
 				pos = FVector(character->GetActorLocation().X, 2, character->GetActorLocation().Z);
-				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "CHARACTER SPAWN");
+				//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "CHARACTER SPAWN");
 
 			}
 			float angle = 0;
@@ -255,6 +286,15 @@ void ABulletController::Tick(float DeltaTime)
 				}
 				else if (tempBType == BulletType::KnifeBullet) {
 					tempClass = KnifeBullet;
+				}
+				else if (tempBType == BulletType::CurvedBulletKnife) {
+					tempClass = CurvedKnifeBullet;
+				}
+				else if (tempBType == BulletType::KnifeBulletRed) {
+					tempClass = RedKnifeBullet;
+				}
+				else if (tempBType == BulletType::CurvedKnifeRed) {
+					tempClass = RedCurvedKnifeBullet;
 				}
 				activeBullets.push_back(GetWorld()->SpawnActor<ABasicBullet>(tempClass,
 					pos,
@@ -653,6 +693,13 @@ void ABulletController::ResetBullets()
 	clockTime = 0;
 	messageClockTime = 0;
 	spawner = &(LevelLibrary::allLevels[levelIndex][0]);
+	character->ins_index = 0;
+	character->beh_index = 0;
+	character->timer = 0;
+	character->timer2 = 0;
+	character->SetActorLocation(FVector(0, 10, 0));
+	character->flipBook->SetRelativeRotation(FRotator(0));
+	character->SetDefaultAnimToIdle();
 
 }
 void ABulletController::DisplayMessage(FString message, int type, float duration, float start)

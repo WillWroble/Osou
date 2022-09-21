@@ -28,6 +28,12 @@ public:
 	static float bxcurve4(float t) { return powf(1.0f / (t + 1), 0.5); }
 	static float bycurve4(float t) { return 0; }
 	static float bacurve4(float t) { return 0; }
+	//swirling
+	static float bxcurve5(float t) { return 1; }
+	static float bycurve5(float t) { return 0; }
+	static float bacurve5(float t) { return 1; }
+
+
 
 
 	static float xDelta(float i, float t);

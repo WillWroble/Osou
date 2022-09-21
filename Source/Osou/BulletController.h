@@ -79,5 +79,11 @@ public:
 		TSubclassOf<AActor> CurvedGrowingBullet;
 	UPROPERTY(EditDefaultsOnly, Category = "KnifeBullet")
 		TSubclassOf<AActor> KnifeBullet;
+	UPROPERTY(EditDefaultsOnly, Category = "CurvedKnifeBullet")
+		TSubclassOf<AActor> CurvedKnifeBullet;
+	UPROPERTY(EditDefaultsOnly, Category = "RedKnifeBullet")
+		TSubclassOf<AActor> RedKnifeBullet;
+	UPROPERTY(EditDefaultsOnly, Category = "CurvedKnifeRed")
+		TSubclassOf<AActor> RedCurvedKnifeBullet;
 
 };

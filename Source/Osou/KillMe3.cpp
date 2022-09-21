@@ -293,6 +293,9 @@ void AKillMe3::Tick(float DeltaTime)
 			AddActorLocalOffset(direction * DeltaTime* ABulletController::audioCoeff* speed * currentMulti);//speed*currentMulti
 			//AddActorLocalOffset(GetActorLocation()* DeltaTime* speed* currentMulti);
 		}
+		else {
+			direction = FVector(0);
+		}
 	}
 	beatTime += (DeltaTime*ABulletController::audioCoeff);
 	if (beatTime > (*currentBeat)[beatIndex]) {

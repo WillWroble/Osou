@@ -757,8 +757,66 @@ void LevelLibrary::BuildLevels()
 	std::vector<BulletSpawner> levelFive = std::vector<BulletSpawner>();
 	levelFive.push_back(BulletSpawner());
 
-	levelFive[0].AddRythm({ 1 }, 50, 0);
-	levelFive[0].AddSpawnPoints(69 , 420, A1, 1, 0, BulletType::KnifeBullet);
+	levelFive[0].AddRythm({ 0.784 }, 8, 0);
+
+	std::vector<float> A1_a = std::vector<float>(8);
+	std::vector<float> A1_b = std::vector<float>(8);
+	for (int i = 0; i < A1.size(); i++) {
+		if (i % 2 == 0) {
+			A1_a[i / 2] = A1[i];
+		}
+		else {
+			A1_b[(i - 1) / 2] = A1[i];
+		}
+	}
+	//A1_b.pop_back();
+
+
+	levelFive[0].AddTargetingSpawnPoints(69 , 420, A1_a, 2, 0, BulletType::KnifeBullet);
+	levelFive[0].AddTargetingSpawnPoints(69, 420, A1_b, 2, 1, BulletType::KnifeBullet);
+	
+	
+	levelFive[0].AddRythm({ 2 }, 10, 0);
+	levelFive[0].AddSpawnPoints(-2250, -1265 - 1500, { 0 }, 1, 8, BulletType::CurvedBulletKnife, { 0.05, 1, 0, 360 / 0.03, 3000 * PI, 1, 0 });
+	levelFive[0].AddSpawnPoints(-2250, 1265 + 1500, { 0 }, 1, 8, BulletType::CurvedBulletKnife, { 0.05, 1, 0, -360 / 0.03, 3000 * PI, 1, 0 });
+
+	levelFive[0].AddSpawnPoints(2250, -1265 - 1500, { 180 }, 1, 8, BulletType::CurvedBulletKnife, { 0.05, 1, 0, -360 / 0.03, 3000 * PI, 1, 0 });
+	levelFive[0].AddSpawnPoints(2250, 1265 + 1500, { 180 }, 1, 8, BulletType::CurvedBulletKnife, { 0.05, 1, 0, 360 / 0.03, 3000 * PI, 1, 0 });
+
+	
+
+
+
+	//levelFive[0].AddRythm({ 0.4 }, 1, 6);
+	//levelFive[0].AddSpawnPoint(69, 420, {-120, -130, -140, -150}, 50, BulletType::KnifeBullet, { 900, 2 });
+	levelFive[0].AddSpawnPointByTime(69, 420, { -120, -130, -140, -150 }, 6.4, BulletType::KnifeBulletRed, { 900, 1 });
+	//levelFive[0].SortSpawnTimes();
+
+	//levelFive.push_back(BulletSpawner());
+	levelFive[0].AddRythm({ 0.392 }, 50, 6.4);
+
+	levelFive[0].AddTargetingSpawnPoints(69, 420, A1_a, 2, 19, BulletType::KnifeBullet);
+	levelFive[0].AddTargetingSpawnPoints(69, 420, A1_b, 2, 20, BulletType::KnifeBullet);
+
+
+	//levelFive[0].AddRythm({ 0.4 }, 1, 14);
+	//levelFive[0].AddSpawnPoint(69, 420, { -30, -40, -50, -60 }, 51, BulletType::KnifeBullet, { 900, 2 });
+	levelFive[0].AddSpawnPointByTime(69, 420, { -30, -40, -50, -60 }, 8.0f+6.4f, BulletType::KnifeBulletRed, { 900, 1 });
+	
+	levelFive[0].AddRythm({ 0.784 * 2 }, 8, 9.0 - (0.784 * 2) + 6.4);
+	levelFive[0].AddTargetingSpawnPoints(69, 420, { -30, 0, 30 }, 1, 51+19, BulletType::KnifeBulletRed, { 900, 1 });
+
+	levelFive[0].AddRythm({ 2 }, 5, 15);
+	levelFive[0].AddSpawnPoints(-2250, -1265 - 750, { 180 }, 1, 78, BulletType::CurvedKnifeRed, { 0.05, 1, 0, -720 / 0.03, 3000 * PI, 1, 0 });
+	levelFive[0].AddSpawnPoints(-2250, 1265 + 750, { 180 }, 1, 78, BulletType::CurvedKnifeRed, { 0.05, 1, 0, 720 / 0.03, 3000 * PI, 1, 0 });
+
+	levelFive[0].AddSpawnPoints(2250, -1265 - 750, { 0 }, 1, 78, BulletType::CurvedKnifeRed, { 0.05, 1, 0, 720 / 0.03, 3000 * PI, 1, 0 });
+	levelFive[0].AddSpawnPoints(2250, 1265 + 750, { 0 }, 1, 78, BulletType::CurvedKnifeRed, { 0.05, 1, 0, -720 / 0.03, 3000 * PI, 1, 0 });
+
+	levelFive[0].AddRythm({ 1 }, 100, 30.0f);
+
+
+	levelFive[0].SortSpawnTimes();
 
 	levelFive[0].AddInstruction(4, 0, 0, 9999);
 	allLevels.push_back(levelFive);
