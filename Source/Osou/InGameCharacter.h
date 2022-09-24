@@ -9,8 +9,8 @@
 #include <vector>
 #include "InGameCharacter.generated.h"
 
-enum InstructionMode {move, resize, teleport, wait, instaRotate, flipHoriz, playAnim, startDash, endDash};
-enum BehaviorMode {avoidHoriz, followHoriz, idle, alert};
+enum InstructionMode {move, resize, teleport, wait, instaRotate, flipHoriz, playAnim, startDash, endDash, setRotation};
+enum BehaviorMode {avoidHoriz, followHoriz, idle, alert, glide, float_};
 
 struct CharacterInstruction {
 	InstructionMode ins;

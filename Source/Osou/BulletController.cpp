@@ -43,6 +43,8 @@ void ABulletController::BeginPlay()
 	TActorIterator<AInGameCharacter> It2(GetWorld());
 	character = *It2;
 
+	ATrackingBullet::player = player;
+
 	character->player = player;
 
 	if (player == nullptr) {
@@ -109,13 +111,44 @@ void ABulletController::BeginPlay()
 		character->AddInstruction(InstructionMode::playAnim, 0, 3, 0);
 		character->AddInstruction(InstructionMode::wait, 9.5, 0, 0);
 		character->AddInstruction(InstructionMode::move, 2, 0, 1000);
+		character->AddInstruction(InstructionMode::wait, 10, 0, 0);
+		character->AddInstruction(InstructionMode::move, 2, 0, 0);
+		character->AddInstructions(InstructionMode::playAnim, 6, 1, 0, 3);
+		character->AddInstruction(InstructionMode::wait, 4.6-2.4, 0, 0);
+		//character->AddInstruction(InstructionMode::move, 2, 0, 1000);
+		character->AddInstructions(InstructionMode::playAnim, 1.2, 2, 0, 16);
+		character->AddInstruction(InstructionMode::move, 2, 0, 1000);
+		character->AddInstruction(InstructionMode::wait, 13.5-2, 0, 0);
+		character->AddInstruction(InstructionMode::move, 2, 800, 400);
+		character->AddInstruction(InstructionMode::playAnim, 0, 1, 0);
+		character->AddInstruction(InstructionMode::move, 2, -800, -400);
+		character->AddInstruction(InstructionMode::playAnim, 0, 1, 0);
+		character->AddInstruction(InstructionMode::move, 2, -800, 400);
+		character->AddInstruction(InstructionMode::playAnim, 0, 1, 0);
+		character->AddInstruction(InstructionMode::move, 2, 800, -400);
+		character->AddInstruction(InstructionMode::playAnim, 0, 1, 0);
+		character->AddInstruction(InstructionMode::move, 2, 800, 0);
+		character->AddInstruction(InstructionMode::playAnim, 0, 1, 0);
+		character->AddInstruction(InstructionMode::move, 2, -800, 0);
+		character->AddInstruction(InstructionMode::playAnim, 0, 1, 0);
+		character->AddInstruction(InstructionMode::move, 2, 0, 0);
+
+
+
+		//character->AddInstruction(InstructionMode::playAnim, 0, 1, 0);
+		//character->AddInstruction(InstructionMode::move, 2, 0, 0);
+
+
 
 
 
 
 
 		character->AddBehavior(BehaviorMode::alert, 15.5, 0, 0);
-		character->AddBehavior(BehaviorMode::idle, 50, 0, 0);
+		character->AddBehavior(BehaviorMode::idle, 12, 0, 0);
+		character->AddBehavior(BehaviorMode::alert, 42, 0, 0);
+		character->AddBehavior(BehaviorMode::idle, 26, 0, 0);
+		character->AddBehavior(BehaviorMode::alert, 42, 0, 0);
 
 
 
@@ -180,12 +213,13 @@ void ABulletController::BeginPlay()
 		player->AddRythm({ 0.5455 }, 1);
 		player->AddRythm({ 1 }, 2);
 	}
-	else {
-		player->rhythmDelayConstants = { 0, 0 };
-		player->SetTransitions({ 0 , 40}); //105
-		player->setSpeedMultis({ 1.3 , 1.3});
-		player->AddRythm({ 0.392 }, 0); //0.2
+	else if( levelIndex == 5){
+		player->rhythmDelayConstants = { 0, 0, 0 };
+		player->SetTransitions({ 0 , 26, 40}); //105
+		player->setSpeedMultis({ 1.3 , 1.3, 1.3});
+		player->AddRythm({ 0.392 }, 0);
 		player->AddRythm({ 0.392 }, 1);
+		player->AddRythm({ 0.392 }, 2);
 		character->AddInstruction(InstructionMode::move, 2, 1000, 1000);
 		character->AddInstruction(InstructionMode::flipHoriz, 0, 0, 0);
 		character->AddInstruction(InstructionMode::wait, 2, 0, 0);
@@ -200,10 +234,44 @@ void ABulletController::BeginPlay()
 		character->AddInstruction(InstructionMode::wait, 4, 0, 0);
 		character->AddInstruction(InstructionMode::playAnim, 0, 1, 0);
 		character->AddInstruction(InstructionMode::wait, 1, 0, 0);
-		character->AddInstructions(InstructionMode::playAnim, 0.784 * 2, 1, 0, 8);
+		character->AddInstructions(InstructionMode::playAnim, 0.784 * 2, 1, 0, 6);
+		character->AddInstruction(InstructionMode::wait, 2, 0, 0);
+		character->AddInstructions(InstructionMode::playAnim, 0.784, 1, 0, 8);
+
+
+
 
 		character->AddBehavior(BehaviorMode::idle, 15, 0, 0);
-		character->AddBehavior(BehaviorMode::avoidHoriz, 20, 0, 0);
+		character->AddBehavior(BehaviorMode::avoidHoriz, 9, 0, 0);
+		character->AddBehavior(BehaviorMode::float_, 1, 0, 1000);
+		character->AddBehavior(BehaviorMode::glide, 1, 1000, 1000);
+		character->AddBehavior(BehaviorMode::alert, 1, 0, 0);
+		character->AddBehavior(BehaviorMode::float_, 2, 1000, -1000);
+		character->AddBehavior(BehaviorMode::alert, 1, 0, 0);
+		character->AddBehavior(BehaviorMode::glide, 2, -1000, -1000);
+		character->AddBehavior(BehaviorMode::alert, 1, 0, 0);
+		character->AddBehavior(BehaviorMode::float_, 2, -1000, 1000);
+		character->AddBehavior(BehaviorMode::idle, 15, 0, 0);
+
+
+
+	}
+	else {
+		player->rhythmDelayConstants = { 0, 0, 0 };
+		player->SetTransitions({ 0 , 26, 40 }); //105
+		player->setSpeedMultis({ 1.3 , 1.3, 1.3 });
+		player->AddRythm({ 0.385 }, 0);
+		player->AddRythm({ 0.385 }, 1);
+		player->AddRythm({ 0.385 }, 2);
+
+		character->AddInstruction(InstructionMode::wait, 8.47+0.77-0.5, 0, 0);
+		character->AddInstructions(InstructionMode::playAnim, 3.08, 1, 0, 13);
+		character->AddInstruction(InstructionMode::move, 2, 0, 1000);
+
+
+
+
+		character->AddBehavior(BehaviorMode::alert, 100, 0, 0);
 
 
 	}
@@ -296,11 +364,18 @@ void ABulletController::Tick(float DeltaTime)
 				else if (tempBType == BulletType::CurvedKnifeRed) {
 					tempClass = RedCurvedKnifeBullet;
 				}
+				else if (tempBType == BulletType::BasicFireball) {
+					tempClass = BasicFireball;
+				}
+				else if (tempBType == BulletType::TrackingBullet) {
+					tempClass = TrackingBullet;
+				}
 				activeBullets.push_back(GetWorld()->SpawnActor<ABasicBullet>(tempClass,
 					pos,
-					FRotator(angle + spawner->spawnTable[index].spawnMap[i].angles[j], 0, 0)));
+					FRotator(fmod(angle + spawner->spawnTable[index].spawnMap[i].angles[j] + 180, 360)-180, 0, 0)));
 				activeBullets.back()->Start(spawner->spawnTable[index].spawnMap[i].coeffecients);
 				activeBullets.back()->UpdateMovement(adjustedDeltaTime);
+				
 				//activeBullets.back()->coeffecient = spawner->spawnTable[index].spawnMap[i].bCoeffecient;
 			}
 		}

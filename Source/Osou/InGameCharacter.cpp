@@ -61,6 +61,28 @@ void AInGameCharacter::Tick(float DeltaTime)
 				SetDefaultAnimToIdle();
 				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "IDLE");
 			}
+			else if (behaviors[beh_index].beh == BehaviorMode::glide) {
+				SetDefaultAnimToDash();
+				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "GLIDE");
+				if (behaviors[beh_index].x < GetActorLocation().X) {
+					flipBook->SetRelativeRotation(FRotator(0, 180, 0));
+				}
+				else {
+					flipBook->SetRelativeRotation(FRotator(0, 0, 0));
+				}
+				delta = (FVector(behaviors[beh_index].x, 10, behaviors[beh_index].y) - GetActorLocation()) / behaviors[beh_index].duration;
+			}
+			else if (behaviors[beh_index].beh == BehaviorMode::float_) {
+				SetDefaultAnimToIdle();
+				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "FLOAT");
+				/*if (behaviors[beh_index].x < GetActorLocation().X) {
+					flipBook->SetRelativeRotation(FRotator(0, 0, 0));
+				}
+				else {
+					flipBook->SetRelativeRotation(FRotator(0, 180, 0));
+				}*/
+				delta = (FVector(behaviors[beh_index].x, 10, behaviors[beh_index].y) - GetActorLocation()) / behaviors[beh_index].duration;
+			}
 		}
 	}
 	if (behaviors[beh_index].beh == BehaviorMode::followHoriz) {
@@ -138,6 +160,24 @@ void AInGameCharacter::Tick(float DeltaTime)
 			}
 		}
 	}
+	else if (behaviors[beh_index].beh == BehaviorMode::glide) {
+		AddActorLocalOffset(delta* DeltaTime);
+		/*if (behaviors[beh_index].x < GetActorLocation().X) {
+			flipBook->SetRelativeRotation(FRotator(0, 180, 0));
+		}
+		else {
+			flipBook->SetRelativeRotation(FRotator(0, 0, 0));
+		}*/
+	}
+	else if (behaviors[beh_index].beh == BehaviorMode::float_) {
+		AddActorLocalOffset(delta * DeltaTime);
+		/*if (behaviors[beh_index].x < GetActorLocation().X) {
+			flipBook->SetRelativeRotation(FRotator(0, 180, 0));
+		}
+		else {
+			flipBook->SetRelativeRotation(FRotator(0, 0, 0));
+		}*/
+	}
 	else if (behaviors[beh_index].beh == BehaviorMode::alert) {
 		PointTowardsPlayer();
 	}
@@ -164,7 +204,12 @@ void AInGameCharacter::Tick(float DeltaTime)
 			//SetActorRotation(FRotator(0, GetActorRotation().Yaw + 180, 0));
 			flipBook->AddLocalRotation(FRotator(0, 180, 0));
 		}
+		else if (instructions[ins_index].ins == InstructionMode::setRotation) {
+			//SetActorRotation(FRotator(0, GetActorRotation().Yaw + 180, 0));
+			flipBook->SetRelativeRotation(FRotator(0, instructions[ins_index].x, 0));
+		}
 		else if (instructions[ins_index].ins == InstructionMode::playAnim) {
+			PointTowardsPlayer();
 			if (instructions[ins_index].x == 1) {
 				//play one
 				PlayAnimOne();

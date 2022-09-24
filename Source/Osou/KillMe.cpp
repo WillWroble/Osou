@@ -139,7 +139,7 @@ void AKillMe::BeginPlay()
 	currentLevel = 0;
 	rhythmBuffer = 2;
 	circleCount = 0;
-	levelConversion = { 8, 12, 23, 19, 20, 11, 16, 17, 18 };
+	levelConversion = { 8, 12, 23, 19, 20, 11, 14, 17, 18 };
 	for (int i = 0; i < 70; i++) {
 		levelConversion.push_back(-1);
 	}

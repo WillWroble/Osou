@@ -14,6 +14,7 @@
 #include "LevelLibrary.h"
 #include "Kismet/GameplayStatics.h"
 #include "MySaveGame.h"
+#include "TrackingBullet.h"
 #include "InGameCharacter.h"
 #include "GameFramework/Actor.h"
 #include "BulletController.generated.h"
@@ -85,5 +86,9 @@ public:
 		TSubclassOf<AActor> RedKnifeBullet;
 	UPROPERTY(EditDefaultsOnly, Category = "CurvedKnifeRed")
 		TSubclassOf<AActor> RedCurvedKnifeBullet;
+	UPROPERTY(EditDefaultsOnly, Category = "BasicFireball")
+		TSubclassOf<AActor> BasicFireball;
+	UPROPERTY(EditDefaultsOnly, Category = "TrackingBullet")
+		TSubclassOf<AActor> TrackingBullet;
 
 };

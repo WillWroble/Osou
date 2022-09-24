@@ -198,6 +198,10 @@ void LevelLibrary::BuildLevels()
 	levelOne[2].AddProjectionFromPoint(FVector2D(0, 0), FVector2D(3091, 1000), FVector2D(-1909, -2630), 10, 17, BulletType::BasicBullet, { 300, 1 });
 	levelOne[2].AddProjectionFromPoint(FVector2D(0, 0), FVector2D(-1909, -2630), FVector2D(0, 3250), 10, 17, BulletType::BasicBullet, { 300, 1 });
 
+	levelOne[2].AddRythm({ 6 }, 3, 2.5 - 6);
+	levelOne[2].AddTargetingSpawnPoints(69, 420, { 0 }, 1, 36, BulletType::BasicFireball, { 900, 1});
+	levelOne[2].SortSpawnTimes();
+
 	levelOne.push_back(BulletSpawner());
 	//levelOne[3] = &(levelOne[3]);
 	levelOne[3].AddRythm({ 0.3 }, 64, 0);
@@ -761,12 +765,20 @@ void LevelLibrary::BuildLevels()
 
 	std::vector<float> A1_a = std::vector<float>(8);
 	std::vector<float> A1_b = std::vector<float>(8);
+	std::vector<float> A1_c = std::vector<float>(4);
+	std::vector<float> A1_d = std::vector<float>(4);
 	for (int i = 0; i < A1.size(); i++) {
 		if (i % 2 == 0) {
 			A1_a[i / 2] = A1[i];
+			if (i % 4 == 0) {
+				A1_c[i / 4] = A1[i];
+			}
 		}
 		else {
 			A1_b[(i - 1) / 2] = A1[i];
+			if (i % 4 == 1) {
+				A1_d[(i-1) / 4] = A1[i];
+			}
 		}
 	}
 	//A1_b.pop_back();
@@ -813,13 +825,65 @@ void LevelLibrary::BuildLevels()
 	levelFive[0].AddSpawnPoints(2250, -1265 - 750, { 0 }, 1, 78, BulletType::CurvedKnifeRed, { 0.05, 1, 0, 720 / 0.03, 3000 * PI, 1, 0 });
 	levelFive[0].AddSpawnPoints(2250, 1265 + 750, { 0 }, 1, 78, BulletType::CurvedKnifeRed, { 0.05, 1, 0, -720 / 0.03, 3000 * PI, 1, 0 });
 
-	levelFive[0].AddRythm({ 1 }, 100, 30.0f);
+	levelFive[0].AddRythm({ 0.784 }, 8, 27.7f-(0.784*2));
+	levelFive[0].AddTargetingSpawnPoints(69, 420, { -30, 0, 30 }, 1, 83, BulletType::KnifeBulletRed, { 900, 1 });
+
+	levelFive[0].AddRythm({ 0.392 }, 50, 26.3);
+
+	levelFive[0].AddTargetingSpawnPoints(69, 420, A1_c, 2, 91, BulletType::KnifeBullet, {1400, 1});
+	levelFive[0].AddTargetingSpawnPoints(69, 420, A1_d, 2, 92, BulletType::KnifeBullet, { 1400, 1});
+
 
 
 	levelFive[0].SortSpawnTimes();
 
+
+
 	levelFive[0].AddInstruction(4, 0, 0, 9999);
 	allLevels.push_back(levelFive);
+
+	std::vector<BulletSpawner> levelSix = std::vector<BulletSpawner>();
+	levelSix.push_back(BulletSpawner());
+	levelSix[0].AddRythm({ 0.35, 0.15, 0.2, 0.4 }, 45, 0);
+	levelSix[0].AddDynamicSpawnPoints(0, 0, A1, 1, 0);
+
+	levelSix[0].AddRythm({ 0.385 * 2 }, 65, 0);//16,8
+	levelSix[0].AddTargetingSpawnPoints(0, 0, {-70, 0, 70}, 4, 191, BulletType::TrackingBullet, { 700, 1, 2, 90 });
+	levelSix[0].AddCorners({ 45 }, 8, 191 + 4 * 7, BulletType::TrackingBullet, { 700, 1, 2, 90 });
+
+	levelSix[0].AddSpawnPoints(-1500, 1265, { -90 }, 6, 183, BulletType::BasicBullet, {300, 1});
+	levelSix[0].AddSpawnPoints(-2000, 1265, { -90 }, 6, 180, BulletType::BasicBullet, { 300, 1 });
+
+	levelSix[0].AddSpawnPoints(-1750, -1265, { 90 }, 6, 180, BulletType::BasicBullet, { 300, 1 });
+	levelSix[0].AddSpawnPoints(-1250, -1265, { 90 }, 6, 183, BulletType::BasicBullet, { 300, 1 });
+
+	levelSix[0].AddSpawnPoints(1500, 1265, { -90 }, 6, 183, BulletType::BasicBullet, { 300, 1 });
+	levelSix[0].AddSpawnPoints(2000, 1265, { -90 }, 6, 180, BulletType::BasicBullet, { 300, 1 });
+
+	levelSix[0].AddSpawnPoints(1750, -1265, { 90 }, 6, 180, BulletType::BasicBullet, { 300, 1 });
+	levelSix[0].AddSpawnPoints(1250, -1265, { 90 }, 6, 183, BulletType::BasicBullet, { 300, 1 });
+
+	levelSix[0].SortSpawnTimes();
+
+	levelSix.push_back(BulletSpawner());
+	levelSix[1].AddRythm({ 0.385 * 2 }, 100, 0);
+
+	levelSix[1].AddSpawnPoints(-1500, 1265, { -90 }, 6, 4, BulletType::BasicBullet, { 300, 1 });
+	levelSix[1].AddSpawnPoints(-2000, 1265, { -90 }, 6, 1, BulletType::BasicBullet, { 300, 1 });
+
+	levelSix[1].AddSpawnPoints(-1750, -1265, { 90 }, 6, 1, BulletType::BasicBullet, { 300, 1 });
+	levelSix[1].AddSpawnPoints(-1250, -1265, { 90 }, 6, 4, BulletType::BasicBullet, { 300, 1 });
+
+	levelSix[1].AddSpawnPoints(1500, 1265, { -90 }, 6, 4, BulletType::BasicBullet, { 300, 1 });
+	levelSix[1].AddSpawnPoints(2000, 1265, { -90 }, 6, 1, BulletType::BasicBullet, { 300, 1 });
+
+	levelSix[1].AddSpawnPoints(1750, -1265, { 90 }, 6, 1, BulletType::BasicBullet, { 300, 1 });
+	levelSix[1].AddSpawnPoints(1250, -1265, { 90 }, 6, 4, BulletType::BasicBullet, { 300, 1 });
+
+	
+	levelSix[0].AddInstruction(4, 0, 0, 9999);//7
+	allLevels.push_back(levelSix);
+
 
 }
 
