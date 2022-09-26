@@ -7,6 +7,7 @@ AKillMe* ATrackingBullet::player = nullptr;
 void ATrackingBullet::BeginPlay()
 {
 	Super::BeginPlay();
+	niag = (UNiagaraComponent*)(this->GetComponentsByTag(UNiagaraComponent::StaticClass(), "tag1"))[0];
 	
 }
 void ATrackingBullet::UpdateMovement(float DeltaTime) {
@@ -20,6 +21,7 @@ void ATrackingBullet::UpdateMovement(float DeltaTime) {
 	else {
 		fixed = GetActorRotation();
 	}
+	niag->SetFloatParameter(FName("relativeAngle"), -fixed.Pitch -90);
 	float diff = (fixed.Pitch - theta);
 	float normalizedDiff = FRotator::NormalizeAxis(diff);
 	//if ((diff < 0 && diff > -180) || (diff > 180 && diff < 360) || (diff < -360 && diff > -540) || (diff > )) {

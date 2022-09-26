@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "BasicBullet.h"
 #include "KillMe.h"
+#include "NiagaraComponent.h"
 #include "TrackingBullet.generated.h"
 
 /**
@@ -15,10 +16,12 @@ class OSOU_API ATrackingBullet : public ABasicBullet
 {
 	GENERATED_BODY()
 	virtual void BeginPlay() override;
+	UNiagaraComponent* niag;
 	public:
 		static AKillMe* player;
 		void UpdateMovement(float DeltaTime);
 		float inversion = 1;
+
 
 	
 };

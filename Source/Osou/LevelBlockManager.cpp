@@ -92,6 +92,7 @@ void ALevelBlockManager::BeginPlay()
 	levelMap[19] = 3;
 	levelMap[20] = 4;
 	levelMap[14] = 6;
+	levelMap[13] = 7;
 	APawn* evilPawn = pController->GetPawn();
 	if (evilPawn != nullptr) {
 		evilPawn->Destroy();
@@ -165,7 +166,7 @@ void ALevelBlockManager::Tick(float DeltaTime)
 					//already selected (clicking again)
 					if (!boxInstances[i]->isCategory) {
 						int n = levelMap[i];
-						if (n == 2|| n == 1 || n == 0 || n == 3 || n == 4 || n == 5 || n == 6) {
+						if (n == 2|| n == 1 || n == 0 || n == 3 || n == 4 || n == 5 || n == 6 || n == 7) {
 							ABulletController::levelIndex = n;
 							if (n == 3 || n == 4) {
 								CheckForCalibration();

@@ -851,40 +851,48 @@ void LevelLibrary::BuildLevels()
 	levelSix[0].AddTargetingSpawnPoints(0, 0, {-70, 0, 70}, 4, 191, BulletType::TrackingBullet, { 700, 1, 2, 90 });
 	levelSix[0].AddCorners({ 45 }, 8, 191 + 4 * 7, BulletType::TrackingBullet, { 700, 1, 2, 90 });
 
-	levelSix[0].AddSpawnPoints(-1500, 1265, { -90 }, 6, 183, BulletType::BasicBullet, {300, 1});
-	levelSix[0].AddSpawnPoints(-2000, 1265, { -90 }, 6, 180, BulletType::BasicBullet, { 300, 1 });
+	levelSix[0].AddSpawnPoints(-1500, 1265, { -90 }, 6, 183, BulletType::GhostBullet, {300, 1});
+	levelSix[0].AddSpawnPoints(-2000, 1265, { -90 }, 6, 180, BulletType::GhostBullet, { 300, 1 });
 
-	levelSix[0].AddSpawnPoints(-1750, -1265, { 90 }, 6, 180, BulletType::BasicBullet, { 300, 1 });
-	levelSix[0].AddSpawnPoints(-1250, -1265, { 90 }, 6, 183, BulletType::BasicBullet, { 300, 1 });
+	levelSix[0].AddSpawnPoints(-1750, -1265, { 90 }, 6, 180, BulletType::GhostBullet, { 300, 1 });
+	levelSix[0].AddSpawnPoints(-1250, -1265, { 90 }, 6, 183, BulletType::GhostBullet, { 300, 1 });
 
-	levelSix[0].AddSpawnPoints(1500, 1265, { -90 }, 6, 183, BulletType::BasicBullet, { 300, 1 });
-	levelSix[0].AddSpawnPoints(2000, 1265, { -90 }, 6, 180, BulletType::BasicBullet, { 300, 1 });
+	levelSix[0].AddSpawnPoints(1500, 1265, { -90 }, 6, 183, BulletType::GhostBullet, { 300, 1 });
+	levelSix[0].AddSpawnPoints(2000, 1265, { -90 }, 6, 180, BulletType::GhostBullet, { 300, 1 });
 
-	levelSix[0].AddSpawnPoints(1750, -1265, { 90 }, 6, 180, BulletType::BasicBullet, { 300, 1 });
-	levelSix[0].AddSpawnPoints(1250, -1265, { 90 }, 6, 183, BulletType::BasicBullet, { 300, 1 });
+	levelSix[0].AddSpawnPoints(1750, -1265, { 90 }, 6, 180, BulletType::GhostBullet, { 300, 1 });
+	levelSix[0].AddSpawnPoints(1250, -1265, { 90 }, 6, 183, BulletType::GhostBullet, { 300, 1 });
 
 	levelSix[0].SortSpawnTimes();
 
 	levelSix.push_back(BulletSpawner());
 	levelSix[1].AddRythm({ 0.385 * 2 }, 100, 0);
 
-	levelSix[1].AddSpawnPoints(-1500, 1265, { -90 }, 6, 4, BulletType::BasicBullet, { 300, 1 });
-	levelSix[1].AddSpawnPoints(-2000, 1265, { -90 }, 6, 1, BulletType::BasicBullet, { 300, 1 });
+	levelSix[1].AddSpawnPoints(-1500, 1265, { -90 }, 6, 4, BulletType::GhostBullet, { 300, 1 });
+	levelSix[1].AddSpawnPoints(-2000, 1265, { -90 }, 6, 1, BulletType::GhostBullet, { 300, 1 });
 
-	levelSix[1].AddSpawnPoints(-1750, -1265, { 90 }, 6, 1, BulletType::BasicBullet, { 300, 1 });
-	levelSix[1].AddSpawnPoints(-1250, -1265, { 90 }, 6, 4, BulletType::BasicBullet, { 300, 1 });
+	levelSix[1].AddSpawnPoints(-1750, -1265, { 90 }, 6, 1, BulletType::GhostBullet, { 300, 1 });
+	levelSix[1].AddSpawnPoints(-1250, -1265, { 90 }, 6, 4, BulletType::GhostBullet, { 300, 1 });
 
-	levelSix[1].AddSpawnPoints(1500, 1265, { -90 }, 6, 4, BulletType::BasicBullet, { 300, 1 });
-	levelSix[1].AddSpawnPoints(2000, 1265, { -90 }, 6, 1, BulletType::BasicBullet, { 300, 1 });
+	levelSix[1].AddSpawnPoints(1500, 1265, { -90 }, 6, 4, BulletType::GhostBullet, { 300, 1 });
+	levelSix[1].AddSpawnPoints(2000, 1265, { -90 }, 6, 1, BulletType::GhostBullet, { 300, 1 });
 
-	levelSix[1].AddSpawnPoints(1750, -1265, { 90 }, 6, 1, BulletType::BasicBullet, { 300, 1 });
-	levelSix[1].AddSpawnPoints(1250, -1265, { 90 }, 6, 4, BulletType::BasicBullet, { 300, 1 });
+	levelSix[1].AddSpawnPoints(1750, -1265, { 90 }, 6, 1, BulletType::GhostBullet, { 300, 1 });
+	levelSix[1].AddSpawnPoints(1250, -1265, { 90 }, 6, 4, BulletType::GhostBullet, { 300, 1 });
 
 	
 	levelSix[0].AddInstruction(4, 0, 0, 9999);//7
 	allLevels.push_back(levelSix);
 
+	//BELOVED TOMBOYISH GIRL
+	std::vector<BulletSpawner> levelSeven = std::vector<BulletSpawner>();
+	levelSeven.push_back(BulletSpawner());
 
+	levelSeven[0].AddRythm({ 1 }, 100, 0);
+	levelSeven[0].AddTargetingSpawnPoints(0, 0, { 0, 180}, 1, 0, BulletType::FractureBullet, { 200, 2, 2, 500 });
+
+	levelSeven[0].AddInstruction(4, 0, 0, 9999);//7
+	allLevels.push_back(levelSeven);
 }
 
 LevelLibrary::LevelLibrary()

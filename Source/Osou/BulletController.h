@@ -90,5 +90,9 @@ public:
 		TSubclassOf<AActor> BasicFireball;
 	UPROPERTY(EditDefaultsOnly, Category = "TrackingBullet")
 		TSubclassOf<AActor> TrackingBullet;
+	UPROPERTY(EditDefaultsOnly, Category = "GhostBullet")
+		TSubclassOf<AActor> GhostBullet;
+	UPROPERTY(EditDefaultsOnly, Category = "FractureBullet")
+		TSubclassOf<AActor> FractureBullet;
 
 };

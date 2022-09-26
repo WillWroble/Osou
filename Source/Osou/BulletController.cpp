@@ -256,7 +256,7 @@ void ABulletController::BeginPlay()
 
 
 	}
-	else {
+	else if(levelIndex == 6){
 		player->rhythmDelayConstants = { 0, 0, 0 };
 		player->SetTransitions({ 0 , 26, 40 }); //105
 		player->setSpeedMultis({ 1.3 , 1.3, 1.3 });
@@ -274,6 +274,16 @@ void ABulletController::BeginPlay()
 		character->AddBehavior(BehaviorMode::alert, 100, 0, 0);
 
 
+	}
+	else {
+		player->rhythmDelayConstants = { 0, 0, 0 };
+		player->SetTransitions({ 0 , 26, 40 }); //105
+		player->setSpeedMultis({ 1.3 , 1.3, 1.3 });
+		player->AddRythm({ 0.397 }, 0);
+		player->AddRythm({ 0.397 }, 1);
+		player->AddRythm({ 0.397 }, 2);
+
+		
 	}
 	spawner = &(LevelLibrary::allLevels[levelIndex][0]);
 	player->speed = player->baseSpeed;// / player->beats[0][0];
@@ -369,6 +379,12 @@ void ABulletController::Tick(float DeltaTime)
 				}
 				else if (tempBType == BulletType::TrackingBullet) {
 					tempClass = TrackingBullet;
+				}
+				else if (tempBType == BulletType::GhostBullet) {
+					tempClass = GhostBullet;
+				}
+				else if (tempBType == BulletType::FractureBullet) {
+					tempClass = FractureBullet;
 				}
 				activeBullets.push_back(GetWorld()->SpawnActor<ABasicBullet>(tempClass,
 					pos,
