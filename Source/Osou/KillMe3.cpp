@@ -188,7 +188,7 @@ void AKillMe3::Tick(float DeltaTime)
 		if (transitionTimes[transitionIndex + 1] < clockTime) {
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, "BEAT CHANGE");
 			rhythmBuffer = 3;
-			if (ABulletController::levelIndex != 0) {
+			if (ABulletController::levelIndex != 0 && ABulletController::levelIndex != 8) {
 				transitionIndex++;
 				if (beats[transitionIndex + 1].size() == 0) {
 					//just reset for now
@@ -259,7 +259,7 @@ void AKillMe3::Tick(float DeltaTime)
 		}
 		if (Health <= 0 && !isTimeFrozen) {
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "BAD RYTHM");
-			if (ABulletController::levelIndex != 0) {
+			if (ABulletController::levelIndex != 0 && ABulletController::levelIndex != 8) {
 				ResetEverything();
 			}
 		}
@@ -311,7 +311,7 @@ void AKillMe3::Tick(float DeltaTime)
 	wasClicked = clicked;
 	if (timeout > 3 && !isTimeFrozen) {
 		//ResetEverything();
-		if (ABulletController::levelIndex == 0) {
+		if (ABulletController::levelIndex == 0 || ABulletController::levelIndex == 8) {
 			if (bulletController3->tutorialTime < 28) {
 				//do nothing
 			}
@@ -384,7 +384,7 @@ void AKillMe3::ResetEverything()
 	if (ABulletController::levelIndex == 2) {
 		sound->SetWaveParameter(FName("wave"), song1_4);
 	}
-	if (ABulletController::levelIndex != 0) {
+	if (ABulletController::levelIndex != 0 && ABulletController::levelIndex != 8) {
 		sound->Play();
 	}
 	bulletController3->isTimeFrozen = false;

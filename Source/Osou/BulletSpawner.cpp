@@ -124,8 +124,22 @@ void BulletSpawner::AddDynamicSpawnPoint(float x, float y, std::vector<float> an
 
 void BulletSpawner::AddDynamicSpawnPoints(float x, float y, std::vector<float> angles, int timeSignature, int offset, BulletType bType, std::vector<float> bCoeff)
 {
-	for (int i = offset; i*angles.size()*timeSignature < spawnTable.size(); i += timeSignature) {
-		AddDynamicSpawnPoint(x, y, angles, i*angles.size()*timeSignature, timeSignature, bType, bCoeff);
+	for (int i = offset; i < spawnTable.size(); i += timeSignature*timeSignature*angles.size()) {
+		AddDynamicSpawnPoint(x, y, angles, i, timeSignature, bType, bCoeff);
+	}
+}
+
+void BulletSpawner::AddTargetingDynamicSpawnPoint(float x, float y, std::vector<float> angles, int index, int timeSignature, BulletType bType, std::vector<float> bCoeff)
+{
+	for (int i = 0; i < angles.size(); i++) {
+		AddTargetingSpawnPoint(x, y, { angles[i] }, index + timeSignature * i, bType, bCoeff);
+	}
+}
+
+void BulletSpawner::AddTargetingDynamicSpawnPoints(float x, float y, std::vector<float> angles, int timeSignature, int offset, BulletType bType, std::vector<float> bCoeff)
+{
+	for (int i = offset; i < spawnTable.size(); i += timeSignature * timeSignature * angles.size()) {
+		AddTargetingDynamicSpawnPoint(x, y, angles, i, timeSignature, bType, bCoeff);
 	}
 }
 
@@ -143,6 +157,23 @@ void BulletSpawner::AddCorners(std::vector<float> angles, int timeSignature, int
 				t[3] *= -1;
 			}
 			AddSpawnPoints(4500 * (1 - 2*i) * (j - 0.5), 2530 * (i - 0.5), newAngles, timeSignature, offset, bType, t);
+		}
+	}
+}
+void BulletSpawner::AddCorner(std::vector<float> angles, int offset, BulletType bType, std::vector<float> bCoeff)
+{
+	int angleMap[4] = { 0, 90, -90, 180 };
+	for (int i = 0; i < 2; i++) {
+		for (int j = 0; j < 2; j++) {
+			std::vector<float> newAngles;
+			for (int k = 0; k < angles.size(); k++) {
+				newAngles.push_back((180 * j) + (1 - (2 * j)) * angles[k] + (180 * i));
+			}
+			std::vector<float> t = std::vector<float>(bCoeff);
+			if (bType == BulletType::CurvedBullet && bCoeff.size() >= 4 && j) {
+				t[3] *= -1;
+			}
+			AddSpawnPoint(4500 * (1 - 2 * i) * (j - 0.5), 2530 * (i - 0.5), newAngles, offset, bType, t);
 		}
 	}
 }

@@ -38,7 +38,10 @@ public:
 	void AddTargetingSpawnPoints(float x, float y, std::vector<float> angles, int timeSignature, int offset, BulletType bType = BulletType::BasicBullet, std::vector<float> bCoeff = {700, 1});
 	void AddDynamicSpawnPoint(float x, float y, std::vector<float> angles, int index, int timeSignature, BulletType bType = BulletType::BasicBullet, std::vector<float> bCoeff = {700, 1});
 	void AddDynamicSpawnPoints(float x, float y, std::vector<float> angles, int timeSignature, int offset, BulletType bType = BulletType::BasicBullet, std::vector<float> bCoeff = {700, 1});
+	void AddTargetingDynamicSpawnPoint(float x, float y, std::vector<float> angles, int index, int timeSignature, BulletType bType = BulletType::BasicBullet, std::vector<float> bCoeff = { 700, 1 });
+	void AddTargetingDynamicSpawnPoints(float x, float y, std::vector<float> angles, int timeSignature, int offset, BulletType bType = BulletType::BasicBullet, std::vector<float> bCoeff = { 700, 1 });
 	void AddCorners(std::vector<float> angles, int timeSignature, int offset, BulletType Btype = BulletType::BasicBullet, std::vector<float> bCoeff = {700, 1});
+	void AddCorner(std::vector<float> angles, int offset, BulletType Btype = BulletType::BasicBullet, std::vector<float> bCoeff = { 700, 1 });
 	void AddMultipleSpawnPoints(std::vector<float> xs, std::vector<float> ys, std::vector<float> angles, int index, BulletType bType = BulletType::BasicBullet, std::vector<float> bCoeff = {700, 1});
 	void AddMultipleLayersOfSpawnPoints(std::vector<float> xs, std::vector<float> ys, std::vector<float> angles, int timeSignature, int offset, BulletType bType = BulletType::BasicBullet, std::vector<float> bCoeff = {700, 1});
 	void AddHorizontalWallOfSpawnPoints(int width, int x, int y, std::vector<float> angles, int spacing, int index, BulletType Btype = BulletType::BasicBullet, std::vector<float> bCoeff = {700, 1});

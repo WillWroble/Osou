@@ -214,8 +214,9 @@ void ABulletController::BeginPlay()
 		player->AddRythm({ 1 }, 2);
 	}
 	else if( levelIndex == 5){
+	//sakuya
 		player->rhythmDelayConstants = { 0, 0, 0 };
-		player->SetTransitions({ 0 , 26, 40}); //105
+		player->SetTransitions({ 0 , 26, 80}); //105
 		player->setSpeedMultis({ 1.3 , 1.3, 1.3});
 		player->AddRythm({ 0.392 }, 0);
 		player->AddRythm({ 0.392 }, 1);
@@ -251,31 +252,49 @@ void ABulletController::BeginPlay()
 		character->AddBehavior(BehaviorMode::glide, 2, -1000, -1000);
 		character->AddBehavior(BehaviorMode::alert, 1, 0, 0);
 		character->AddBehavior(BehaviorMode::float_, 2, -1000, 1000);
-		character->AddBehavior(BehaviorMode::idle, 15, 0, 0);
+		character->AddBehavior(BehaviorMode::idle, 8, 0, 0);
+		character->AddBehavior(BehaviorMode::float_, 2, 0, 1000); //45
+		character->AddBehavior(BehaviorMode::idle, 20, 0, 0);
+		character->AddBehavior(BehaviorMode::float_, 2, 1000, 1000);
+		character->AddBehavior(BehaviorMode::alert, 1, 0, 0);
+		character->AddBehavior(BehaviorMode::float_, 4, 1000, -1000);
+		character->AddBehavior(BehaviorMode::alert, 1, 0, 0);
+		character->AddBehavior(BehaviorMode::float_, 4, -1000, -1000);
+		character->AddBehavior(BehaviorMode::alert, 1, 0, 0);
+		character->AddBehavior(BehaviorMode::float_, 4, -1000, 1000);
+		character->AddBehavior(BehaviorMode::alert, 1, 0, 0);
 
 
 
 	}
 	else if(levelIndex == 6){
-		player->rhythmDelayConstants = { 0, 0, 0 };
-		player->SetTransitions({ 0 , 26, 40 }); //105
-		player->setSpeedMultis({ 1.3 , 1.3, 1.3 });
+	//rin
+		player->rhythmDelayConstants = { 0, 0, 0, 0 };
+		player->SetTransitions({ 0 , 50, 60, 50 }); //105
+		player->setSpeedMultis({ 1.3 , 1.0, 1.0, 1.0 });
 		player->AddRythm({ 0.385 }, 0);
 		player->AddRythm({ 0.385 }, 1);
 		player->AddRythm({ 0.385 }, 2);
+		player->AddRythm({ 0.385 }, 3);
 
-		character->AddInstruction(InstructionMode::wait, 8.47+0.77-0.5, 0, 0);
+
+		character->AddInstruction(InstructionMode::wait, 8.47+0.77, 0, 0);
 		character->AddInstructions(InstructionMode::playAnim, 3.08, 1, 0, 13);
 		character->AddInstruction(InstructionMode::move, 2, 0, 1000);
+		character->AddInstruction(InstructionMode::wait, 59, 0, 0);
+		character->AddInstruction(InstructionMode::move, 2, 0, 0);
 
 
 
 
-		character->AddBehavior(BehaviorMode::alert, 100, 0, 0);
+
+
+		character->AddBehavior(BehaviorMode::alert, 200, 0, 0);
 
 
 	}
-	else {
+	else if(levelIndex == 7){
+	//cirno
 		player->rhythmDelayConstants = { 0, 0, 0 };
 		player->SetTransitions({ 0 , 26, 40 }); //105
 		player->setSpeedMultis({ 1.3 , 1.3, 1.3 });
@@ -283,7 +302,36 @@ void ABulletController::BeginPlay()
 		player->AddRythm({ 0.397 }, 1);
 		player->AddRythm({ 0.397 }, 2);
 
+		//character->AddInstruction(InstructionMode::move, 2, 0, 1000);
+		//character->AddInstruction(InstructionMode::wait, 0.382, 0, 0);
+		character->AddInstruction(InstructionMode::wait, 0.5, 0, 0);
+		character->AddInstructions(InstructionMode::playAnim, 0.794 * 2, 1, 0, 19);
+		character->AddInstruction(InstructionMode::move, 1, 0, 750);
+
+
+		character->AddBehavior(BehaviorMode::float_, 2, 0, 1000);
+		character->AddBehavior(BehaviorMode::alert, 100, 0, 0);
+
+
 		
+	}
+	else {
+		//easy tut
+		player->rhythmDelayConstants = { 0, 0, 0 };
+		player->SetTransitions({ 0 , 9998, 9999 }); //105
+		player->setSpeedMultis({ 1.2 , 1.2, 1.2 });
+		player->AddRythm({ 0.46154 }, 0);
+		player->AddRythm({ 0.46154 }, 1);
+		player->AddRythm({ 0.46154 }, 2);
+
+		player->AddTextInstruction(0, 1, 3, FString("welcome to osou :D"));
+		player->AddTextInstruction(0, 4.5, 3, FString("As you can see there are two Health bars at the top. A white one and a <ColorBlue>blue</> one"));
+		player->AddTextInstruction(0, 8, 3, FString("Dont worry about the white one yet, for now just focus on the <ColorBlue>blue</> one"));
+		player->AddTextInstruction(0, 11.5, 5, FString("It is your tempo indicator, you will lose health when you click too late or too early \n and you will gain health when you click at the perfect time"));
+		player->AddTextInstruction(0, 17, 4, FString("That being said try clicking to this <ColorBlue>130bpm</> (beats per minute) tempo remember to look at your health bar to see how you are doing"));
+		player->AddTextInstruction(0, 21.5, 6, FString("You can also use the <ColorBlue>metronome</> in the bottom right as a visual indicator of the tempo\n Also notice the player responsive tempo feedback in the top right"));
+		player->AddTextInstruction(0, 28, 3, FString("Good luck! press tab or click menu in top left to restart this tutorial from the very begining"));
+
 	}
 	spawner = &(LevelLibrary::allLevels[levelIndex][0]);
 	player->speed = player->baseSpeed;// / player->beats[0][0];
@@ -292,9 +340,6 @@ void ABulletController::BeginPlay()
 	border->instructions = spawner->borderInstructions;
 	border->InitializeFromOutside();
 	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, *(FString::FromInt(LevelLibrary::allLevels.size())));
-	if (levelIndex == 0) {
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "WHAT THE FUCK");
-	}
 }
 
 // Called every frame
@@ -334,6 +379,12 @@ void ABulletController::Tick(float DeltaTime)
 				pos = FVector(character->GetActorLocation().X, 2, character->GetActorLocation().Z);
 				//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "CHARACTER SPAWN");
 
+			}
+			if (pos.X == 33002) {
+				pos.X = player->GetActorLocation().X;
+			}
+			if (pos.Z == 33002) {
+				pos.Z = player->GetActorLocation().Z;
 			}
 			float angle = 0;
 			if (spawner->spawnTable[index].spawnMap[i].isAngleRelative) {
@@ -386,6 +437,12 @@ void ABulletController::Tick(float DeltaTime)
 				else if (tempBType == BulletType::FractureBullet) {
 					tempClass = FractureBullet;
 				}
+				else if (tempBType == BulletType::CirnoBullet) {
+					tempClass = CirnoBullet;
+				}
+				else if (tempBType == BulletType::BasicBulletBlue) {
+					tempClass = BasicBulletBlue;
+				}
 				activeBullets.push_back(GetWorld()->SpawnActor<ABasicBullet>(tempClass,
 					pos,
 					FRotator(fmod(angle + spawner->spawnTable[index].spawnMap[i].angles[j] + 180, 360)-180, 0, 0)));
@@ -401,7 +458,7 @@ void ABulletController::Tick(float DeltaTime)
 			
 			
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, "TRANSITIONING");
-			if (levelIndex != 0) {
+			if (levelIndex != 0 && levelIndex != 8 ) {
 				transitionIndex++;
 				if (transitionIndex == LevelLibrary::allLevels[levelIndex].size()) {
 					//just reset for now
@@ -710,9 +767,230 @@ void ABulletController::Tick(float DeltaTime)
 				player->total = 0;
 				player->perfects = 0;
 			}
-			tutorialTime++;
+			tutorialTime+=1;
 			//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, *(FString::FromInt(tutorialTime)));
 
+		}
+		else if (levelIndex == 8) {
+			
+			if (tutorialTime < 66) {
+				if (player->Health < 0.1) {
+					tutorialTime = 0;
+					//player->sound->Stop();
+					//player->sound->Play();
+					index = 0;
+					clockTime = 0;
+					player->Health = 1;
+					player->hScore = 0;
+					player->rhythmDelayConstant = 0.21;
+					DisplayMessage(FString("Try again, stay on 130 bpm tempo"));
+				}
+			}
+			else if (tutorialTime < 67) {
+
+				on_screen_message temp;
+				temp.type = 0;
+				temp.duration = 6;
+				temp.startTime = 0;
+				temp.message = FString("good job! I hope you can keep that tempo in the back of your head\n because we are about to start worrying about the white health bar");
+				currentMessage = temp;
+				isDisplayMessage = true;
+				player->sound->Stop();
+				player->sound->SetWaveParameter(FName("wave"), player->song9);
+				player->rhythmDelayConstant = 0.35;
+
+			}
+			else if (tutorialTime < 80) {
+				//wait
+			}
+			else if (tutorialTime < 81) {
+				on_screen_message temp;
+				temp.type = 0;
+				temp.duration = 5;
+				temp.startTime = 0;
+				temp.message = FString("In osou there will be projectiles you need to dodge while staying on tempo \n the white health bar goes down every time you get hit; you can take 7 hits");
+				currentMessage = temp;
+				isDisplayMessage = true;
+			}
+			else if (tutorialTime < 87) {
+				//wait
+			}
+			else if (tutorialTime < 88) {
+				spawner = &(LevelLibrary::allLevels[levelIndex][1]);
+				player->rhythmDelayConstant = player->rhythmDelayConstants[0];
+				index = 0;
+				clockTime = 0;
+				player->sound->Play();
+
+			}
+			else if (tutorialTime < 133) {
+				if (player->Health < 0.1 || player->hScore > 1) {
+					if (player->hScore > 1) {
+						DisplayMessage(FString("Try not to get hit too many times"));
+					}
+					else {
+						DisplayMessage(FString("Stay on 130bpm tempo, try again"));
+					}
+					tutorialTime = 77;
+					player->sound->Stop();
+					//player->sound->Play();
+					spawner = &(LevelLibrary::allLevels[levelIndex][0]);
+					index = 0;
+					clockTime = 0;
+					player->Health = 1;
+					player->hScore = 0;
+					player->CloseWidget();
+					player->rhythmDelayConstant = 0.415;
+				}
+			}
+			else if (tutorialTime < 134) {
+				on_screen_message temp;
+				temp.type = 0;
+				temp.duration = 2;
+				temp.startTime = 0;
+				temp.message = FString("well done, now let's make this a little harder");
+				player->CloseWidget();
+				player->hScore = 0;
+				currentMessage = temp;
+				isDisplayMessage = true;
+				player->rhythmDelayConstant = 0.1;
+			}
+			else if (tutorialTime < 149) {
+				//wait
+			}
+			else if (tutorialTime < 155) {
+				if (index % 6 == 0) {
+					spawner = &(LevelLibrary::allLevels[levelIndex][2]);
+					index = 0;
+					clockTime = 0;
+					if (!tutFirstTime) {
+						player->sound->Play();
+					}
+				}
+			}
+			else if (tutorialTime < 197) {
+				if (player->Health < 0.1 || player->hScore > 1) {
+					if (player->hScore > 1) {
+						DisplayMessage(FString("Try not to get hit too many times"));
+					}
+					else {
+						DisplayMessage(FString("Stay at 130bpm tempo, try again"));
+					}
+					tutorialTime = 140; //134
+					player->sound->Stop();
+					player->sound->SetWaveParameter(FName("wave"), player->song1_2);
+					//player->sound->Play();
+					spawner = &(LevelLibrary::allLevels[levelIndex][0]);
+					index = 0;
+					clockTime = 0;
+					player->Health = 1;
+					player->hScore = 0;
+					player->rhythmDelayConstant = 0.1;
+					player->CloseWidget();
+					tutFirstTime = false;
+				}
+			}
+			else if (tutorialTime < 198) {
+
+				on_screen_message temp;
+				temp.type = 0;
+				temp.duration = 1;
+				temp.startTime = 0;
+				temp.message = FString("great job, now let's double the tempo");
+				currentMessage = temp;
+				isDisplayMessage = true;
+				tutFirstTime = true;
+
+				spawner = &(LevelLibrary::allLevels[levelIndex][0]);
+				index = 0;
+				clockTime = 0;
+			}
+			else if (tutorialTime < 202) { //215
+				//wait
+			}
+			else if (tutorialTime < 203) {
+				on_screen_message temp;
+				temp.type = 1;
+				temp.duration = 0.33;
+				temp.startTime = 0;
+				temp.count = 3;
+				temp.message = FString("X2 in");
+				currentMessage = temp;
+				isDisplayMessage = true;
+			}
+			else if (tutorialTime < 215) {
+				//wait
+			}
+			else if (tutorialTime < 216) {
+				spawner = &(LevelLibrary::allLevels[levelIndex][3]);
+				index = 0;
+				clockTime = 0;
+
+				player->currentBeat = &(player->beats[1]);
+				player->currentMulti = player->speedMultis[1];
+				player->index = 0;
+				player->clockTime = 0;
+				player->Health += 1;
+
+				if (!tutFirstTime) {
+					player->sound->Play();
+				}
+				else {
+					player->rhythmDelayConstant = player->rhythmDelayConstants[1];
+				}
+
+			}
+			else if (tutorialTime < 456 - 34 + 27 * (tutFirstTime)) {
+				if (player->Health < 0.1 || player->hScore > 3) {
+					if (player->hScore > 3) {
+						DisplayMessage(FString("Try not to get hit too many times"));
+					}
+					else {
+						DisplayMessage(FString("You need to double your tempo, try again"));
+					}
+					tutorialTime = 203; //198
+					player->sound->Stop();
+					player->sound->SetWaveParameter(FName("wave"), player->song1_3);
+					//player->sound->Play();
+					spawner = &(LevelLibrary::allLevels[levelIndex][0]);
+					index = 0;
+					clockTime = 0;
+					player->Health = 1;
+					player->hScore = 0;
+					player->rhythmDelayConstant = 0.18;
+					player->CloseWidget();
+					tutFirstTime = false;
+
+				}
+			}
+			else if (tutorialTime < 457 - 34 + 27 * (tutFirstTime)) {
+
+				on_screen_message temp;
+				temp.type = 0;
+				temp.duration = 2;
+				temp.startTime = 0;
+				temp.message = FString("Fantastic job!, lets go back down to normal tempo");
+				currentMessage = temp;
+				isDisplayMessage = true;
+				//player->FinishedLevel();
+			}
+			else if (tutorialTime < 465 - 34 + 27 * (tutFirstTime)) {
+				//wait
+			}
+			else if (tutorialTime < 466 - 34 + 27 * (tutFirstTime)) {
+				on_screen_message temp;
+				temp.type = 1;
+				temp.duration = 0.33;
+				temp.startTime = 0;
+				temp.count = 3;
+				temp.message = FString("X0.5 in");
+				currentMessage = temp;
+				isDisplayMessage = true;
+			}
+			else if (tutorialTime < 490 - 34 + 27 * (tutFirstTime)) {
+				//wait
+			}
+			tutorialTime++;
 		}
 	}
 	if (player->messages.size() > messageIndex && messageClockTime > player->messages[messageIndex].startTime) {

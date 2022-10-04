@@ -191,6 +191,8 @@ public:
 		USoundWave* song8;
 	UPROPERTY(EditDefaultsOnly, Category = "song9")
 		USoundWave* song9;
+	UPROPERTY(EditDefaultsOnly, Category = "song10")
+		USoundWave* song10;
 
 	UPROPERTY(EditDefaultsOnly, Category = "BeatCircle")
 		TSubclassOf<AActor> BeatCircle;

@@ -139,7 +139,7 @@ void AKillMe::BeginPlay()
 	currentLevel = 0;
 	rhythmBuffer = 2;
 	circleCount = 0;
-	levelConversion = { 8, 12, 23, 19, 20, 11, 14, 13, 18 };
+	levelConversion = { 8, 12, 23, 19, 20, 11, 14, 13, 9 };
 	for (int i = 0; i < 70; i++) {
 		levelConversion.push_back(-1);
 	}
@@ -171,6 +171,9 @@ void AKillMe::BeginPlay()
 	}
 	else if (li == 7) {
 		sound->SetWaveParameter(FName("wave"), song8);
+	}
+	else if (li == 8) {
+		sound->SetWaveParameter(FName("wave"), song10);
 	}
 	else {
 		sound->SetWaveParameter(FName("wave"), song2);
@@ -325,7 +328,7 @@ void AKillMe::Tick(float DeltaTime)
 		}
 		if (Health <= 0 && !isTimeFrozen) {
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "BAD RYTHM");
-			if (ABulletController::levelIndex != 0) {
+			if (ABulletController::levelIndex != 0 && ABulletController::levelIndex != 8) {
 				wasClicked = true;
 				ResetEverything();
 				return;
@@ -426,7 +429,7 @@ void AKillMe::Tick(float DeltaTime)
 		if (transitionTimes[transitionIndex + 1] < clockTime) {
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, "BEAT CHANGE");
 			rhythmBuffer = 3;
-			if (ABulletController::levelIndex != 0) {
+			if (ABulletController::levelIndex != 0 && ABulletController::levelIndex != 8) {
 				transitionIndex++;
 				if (beats[transitionIndex + 1].size() == 0) {
 					//just reset for now
@@ -495,7 +498,7 @@ void AKillMe::Tick(float DeltaTime)
 		successivePerfects = 0;
 		if (Health <= 0 && !isTimeFrozen) {
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "BAD RYTHM");
-			if (ABulletController::levelIndex != 0) {
+			if (ABulletController::levelIndex != 0 && ABulletController::levelIndex != 8) {
 				ResetEverything();
 				return;
 			}
@@ -629,8 +632,8 @@ void AKillMe::OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AA
 		hScore++;
 		tutHScore++;
 		if (hScore > 7 || (hScore > 3 && is4Health)) {
-			if (ABulletController::levelIndex != 0) {
-				ResetEverything();
+			if (ABulletController::levelIndex != 0 && ABulletController::levelIndex != 8) {
+				//ResetEverything();
 			}
 		}
 		else {

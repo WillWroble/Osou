@@ -57,7 +57,7 @@ void AInGameCharacter::Tick(float DeltaTime)
 				SetDefaultAnimToIdle();
 				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "AVOID");
 			}
-			else if (behaviors[beh_index].beh == BehaviorMode::idle) {
+			else if (behaviors[beh_index].beh == BehaviorMode::idle || behaviors[beh_index].beh == BehaviorMode::alert) {
 				SetDefaultAnimToIdle();
 				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "IDLE");
 			}

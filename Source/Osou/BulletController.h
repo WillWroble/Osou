@@ -94,5 +94,10 @@ public:
 		TSubclassOf<AActor> GhostBullet;
 	UPROPERTY(EditDefaultsOnly, Category = "FractureBullet")
 		TSubclassOf<AActor> FractureBullet;
+	UPROPERTY(EditDefaultsOnly, Category = "CirnoBullet")
+		TSubclassOf<AActor> CirnoBullet;
+	UPROPERTY(EditDefaultsOnly, Category = "BasicBulletBlue")
+		TSubclassOf<AActor> BasicBulletBlue;
+
 
 };
