@@ -73,7 +73,7 @@ void AInGameCharacter::Tick(float DeltaTime)
 				delta = (FVector(behaviors[beh_index].x, 10, behaviors[beh_index].y) - GetActorLocation()) / behaviors[beh_index].duration;
 			}
 			else if (behaviors[beh_index].beh == BehaviorMode::float_) {
-				SetDefaultAnimToIdle();
+				SetDefaultAnimToFloat();
 				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "FLOAT");
 				/*if (behaviors[beh_index].x < GetActorLocation().X) {
 					flipBook->SetRelativeRotation(FRotator(0, 0, 0));

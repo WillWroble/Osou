@@ -80,6 +80,8 @@ public:
 		void SetDefaultAnimToDash();
 	UFUNCTION(BlueprintImplementableEvent)
 		void SetDefaultAnimToIdle();
+	UFUNCTION(BlueprintImplementableEvent)
+		void SetDefaultAnimToFloat();
 
 
 };

@@ -216,7 +216,7 @@ void ABulletController::BeginPlay()
 	else if( levelIndex == 5){
 	//sakuya
 		player->rhythmDelayConstants = { 0, 0, 0 };
-		player->SetTransitions({ 0 , 26, 80}); //105
+		player->SetTransitions({ 0 , 26, 105}); //105
 		player->setSpeedMultis({ 1.3 , 1.3, 1.3});
 		player->AddRythm({ 0.392 }, 0);
 		player->AddRythm({ 0.392 }, 1);
@@ -234,10 +234,19 @@ void ABulletController::BeginPlay()
 		character->AddInstruction(InstructionMode::flipHoriz, 0, 0, 0);
 		character->AddInstruction(InstructionMode::wait, 4, 0, 0);
 		character->AddInstruction(InstructionMode::playAnim, 0, 1, 0);
-		character->AddInstruction(InstructionMode::wait, 1, 0, 0);
-		character->AddInstructions(InstructionMode::playAnim, 0.784 * 2, 1, 0, 6);
+		character->AddInstruction(InstructionMode::wait, 1, 0, 0); //15
+		character->AddInstructions(InstructionMode::playAnim, 0.784 * 2, 1, 0, 6); //24.4
 		character->AddInstruction(InstructionMode::wait, 2, 0, 0);
+		character->AddInstructions(InstructionMode::playAnim, 0.784, 1, 0, 8); //32.672
+		character->AddInstruction(InstructionMode::wait, 28, 0, 0);
+		character->AddInstructions(InstructionMode::playAnim, 0.784 * 2, 1, 0, 7);//60.672
+		character->AddInstruction(InstructionMode::playAnim, 0.784, 1, 0);
 		character->AddInstructions(InstructionMode::playAnim, 0.784, 1, 0, 8);
+		character->AddInstruction(InstructionMode::wait, 12.544 - 0.784, 0, 0);
+		character->AddInstructions(InstructionMode::playAnim, 0.784*2, 1, 0, 9);
+
+
+
 
 
 
@@ -262,6 +271,8 @@ void ABulletController::BeginPlay()
 		character->AddBehavior(BehaviorMode::float_, 4, -1000, -1000);
 		character->AddBehavior(BehaviorMode::alert, 1, 0, 0);
 		character->AddBehavior(BehaviorMode::float_, 4, -1000, 1000);
+		character->AddBehavior(BehaviorMode::alert, 1, 0, 0);
+		character->AddBehavior(BehaviorMode::float_, 4, 0, 1000);
 		character->AddBehavior(BehaviorMode::alert, 1, 0, 0);
 
 
@@ -296,7 +307,7 @@ void ABulletController::BeginPlay()
 	else if(levelIndex == 7){
 	//cirno
 		player->rhythmDelayConstants = { 0, 0, 0 };
-		player->SetTransitions({ 0 , 26, 40 }); //105
+		player->SetTransitions({ 0 , 26, 120 }); //105
 		player->setSpeedMultis({ 1.3 , 1.3, 1.3 });
 		player->AddRythm({ 0.397 }, 0);
 		player->AddRythm({ 0.397 }, 1);
