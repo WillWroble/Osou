@@ -22,17 +22,17 @@ ALevelBlockManager::ALevelBlockManager()
 	levelDatas[1] = { 0,0, LOCTEXT("levelName0.2", "Touhou Pack"), LOCTEXT("artistName0.2", "     Artwork by TODO"), {11, 12, 13, 14, 15, 16, 17, 18} };
 	levelDatas[7] = { 0,0, LOCTEXT("levelName0.8", "True Rhythm (Experimental)"), LOCTEXT("artistName0.8", "     Artwork by TODO"), {19, 20, 21, 22} };
 	levelDatas[8] =	{ 1,1, LOCTEXT("levelName1.1", "Vee (Tutorial)"), LOCTEXT("artistName1.1", "     Artwork by TODO"), {} };
-	levelDatas[9] = { 1,2, LOCTEXT("levelName1.2", "Pneumatic Tokyo (Easy Tutorial)"), LOCTEXT("artistName1.2", "     TODO"), {} };
+	levelDatas[9] = { 1,2, LOCTEXT("levelName1.2", "Pneumatic Tokyo (Easy Tutorial) (WIP)"), LOCTEXT("artistName1.2", "     TODO"), {} };
 	levelDatas[10] = { 2,4, LOCTEXT("levelName1.3", "Enn (WIP)"), LOCTEXT("artistName1.3", "     Artwork by Pei (Sumurai)"), {} };
-	levelDatas[11] = { 3,3, LOCTEXT("levelName2.1", "Flowering Night (WIP)"), LOCTEXT("artistName2.1", "     TODO"), {} };
+	levelDatas[11] = { 3,3, LOCTEXT("levelName2.1", "Flowering Night"), LOCTEXT("artistName2.1", "     TODO"), {} };
 	levelDatas[12] = { 4,4, LOCTEXT("levelName2.2", "UN Owen Was Her"), LOCTEXT("artistName2.2", "     TODO"), {} };
-	levelDatas[13] = { 5,1, LOCTEXT("levelName2.3", "Beloved Tomboyish Girl (WIP)"), LOCTEXT("artistName2.3", "     TODO"), {} };
-	levelDatas[14] = { 6,2, LOCTEXT("levelName2.4", "Lullaby of a Deserted Hell (WIP)"), LOCTEXT("artistName2.4", "     TODO"), {} };
+	levelDatas[13] = { 5,1, LOCTEXT("levelName2.3", "Beloved Tomboyish Girl"), LOCTEXT("artistName2.3", "     TODO"), {} };
+	levelDatas[14] = { 6,2, LOCTEXT("levelName2.4", "Lullaby of a Deserted Hell"), LOCTEXT("artistName2.4", "     TODO"), {} };
 	levelDatas[15] = { 7,3, LOCTEXT("levelName2.5", "Radiant Radiant Symphany (WIP)"), LOCTEXT("artistName2.5", "     TODO"), {} };
 	levelDatas[16] = { 8,4, LOCTEXT("levelName2.6", "Reach for the Moon (WIP)"), LOCTEXT("artistName2.6", "     TODO"), {} };
 	levelDatas[17] = { 9,4, LOCTEXT("levelName2.7", "Necrofantasia (WIP)"), LOCTEXT("artistName2.7", "     TODO"), {} };
 	levelDatas[18] = { 10,4, LOCTEXT("levelName2.8", "Flight of the Bamboo Cutter (WIP)"), LOCTEXT("artistName2.8", "     TODO"), {} };
-	levelDatas[23] = { 10, 2, LOCTEXT("levelName1.4", "Vee (full level)"), LOCTEXT("artistName1.4", "     Artwork by Unknown Artist"), {} };
+	levelDatas[23] = { 10, 5, LOCTEXT("levelName1.4", "Vee (full level)"), LOCTEXT("artistName1.4", "     Artwork by Unknown Artist"), {} };
 	levelDatas[19] = { 10, 2, LOCTEXT("levelName8.1", "Simple Rhythm"), LOCTEXT("artistName8.1", "     Artwork by Unknown Artist"), {} };
 	levelDatas[20] = { 10, 2, LOCTEXT("levelName8.2", "Every Battle (PREVIEW)"), LOCTEXT("artistName8.2", "     Artwork by Unknown Artist"), {} };
 
@@ -167,7 +167,7 @@ void ALevelBlockManager::Tick(float DeltaTime)
 					//already selected (clicking again)
 					if (!boxInstances[i]->isCategory) {
 						int n = levelMap[i];
-						if (n == 2|| n == 1 || n == 0 || n == 3 || n == 4 || n == 5 || n == 6 || n == 7 || n == 8) {
+						if (n == 2|| n == 1 || n == 0 || n == 3 || n == 4 || n == 5 || n == 6 || n == 7) {
 							ABulletController::levelIndex = n;
 							if (n == 3 || n == 4) {
 								CheckForCalibration();

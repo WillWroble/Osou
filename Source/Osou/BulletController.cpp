@@ -289,15 +289,17 @@ void ABulletController::BeginPlay()
 		player->AddRythm({ 0.385 }, 3);
 
 
-		character->AddInstruction(InstructionMode::wait, 8.47+0.77, 0, 0);
-		character->AddInstructions(InstructionMode::playAnim, 3.08, 1, 0, 13);
-		character->AddInstruction(InstructionMode::move, 2, 0, 1000);
-		character->AddInstruction(InstructionMode::wait, 59, 0, 0);
-		character->AddInstruction(InstructionMode::move, 2, 0, 0);
-
-
-
-
+		character->AddInstruction(InstructionMode::wait, 8.47+0.77, 0, 0); 
+		character->AddInstructions(InstructionMode::playAnim, 3.08*2, 1, 0, 6);
+		character->AddInstruction(InstructionMode::playAnim, 3.08 , 1, 0);
+		character->AddInstruction(InstructionMode::move, 2, 0, 1000); //51.28
+		character->AddInstruction(InstructionMode::wait, 16.17, 0, 0);
+		character->AddInstructions(InstructionMode::playAnim, 0.385*8, 1, 0, 6);
+		character->AddInstruction(InstructionMode::playAnim, 0.385 * 4, 1, 0);
+		character->AddInstructions(InstructionMode::playAnim, 0.385 * 4, 1, 0, 15);
+		character->AddInstruction(InstructionMode::move, 2, 0, 0); //112.57
+		character->AddInstruction(InstructionMode::wait, 1.56, 0, 0);
+		character->AddInstructions(InstructionMode::playAnim, 0.385 * 8, 1, 0, 12);
 
 
 		character->AddBehavior(BehaviorMode::alert, 200, 0, 0);
@@ -307,7 +309,7 @@ void ABulletController::BeginPlay()
 	else if(levelIndex == 7){
 	//cirno
 		player->rhythmDelayConstants = { 0, 0, 0 };
-		player->SetTransitions({ 0 , 26, 120 }); //105
+		player->SetTransitions({ 0 , 26, 157 }); //105
 		player->setSpeedMultis({ 1.3 , 1.3, 1.3 });
 		player->AddRythm({ 0.397 }, 0);
 		player->AddRythm({ 0.397 }, 1);
@@ -316,12 +318,20 @@ void ABulletController::BeginPlay()
 		//character->AddInstruction(InstructionMode::move, 2, 0, 1000);
 		//character->AddInstruction(InstructionMode::wait, 0.382, 0, 0);
 		character->AddInstruction(InstructionMode::wait, 0.5, 0, 0);
-		character->AddInstructions(InstructionMode::playAnim, 0.794 * 2, 1, 0, 19);
+		character->AddInstruction(InstructionMode::wait, 0.794 * 2*19, 0, 0);
+		character->AddInstructions(InstructionMode::playAnim, 0.794 * 8, 2, 0, 5); //62.432
 		character->AddInstruction(InstructionMode::move, 1, 0, 750);
+		character->AddInstruction(InstructionMode::wait, 32.408, 0, 0);
+		character->AddInstruction(InstructionMode::playAnim, 12*0.794, 1, 0);
+		character->AddInstruction(InstructionMode::playAnim, 12 * 0.794, 1, 0);
+		character->AddInstructions(InstructionMode::playAnim, 12 * 0.794, 2, 0, 6);
+
 
 
 		character->AddBehavior(BehaviorMode::float_, 2, 0, 1000);
-		character->AddBehavior(BehaviorMode::alert, 100, 0, 0);
+		character->AddBehavior(BehaviorMode::alert, 90, 0, 0);
+		character->AddBehavior(BehaviorMode::followHoriz, 100, 0, 0);
+
 
 
 		

@@ -1007,9 +1007,15 @@ void LevelLibrary::BuildLevels()
 	levelSeven[0].AddTargetingSpawnPoints(69, 420, { 0 }, 4, 38+(4*8), BulletType::FractureBullet, { 200, 2, 2, 500 });
 
 	levelSeven[0].AddRythm({ 0.397 * 2 }, 100, 0.5 + (200 * 0.397) + 8);
-	levelSeven[0].AddSpawnPoints(69, 420, A1, 4, 0, BulletType::BasicBulletBlue, { 700, 1 });
-	levelSeven[0].AddTargetingSpawnPoints(69, 420, { -50, 0, 50 }, 2, 0, BulletType::BasicBulletBlue, { 700, 1 });
-	levelSeven[0].AddTargetingSpawnPoints(69, 420, { -30, 30 }, 2, 1, BulletType::BasicBulletBlue, { 700, 1 });
+	levelSeven[0].AddSpawnPoints(69, 420, A1, 4, 0+100, BulletType::BasicBulletBlue, { 700, 1 });
+	levelSeven[0].AddTargetingSpawnPoints(69, 420, { -50, 0, 50 }, 2, 0+100, BulletType::BasicBulletBlue, { 700, 1 });
+	levelSeven[0].AddTargetingSpawnPoints(69, 420, { -30, 30 }, 2, 1+100, BulletType::BasicBulletBlue, { 700, 1 });
+	levelSeven[0].AddSpawnPoints(69, 420, A1_2, 12, 10+100, BulletType::CirnoBullet, { 350, 1 });
+	levelSeven[0].AddTargetingSpawnPoints(69, 420, { 90, -90 }, 4, 34+100, BulletType::FractureBullet, { 200, 2, 2, 500 });
+	levelSeven[0].AddTargetingSpawnPoints(69, 420, { 0 }, 4, 34 + (4 * 8)+100, BulletType::FractureBullet, { 200, 2, 2, 500 });
+	levelSeven[0].AddCorners({ 45 }, 4, 34 + (4 * 16) + 100, BulletType::FractureBullet, { 200, 2, 2, 500 });
+
+
 
 	levelSeven[0].AddRythm({ 0.84 }, 5, 85);
 	levelSeven[0].AddSpawnPoints(0, 0, { 0, 60, 120, 180, 240, 300 }, 1, 200, BulletType::BasicBulletBlue, { 500, 1 });
@@ -1020,6 +1026,8 @@ void LevelLibrary::BuildLevels()
 		levelSeven[0].AddSpawnPoint(t1 * cosf((A60[i] - 60) * (PI / 180)), t1 * sinf((A60[i] - 60) * (PI / 180)), { A60[i] }, 201, BulletType::BasicBulletBlue, { 500, 1 });
 	}
 	
+
+
 	levelSeven[0].SortSpawnTimes();
 
 

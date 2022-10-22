@@ -633,7 +633,7 @@ void AKillMe::OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AA
 		tutHScore++;
 		if (hScore > 7 || (hScore > 3 && is4Health)) {
 			if (ABulletController::levelIndex != 0 && ABulletController::levelIndex != 8) {
-				//ResetEverything();
+				ResetEverything();
 			}
 		}
 		else {
