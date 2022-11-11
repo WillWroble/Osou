@@ -42,6 +42,7 @@ void AKillMe3::BeginPlay()
 	Super::BeginPlay();
 	TActorIterator<ABulletController> It(GetWorld());
 	bulletController3 = *It;
+	flipBook = (UPaperFlipbookComponent*)(this->GetComponentsByTag(UPaperFlipbookComponent::StaticClass(), "flipbook"))[0];
 	/*
 	//pController = UGameplayStatics::GetPlayerController(GetWorld(), 0);
 	pController = GetWorld()->GetFirstPlayerController();
@@ -150,11 +151,11 @@ void AKillMe3::Tick(float DeltaTime)
 		invunerableTime += (DeltaTime*ABulletController::audioCoeff);
 		if (invunerableTime > iCounter * 0.1) {
 			if (iCounter % 2 == 0) {
-				sprite->SetVisibility(false);
+				sprite->SetVisibility(false, true);
 
 			}
 			else {
-				sprite->SetVisibility(true);
+				sprite->SetVisibility(true, true);
 			}
 			iCounter++;
 		}
@@ -284,6 +285,13 @@ void AKillMe3::Tick(float DeltaTime)
 		direction.X = x - GetActorLocation().X;//x-
 		direction.Z = y - GetActorLocation().Z;//y-
 		direction.Normalize();
+		if (direction.X < 0) {
+			flipBook->SetRelativeRotation(FRotator(0, 0, 0));
+		}
+		else {
+			flipBook->SetRelativeRotation(FRotator(0, 180, 0));
+		}
+		StartGlide();
 	}
 	timeout += (DeltaTime*ABulletController::audioCoeff);
 	if (timeout < (((*currentBeat)[index])-0.08) + 0.16) {
@@ -294,7 +302,12 @@ void AKillMe3::Tick(float DeltaTime)
 			//AddActorLocalOffset(GetActorLocation()* DeltaTime* speed* currentMulti);
 		}
 		else {
+			if (direction != FVector(0)) {
+				EndGlide();
+				//flipBook->AddLocalRotation(FRotator(0, 180, 0));
+			}
 			direction = FVector(0);
+			
 		}
 	}
 	beatTime += (DeltaTime*ABulletController::audioCoeff);

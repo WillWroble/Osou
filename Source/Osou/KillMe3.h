@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "KillMe.h"
+#include "PaperFlipbookComponent.h"
 #include "KillMe3.generated.h"
 
 /**
@@ -22,6 +23,7 @@ class OSOU_API AKillMe3 : public AKillMe
 		virtual void BeginPlay() override;
 
 	public:
+		UPaperFlipbookComponent* flipBook;
 
 		virtual void Tick(float DeltaTime) override;
 		virtual void AddRythm(std::vector<float> beat, int in) override;
@@ -31,5 +33,10 @@ class OSOU_API AKillMe3 : public AKillMe
 		virtual void AddTextInstruction(int type, float start, float duration, FString textContent, float interval = 1, int count = 0) override;
 		//void ResetEverything();
 		//UFUNCTION(BlueprintCallable)
-			virtual void ResetEverything() override;
+		virtual void ResetEverything() override;
+
+		UFUNCTION(BlueprintImplementableEvent)
+			void StartGlide();
+		UFUNCTION(BlueprintImplementableEvent)
+			void EndGlide();
 };
