@@ -253,8 +253,8 @@ void AKillMe::Tick(float DeltaTime)
 		//	clockTime = 0;
 		//}
 		//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "hello??");
-		trail = UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), templateEmitter, FVector(0,2,0), FRotator(0));
-		trail->SetBeamTargetPoint(0, this->GetActorLocation(), 0);
+		trail = UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), templateEmitter, this->GetActorLocation(), FRotator(0));
+		//trail->SetBeamTargetPoint(0, this->GetActorLocation(), 0);
 		trail->SetBeamSourcePoint(0, this->GetActorLocation(), 0);
 		//total++;
 		if (relativeTimeout < ((*currentBeat)[relativeIndex]+rhythmDelayConstant)-0.12 && hasStarted) {//&& hasStarted
@@ -466,7 +466,7 @@ void AKillMe::Tick(float DeltaTime)
 		}
 		FVector totalScale(baseScale);
 		if (extraScales.empty()){// || baseScale.X > extraScales[extraScales.size() - 1]) {
-			while (index + 1 + circleCount < currentBeat->size() && (*currentBeat)[index + 1 + circleCount] <= 0.4) {
+			while (index + 1 + circleCount < currentBeat->size() && (*currentBeat)[index + 1 + circleCount] <= 0.4 && circleCount < 6) {//0.4
 				circleCount++;
 				totalScale += FVector(1) * ((*currentBeat)[index + circleCount]) * (ABulletController::audioCoeff * 0.2 / ((*currentBeat)[index] + rhythmDelayConstant + 0));//((*currentBeat)[index + 1 + circleCount]) * ((FVector(timeout - temp1)* (0.2 / ((*currentBeat)[index] + rhythmDelayConstant + 0)))/DeltaTime);
 				extraBeatCircles.push_back(GetWorld()->SpawnActor<ABeatCircle>(BeatCircle, FVector(0), FRotator(0)));
@@ -603,6 +603,9 @@ void AKillMe::ResetEverything()
 	sound->Play();
 	bulletController->isTimeFrozen = false;
 	isTimeFrozen = false;
+	for (int i = 0; i < extraBeatCircles.size(); i++) {
+		extraBeatCircles[i]->SetActorHiddenInGame(true);
+	}
 }
 void AKillMe::StopEverything()
 {

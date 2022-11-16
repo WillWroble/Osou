@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "KillMe.h"
 #include "PaperFlipbookComponent.h"
+#include "Components/StaticMeshComponent.h"
 #include "KillMe3.generated.h"
 
 /**
@@ -24,6 +25,7 @@ class OSOU_API AKillMe3 : public AKillMe
 
 	public:
 		UPaperFlipbookComponent* flipBook;
+		UStaticMeshComponent* hexPlane;
 
 		virtual void Tick(float DeltaTime) override;
 		virtual void AddRythm(std::vector<float> beat, int in) override;

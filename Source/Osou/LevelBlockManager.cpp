@@ -22,7 +22,7 @@ ALevelBlockManager::ALevelBlockManager()
 	levelDatas[1] = { 0,0, LOCTEXT("levelName0.2", "Touhou Pack"), LOCTEXT("artistName0.2", "     Artwork by TODO"), {11, 12, 13, 14, 15, 16, 17, 18} };
 	levelDatas[7] = { 0,0, LOCTEXT("levelName0.8", "True Rhythm (Experimental)"), LOCTEXT("artistName0.8", "     Artwork by TODO"), {19, 20, 21, 22} };
 	levelDatas[8] =	{ 1,1, LOCTEXT("levelName1.1", "Vee (Tutorial)"), LOCTEXT("artistName1.1", "     Artwork by TODO"), {} };
-	levelDatas[9] = { 1,2, LOCTEXT("levelName1.2", "Pneumatic Tokyo (Easy Tutorial) (WIP)"), LOCTEXT("artistName1.2", "     TODO"), {} };
+	levelDatas[9] = { 1,2, LOCTEXT("levelName1.2", "Pneumatic Tokyo (WIP)"), LOCTEXT("artistName1.2", "     TODO"), {} };
 	levelDatas[10] = { 2,4, LOCTEXT("levelName1.3", "Enn (WIP)"), LOCTEXT("artistName1.3", "     Artwork by Pei (Sumurai)"), {} };
 	levelDatas[11] = { 3,3, LOCTEXT("levelName2.1", "Flowering Night"), LOCTEXT("artistName2.1", "     TODO"), {} };
 	levelDatas[12] = { 4,4, LOCTEXT("levelName2.2", "UN Owen Was Her"), LOCTEXT("artistName2.2", "     TODO"), {} };
@@ -84,7 +84,7 @@ void ALevelBlockManager::BeginPlay()
 	UGameplayStatics::AsyncLoadGameFromSlot(FString("osou_save"), 0, LoadedDelegate);
 	
 	levelMap = { -1, -1, -1, -1, -1, -1, -1, -1,
-	0, -1, -1, 5, 1, -1, 4, 5, 6, 7, 8};
+	0, -1, -1, 5, 1, -1, -1, -1, -1, -1, 8};
 	for (int i = 0; i < 70; i++) {
 		levelMap.push_back(-1);
 	}

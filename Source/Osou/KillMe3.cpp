@@ -43,6 +43,7 @@ void AKillMe3::BeginPlay()
 	TActorIterator<ABulletController> It(GetWorld());
 	bulletController3 = *It;
 	flipBook = (UPaperFlipbookComponent*)(this->GetComponentsByTag(UPaperFlipbookComponent::StaticClass(), "flipbook"))[0];
+	hexPlane = (UStaticMeshComponent*)(this->GetComponentsByTag(UStaticMeshComponent::StaticClass(), "plane"))[0];
 	/*
 	//pController = UGameplayStatics::GetPlayerController(GetWorld(), 0);
 	pController = GetWorld()->GetFirstPlayerController();
@@ -151,11 +152,17 @@ void AKillMe3::Tick(float DeltaTime)
 		invunerableTime += (DeltaTime*ABulletController::audioCoeff);
 		if (invunerableTime > iCounter * 0.1) {
 			if (iCounter % 2 == 0) {
-				sprite->SetVisibility(false, true);
+				sprite->SetVisibility(false);
+				hexPlane->SetVisibility(false);
+				flipBook->SetVisibility(false);
+				//circleSprite->SetVisibility(false);
 
 			}
 			else {
-				sprite->SetVisibility(true, true);
+				sprite->SetVisibility(true);
+				hexPlane->SetVisibility(true);
+				flipBook->SetVisibility(true);
+				//circleSprite->SetVisibility(true);
 			}
 			iCounter++;
 		}
@@ -203,8 +210,8 @@ void AKillMe3::Tick(float DeltaTime)
 			clockTime = 0;
 		}
 		//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "hello??");
-		trail = UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), templateEmitter, FVector(0, 2, 0), FRotator(0));
-		trail->SetBeamTargetPoint(0, this->GetActorLocation(), 0);
+		trail = UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), templateEmitter, this->GetActorLocation(), FRotator(0));
+		//trail->SetBeamTargetPoint(0, this->GetActorLocation(), 0);
 		trail->SetBeamSourcePoint(0, this->GetActorLocation(), 0);
 		total++;
 		if (timeout < (((*currentBeat)[index])-0.08) && hasStarted) {
