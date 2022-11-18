@@ -213,7 +213,7 @@ void AKillMe3::Tick(float DeltaTime)
 		trail = UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), templateEmitter, this->GetActorLocation(), FRotator(0));
 		//trail->SetBeamTargetPoint(0, this->GetActorLocation(), 0);
 		trail->SetBeamSourcePoint(0, this->GetActorLocation(), 0);
-		total++;
+		total+=2;
 		if (timeout < (((*currentBeat)[index])-0.08) && hasStarted) {
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "EARLY");
 			PopupType = 0;
@@ -225,6 +225,7 @@ void AKillMe3::Tick(float DeltaTime)
 		}
 		else if (timeout < (((*currentBeat)[index])-0.08) + 0.05) {
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Orange, "A LITTLE EARLY");
+			perfects++;
 			PopupType = 1;
 			OnSlightlyEarly();
 			if (rhythmBuffer == 0) {
@@ -243,6 +244,7 @@ void AKillMe3::Tick(float DeltaTime)
 		}
 		else if (timeout > (((*currentBeat)[index])-0.08) + 0.11) {
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Orange, "A LITTLE LATE");
+			perfects++;
 			PopupType = 3;
 			OnSlightlyEarly();
 			if (rhythmBuffer == 0) {
@@ -258,7 +260,7 @@ void AKillMe3::Tick(float DeltaTime)
 			else {
 				Health = 1;
 			}
-			perfects++;
+			perfects+=2;
 			PopupType = 4;
 			OnSlightlyEarly();
 		}
