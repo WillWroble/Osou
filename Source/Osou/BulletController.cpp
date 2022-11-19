@@ -87,7 +87,7 @@ void ABulletController::BeginPlay()
 		player->AddTextInstruction(0, 11.5, 5, FString("It is your tempo indicator, you will lose health when you click too late or too early \n and you will gain health when you click at the perfect time"));
 		player->AddTextInstruction(0, 17, 4, FString("That being said try clicking to this <ColorBlue>130bpm</> (beats per minute) tempo remember to look at your health bar to see how you are doing"));
 		player->AddTextInstruction(0, 21.5, 6, FString("You can also use the <ColorBlue>metronome</> in the bottom right as a visual indicator of the tempo\n Also notice the player responsive tempo feedback in the top right"));
-		player->AddTextInstruction(0, 28, 3, FString("Good luck! press tab or click menu in top left to restart this tutorial from the very begining"));
+		player->AddTextInstruction(0, 28, 3, FString("Good luck! press esc or click menu in top left to restart this tutorial from the very begining"));
 	}
 	else if(levelIndex == 1){
 		//UN OWEN WAS HER
@@ -358,7 +358,7 @@ void ABulletController::BeginPlay()
 		player->AddTextInstruction(0, 11.5, 5, FString("It is your tempo indicator, you will lose health when you click too late or too early \n and you will gain health when you click at the perfect time"));
 		player->AddTextInstruction(0, 17, 4, FString("That being said try clicking to this <ColorBlue>130bpm</> (beats per minute) tempo remember to look at your health bar to see how you are doing"));
 		player->AddTextInstruction(0, 21.5, 6, FString("You can also use the <ColorBlue>metronome</> in the bottom right as a visual indicator of the tempo\n Also notice the player responsive tempo feedback in the top right"));
-		player->AddTextInstruction(0, 28, 3, FString("Good luck! press tab or click menu in top left to restart this tutorial from the very begining"));
+		player->AddTextInstruction(0, 28, 3, FString("Good luck! press esc or click menu in top left to restart this tutorial from the very begining"));
 
 	}
 	spawner = &(LevelLibrary::allLevels[levelIndex][0]);
@@ -550,7 +550,7 @@ void ABulletController::Tick(float DeltaTime)
 			}
 			else if (tutorialTime < 133) {
 				if (player->Health < 0.1 || player->hScore > 1) {
-					if (player->hScore > 2) {
+					if (player->hScore > 1) {
 						DisplayMessage(FString("Try not to get hit too many times, the white bar indicates how many times you've been hit"));
 					}
 					else {
@@ -667,7 +667,7 @@ void ABulletController::Tick(float DeltaTime)
 			}
 			else if (tutorialTime < 456-34+27*(tutFirstTime)) {
 				if (player->Health < 0.1 || player->hScore > 3) {
-					if (player->hScore > 5) {
+					if (player->hScore > 3) {
 						DisplayMessage(FString("Try not to get hit too many times"));
 					}
 					else {
