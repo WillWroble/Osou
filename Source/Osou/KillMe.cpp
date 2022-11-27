@@ -634,6 +634,7 @@ void AKillMe::OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AA
 		UpdateHealthBar();
 		hScore++;
 		tutHScore++;
+		streakCount = 0;
 		if (hScore > 7 || (hScore > 3 && is4Health)) {
 			if (ABulletController::levelIndex != 0 && ABulletController::levelIndex != 8) {
 				ResetEverything();

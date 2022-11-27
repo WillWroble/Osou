@@ -32,6 +32,7 @@ AKillMe3::AKillMe3()
 	beatIndex = 0;
 	rhythmBuffer = 0;
 	tutHScore = 0;
+	streakCount = 0;
 	isTimeFrozen = false;
 
 }
@@ -217,6 +218,7 @@ void AKillMe3::Tick(float DeltaTime)
 		if (timeout < (((*currentBeat)[index])-0.08) && hasStarted) {
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "EARLY");
 			PopupType = 0;
+			streakCount = 0;
 			OnSlightlyEarly();
 			if (rhythmBuffer == 0) {
 				Health -= ((((*currentBeat)[index])-0.08) + 0.08 - timeout) * 4 * 0.5;
@@ -226,6 +228,7 @@ void AKillMe3::Tick(float DeltaTime)
 		else if (timeout < (((*currentBeat)[index])-0.08) + 0.05) {
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Orange, "A LITTLE EARLY");
 			perfects++;
+			streakCount = 0;
 			PopupType = 1;
 			OnSlightlyEarly();
 			if (rhythmBuffer == 0) {
@@ -236,6 +239,7 @@ void AKillMe3::Tick(float DeltaTime)
 		else if (timeout > 0.16 + (((*currentBeat)[index])-0.08)) {
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "LATE");
 			PopupType = 2;
+			streakCount = 0;
 			OnSlightlyEarly();
 			if (rhythmBuffer == 0) {
 				Health -= (timeout - (((*currentBeat)[index])-0.08) - 0.08) * 4 * 0.5;
@@ -246,6 +250,7 @@ void AKillMe3::Tick(float DeltaTime)
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Orange, "A LITTLE LATE");
 			perfects++;
 			PopupType = 3;
+			streakCount = 0;
 			OnSlightlyEarly();
 			if (rhythmBuffer == 0) {
 				Health -= (timeout - (((*currentBeat)[index])-0.08) - 0.08) * 5 * 0.5;
@@ -261,9 +266,18 @@ void AKillMe3::Tick(float DeltaTime)
 				Health = 1;
 			}
 			perfects+=2;
+			streakCount++;
+			if (streakCount == 10) {
+				streakCount = 0;
+				if (hScore > 0) {
+					hScore--;
+					HealHealthBar();
+				}
+			}
 			PopupType = 4;
 			OnSlightlyEarly();
 		}
+		DisplayStreak();
 		if (Health < 0) {
 			Health = 0;
 		}

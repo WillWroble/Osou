@@ -104,6 +104,8 @@ public:
 	int relativeIndex;
 	int transitionIndex;
 	int circleCount;
+	//int streakCount;
+
 	float baseSpeed;
 	float speed;
 	float clockTime;
@@ -141,7 +143,8 @@ public:
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		float Health;
-
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		int streakCount;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		int PopupType;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)

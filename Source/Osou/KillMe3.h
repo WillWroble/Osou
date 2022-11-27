@@ -41,4 +41,8 @@ class OSOU_API AKillMe3 : public AKillMe
 			void StartGlide();
 		UFUNCTION(BlueprintImplementableEvent)
 			void EndGlide();
+		UFUNCTION(BlueprintImplementableEvent)
+			void HealHealthBar();
+		UFUNCTION(BlueprintImplementableEvent)
+			void DisplayStreak();
 };
