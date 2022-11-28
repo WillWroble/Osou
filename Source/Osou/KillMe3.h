@@ -6,6 +6,7 @@
 #include "KillMe.h"
 #include "PaperFlipbookComponent.h"
 #include "Components/StaticMeshComponent.h"
+#include "NiagaraFunctionLibrary.h"
 #include "KillMe3.generated.h"
 
 /**
@@ -26,6 +27,7 @@ class OSOU_API AKillMe3 : public AKillMe
 	public:
 		UPaperFlipbookComponent* flipBook;
 		UStaticMeshComponent* hexPlane;
+		UNiagaraComponent* niagComponent;
 
 		virtual void Tick(float DeltaTime) override;
 		virtual void AddRythm(std::vector<float> beat, int in) override;
@@ -37,6 +39,9 @@ class OSOU_API AKillMe3 : public AKillMe
 		//UFUNCTION(BlueprintCallable)
 		virtual void ResetEverything() override;
 
+		UPROPERTY(EditDefaultsOnly, Category = "Niagara_Template")
+			UNiagaraSystem* niagTemplateEmitter;
+
 		UFUNCTION(BlueprintImplementableEvent)
 			void StartGlide();
 		UFUNCTION(BlueprintImplementableEvent)
@@ -45,4 +50,5 @@ class OSOU_API AKillMe3 : public AKillMe
 			void HealHealthBar();
 		UFUNCTION(BlueprintImplementableEvent)
 			void DisplayStreak();
+
 };

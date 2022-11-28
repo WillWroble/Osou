@@ -45,6 +45,7 @@ void AKillMe3::BeginPlay()
 	bulletController3 = *It;
 	flipBook = (UPaperFlipbookComponent*)(this->GetComponentsByTag(UPaperFlipbookComponent::StaticClass(), "flipbook"))[0];
 	hexPlane = (UStaticMeshComponent*)(this->GetComponentsByTag(UStaticMeshComponent::StaticClass(), "plane"))[0];
+	niagComponent = (UNiagaraComponent*)(this->GetComponentsByTag(UNiagaraComponent::StaticClass(), "niag"))[0];
 	/*
 	//pController = UGameplayStatics::GetPlayerController(GetWorld(), 0);
 	pController = GetWorld()->GetFirstPlayerController();
@@ -193,7 +194,12 @@ void AKillMe3::Tick(float DeltaTime)
 		trail = nullptr;
 	}*/
 	if (clicked && !wasClicked && !isLevelFinsihedd) {
-		drumBeat->Play();
+		beatCount++;
+		if (beatCount == timeSignature) {
+			beatCount = 0;
+		}
+		//drumBeat->SetIntParameter(FName("beatCount"), beatCount);
+		//drumBeat->Play();
 		if (transitionTimes[transitionIndex + 1] < clockTime) {
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, "BEAT CHANGE");
 			rhythmBuffer = 3;
@@ -217,6 +223,8 @@ void AKillMe3::Tick(float DeltaTime)
 		total+=2;
 		if (timeout < (((*currentBeat)[index])-0.08) && hasStarted) {
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "EARLY");
+			drumBeat->SetIntParameter(FName("beatCount"), timeSignature);
+			drumBeat->Play();
 			PopupType = 0;
 			streakCount = 0;
 			OnSlightlyEarly();
@@ -227,6 +235,8 @@ void AKillMe3::Tick(float DeltaTime)
 		}
 		else if (timeout < (((*currentBeat)[index])-0.08) + 0.05) {
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Orange, "A LITTLE EARLY");
+			drumBeat->SetIntParameter(FName("beatCount"), timeSignature);
+			drumBeat->Play();
 			perfects++;
 			streakCount = 0;
 			PopupType = 1;
@@ -238,6 +248,8 @@ void AKillMe3::Tick(float DeltaTime)
 		}
 		else if (timeout > 0.16 + (((*currentBeat)[index])-0.08)) {
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "LATE");
+			drumBeat->SetIntParameter(FName("beatCount"), timeSignature);
+			drumBeat->Play();
 			PopupType = 2;
 			streakCount = 0;
 			OnSlightlyEarly();
@@ -248,6 +260,8 @@ void AKillMe3::Tick(float DeltaTime)
 		}
 		else if (timeout > (((*currentBeat)[index])-0.08) + 0.11) {
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Orange, "A LITTLE LATE");
+			drumBeat->SetIntParameter(FName("beatCount"), timeSignature);
+			drumBeat->Play();
 			perfects++;
 			PopupType = 3;
 			streakCount = 0;
@@ -259,6 +273,10 @@ void AKillMe3::Tick(float DeltaTime)
 		}
 		else {
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, "PERFECT!");
+			drumBeat->SetIntParameter(FName("beatCount"), beatCount);
+			drumBeat->Play();
+			//UNiagaraFunctionLibrary::SpawnSystemAtLocation(GetWorld(), niagTemplateEmitter, GetActorLocation(), FRotator(0), FVector(1));
+			niagComponent->ActivateSystem();
 			if (Health < 0.7) {
 				Health += 0.3*0.5;
 			}

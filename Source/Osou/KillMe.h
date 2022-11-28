@@ -104,6 +104,8 @@ public:
 	int relativeIndex;
 	int transitionIndex;
 	int circleCount;
+	int beatCount;
+	int timeSignature;
 	//int streakCount;
 
 	float baseSpeed;
@@ -116,6 +118,7 @@ public:
 	float rhythmBuffer;
 	float rhythmDelayConstant;
 	std::vector<float> rhythmDelayConstants;
+	std::vector<float> timeSignatures;
 	int iCounter;
 	int beatIndex;
 	int perfects;
