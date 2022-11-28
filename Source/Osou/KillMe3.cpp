@@ -46,6 +46,9 @@ void AKillMe3::BeginPlay()
 	flipBook = (UPaperFlipbookComponent*)(this->GetComponentsByTag(UPaperFlipbookComponent::StaticClass(), "flipbook"))[0];
 	hexPlane = (UStaticMeshComponent*)(this->GetComponentsByTag(UStaticMeshComponent::StaticClass(), "plane"))[0];
 	niagComponent = (UNiagaraComponent*)(this->GetComponentsByTag(UNiagaraComponent::StaticClass(), "niag"))[0];
+	niagComponentYellow = (UNiagaraComponent*)(this->GetComponentsByTag(UNiagaraComponent::StaticClass(), "niagyellow"))[0];
+	niagComponentRed = (UNiagaraComponent*)(this->GetComponentsByTag(UNiagaraComponent::StaticClass(), "niagred"))[0];
+
 	/*
 	//pController = UGameplayStatics::GetPlayerController(GetWorld(), 0);
 	pController = GetWorld()->GetFirstPlayerController();
@@ -225,6 +228,7 @@ void AKillMe3::Tick(float DeltaTime)
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "EARLY");
 			drumBeat->SetIntParameter(FName("beatCount"), timeSignature);
 			drumBeat->Play();
+			niagComponentRed->ActivateSystem();
 			PopupType = 0;
 			streakCount = 0;
 			OnSlightlyEarly();
@@ -237,6 +241,7 @@ void AKillMe3::Tick(float DeltaTime)
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Orange, "A LITTLE EARLY");
 			drumBeat->SetIntParameter(FName("beatCount"), timeSignature);
 			drumBeat->Play();
+			niagComponentYellow->ActivateSystem();
 			perfects++;
 			streakCount = 0;
 			PopupType = 1;
@@ -250,6 +255,7 @@ void AKillMe3::Tick(float DeltaTime)
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "LATE");
 			drumBeat->SetIntParameter(FName("beatCount"), timeSignature);
 			drumBeat->Play();
+			niagComponentRed->ActivateSystem();
 			PopupType = 2;
 			streakCount = 0;
 			OnSlightlyEarly();
@@ -262,6 +268,7 @@ void AKillMe3::Tick(float DeltaTime)
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Orange, "A LITTLE LATE");
 			drumBeat->SetIntParameter(FName("beatCount"), timeSignature);
 			drumBeat->Play();
+			niagComponentYellow->ActivateSystem();
 			perfects++;
 			PopupType = 3;
 			streakCount = 0;
@@ -285,8 +292,8 @@ void AKillMe3::Tick(float DeltaTime)
 			}
 			perfects+=2;
 			streakCount++;
-			if (streakCount == 10) {
-				streakCount = 0;
+			if (streakCount%10 == 0) {
+				//streakCount = 0;
 				if (hScore > 0) {
 					hScore--;
 					HealHealthBar();

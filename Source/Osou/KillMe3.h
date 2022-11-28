@@ -28,6 +28,8 @@ class OSOU_API AKillMe3 : public AKillMe
 		UPaperFlipbookComponent* flipBook;
 		UStaticMeshComponent* hexPlane;
 		UNiagaraComponent* niagComponent;
+		UNiagaraComponent* niagComponentYellow;
+		UNiagaraComponent* niagComponentRed;
 
 		virtual void Tick(float DeltaTime) override;
 		virtual void AddRythm(std::vector<float> beat, int in) override;
