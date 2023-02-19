@@ -99,9 +99,10 @@ void ABulletController::BeginPlay()
 		////player->AddRythm({ 0.387, 0.387, 0.387, 0.387, 0.387, 0.387/2, 0.387/2, 0.387, 0.387, 0.387, 0.387/2, 0.387/2, 0.387/2, 
 		////	 0.387/4, 0.387/4,0.387 / 2,  0.387 / 2, 0.387 / 2, 0.387/2, 0.387/2, 0.387/2, 2*0.387 }, 2);
 		//player->AddRythm({ 0.69 }, 2);
-		player->rhythmDelayConstants = { 0, 0, 0 };
-		player->SetTransitions({ 0, 15.5, 105 }); //105
-		player->setSpeedMultis({ 1, 1, 1 });
+		player->rhythmDelayConstants = { 0, 0, 0};
+		player->SetTransitions({0, 15.5+2, 105+2 }); //105
+		player->setSpeedMultis({1, 1, 1, 1 });
+		//player->AddRythm({ 0.28 }, 0);
 		player->AddRythm({ 0.28 }, 0); //0.2
 		player->AddRythm({ 0.38 }, 1);
 		player->AddRythm({ 0.69 }, 2);

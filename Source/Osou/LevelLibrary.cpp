@@ -160,7 +160,7 @@ void LevelLibrary::BuildLevels()
 	//levelOne[0].AddCorners({ 0 }, 1, 0, BulletType::CurvedBullet, { 700, 2, 0, 1, 1, 1 });
 	//levelOne[0].AddCorners({ 70 }, 1, 0, BulletType::CurvedBullet, { 700, 2, 0, -1, 1, 1 });
 
-
+	/*
 	levelOne[0].AddInstruction(2, 0, -1000, 1); //5
 	levelOne[0].AddInstruction(1, 1, 0, 4);
 	levelOne[0].AddInstruction(0, 1000, -1000, 2);
@@ -183,7 +183,7 @@ void LevelLibrary::BuildLevels()
 	levelOne[0].AddInstruction(1, 0.75, 0, 8.5);
 
 	levelOne[0].AddInstruction(4, 0, 0, 9999);
-
+	*/
 
 
 	//testSpawner.AddSpawnPoints(0, 0, { 0, 45, 90, 135, 180, 225, 270, 315 }, 4, 0);
@@ -282,6 +282,37 @@ void LevelLibrary::BuildLevels()
 	levelOne[5].AddProjectionFromPoint(FVector2D(0, 0), FVector2D(-3091, 1000), FVector2D(3091, 1000), 5, 38, BulletType::BasicBullet, { 300, 1 });
 	levelOne[5].AddProjectionFromPoint(FVector2D(0, 0), FVector2D(3091, 1000), FVector2D(-1909, -2630), 5, 38, BulletType::BasicBullet, { 300, 1 });
 	levelOne[5].AddProjectionFromPoint(FVector2D(0, 0), FVector2D(-1909, -2630), FVector2D(0, 3250), 5, 38, BulletType::BasicBullet, { 300, 1 });
+
+	levelOne.insert(levelOne.begin(), BulletSpawner());
+
+	levelOne[0].AddInstruction(4, 0, 0, 2);
+
+	levelOne[0].AddInstruction(2, 0, -1000, 1); //5
+	levelOne[0].AddInstruction(1, 1, 0, 4);
+	levelOne[0].AddInstruction(0, 1000, -1000, 2);
+	levelOne[0].AddInstruction(3, 0, 0, 2);
+
+	levelOne[0].AddInstruction(4, 0, 0, 15);
+
+	levelOne[0].AddInstruction(1, 5, 0, 1);
+	levelOne[0].AddInstruction(2, 0, 1000, 1);
+	levelOne[0].AddInstruction(1, 1.5, 0, 4);
+	levelOne[0].AddInstruction(0, 1000, 1000, 2);
+	levelOne[0].AddInstruction(0, 1000, -1000, 4);
+	levelOne[0].AddInstruction(0, 0, -1000, 2);
+	levelOne[0].AddInstruction(3, 0, 0, 2);
+
+	levelOne[0].AddInstruction(4, 0, 0, 71.5);
+
+	levelOne[0].AddInstruction(1, 5, 0, 1);
+	levelOne[0].AddInstruction(2, 0, 0, 1);
+	levelOne[0].AddInstruction(1, 0.75, 0, 8.5);
+
+	levelOne[0].AddInstruction(4, 0, 0, 9999);
+
+
+
+	levelOne[0].AddRythm({ 1 }, 2, 0);
 
 	allLevels.push_back(levelOne);
 	//allLevels[1] = levelZero;

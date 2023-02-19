@@ -143,6 +143,41 @@ void AKillMe3::BeginPlay()
 void AKillMe3::Tick(float DeltaTime)
 {
 	Super::Super::Tick(DeltaTime);
+	if (!sound->IsPlaying()) {
+		int li = ABulletController::levelIndex;
+		if (li == 0)
+		{
+			//sound->SetWaveParameter(FName("wave"), song0);
+		}
+		else if (li == 1) {
+			sound->SetWaveParameter(FName("wave"), song2);
+		}
+		else if (li == 2) {
+			sound->SetWaveParameter(FName("wave"), song1_4);
+		}
+		else if (li == 3) {
+			sound->SetWaveParameter(FName("wave"), song4);
+		}
+		else if (li == 4) {
+			sound->SetWaveParameter(FName("wave"), song9);
+		}
+		else if (li == 5) {
+			sound->SetWaveParameter(FName("wave"), song6);
+		}
+		else if (li == 6) {
+			sound->SetWaveParameter(FName("wave"), song7);
+		}
+		else if (li == 7) {
+			sound->SetWaveParameter(FName("wave"), song8);
+		}
+		else if (li == 8) {
+			sound->SetWaveParameter(FName("wave"), song10);
+		}
+		else {
+			sound->SetWaveParameter(FName("wave"), song2);
+		}
+		sound->Play();
+	}
 	pController->GetViewportSize(screenW, screenH);
 	if (!isTimeFrozen) {
 		clockTime += (DeltaTime*ABulletController::audioCoeff);
@@ -446,7 +481,9 @@ void AKillMe3::ResetEverything()
 		sound->SetWaveParameter(FName("wave"), song1_4);
 	}
 	if (ABulletController::levelIndex != 0 && ABulletController::levelIndex != 8) {
+		sound->SetWaveParameter(FName("wave"), song0);
 		sound->Play();
+		sound->StopDelayed(2);
 	}
 	bulletController3->isTimeFrozen = false;
 	isTimeFrozen = false;
