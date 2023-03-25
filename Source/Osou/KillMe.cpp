@@ -142,6 +142,7 @@ void AKillMe::BeginPlay()
 	beatCount = 0;
 	levelConversion = { 8, 12, 23, 19, 20, 11, 14, 13, 9 };
 	timeSignatures = { 4, 4, 4, 4, 4, 4, 4, 4, 4 };
+	bpm_multies = { 2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2 };
 	timeSignature  = timeSignatures[ABulletController::levelIndex];
 	for (int i = 0; i < 70; i++) {
 		levelConversion.push_back(-1);

@@ -176,6 +176,7 @@ void AKillMe3::Tick(float DeltaTime)
 		else {
 			sound->SetWaveParameter(FName("wave"), song2);
 		}
+		sound->SetPitchMultiplier(1);
 		sound->Play();
 	}
 	pController->GetViewportSize(screenW, screenH);
@@ -482,6 +483,8 @@ void AKillMe3::ResetEverything()
 	}
 	if (ABulletController::levelIndex != 0 && ABulletController::levelIndex != 8) {
 		sound->SetWaveParameter(FName("wave"), song0);
+		//sound->Play();
+		sound->SetPitchMultiplier(bpm_multies[ABulletController::levelIndex]);
 		sound->Play();
 		sound->StopDelayed(2);
 	}

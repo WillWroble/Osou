@@ -64,6 +64,7 @@ public:
 	std::vector<int> levelConversion;
 	std::vector<ABeatCircle*> extraBeatCircles;
 	std::vector<float> extraScales;
+	std::vector<float> bpm_multies;
 	UAudioComponent* sound;
 
 	UWidget* childWidget;
