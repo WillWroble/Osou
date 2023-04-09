@@ -1129,11 +1129,57 @@ void LevelLibrary::BuildLevels()
 	levelEight[2].AddLayersOfHorizontalSpawnPoints(4250, -2000, 1200+120, { -90 }, 500, 6, 30+3, BulletType::BasicBullet, { 700, 1 });
 
 
-	
-
-
 	levelEight[0].AddInstruction(4, 0, 0, 9999);//7
 	allLevels.push_back(levelEight);
+
+
+	//REACH FOR THE MOON
+	std::vector<BulletSpawner> levelNine = std::vector<BulletSpawner>();
+	levelNine.push_back(BulletSpawner());
+
+	levelNine[0].AddRythm({ 0.784 }, 8, 0);
+
+
+	levelNine[0].AddTargetingSpawnPoints(69, 420, A1_a, 2, 0, BulletType::KnifeBullet);
+	levelNine[0].AddTargetingSpawnPoints(69, 420, A1_b, 2, 1, BulletType::KnifeBullet);
+
+
+	levelNine[0].AddRythm({ 2 }, 10, 0);
+	levelNine[0].AddSpawnPoints(-2250, -1265 - 1500, { 0 }, 1, 8, BulletType::CurvedBulletKnife, { 0.05, 1, 0, 360 / 0.03, 3000 * PI, 1, 0 });
+	levelNine[0].AddSpawnPoints(-2250, 1265 + 1500, { 0 }, 1, 8, BulletType::CurvedBulletKnife, { 0.05, 1, 0, -360 / 0.03, 3000 * PI, 1, 0 });
+
+	levelNine[0].AddSpawnPoints(2250, -1265 - 1500, { 180 }, 1, 8, BulletType::CurvedBulletKnife, { 0.05, 1, 0, -360 / 0.03, 3000 * PI, 1, 0 });
+	levelNine[0].AddSpawnPoints(2250, 1265 + 1500, { 180 }, 1, 8, BulletType::CurvedBulletKnife, { 0.05, 1, 0, 360 / 0.03, 3000 * PI, 1, 0 });
+
+
+
+	levelNine.push_back(BulletSpawner());
+	levelNine[1].AddRythm({ 0.385 * 2 }, 200, 0);
+
+	levelNine[1].AddSpawnPoints(-1500, 1265, { -90 }, 6, 4, BulletType::GhostBullet, { 300, 1 });
+	levelNine[1].AddSpawnPoints(-2000, 1265, { -90 }, 6, 1, BulletType::GhostBullet, { 300, 1 });
+
+	levelNine[1].AddSpawnPoints(-1750, -1265, { 90 }, 6, 1, BulletType::GhostBullet, { 300, 1 });
+	levelNine[1].AddSpawnPoints(-1250, -1265, { 90 }, 6, 4, BulletType::GhostBullet, { 300, 1 });
+
+	levelNine[1].AddSpawnPoints(1500, 1265, { -90 }, 6, 4, BulletType::GhostBullet, { 300, 1 });
+	levelNine[1].AddSpawnPoints(2000, 1265, { -90 }, 6, 1, BulletType::GhostBullet, { 300, 1 });
+
+	levelNine[1].AddSpawnPoints(1750, -1265, { 90 }, 6, 1, BulletType::GhostBullet, { 300, 1 });
+	levelNine[1].AddSpawnPoints(1250, -1265, { 90 }, 6, 4, BulletType::GhostBullet, { 300, 1 });
+
+	levelNine[1].AddRythm({ 0.385 }, 150, 2);
+	levelNine[1].AddSpawnPoints(69, 420, A1, 6, 200, BulletType::BasicBullet, { 400, 1 });
+	levelNine[1].AddSpawnPoints(69, 420, A1_3, 6, 202, BulletType::BasicBullet, { 400, 1 });
+	levelNine[1].AddSpawnPoints(69, 420, A1_4, 6, 204, BulletType::BasicBullet, { 400, 1 });
+
+	levelNine[1].ClearSlots(12, 240);
+	levelNine[1].ClearSlots(12, 242);
+	levelNine[1].ClearSlots(12, 244);
+
+	levelNine[0].AddInstruction(4, 0, 0, 9999);//7
+	allLevels.push_back(levelNine);
+
 
 }
 
