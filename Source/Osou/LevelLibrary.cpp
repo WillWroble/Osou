@@ -1210,6 +1210,19 @@ void LevelLibrary::BuildLevels()
 	levelNine[2].AddProjectionFromPoint(FVector2D(0, 0), FVector2D(3091, 1000), FVector2D(-1909, -2630), 5, 38, BulletType::BasicBullet, { 300, 1 });
 	levelNine[2].AddProjectionFromPoint(FVector2D(0, 0), FVector2D(-1909, -2630), FVector2D(0, 3250), 5, 38, BulletType::BasicBullet, { 300, 1 });
 
+	levelNine[2].AddHorizontalWallOfSpawnPoints(5500, -2000, 1200, { -90 }, 500, 243, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.25 });
+
+	levelNine[2].AddHorizontalWallOfSpawnPoints(5500, -2000 - 17.5, 1200, { -90 }, 500, 244, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.25 });
+	levelNine[2].AddHorizontalWallOfSpawnPoints(5500, -2050 - 17.5, 1200, { -90 }, 500, 244, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.25 });
+	levelNine[2].AddHorizontalWallOfSpawnPoints(5500, -1950 - 17.5, 1200, { -90 }, 500, 244, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.25 });
+
+	levelNine[2].AddHorizontalWallOfSpawnPoints(5500, -2000 - 35, 1200, { -90 }, 500, 245, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.25 });
+	levelNine[2].AddHorizontalWallOfSpawnPoints(5500, -2250, 1200, { -90 }, 1000, 243, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.25 });
+
+	levelNine[2].AddHorizontalWallOfSpawnPoints(5500, -2250 - 17.5, 1200, { -90 }, 1000, 244, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.25 });
+	levelNine[2].AddHorizontalWallOfSpawnPoints(5500, -2300 - 17.5, 1200, { -90 }, 1000, 244, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.25 });
+	levelNine[2].AddHorizontalWallOfSpawnPoints(5500, -2200 - 17.5, 1200, { -90 }, 1000, 244, BulletType::CurvedBulletReg, { 1400, 1, 1, 1, 1, -0.25 });
+
 	levelNine[0].AddInstruction(4, 0, 0, 9999);//7
 	allLevels.push_back(levelNine);
 
